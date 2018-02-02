@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 15 Des 2017 pada 05.28
+-- Waktu pembuatan: 02 Feb 2018 pada 11.41
 -- Versi Server: 5.5.32
 -- Versi PHP: 5.4.16
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `vendor` (
   `alamat_perusahaan` varchar(50) NOT NULL,
   `contact` varchar(15) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(32) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -81,7 +81,9 @@ CREATE TABLE IF NOT EXISTS `vendor` (
 --
 
 INSERT INTO `vendor` (`hak_akses`, `akte_pendiri`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `username`, `password`) VALUES
+('vendor', 'kurus.jpg', 'baba', 'baba', '061-54', 'baba', '21661093e56e24cd60b1'),
 ('vendor', 'angry7.jpg', 'contoh', 'contoh', '099', 'contoh', 'contoh'),
+('vendor', 'good.jpg', 'nini', 'nini', 'nini', 'nini', 'db5cee64d8879581f189d71178dcb055'),
 ('vendor', 'cry.jpg', 'Olympic', 'Bandung', '081', 'Olym', '827ccb0eea8a706c4c34');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
