@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PT Bhakti Unggul Teknovasi</title>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,24 +23,26 @@
       background-color: #f1f1f1;
       height: 100%;
     }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      position: fixed;
-      background-color: grey;
-      text-align: center;
-      color: white;
-      left: 0px;
-      bottom: 0px;
-      height: 30px;
-      width: 100%;
-    }
-    
-    .isi {
+       .isi{
       font-family: times new roman;
       font-size: 20px;
       color: black;
     }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+    /*  background-color: #555;
+      color: white;
+      padding: 15px;*/
+       position:fixed;
+      left:0px;
+      bottom:0px;
+      height:30px;
+      width:100%;
+      background:grey;
+      text-align:center;
+    }
+    
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
@@ -48,7 +50,7 @@
         padding: 15px;
       }
       .row.content {height:auto;} 
-      }
+    }
   </style>
 </head>
 <body>
@@ -61,20 +63,28 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <img src="<?php echo base_url ()?>asset/img/logo.jpg" width="100" height="50">
-    </div>
+      <img src="<?php echo base_url();?>asset/img/logo.jpg"  width="100" height="50">
+    </div> 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><?=anchor('c_user/home','Home')?></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Registrasi</a>
+        <li class="active"><a href="#">Home</a></li>  
+         <li class="active"><a href="#">melihat progress pengadaan</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Dokumen</a>
         <ul class="dropdown-menu">
-   				 <li><?=anchor('c_customer/add','Register Customer')?></li>
-   				 <li><?=anchor('c_vendor/add','Register Vendor')?></li>
-	     	</ul>
+   				    <li><?= anchor('', 'view dokumen') ?></li>
+            <li><?= anchor('', 'kotak masuk') ?></li> 
+       
+		</ul>
+        <!--  <li><a href="#">Barang</a></li>  -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><?=anchor('c_user/login','Login')?></li>
+      <!--   <li><a href="login"> <span class="glyphicon glyphicon-log-in"><li><?= anchor('c_user/login', 'login') ?></span>Login</a></li -->  <ul class="nav navbar-nav navbar-right">
+        <li><?= anchor('c_user/Home','Logout');?></li> 
+         <li><?= anchor('c_user/view_user','kelola profil');?></li> 
+        <li><a href="" target=""><img src="<?php echo base_url();?>asset/img/atur.png" width="20" height="20" /> </a></li> 
+      </ul> 
       </ul>
     </div>
   </div>
 </nav>
+  

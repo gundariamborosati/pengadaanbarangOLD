@@ -6,6 +6,7 @@ class c_user extends CI_Controller {
         parent::__construct();
         $this->load->model('m_user');
         $this->load->model('m_vendor');
+         $this->load->model('m_customer');
               
     }
 
@@ -25,6 +26,7 @@ class c_user extends CI_Controller {
 		
 		$cek = $this->m_user->cek($username, $password);
 		$cekVendor = $this->m_vendor->cek($username, $password);
+		$cekCustomer = $this->m_customer->cek($username, $password);
 
 		if($cek->num_rows() == 1)
 		{
@@ -43,7 +45,7 @@ class c_user extends CI_Controller {
 				$_SESSION['pesan'] = 'Maaf, kombinasi username dengan password salah.';
 				$this->session->mark_as_flash('pesan');
 			}
-		}else if($cekVendor->num_rows() == 1)
+		} else if($cekVendor->num_rows() == 1)
 		{
 			foreach($cekVendor->result() as $data){
 				$sess_data['username'] = $data->username;
@@ -56,14 +58,34 @@ class c_user extends CI_Controller {
 			if($this->session->userdata('hak_akses') == 'vendor')
 			{
 				redirect('c_vendor/home');
+
 			}else{
 				$_SESSION['pesan'] = 'Maaf, kombinasi username dengan password salah.';
 				$this->session->mark_as_flash('pesan');
 			}
-		}
+		} else if($cekCustomer->num_rows() == 1)
+		{
+			foreach($cekCustomer->result() as $data){
+				$sess_data['username'] = $data->username;
+				$sess_data['password'] = $data->password;
+				$sess_data['hak_akses'] = $data->hak_akses;
+				$this->session->set_userdata($sess_data);
+			}
+		
+
+			if($this->session->userdata('hak_akses') == 'customer')
+			{
+				redirect('c_customer/home');
+
+			}else{
+				$_SESSION['pesan'] = 'Maaf, kombinasi username dengan password salah.';
+				$this->session->mark_as_flash('pesan');
+			}
+
 
 		$this->load->view('utama/footer');
 	}
+}
 
 	function keluar()
 	{
