@@ -83,9 +83,9 @@ class c_user extends CI_Controller {
 			}
 
 
+		}
 		$this->load->view('utama/footer');
-	}
-}
+	}	
 
 	function keluar()
 	{
