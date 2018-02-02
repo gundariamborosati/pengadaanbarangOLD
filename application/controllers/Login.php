@@ -81,8 +81,12 @@ class Login extends CI_Controller
 				$this->session->mark_as_flash('pesan');
 			}
 		} else {
+			 ?>
+                     <script type=text/javascript>alert("Username & Password Salah");</script>
+
+        	<?php
 			$this->index();
-			
+
 		}
 
 
