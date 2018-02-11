@@ -32,16 +32,16 @@
           <div class="card-body p-4">
             <h1>Registrasi Customer</h1>
             <p class="text-muted">Masukkan data-data perushaan</p>
-            <?php echo form_open_multipart(base_url('c_customer/registrasi')) ;?>"
+            <?php echo form_open_multipart(base_url('c_customer/registrasi')) ;?>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-user"></i></span>
+                <span class="input-group-text"><i class="fa fa-building"></i></span>
               </div>
               <input name="namaperusahaan" type="text" class="form-control" placeholder="Nama Perusahaan">
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-user"></i></span>
+                <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
               </div>
               <input name="alamatperusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan">
             </div>
@@ -89,14 +89,14 @@
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-lock"></i></span>
+                <span class="input-group-text"><i class="fa fa-phone"></i></span>
               </div>
               <input type="text" class="form-control" placeholder="contact" name="contact">
             </div> 
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-lock"></i></span>
+                <span class="input-group-text"><i class="fa fa-file"></i></span>
               </div>
               <input type="file" class="form-control" placeholder="choose file" name="npwp"  value="" required>
             </div>
