@@ -35,13 +35,13 @@
             <?php echo form_open_multipart(base_url('c_vendor/registrasiVendor')) ;?>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-user"></i></span>
+                <span class="input-group-text"><i class="fa fa-building"></i></span>
               </div>
               <input name="nama_perusahaan" type="text" class="form-control" placeholder="Nama Perusahaan">
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-location-arrow"></i></span>
+                <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
               </div>
               <input name="alamat_perusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan">
             </div>
@@ -89,35 +89,20 @@
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-lock"></i></span>
+                <span class="input-group-text"><i class="fa fa-phone"></i></span>
               </div>
               <input type="text" class="form-control" placeholder="contact" name="contact">
             </div> 
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-file-image-o"></i></span>
+                <span class="input-group-text"><i class="fa fa-file-image-o"></i></span>
               </div>
-              <input type="file" class="form-control" placeholder="choose file" name="akte_pendiri"  value="" required>
+              <input type="file" class="form-control" placeholder="choose file" name="akte_pendiri"  value="akte " required>
             </div>
 
             <button type="submit" class="btn btn-block btn-success">Create Account</button>
             </form>
-          </div>
-          <div class="card-footer p-4">
-            <div class="row">
-              <div class="col-6">
-                <button class="btn btn-block btn-facebook" type="button">
-                  <span>facebook</span>
-                </button>
-              </div>
-              <div class="col-6">
-                <button class="btn btn-block btn-twitter" type="button">
-                  <span>twitter</span>
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
