@@ -77,7 +77,6 @@ button {
 
 <h2><center>Registrasi</center></h2>
     <?php echo form_open_multipart(base_url('c_vendor/registrasiVendor')) ;?>"
-    
     <div class="container">
 
     	<label><b>Registrasi</b></label>

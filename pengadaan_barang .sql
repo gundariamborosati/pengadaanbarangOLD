@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 02 Feb 2018 pada 11.41
+-- Waktu pembuatan: 11 Feb 2018 pada 12.38
 -- Versi Server: 5.5.32
 -- Versi PHP: 5.4.16
 
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `nama_perusahaan` varchar(30) NOT NULL,
   `alamat_perusahaan` varchar(50) NOT NULL,
   `contact` varchar(15) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   PRIMARY KEY (`username`)
@@ -71,6 +72,7 @@ CREATE TABLE IF NOT EXISTS `vendor` (
   `nama_perusahaan` varchar(30) NOT NULL,
   `alamat_perusahaan` varchar(50) NOT NULL,
   `contact` varchar(15) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(32) NOT NULL,
   PRIMARY KEY (`username`)
@@ -80,11 +82,13 @@ CREATE TABLE IF NOT EXISTS `vendor` (
 -- Dumping data untuk tabel `vendor`
 --
 
-INSERT INTO `vendor` (`hak_akses`, `akte_pendiri`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `username`, `password`) VALUES
-('vendor', 'kurus.jpg', 'baba', 'baba', '061-54', 'baba', '21661093e56e24cd60b1'),
-('vendor', 'angry7.jpg', 'contoh', 'contoh', '099', 'contoh', 'contoh'),
-('vendor', 'good.jpg', 'nini', 'nini', 'nini', 'nini', 'db5cee64d8879581f189d71178dcb055'),
-('vendor', 'cry.jpg', 'Olympic', 'Bandung', '081', 'Olym', '827ccb0eea8a706c4c34');
+INSERT INTO `vendor` (`hak_akses`, `akte_pendiri`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `email`, `username`, `password`) VALUES
+('vendor', 'kurus.jpg', 'baba', 'baba', '061-54', '', 'baba', '21661093e56e24cd60b1'),
+('vendor', 'angry7.jpg', 'contoh', 'contoh', '099', '', 'contoh', 'contoh'),
+('vendor', 'bayar.jpg', 'meka', 'medan', '0`', 'aaa', 'meka', '32e7eb369de74f424e5f91684a735fec'),
+('vendor', 'good.jpg', 'nini', 'nini', 'nini', '', 'nini', 'db5cee64d8879581f189d71178dcb055'),
+('vendor', 'cry.jpg', 'Olympic', 'Bandung', '081', '', 'Olym', '827ccb0eea8a706c4c34'),
+('vendor', 'ac1.JPG', 'tata', 'tata', '061', 'aaa', 'tata', '49d02d55ad10973b7b9d0dc9eba7fdf0');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
