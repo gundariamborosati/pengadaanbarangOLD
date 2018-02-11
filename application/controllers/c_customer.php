@@ -17,9 +17,10 @@ function __construct(){
 
 	
 	public function add(){
-		$this->load->view('utama/header');
-		$this->load->view('customer/register_cust');
-		$this->load->view('utama/footer');
+		//$this->load->view('utama/header');
+		//$this->load->view('customer/register_cust');
+		//$this->load->view('utama/footer');
+		$this->load->view('customer/registrasiCustomer');
 	}
 
 	public function registrasi(){
