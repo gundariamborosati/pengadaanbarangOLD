@@ -96,7 +96,7 @@ button {
       <input type="text" placeholder="Alamat Perusahaaan" name="alamat_perusahaan" 	value="" required>
       
       <label><b>Contact</b></label>
-      <input type="number" placeholder="Contact" name="contact" value="" 	required>
+      <input type="text" placeholder="Contact" name="contact" value="" 	required>
       
       <label><b>Username</b></label>
       <input type="text" placeholder="Enter Email" name="username" value=""  required>

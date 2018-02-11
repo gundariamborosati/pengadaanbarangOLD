@@ -15,7 +15,7 @@ class Login extends CI_Controller
 	}
 
 	function index() {
-		$this->load->view('login-page');
+		$this->load->view('utama/login-page');
 	}
 
 	function validate() {

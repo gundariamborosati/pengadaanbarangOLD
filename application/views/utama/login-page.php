@@ -10,7 +10,7 @@
   <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
   <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
 
-  <title>CoreUI Bootstrap 4 Admin Template</title>
+  <title>Login | PT Bhakti Unggul Teknovasi</title>
 
   <!-- Icons -->
   <link href="<?php echo base_url('asset/css/font-awesome.min.css');?>" rel="stylesheet">
@@ -49,10 +49,7 @@
               <div class="row">
                 <div class="col-6">
                   <button type="submit" class="btn btn-primary px-4">Login</button>
-                </div>
-                <div class="col-6 text-right">
-                  <button type="button" class="btn btn-link px-0">Forgot password?</button>
-                </div>
+                </div>            
               </div>
                <?php
                   if($this->session->flashdata('pesan') != ''){
