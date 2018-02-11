@@ -17,21 +17,20 @@ class c_vendor extends CI_Controller {
 	}
 
 	public function add(){
-		$this->load->view('utama/header');
-		$this->load->view('vendor/registrasi');
-		$this->load->view('utama/footer');
+		//$this->load->view('utama/header');
+		//$this->load->view('vendor/registrasi');
+		//$this->load->view('utama/footer');
+		$this->load->view('vendor/registrasiVendor');
 	}
 
 	public function registrasiVendor(){
 		$dataVendorAda=$this->m_vendor->check_regis($this->input->post('username'));
 		if($dataVendorAda->num_rows() == 1){
 			?>
-                     <script type=text/javascript>alert("Username sudah ada");</script>
-
+            <script type=text/javascript>alert("Username sudah ada");</script>
         	<?php
         	redirect('c_vendor/add');
-		}else{
-			//$this->load->view('utama/header');				
+		}else{				
 					$config['upload_path']   = './akte/'; 
 					$config['allowed_types'] = 'gif|jpg|png'; 
 					$config['max_size']      = 10000; 
@@ -40,7 +39,10 @@ class c_vendor extends CI_Controller {
 					$this->load->library('upload',$config);  				
 				if ( ! $this->upload->do_upload('akte_pendiri')) {
 		        	$error = array('error' => $this->upload->display_errors()); 
-		        	print_r($error);
+		        	?>
+                     <script type=text/javascript>alert("File tidak sesuai format");</script>
+        			<?php
+        			redirect('c_vendor/add');
 		        }else { 
 		        	$upload=$this->upload->data();		       				        
 		       		$data = array(
@@ -49,14 +51,12 @@ class c_vendor extends CI_Controller {
 						  'nama_perusahaan' => $this->input->post('nama_perusahaan'),
 						  'alamat_perusahaan' => $this->input->post('alamat_perusahaan'),
 						  'contact' => $this->input->post('contact'),
-						  'email' => 'aaa',
+						  'email' => $this->input->post('email'),
 						  'username' => $this->input->post('username'),
 						  'password' => md5($this->input->post('password'))
 						  );					
-		 			$this->m_vendor->insert($data);
-		 			//$this->load->view('utama/v_login');		 			
+		 			$this->m_vendor->insert($data);		 			
 		        } 
-			//$this->load->view('utama/footer');
 		        redirect('Login/index');
 		}
 	}

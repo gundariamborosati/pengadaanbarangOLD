@@ -30,20 +30,20 @@
       <div class="col-md-6">
         <div class="card mx-4">
           <div class="card-body p-4">
-            <h1>Registrasi Customer</h1>
-            <p class="text-muted">Masukkan data-data perushaan</p>
-            <?php echo form_open_multipart(base_url('c_customer/registrasi')) ;?>
+            <h1>Registrasi Vendor</h1>
+            <p class="text-muted">Masukkan data-data perusahaan</p>
+            <?php echo form_open_multipart(base_url('c_vendor/registrasiVendor')) ;?>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-user"></i></span>
               </div>
-              <input name="namaperusahaan" type="text" class="form-control" placeholder="Nama Perusahaan">
+              <input name="nama_perusahaan" type="text" class="form-control" placeholder="Nama Perusahaan">
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-user"></i></span>
+                <span class="input-group-text"><i class="icon-location-arrow"></i></span>
               </div>
-              <input name="alamatperusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan">
+              <input name="alamat_perusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan">
             </div>
 
             <div class="input-group mb-3">
@@ -96,9 +96,9 @@
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-lock"></i></span>
+                <span class="input-group-text"><i class="icon-file-image-o"></i></span>
               </div>
-              <input type="file" class="form-control" placeholder="choose file" name="npwp"  value="" required>
+              <input type="file" class="form-control" placeholder="choose file" name="akte_pendiri"  value="" required>
             </div>
 
             <button type="submit" class="btn btn-block btn-success">Create Account</button>
