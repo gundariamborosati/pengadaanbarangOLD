@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class c_customer extends CI_Controller {
-function __construct(){
+	function __construct(){
 		parent::__construct();
 		$this->load->library(array('form_validation'));
 		$this->load->helper(array('url','form'));
@@ -24,7 +24,17 @@ function __construct(){
 	}
 
 	public function registrasi(){
-		$this->load->view('utama/header');				
+		//$this->load->view('utama/header');
+		print_r($this->input->post('username'));
+		$dataCustomerAda=$this->m_customer->cekRegistrasi($this->input->post('username'));
+		if($dataCustomerAda->num_rows() == 1){
+			?>
+                     <script type=text/javascript>alert("Username sudah ada");</script>
+
+        	<?php
+        	redirect('c_customer/add');
+		}else{
+
 					$config['upload_path']   = './npwp/'; 
 					$config['allowed_types'] = 'gif|jpg|png'; 
 					$config['max_size']      = 10000; 
@@ -34,21 +44,28 @@ function __construct(){
 				if ( ! $this->upload->do_upload('npwp')) {
 		        	$error = array('error' => $this->upload->display_errors()); 
 		        	print_r($error);
+		        	?>
+                     <script type=text/javascript>alert("File tidak sesuai");</script>
+
+		        	<?php
+		        	//redirect('c_customer/add');
 		        }else { 
 		        	$upload=$this->upload->data();		       				        
 		       		$data = array(
-						  'hak_akses' => $this->input->post('hak_akses'),
+						  'hak_akses' =>'customer',
 						  'npwp' => $upload['file_name'],
 						  'nama_perusahaan' => $this->input->post('namaperusahaan'),
 						  'alamat_perusahaan' => $this->input->post('alamatperusahaan'),
 						  'contact' => $this->input->post('contact'),
+						  'email' => $this->input->post('email'),
 						  'username' => $this->input->post('username'),
 						  'password' => md5($this->input->post('password'))
 						  );					
 		 			$this->m_customer->insert($data); 
-		 			$this->load->view('utama/v_login');		 			
+		 			//$this->load->view('utama/v_login');		 			
 		        } 
-	$this->load->view('utama/footer');
+		        redirect('Login/index');
+			//$this->load->view('utama/footer');
+			}
 	}
 }
-

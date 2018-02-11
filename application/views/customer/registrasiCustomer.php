@@ -32,13 +32,13 @@
           <div class="card-body p-4">
             <h1>Registrasi Customer</h1>
             <p class="text-muted">Masukkan data-data perushaan</p>
+            <?php echo form_open_multipart(base_url('c_customer/registrasi')) ;?>"
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-user"></i></span>
               </div>
               <input name="namaperusahaan" type="text" class="form-control" placeholder="Nama Perusahaan">
             </div>
-
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-user"></i></span>
@@ -50,39 +50,59 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-user"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="Username">
+              <input type="text" class="form-control" placeholder="Username" name="username">
             </div>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-lock"></i></span>
               </div>
-              <input name="password" type="password" class="form-control" placeholder="Password">
+              <input id="password" type="password" class="form-control" placeholder="Password" name="password" onkeyup='check();'>
             </div>
-<!-- html comment -->
 
             <div class="input-group mb-4">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-lock"></i></span>
               </div>
-              <input type="password" class="form-control" placeholder="Repeat password">
+              <input id="confirm_password" name="confirm_password" type="password" class="form-control" placeholder="Repeat password" onkeyup='check();'>
+              <span id='message'> </span>
             </div>
+            <script> 
+            var check = function() {
+                if (document.getElementById('password').value ==
+                  document.getElementById('confirm_password').value && document.getElementById('password').value != '') {
+                  document.getElementById('message').style.color = 'green';
+                  document.getElementById('message').innerHTML = 'matching';
+                } else {
+                  document.getElementById('message').style.color = 'red';
+                  document.getElementById('message').innerHTML = 'not matching';
+                }
+              } 
+            </script>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
               </div>
-              <input type="text" class="form-control" placeholder="email">
+              <input type="text" class="form-control" placeholder="email" name="email">
             </div>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text">@</span>
+                <span class="input-group-text"><i class="icon-lock"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="contact">
+              <input type="text" class="form-control" placeholder="contact" name="contact">
+            </div> 
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-lock"></i></span>
+              </div>
+              <input type="file" class="form-control" placeholder="choose file" name="npwp"  value="" required>
             </div>
 
-            <button type="button" class="btn btn-block btn-success">Create Account</button>
+            <button type="submit" class="btn btn-block btn-success">Create Account</button>
+            </form>
           </div>
           <div class="card-footer p-4">
             <div class="row">
