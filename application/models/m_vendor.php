@@ -18,4 +18,8 @@ class m_vendor extends CI_Model {
 		$this->db->where('password', md5($password));
 		return $this->db->get('vendor');
 	}
+
+	function get_vendor (){
+		return $this->db->get('vendor');
+	}
 }
