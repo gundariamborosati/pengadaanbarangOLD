@@ -22,8 +22,16 @@ class c_vendor extends CI_Controller {
 		$this->load->view('utama/footer');
 	}
 
-	public function registrasi(){
-		$this->load->view('utama/header');				
+	public function registrasiVendor(){
+		$dataVendorAda=$this->m_vendor->check_regis($this->input->post('username'));
+		if($dataVendorAda->num_rows() == 1){
+			?>
+                     <script type=text/javascript>alert("Username sudah ada");</script>
+
+        	<?php
+        	redirect('c_vendor/add');
+		}else{
+			//$this->load->view('utama/header');				
 					$config['upload_path']   = './akte/'; 
 					$config['allowed_types'] = 'gif|jpg|png'; 
 					$config['max_size']      = 10000; 
@@ -36,19 +44,21 @@ class c_vendor extends CI_Controller {
 		        }else { 
 		        	$upload=$this->upload->data();		       				        
 		       		$data = array(
-						  'hak_akses' => $this->input->post('hak_akses'),
+						  'hak_akses' => 'vendor',
 						  'akte_pendiri' => $upload['file_name'],
 						  'nama_perusahaan' => $this->input->post('nama_perusahaan'),
 						  'alamat_perusahaan' => $this->input->post('alamat_perusahaan'),
 						  'contact' => $this->input->post('contact'),
+						  'email' => 'aaa',
 						  'username' => $this->input->post('username'),
 						  'password' => md5($this->input->post('password'))
 						  );					
 		 			$this->m_vendor->insert($data);
-		 			$this->load->view('utama/v_login');		 			
+		 			//$this->load->view('utama/v_login');		 			
 		        } 
-
-		$this->load->view('utama/footer');
+			//$this->load->view('utama/footer');
+		        redirect('Login/index');
+		}
 	}
 
 	public function view_akun(){
@@ -57,6 +67,10 @@ class c_vendor extends CI_Controller {
 		$this->load->view('vendor/header_ven');
 		$this->load->view('vendor/view_akun', $data);
 		$this->load->view('utama/footer');
+	}
+
+	public function  get_vendor () {
+		$data['vendor']=$this->m_barang->view_barang()->result();
 	}
 
 }

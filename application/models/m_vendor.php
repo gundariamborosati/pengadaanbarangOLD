@@ -19,7 +19,12 @@ class m_vendor extends CI_Model {
 		return $this->db->get('vendor');
 	}
 
-	function get_vendor (){
+	function check_regis($username){
+		$this->db->where('username', $username);
+		return $this->db->get('vendor');
+	}
+
+	function get_vendor(){
 		return $this->db->get('vendor');
 	}
 }
