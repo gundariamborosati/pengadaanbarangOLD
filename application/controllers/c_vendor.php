@@ -17,19 +17,16 @@ class c_vendor extends CI_Controller {
 	}
 
 	public function add(){
-		//$this->load->view('utama/header');
-		//$this->load->view('vendor/registrasi');
-		//$this->load->view('utama/footer');
 		$this->load->view('vendor/registrasiVendor');
 	}
 
 	public function registrasiVendor(){
-		$dataVendorAda=$this->m_vendor->check_regis($this->input->post('username'));
+		$dataVendorAda=$this->m_vendor->check_regis($this->input->post('username'));		
 		if($dataVendorAda->num_rows() == 1){
 			?>
-            <script type=text/javascript>alert("Username sudah ada");</script>
+                <script type=text/javascript>alert("Username sudah tersedia");</script>
         	<?php
-        	redirect('c_vendor/add');
+        	$this->load->view('vendor/registrasiVendor');
 		}else{				
 					$config['upload_path']   = './akte/'; 
 					$config['allowed_types'] = 'gif|jpg|png'; 
@@ -42,7 +39,7 @@ class c_vendor extends CI_Controller {
 		        	?>
                      <script type=text/javascript>alert("File tidak sesuai format");</script>
         			<?php
-        			redirect('c_vendor/add');
+        			$this->load->view('vendor/registrasiVendor');
 		        }else { 
 		        	$upload=$this->upload->data();		       				        
 		       		$data = array(

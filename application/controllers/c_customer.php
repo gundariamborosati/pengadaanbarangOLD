@@ -29,7 +29,7 @@ class c_customer extends CI_Controller {
 		$dataCustomerAda=$this->m_customer->cekRegistrasi($this->input->post('username'));
 		if($dataCustomerAda->num_rows() == 1){
 			?>
-                     <script type=text/javascript>alert("Username sudah ada");</script>
+                <script type=text/javascript>alert("Username sudah ada");</script>
 
         	<?php
         	redirect('c_customer/add');
