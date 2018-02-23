@@ -22,5 +22,9 @@ class m_customer extends CI_Model{
 		$this->db->where('username', $username);
 		return $this->db->get('customer');
 	}
+
+	function getAllCustomer(){
+		return $this->db->get('customer');
+	}
 }
 

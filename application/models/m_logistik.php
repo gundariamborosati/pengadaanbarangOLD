@@ -14,4 +14,8 @@ class m_logistik extends CI_Model {
 		return $this->db->get('logistik');
 	}
 
+	function getAllLogistik(){
+		return $this->db->get('logistik');
+	}
+
 }
