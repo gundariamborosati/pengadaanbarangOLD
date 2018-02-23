@@ -11,9 +11,9 @@ class c_vendor extends CI_Controller {
 	}
 
 	public function home(){
-		$this->load->view('vendor/header_ven');
-		$this->load->view('utama/home');
-		$this->load->view('utama/footer');
+		$this->load->view('template/header'); // default template
+		$this->load->view('vendor/dashboard'); // dashboard vendornya
+		$this->load->view('template/footer'); // default template
 	}
 
 	public function add(){
