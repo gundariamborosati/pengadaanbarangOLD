@@ -24,7 +24,7 @@ class m_vendor extends CI_Model {
 		return $this->db->get('vendor');
 	}
 
-	function get_vendor(){
+	function getAllVendor(){
 		return $this->db->get('vendor');
 	}
 }

@@ -77,7 +77,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><?=anchor('c_vendor/view_akun','Profile')?></li>
-        <li><?=anchor('c_user/keluar','Logout')?></li>
+        <li><?=anchor('c_vendor/keluar','Logout')?></li>
       </ul>
     </div>
   </div>

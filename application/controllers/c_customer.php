@@ -66,4 +66,10 @@ class c_customer extends CI_Controller {
 			//$this->load->view('utama/footer');
 			}
 	}
+
+	function keluar()
+	{
+		$this->session->sess_destroy();
+		redirect('Home');
+	}
 }

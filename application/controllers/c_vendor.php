@@ -68,5 +68,10 @@ class c_vendor extends CI_Controller {
 		$data['vendor']=$this->m_barang->view_barang()->result();
 	}
 
+	public function keluar()
+	{
+		$this->session->sess_destroy();
+		redirect('Home');
+	}
 }
 
