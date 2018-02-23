@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 11 Feb 2018 pada 12.38
+-- Waktu pembuatan: 23 Feb 2018 pada 11.21
 -- Versi Server: 5.5.32
 -- Versi PHP: 5.4.16
 
@@ -43,21 +43,34 @@ CREATE TABLE IF NOT EXISTS `customer` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Struktur dari tabel `direktur`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
-  `hak_akses` varchar(8) NOT NULL,
+CREATE TABLE IF NOT EXISTS `direktur` (
+  `hak_akses` varchar(10) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(34) NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `logistik`
+--
+
+CREATE TABLE IF NOT EXISTS `logistik` (
+  `hak_akses` varchar(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(34) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data untuk tabel `logistik`
 --
 
-INSERT INTO `user` (`hak_akses`, `username`, `password`) VALUES
+INSERT INTO `logistik` (`hak_akses`, `username`, `password`) VALUES
 ('logistik', 'destayana', '12345');
 
 -- --------------------------------------------------------
@@ -83,12 +96,7 @@ CREATE TABLE IF NOT EXISTS `vendor` (
 --
 
 INSERT INTO `vendor` (`hak_akses`, `akte_pendiri`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `email`, `username`, `password`) VALUES
-('vendor', 'kurus.jpg', 'baba', 'baba', '061-54', '', 'baba', '21661093e56e24cd60b1'),
-('vendor', 'angry7.jpg', 'contoh', 'contoh', '099', '', 'contoh', 'contoh'),
-('vendor', 'bayar.jpg', 'meka', 'medan', '0`', 'aaa', 'meka', '32e7eb369de74f424e5f91684a735fec'),
-('vendor', 'good.jpg', 'nini', 'nini', 'nini', '', 'nini', 'db5cee64d8879581f189d71178dcb055'),
-('vendor', 'cry.jpg', 'Olympic', 'Bandung', '081', '', 'Olym', '827ccb0eea8a706c4c34'),
-('vendor', 'ac1.JPG', 'tata', 'tata', '061', 'aaa', 'tata', '49d02d55ad10973b7b9d0dc9eba7fdf0');
+('vendor', 'angry8.jpg', 'csm', 'sukapura', '0891', 'csm@', 'csm', 'b4f8b027877dd73de5654b8def971c04');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

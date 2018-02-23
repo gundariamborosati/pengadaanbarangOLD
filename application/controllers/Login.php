@@ -9,7 +9,8 @@ class Login extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-        $this->load->model('m_user');
+        $this->load->model('m_logistik');
+        $this->load->model('m_direktur');
         $this->load->model('m_vendor');
         $this->load->model('m_customer');
 	}
@@ -23,13 +24,14 @@ class Login extends CI_Controller
 		$password = $this->input->post('password');
 		
 
-		$cek = $this->m_user->cek($username, $password);
+		$cekLogistik = $this->m_logistik->cek($username, $password);
+		$cekDirektur = $this->m_direktur->cek($username, $password);
 		$cekVendor = $this->m_vendor->cek($username, $password);
 		$cekCustomer = $this->m_customer->cek($username, $password);
 
-		if($cek->num_rows() == 1)
+		if($cekLogistik->num_rows() == 1)
 		{
-			foreach($cek->result() as $data){
+			foreach($cekLogistik->result() as $data){
 				$sess_data['username'] = $data->username;
 				$sess_data['password'] = $data->password;
 				$sess_data['hak_akses'] = $data->hak_akses;
@@ -44,7 +46,8 @@ class Login extends CI_Controller
 				$_SESSION['pesan'] = 'Maaf, kombinasi username dengan password salah.';
 				$this->session->mark_as_flash('pesan');
 			}
-		} else if($cekVendor->num_rows() == 1)
+		}
+		 else if($cekVendor->num_rows() == 1)
 		{
 			foreach($cekVendor->result() as $data){
 				$sess_data['username'] = $data->username;
@@ -80,7 +83,25 @@ class Login extends CI_Controller
 				$_SESSION['pesan'] = 'Maaf, kombinasi username dengan password salah.';
 				$this->session->mark_as_flash('pesan');
 			}
-		} else {
+		} else if ($cekDirektur->num_rows() == 1)
+		{
+			foreach($cekDirektur->result() as $data){
+				$sess_data['username'] = $data->username;
+				$sess_data['password'] = $data->password;
+				$sess_data['hak_akses'] = $data->hak_akses;
+				$this->session->set_userdata($sess_data);
+			}
+		
+
+			if($this->session->userdata('hak_akses') == 'direktur')
+			{
+				redirect('c_customer/home');
+
+			}else{
+				$_SESSION['pesan'] = 'Maaf, kombinasi username dengan password salah.';
+				$this->session->mark_as_flash('pesan');
+			}
+		}else {
 			 ?>
                      <script type=text/javascript>alert("Username & Password Salah");</script>
 
@@ -88,9 +109,5 @@ class Login extends CI_Controller
 			$this->index();
 
 		}
-
-
 	}
-
-
 }
