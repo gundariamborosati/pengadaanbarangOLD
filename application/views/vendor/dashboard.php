@@ -46,7 +46,8 @@
           </li>
           <li class="nav-item nav-dropdown">
           <li class="nav-item">
-            <a class="nav-link" href="widgets.html"><i class="icon-calculator"></i> Kelola Logistik </a>
+            <a class="nav-link" href="widgets.html"><i class="icon-calculator"></i> Kelola Dokumen </a>
+            <a class="nav-link" href="widgets.html"><i class="icon-calculator"></i> Kelola Barang </a>
           </li>
           <li class="divider"></li>
 

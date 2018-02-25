@@ -27,7 +27,7 @@
             <strong>Settings</strong>
           </div>
           <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>          
-          <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+          <a class="dropdown-item" href="<?php echo base_url('c_logistik/keluar'); ?>"><i class="fa fa-lock"></i> Logout</a>
         </div>
       </li>
     </ul>
@@ -39,15 +39,16 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>"><i class="icon-speedometer"></i>Vendor Dashboard </a>
+            <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>"><i class="icon-speedometer"></i>Logistik Dashboard </a>
           </li>
 
           <li class="nav-title">
             Menu
           </li>
           <li class="nav-item nav-dropdown">
-          <li class="nav-item">
-            <a class="nav-link" href=" <?php echo base_url('/c_logistik/kelola_user');?> "><i class="icon-calculator"></i> Kelola Customer </a>
+          <li class="nav-item">            
+            <a class="nav-link" href=" <?php echo base_url('/c_logistik/kelola_user');?> "><i class="icon-calculator"></i> Kelola Dokumen </a>
+            <a class="nav-link" href=" <?php echo base_url('/c_logistik/kelola_user');?> "><i class="icon-calculator"></i> Kelola User </a>
           </li>
           <li class="divider"></li>
 
