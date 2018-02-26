@@ -31,7 +31,7 @@
         <div class="card mx-4">
           <div class="card-body p-4">
             <h1>Registrasi Customer</h1>
-            <p class="text-muted">Masukkan data-data perushaan</p>
+            <p class="text-muted">Masukkan data-data perusahaan</p>
             <?php echo form_open_multipart(base_url('c_customer/registrasi')) ;?>
             <div class="input-group mb-3">
               <div class="input-group-prepend">

@@ -30,7 +30,7 @@ class c_customer extends CI_Controller {
                 <script type=text/javascript>alert("Username sudah ada");</script>
 
         	<?php
-        	redirect('c_customer/add');
+        	$this->load->view('vendor/registrasiCustomer');
 		}else{
 
 					$config['upload_path']   = './npwp/'; 
@@ -46,6 +46,7 @@ class c_customer extends CI_Controller {
                      <script type=text/javascript>alert("File tidak sesuai");</script>
 
 		        	<?php
+		        	$this->load->view('vendor/registrasiCustomer');
 		        	//redirect('c_customer/add');
 		        }else { 
 		        	$upload=$this->upload->data();		       				        
