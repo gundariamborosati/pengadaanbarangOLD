@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 23 Feb 2018 pada 11.21
+-- Waktu pembuatan: 26 Feb 2018 pada 04.03
 -- Versi Server: 5.5.32
 -- Versi PHP: 5.4.16
 
@@ -36,9 +36,16 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `contact` varchar(15) NOT NULL,
   `email` varchar(50) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(32) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `customer`
+--
+
+INSERT INTO `customer` (`hak_akses`, `npwp`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `email`, `username`, `password`) VALUES
+('customer', 'angry.jpg', 'Telkom University', 'bojongsoang', '123', 'tel@', 'telu', 'e57a85988269f041485c');
 
 -- --------------------------------------------------------
 
@@ -52,6 +59,13 @@ CREATE TABLE IF NOT EXISTS `direktur` (
   `password` varchar(34) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `direktur`
+--
+
+INSERT INTO `direktur` (`hak_akses`, `username`, `password`) VALUES
+('direktur', 'direktur', '12345');
 
 -- --------------------------------------------------------
 
@@ -96,7 +110,8 @@ CREATE TABLE IF NOT EXISTS `vendor` (
 --
 
 INSERT INTO `vendor` (`hak_akses`, `akte_pendiri`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `email`, `username`, `password`) VALUES
-('vendor', 'angry8.jpg', 'csm', 'sukapura', '0891', 'csm@', 'csm', 'b4f8b027877dd73de5654b8def971c04');
+('vendor', 'angry8.jpg', 'csm', 'sukapura', '0891', 'csm@', 'csm', 'b4f8b027877dd73de5654b8def971c04'),
+('vendor', 'acak2.JPG', 'hyundai', 'soeta', '123', 'hyundai@', 'hyundai', 'df98d265fc651a91faa09d4e82f096cc');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
