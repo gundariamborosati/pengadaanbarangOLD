@@ -22,7 +22,6 @@ class Login extends CI_Controller
 	function validate() {
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
-		
 
 		$cekLogistik = $this->m_logistik->cek($username, $password);
 		$cekDirektur = $this->m_direktur->cek($username, $password);
@@ -56,7 +55,6 @@ class Login extends CI_Controller
 				$this->session->set_userdata($sess_data);
 			}
 		
-
 			if($this->session->userdata('hak_akses') == 'vendor')
 			{
 				redirect('c_vendor/home');
@@ -66,7 +64,7 @@ class Login extends CI_Controller
 				$this->session->mark_as_flash('pesan');
 			}
 		} else if($cekCustomer->num_rows() == 1)
-		{
+			{
 			foreach($cekCustomer->result() as $data){
 				$sess_data['username'] = $data->username;
 				$sess_data['password'] = $data->password;
@@ -74,7 +72,6 @@ class Login extends CI_Controller
 				$this->session->set_userdata($sess_data);
 			}
 		
-
 			if($this->session->userdata('hak_akses') == 'customer')
 			{
 				redirect('c_customer/home');
@@ -84,7 +81,7 @@ class Login extends CI_Controller
 				$this->session->mark_as_flash('pesan');
 			}
 		} else if ($cekDirektur->num_rows() == 1)
-		{
+			{
 			foreach($cekDirektur->result() as $data){
 				$sess_data['username'] = $data->username;
 				$sess_data['password'] = $data->password;
