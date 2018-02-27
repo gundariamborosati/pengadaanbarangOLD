@@ -8,12 +8,11 @@ class m_customer extends CI_Model{
 		return $data;
 	}
 
-	function cek($username, $password){
-		$this->db->where('username',$username);
+    function cek($username, $password){
+		$this->db->where('username', $username);
 		$this->db->where('password', md5($password));
 		return $this->db->get('customer');
 	}
-
 	function view_cus (){
 		return $this->db->get('customer');
 	}

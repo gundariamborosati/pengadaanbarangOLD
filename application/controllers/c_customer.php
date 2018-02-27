@@ -7,24 +7,30 @@ class c_customer extends CI_Controller {
 		$this->load->model('m_customer');
 	}
 		 //call model
-	public function home(){		
+	public function home(){
+		// $this->load->view('vendor/header_ven');
 		$this->load->view('utama/home');
 		$this->load->view('utama/footer');
 	}
 
 	
-	public function add(){	
+	public function add(){
+		//$this->load->view('utama/header');
+		//$this->load->view('customer/register_cust');
+		//$this->load->view('utama/footer');
 		$this->load->view('customer/registrasiCustomer');
 	}
 
-	public function registrasi(){		
+	public function registrasi(){
+		//$this->load->view('utama/header');
+		print_r($this->input->post('username'));
 		$dataCustomerAda=$this->m_customer->cekRegistrasi($this->input->post('username'));
 		if($dataCustomerAda->num_rows() == 1){
 			?>
                 <script type=text/javascript>alert("Username sudah ada");</script>
 
         	<?php
-        	$this->load->view('customer/registrasiCustomer');
+        	$this->load->view('vendor/registrasiCustomer');
 		}else{
 
 					$config['upload_path']   = './npwp/'; 
@@ -37,8 +43,10 @@ class c_customer extends CI_Controller {
 		        	$error = array('error' => $this->upload->display_errors()); 		        	
 		        	?>
                      <script type=text/javascript>alert("File tidak sesuai");</script>
-                     <?php
-		        	$this->load->view('customer/registrasiCustomer');
+
+		        	<?php
+		        	$this->load->view('vendor/registrasiCustomer');
+		        	//redirect('c_customer/add');
 		        }else { 
 		        	$upload=$this->upload->data();		       				        
 		       		$data = array(

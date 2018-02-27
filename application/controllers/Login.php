@@ -70,6 +70,7 @@ class Login extends CI_Controller
 				$sess_data['password'] = $data->password;
 				$sess_data['hak_akses'] = $data->hak_akses;
 				$this->session->set_userdata($sess_data);
+				
 			}
 		
 			if($this->session->userdata('hak_akses') == 'customer')
