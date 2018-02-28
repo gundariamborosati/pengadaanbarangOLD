@@ -18,7 +18,7 @@
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+          Selamat datang <?php echo $this->session->userdata('username');?>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-header text-center">
@@ -48,9 +48,11 @@
             Menu
           </li>
           <li class="nav-item nav-dropdown">
-          <li class="nav-item">            
-            <a class="nav-link" href=" <?php echo base_url('/c_logistik/kelola_user');?> "><i class="icon-calculator"></i> Kelola Dokumen </a>
-            <a class="nav-link" href=" <?php echo base_url('/c_logistik/kelola_user');?> "><i class="icon-calculator"></i> Kelola User </a>
+          <li class="nav-item">    
+            <a class="nav-link" href=" <?php echo base_url('/c_logistik/kelola_user');?> "><i class="fa fa-home"></i> Home</a>        
+            <a class="nav-link" href=" <?php echo base_url('/c_logistik/kelola_user');?> "><i class="fa fa-file"></i> Kelola Dokumen </a>
+            <a class="nav-link" href=" <?php echo base_url('');?> "><i class="fa fa-user"></i> Kelola User </a>
+            <a class="nav-link" href=" <?php echo base_url('');?> "><i class="fa fa-comment"></i>View Ulasan</a>
           </li>
           <li class="divider"></li>
 
