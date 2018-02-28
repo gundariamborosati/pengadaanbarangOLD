@@ -9,8 +9,9 @@ class c_customer extends CI_Controller {
 		 //call model
 	public function home(){
 		// $this->load->view('vendor/header_ven');
-		$this->load->view('utama/home');
-		$this->load->view('utama/footer');
+		$this->load->view('template/header'); // default template
+		$this->load->view('customer/dashboard'); // dashboard vendornya
+		$this->load->view('template/footer'); 
 	}
 
 	
@@ -63,8 +64,8 @@ class c_customer extends CI_Controller {
 			//$this->load->view('utama/footer');
 			}
 	}
-
-	function keluar()
+ 
+ public function keluar()
 	{
 		$this->session->sess_destroy();
 		redirect('Home');

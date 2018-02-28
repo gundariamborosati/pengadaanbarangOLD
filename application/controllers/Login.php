@@ -93,7 +93,7 @@ class Login extends CI_Controller
 
 			if($this->session->userdata('hak_akses') == 'direktur')
 			{
-				redirect('c_customer/home');
+				redirect('c_direktur/home');
 
 			}else{
 				$_SESSION['pesan'] = 'Maaf, kombinasi username dengan password salah.';
