@@ -41,14 +41,4 @@ class c_logistik extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('Home');
 	}
-
-	public function view_akun(){
-		$data['logistik']=$this->m_logistik->detail($this->session->userdata('username'))->result();
-		$this->load->view('logistik/header_log');
-		$this->load->view('logistik/view_akun', $data);
-		$this->load->view('utama/footer');
-	}
-
-	
-
 }

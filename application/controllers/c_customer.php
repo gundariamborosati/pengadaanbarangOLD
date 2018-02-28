@@ -14,10 +14,7 @@ class c_customer extends CI_Controller {
 	}
 
 	
-	public function add(){
-		//$this->load->view('utama/header');
-		//$this->load->view('customer/register_cust');
-		//$this->load->view('utama/footer');
+	public function add(){		
 		$this->load->view('customer/registrasiCustomer');
 	}
 

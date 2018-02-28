@@ -18,6 +18,25 @@ class c_vendor extends CI_Controller {
 		$this->load->view('vendor/registrasiVendor');
 	}
 
+	// unge nambahi tapi belum berhasil
+	public function kelolaProfil ($username){
+		$row= $this->m_vendor->detail('username');
+		if($row){
+			$data= array(
+				'hak_akses' => $row->hak_akses,
+				'akte_pendiri' => $row->akte_pendiri,
+				'nama_perusahaan' => $row->nama_perusahaan,
+				'alamat_perusahaan' => $row->alamat_perusahaan,
+				'contact' => $row->contact,
+				'email' => $row->email,
+	            'username'=>$row->username,
+	            'password'=>$row->password
+			);			
+			print_r($data);
+		}
+		//$this->load->view('logistik/profile',$data);
+	}
+
 	public function registrasiVendor(){
 		$dataVendorAda=$this->m_vendor->check_regis($this->input->post('username'));		
 		if($dataVendorAda->num_rows() == 1){
@@ -54,18 +73,6 @@ class c_vendor extends CI_Controller {
 		        } 
 		        redirect('Login/index');
 		}
-	}
-
-	public function view_akun(){
-
-		$data['vendor']=$this->m_vendor->detail($this->session->userdata('username'))->result();
-		$this->load->view('vendor/header_ven');
-		$this->load->view('vendor/view_akun', $data);
-		$this->load->view('utama/footer');
-	}
-
-	public function  get_vendor () {
-		$data['vendor']=$this->m_barang->view_barang()->result();
 	}
 
 	public function keluar()
