@@ -7,29 +7,29 @@
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
-   <style type="text/css">
+    <style type="text/css">
     body { font-family: sans-serif; }
    </style>
+
     <ul class="nav navbar-nav d-md-down-none">
       <li class="nav-item px-3">
-        <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>">Dashboard</a>
+        <a class="nav-link" href="<?php echo base_url('/c_direktur/home');?>">Dashboard</a>
       </li>
     </ul>
-    <ul class="nav navbar-nav ml-auto">
+    <ul class="nav navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <img src="img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
+          Welcome <?php echo $this->session->userdata('username');?>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
-          <div class="dropdown-header text-center">
-            <strong>Account</strong>
-          </div>          
-          <a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></a>
+          
+          
           <div class="dropdown-header text-center">
             <strong>Settings</strong>
           </div>
-          <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>          
-          <a class="dropdown-item" href="<?php echo base_url('c_logistik/keluar'); ?>"><i class="fa fa-lock"></i> Logout</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
+          <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Settings</a>
+          <a class="dropdown-item" href="<?php echo base_url('c_direktur/keluar'); ?>"><i class="fa fa-lock"></i> Logout</a>
         </div>
       </li>
     </ul>
@@ -41,16 +41,18 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>"><i class="icon-speedometer"></i>Logistik Dashboard </a>
+            <a class="nav-link" href="<?php echo base_url('/c_direktur/home');?>"><i class="icon-speedometer"></i>Direktur Dashboard </a>
           </li>
 
           <li class="nav-title">
             Menu
           </li>
           <li class="nav-item nav-dropdown">
-          <li class="nav-item">            
-            <a class="nav-link" href=" <?php echo base_url('/c_logistik/kelola_user');?> "><i class="icon-calculator"></i> Kelola Dokumen </a>
-            <a class="nav-link" href=" <?php echo base_url('/c_logistik/kelola_user');?> "><i class="icon-calculator"></i> Kelola User </a>
+          <li class="nav-item">
+            <a class="nav-link" href="widgets.html"><i class="fa fa-home"></i> Home </a>
+            <a class="nav-link" href="widgets.html"><i class="fa fa-file"></i> dokumen </a>
+            <a class="nav-link" href="widgets.html"><i class="fa fa-cart-arrow-down"></i> melihat progress pengadaan </a>
+            
           </li>
           <li class="divider"></li>
 
@@ -65,7 +67,7 @@
       <!-- Breadcrumb -->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="#">Logistik</a></li>
+        <li class="breadcrumb-item"><a href="#">Customer</a></li>
         <li class="breadcrumb-item active">Dashboard</li>
 
         <!-- Breadcrumb Menu-->

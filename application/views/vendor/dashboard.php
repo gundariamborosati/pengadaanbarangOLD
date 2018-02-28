@@ -7,7 +7,9 @@
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+      <style type="text/css">
+    body { font-family: sans-serif; }
+   </style>
     <ul class="nav navbar-nav d-md-down-none">
       <li class="nav-item px-3">
         <a class="nav-link" href="<?php echo base_url('/c_vendor/home');?>">Dashboard</a>
