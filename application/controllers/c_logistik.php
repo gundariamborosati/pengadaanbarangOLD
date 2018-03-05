@@ -17,7 +17,12 @@ class c_logistik extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function kelola_user(){
+	public function viewProfile(){
+		$data ['profile'] = $this->m_logistik->profileLogistik($this->session->userdata('username'));
+		$this->load->view('logistik/profile',$data);
+	}
+
+	public function kelola_user(){		
 		$getVendor = $this->m_vendor->getAllVendor()->result();
 		$getCustomer = $this->m_customer->getAllCustomer()->result();
 		$getDirektur = $this->m_direktur->getAllDirektur()->result();
@@ -28,7 +33,6 @@ class c_logistik extends CI_Controller {
 		array_push($data,$getCustomer);
 		array_push($data,$getDirektur);
 		array_push($data,$getLogistik);
-
 		print_r($data);
 		//print_r($getVendor->result());
 		//print_r($getCustomer->result());

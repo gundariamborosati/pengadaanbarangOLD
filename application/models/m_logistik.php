@@ -14,6 +14,15 @@ class m_logistik extends CI_Model {
 		return $this->db->get('logistik');
 	}
 
+	function profileLogistik($username){
+		if($username){
+			$sql = "SELECT * FROM logistik WHERE username = ?";
+			$query = $this->db->query($sql,array($username));
+			$result = $query->result_array();
+			return $result;
+		}
+	}
+
 	function getAllLogistik(){
 		return $this->db->get('logistik');
 	}

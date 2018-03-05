@@ -14,27 +14,7 @@
   <h2>Data Profile</h2>
   <table class="table table-bordered">
       <thead>
-        <?php foreach($profile as $user):?>
-        <tr>
-            <th>Akte pendiri</th>
-            <td><?php echo $user['akte_pendiri']; ?></td>
-        </tr>
-        <tr>
-            <th>Nama perusahaan</th>
-            <td><?php echo $user['nama_perusahaan']; ?></td>
-        </tr>
-        <tr>
-            <th>Alamat perusahaan</th>
-            <td><?php echo $user['alamat_perusahaan']; ?></td>
-        </tr>
-        <tr>
-            <th>Email</th>
-            <td><?php echo $user['email']; ?></td>
-        </tr>
-        <tr>    
-            <th>Contact</th>
-            <td><?php echo $user['contact']; ?></td>  
-        </tr>
+        <?php foreach($profile as $user):?>        
         <tr>
             <th>Username</th>
             <td><?php echo $user['username']; ?></td>

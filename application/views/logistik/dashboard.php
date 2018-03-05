@@ -18,18 +18,18 @@
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          Selamat datang <?php echo $this->session->userdata('username');?>
+        Selamat datang <?php echo $this->session->userdata('username');?>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-header text-center">
             <strong>Account</strong>
           </div>          
-          <a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></a>
+          <a class="dropdown-item" href="<?php echo base_url('/c_logistik/viewProfile');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a>
           <div class="dropdown-header text-center">
-            <strong>Settings</strong>
-          </div>
-          <a class="dropdown-item" href=""><i class="fa fa-user"></i> Profile</a>          
-          <a class="dropdown-item" href="<?php echo base_url('c_logistik/keluar'); ?>"><i class="fa fa-lock"></i> Logout</a>
+            <strong>Settings</strong>            
+          </div>  
+          <a class="dropdown-item" href="<?php echo base_url('');?>"><i class="fa fa-wrench"></i> Setting </a>
+          <a class="dropdown-item" href="<?php echo base_url('c_logistik/keluar'); ?>"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
       </li>
     </ul>
@@ -53,7 +53,7 @@
           </li>
 
           <li class="nav-item nav-dropdown"> 
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>          
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>Dokumen</a>          
             <ul class="nav-dropdown-items">
               <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-share"></i> Send Dokumen</a>
@@ -62,10 +62,24 @@
                 <a class="nav-link" href="#"><i class="fa fa-download"></i> Receive Dokumen</a>
               </li> 
             </ul>
-          </li>      
+          </li>     
 
-          <li class="nav-item">                                  
-            <a class="nav-link" href=" <?php echo base_url('/c_logistik/kelola_user');?> "><i class="fa fa-user"></i> Kelola User </a>
+          <li class="nav-item nav-dropdown"> 
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-pencil"></i>Kelola</a>          
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('/c_logistik/kelola_user');?>"><i class="fa fa-user"></i> Kelola user</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-tasks"></i> Kelola progress pengadaan</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
+              </li> 
+            </ul>
+          </li>  
+
+          <li class="nav-item">                                            
             <a class="nav-link" href=" <?php echo base_url('');?> "><i class="fa fa-comment"></i>View Ulasan</a>                 
           </li>
           <li class="divider"></li>

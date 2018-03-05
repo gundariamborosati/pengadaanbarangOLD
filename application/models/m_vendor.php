@@ -8,9 +8,22 @@ class m_vendor extends CI_Model {
 		return $data;
 	}
 
-	function detail($username){
-		$this->db->where('username',$username);
-		return $this->db->get('vendor');
+	// function detail($username){
+	// 	$this->db->where('username',$username);
+	// 	return $this->db->get('vendor');
+	// }
+
+	function profileVendor($username){
+		if($username){
+			$sql = "SELECT * FROM vendor WHERE username = ?";
+			$query = $this->db->query($sql,array($username));
+			$result = $query->result_array();
+			return $result;
+		}
+	}
+
+	function editProfile($where,$table){
+		return $this->db->get_where($table,$where);
 	}
 
 	function cek($username, $password){
