@@ -37,34 +37,34 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-building"></i></span>
               </div>
-              <input name="nama_perusahaan" type="text" class="form-control" placeholder="Nama Perusahaan">
+              <input name="nama_perusahaan" type="text" class="form-control" placeholder="Nama Perusahaan" required>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
               </div>
-              <input name="alamat_perusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan">
+              <input name="alamat_perusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan" required>
             </div>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-user"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="Username" name="username">
+              <input type="text" class="form-control" placeholder="Username" name="username" required>
             </div>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-lock"></i></span>
               </div>
-              <input id="password" type="password" class="form-control" placeholder="Password" name="password" onkeyup='check();'>
+              <input id="password" type="password" class="form-control" placeholder="Password" name="password" onkeyup='check();' required>
             </div>
 
             <div class="input-group mb-4">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-lock"></i></span>
               </div>
-              <input id="confirm_password" name="confirm_password" type="password" class="form-control" placeholder="Repeat password" onkeyup='check();'>
+              <input id="confirm_password" name="confirm_password" type="password" class="form-control" placeholder="Repeat password" onkeyup='check();' required>
               <span id='message'> </span>
             </div>
             <script> 
@@ -84,14 +84,14 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
               </div>
-              <input type="text" class="form-control" placeholder="email" name="email">
+              <input type="text" class="form-control" placeholder="email" name="email" required>
             </div>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-phone"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="contact" name="contact">
+              <input type="text" class="form-control" placeholder="contact" name="contact" required>
             </div> 
 
             <div class="input-group mb-3">
