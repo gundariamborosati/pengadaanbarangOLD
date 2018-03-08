@@ -38,11 +38,7 @@
         <tr>
             <th>Username</th>
             <td><?php echo $user['username']; ?></td>
-        </tr>
-        <tr>
-            <th>Password</th>
-            <td><?php echo $user['password']; ?></td>
-        </tr>
+        </tr>  
         <?php endforeach; ?>
     </thead>
   </table>

@@ -70,7 +70,7 @@
             <div class="card-body text-center">
               <div>
                 <h2>Sign up</h2>
-                <p>LAplikasi Pengadaan Barang</p>
+                <p>Aplikasi Pengadaan Barang</p>
               </div>
             </div>
           </div>

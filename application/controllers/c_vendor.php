@@ -40,6 +40,7 @@ class c_vendor extends CI_Controller {
 
 	public function viewProfile(){
 		$data ['profile'] = $this->m_vendor->profileVendor($this->session->userdata('username'));
+		$password=
 		$this->load->view('vendor/profile',$data);
 	}
 
@@ -62,13 +63,17 @@ class c_vendor extends CI_Controller {
 
 
 	public function registrasiVendor(){
-		$dataVendorAda=$this->m_vendor->check_regis($this->input->post('username'));		
-		if($dataVendorAda->num_rows() == 1){
-			?>
-                <script type=text/javascript>alert("Username sudah tersedia");</script>
-        	<?php
-        	$this->load->view('vendor/registrasiVendor');
-		}else{				
+		$this->form_validation->set_rules('email', 'Email','required|valid_email');
+		$this->form_validation->set_rules('contact', 'Contact','required|numeric');
+
+		if ($this->form_validation->run() == TRUE){
+			$dataVendorAda=$this->m_vendor->check_regis($this->input->post('username'));		
+			if($dataVendorAda->num_rows() == 1){
+				?>
+	                <script type=text/javascript>alert("Username sudah tersedia");</script>
+	        	<?php
+	        	$this->load->view('vendor/registrasiVendor');
+			}else{				
 					$config['upload_path']   = './akte/'; 
 					$config['allowed_types'] = 'gif|jpg|png'; 
 					$config['max_size']      = 10000; 
@@ -82,21 +87,25 @@ class c_vendor extends CI_Controller {
         			<?php
         			$this->load->view('vendor/registrasiVendor');
 		        }else { 
-		        	$upload=$this->upload->data();		       				        
-		       		$data = array(
-						  'hak_akses' => 'vendor',
-						  'akte_pendiri' => $upload['file_name'],
-						  'nama_perusahaan' => $this->input->post('nama_perusahaan'),
-						  'alamat_perusahaan' => $this->input->post('alamat_perusahaan'),
-						  'contact' => $this->input->post('contact'),
-						  'email' => $this->input->post('email'),
-						  'username' => $this->input->post('username'),
-						  'password' => md5($this->input->post('password'))
-						  );					
-		 			$this->m_vendor->insert($data);		 			
-		        } 
+		        	$upload=$this->upload->data();			      
+						$data = array(
+							  'hak_akses' => 'vendor',
+							  'akte_pendiri' => $upload['file_name'],
+							  'nama_perusahaan' => $this->input->post('nama_perusahaan'),
+							  'alamat_perusahaan' => $this->input->post('alamat_perusahaan'),
+							  'contact' => $this->input->post('contact'),
+							  'email' => $this->input->post('email'),
+							  'username' => $this->input->post('username'),
+							  'password' => md5($this->input->post('password'))
+							  );					
+			 			$this->m_vendor->insert($data);		
+			     } 						   
 		        redirect('Login/index');
-		}
+			}
+		}else {
+			$this->load->view('vendor/registrasiVendor');
+	}
+		
 	}
 
 	public function keluar()
