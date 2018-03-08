@@ -29,7 +29,7 @@
           <div class="dropdown-header text-center">
             <strong>Settings</strong>
           </div>
-          <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
+          <a class="dropdown-item" href="<?php echo base_url('c_customer/viewProfile'); ?>"><i class="fa fa-user"></i> Profile</a>
           <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Settings</a>
           <a class="dropdown-item" href="<?php echo base_url('c_customer/keluar'); ?>"><i class="fa fa-lock"></i> Logout</a>
         </div>
@@ -46,13 +46,26 @@
             <a class="nav-link" href="<?php echo base_url('/c_customer/home');?>"><i class="icon-speedometer"></i>customer Dashboard </a>
           </li>
 
-          <li class="nav-title">
+        <li class="nav-title">
             Menu
           </li>
-          <li class="nav-item nav-dropdown">
-          <li class="nav-item">
-            <a class="nav-link" href="widgets.html"><i class="fa fa-home"></i> Home </a>
-            <a class="nav-link" href="widgets.html"><i class="fa fa-file"></i> dokumen </a>
+
+          <li class="nav-item">  
+          <a class="nav-link" href=" <?php echo base_url('/c_customer/home');?> "><i class="fa fa-home"></i> Home</a>
+          </li>
+
+          <li class="nav-item nav-dropdown"> 
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>          
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-share"></i> Send Dokumen</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-download"></i> Receive Dokumen</a>
+              </li> 
+            </ul>
+          </li>  
+           <li class="nav-item">
             <a class="nav-link" href="widgets.html"><i class="fa fa-cart-arrow-down"></i> melihat status pesanan </a>
             <a class="nav-link" href="widgets.html"><i class="fa fa-comment"></i> ulasan saya </a>
           </li>

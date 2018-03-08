@@ -13,7 +13,22 @@ class m_direktur extends CI_Model {
 		return $this->db->get('direktur');
 	}
 
-	function getAllDirektur(){
-		return $this->db->get('direktur');
+	function getAllDirektur($username){
+		 return $this->db->get('direktur');
+   	      
 	}
+	function profilDirektur ($username){
+
+		if($username) {
+			$sql = "SELECT * FROM direktur WHERE username = ?";
+			$query = $this->db->query($sql, array($username));
+			$result = $query->result_array();
+
+			return $result;
+		}
+
+	}
+	
+
 }
+
