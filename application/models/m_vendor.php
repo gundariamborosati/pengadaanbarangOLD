@@ -22,8 +22,13 @@ class m_vendor extends CI_Model {
 		}
 	}
 
-	function editProfile($where,$table){
-		return $this->db->get_where($table,$where);
+	// function editProfile($where,$table){
+	// 	return $this->db->get_where($table,$where);
+	// }
+
+	function updateProfile($where,$data,$table){
+		  $this->db->where($where);
+		  $this->db->update($table,$data);
 	}
 
 	function cek($username, $password){

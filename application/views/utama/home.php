@@ -15,7 +15,7 @@
 
 		<!-- Header -->
 			<header id="header" class="alt">
-				<h1><strong><a href="index.html">Spatial</a></strong> by Templated</h1>
+				<div class="image rounded"><img src="asset/img/logo.jpg" /></div>
 				<nav id="nav">
 					<ul>
 						 <div class="dropdown">
