@@ -15,7 +15,7 @@
 
 		<!-- Header -->
 			<header id="header" class="alt">
-				<div class="image rounded"><img src="asset/img/logo.jpg" /></div>
+				<div class="" style="width: 20%"><img src="asset/img/logo.jpg" /></div>
 				<nav id="nav">
 					<ul>
 						 <div class="dropdown">
