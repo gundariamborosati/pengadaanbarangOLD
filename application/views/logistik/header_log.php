@@ -61,7 +61,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <img src="<?php echo base_url ()?>asset/img/logo.jpg" width="100" height="50">
+      <img src="<?php echo base_url ()?>asset/img/logo.png" width="100" height="50">
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">

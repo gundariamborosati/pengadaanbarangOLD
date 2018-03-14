@@ -15,11 +15,9 @@
 
 		<!-- Header -->
 			<header id="header" class="alt">
-<<<<<<< HEAD
-				<div class="" style="width: 20%"><img src="asset/img/logo.jpg" /></div>
-=======
+
 				<div class="image" style="padding-top: 20px; padding-left: 20px"><img src="asset/img/logo.png" /></div>
->>>>>>> 676f6abbf7d4f1dd71f724b97c8b7bb419287b5c
+
 				<nav id="nav">
 					<ul>
 						 <div class="dropdown">

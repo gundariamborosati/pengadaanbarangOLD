@@ -48,7 +48,7 @@
               </div>
               <div class="row">
                 <div class="col-6">
-                  <button type="submit" class="btn btn-primary px-4">Login</button>
+                  <button type="submit" class="btn btn-primary bg-red px-4">Login</button>
                 </div>            
               </div>
                <?php
@@ -66,7 +66,7 @@
 
             </div>
           </div>
-          <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+          <div class="card text-white bg-red py-5 d-md-down-none" style="width:44%">
             <div class="card-body text-center">
               <div>
                 <h2>Sign up</h2>
