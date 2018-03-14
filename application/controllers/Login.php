@@ -88,6 +88,7 @@ class Login extends CI_Controller
 				$sess_data['password'] = $data->password;
 				$sess_data['hak_akses'] = $data->hak_akses;
 				$this->session->set_userdata($sess_data);
+
 			}
 		
 
@@ -99,7 +100,8 @@ class Login extends CI_Controller
 				$_SESSION['pesan'] = 'Maaf, kombinasi username dengan password salah.';
 				$this->session->mark_as_flash('pesan');
 			}
-		}else {
+		}
+		else {
 			 ?>
                      <script type=text/javascript>alert("Username & Password Salah");</script>
 

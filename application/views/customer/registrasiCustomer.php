@@ -32,39 +32,39 @@
           <div class="card-body p-4">
             <h1>Registrasi Customer</h1>
             <p class="text-muted">Masukkan data-data perusahaan</p>
-            <?php echo form_open_multipart(base_url('c_customer/registrasi')) ;?>
+            <?php echo form_open_multipart(base_url('c_customer/registrasicustomer')) ;?>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-building"></i></span>
               </div>
-              <input name="namaperusahaan" type="text" class="form-control" placeholder="Nama Perusahaan">
+              <input name="namaperusahaan" type="text" class="form-control" placeholder="Nama Perusahaan" value="" required>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
               </div>
-              <input name="alamatperusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan">
+              <input name="alamatperusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan" value="" required>
             </div>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-user"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="Username" name="username">
+              <input type="text" class="form-control" placeholder="Username" name="username" value="" required>
             </div>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-lock"></i></span>
               </div>
-              <input id="password" type="password" class="form-control" placeholder="Password" name="password" onkeyup='check();'>
+              <input id="password" type="password" class="form-control" placeholder="Password" name="password" onkeyup='check();' value="" required>
             </div>
 
             <div class="input-group mb-4">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-lock"></i></span>
               </div>
-              <input id="confirm_password" name="confirm_password" type="password" class="form-control" placeholder="Repeat password" onkeyup='check();'>
+              <input id="confirm_password" name="confirm_password" type="password" class="form-control" placeholder="Repeat password" onkeyup='check();' value="" required>
               <span id='message'> </span>
             </div>
             <script> 
@@ -84,14 +84,14 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
               </div>
-              <input type="text" class="form-control" placeholder="email" name="email">
+              <input type="text" class="form-control" placeholder="email" name="email" value="" required>
             </div>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-phone"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="contact" name="contact">
+              <input type="text" class="form-control" placeholder="contact" name="contact" value="" required>
             </div> 
 
             <div class="input-group mb-3">

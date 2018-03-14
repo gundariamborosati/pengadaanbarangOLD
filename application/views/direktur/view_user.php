@@ -26,7 +26,7 @@
 	
 			
 		</tr>
-		<?php foreach($user as $u): 
+		<?php foreach($direktur as $u): 
 		?>
 		<tr>
 			<td><?php echo $u->username?></td>		

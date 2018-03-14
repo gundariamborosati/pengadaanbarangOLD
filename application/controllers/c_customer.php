@@ -5,6 +5,8 @@ class c_customer extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('m_customer');
+
+		
 	}
 		 //call model
 	public function home(){
@@ -19,9 +21,9 @@ class c_customer extends CI_Controller {
 		$this->load->view('customer/registrasiCustomer');
 	}
 
-	public function registrasi(){
+	public function registrasicustomer(){
 		//$this->load->view('utama/header');
-		print_r($this->input->post('username'));
+		// print_r($this->input->post('username'));
 		$dataCustomerAda=$this->m_customer->cekRegistrasi($this->input->post('username'));
 		if($dataCustomerAda->num_rows() == 1){
 			?>
@@ -43,7 +45,7 @@ class c_customer extends CI_Controller {
                      <script type=text/javascript>alert("File tidak sesuai");</script>
 
 		        	<?php
-		        	$this->load->view('vendor/registrasiCustomer');
+		        	$this->load->view('customer/registrasiCustomer');
 		        	//redirect('c_customer/add');
 		        }else { 
 		        	$upload=$this->upload->data();		       				        
@@ -64,7 +66,19 @@ class c_customer extends CI_Controller {
 			//$this->load->view('utama/footer');
 			}
 	}
- 
+
+ public function viewProfile(){
+ 	 
+
+		 $data['profile'] = $this->m_customer->profileCustomer($this->session->userdata('username'));
+
+
+   
+        // print_r($data);
+ 	 $this->load->view('customer/profilecustomer',$data); 
+
+ }
+
  public function keluar()
 	{
 		$this->session->sess_destroy();

@@ -9,6 +9,19 @@ class c_direktur extends CI_Controller {
 		$this->load->view('direktur/dashboard'); // dashboard vendornya
 		$this->load->view('template/footer'); 
 	}
+	public function viewProfile(){
+		  $this->load->library('session');
+		$this->load->model('m_direktur');
+         
+
+		 $data['profile'] = $this->m_direktur->profildirektur($this->session->userdata('username'));
+
+
+   
+        
+      $this->load->view('direktur/profileDirektur',$data); 
+	}
+
 
 	function edit_direktur($username){
 	$this->load->view('direktur/headerdirektur');
@@ -16,6 +29,7 @@ class c_direktur extends CI_Controller {
             'password'=>$password
 		);
 		$data['user']=$this->m_login->edit_direktur($where,'user')->result();
+
 		$this->load->view('direktur/form_add',$data);
 		$this->load->view('Utama/footer');
 
