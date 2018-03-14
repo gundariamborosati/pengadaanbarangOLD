@@ -13,7 +13,7 @@ class m_direktur extends CI_Model {
 		return $this->db->get('direktur');
 	}
 
-	function getAllDirektur($username){
+	function getAllDirektur(){
 		 return $this->db->get('direktur');
    	      
 	}

@@ -144,3 +144,14 @@ function init(url) {
   $('[rel="popover"],[data-rel="popover"],[data-toggle="popover"]').popover();
 
 }
+
+
+$(document).ready(function() {
+    $('#dataUser').DataTable();
+
+    $('#dataLogistik').DataTable();
+
+    $('#dataCustomer').DataTable();
+
+    $('#dataDirektur').DataTable();
+} );

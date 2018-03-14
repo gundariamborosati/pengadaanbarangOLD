@@ -22,7 +22,7 @@ class m_customer extends CI_Model{
 		return $this->db->get('customer');
 	}
 
-	function getAllCustomer($username){
+	function getAllCustomer(){
 		 return $this->db->get('customer');
 		
 

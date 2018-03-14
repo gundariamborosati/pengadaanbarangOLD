@@ -9,6 +9,11 @@
   <script src="<?php echo base_url('asset/node_modules/bootstrap/dist/js/bootstrap.min.js');?>"></script>
   <script src="<?php echo base_url('asset/node_modules/pace-progress/pace.min.js');?>"></script>
 
+  <!--  Data Tables -->
+  <script src="<?php echo base_url('asset/dataTables/datatables.min.js');?>"></script>
+  <script src="<?php echo base_url('asset/dataTables/DataTables-1.10.16/js/jquery.dataTables.js');?>"></script>
+  
+
   <!-- Plugins and scripts required by all views -->
   <script src="<?php echo base_url('asset/node_modules/chart.js/dist/Chart.min.js');?>"></script>
 
