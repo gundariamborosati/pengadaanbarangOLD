@@ -71,7 +71,7 @@
 						<div class="row 150%">
 							<div class="6u 12u$(xsmall)">
 								<div class="image fit captioned">
-									<img src="asset/img/pic02.jpg" alt="" />
+									<img src="asset/img/shinee.jpg" alt="" />
 									<h3>Lorem ipsum dolor sit amet.</h3>
 								</div>
 							</div>

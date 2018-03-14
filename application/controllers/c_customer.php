@@ -24,6 +24,10 @@ class c_customer extends CI_Controller {
 	public function registrasicustomer(){
 		//$this->load->view('utama/header');
 		// print_r($this->input->post('username'));
+		$this->form_validation->set_rules('email', 'Email','required|valid_email');
+		$this->form_validation->set_rules('contact', 'Contact','required|numeric');
+
+	if ($this->form_validation->run() == TRUE){
 		$dataCustomerAda=$this->m_customer->cekRegistrasi($this->input->post('username'));
 		if($dataCustomerAda->num_rows() == 1){
 			?>
@@ -57,14 +61,16 @@ class c_customer extends CI_Controller {
 						  'contact' => $this->input->post('contact'),
 						  'email' => $this->input->post('email'),
 						  'username' => $this->input->post('username'),
-						  'password' => md5($this->input->post('password'))
-						  );					
+						  'password' => md5($this->input->post('password')));					
 		 			$this->m_customer->insert($data); 
 		 			//$this->load->view('utama/v_login');		 			
 		        } 
 		        redirect('Login/index');
 			//$this->load->view('utama/footer');
 			}
+		}else {
+			$this->load->view('customer/registrasiCustomer');
+		}
 	}
 
  public function viewProfile(){
@@ -77,7 +83,28 @@ class c_customer extends CI_Controller {
         // print_r($data);
  	 $this->load->view('customer/profilecustomer',$data); 
 
- }
+    }
+
+    public function update_profile(){
+    $username = $this->input->post('txt_username');
+    $nama_perusahaan = $this->input->post('txt_name');
+    $password = $this->input->post('txt_password');
+
+     $data = array(
+			'nama_perusahaan' => $nama_perusahaan,
+			'password'			=> md5($password)
+			);
+    $hasil = $this->m_customer->updateprofil($username,$data);
+    echo $hasil;
+    if($hasil){
+      $this->session->set_flashdata('psn_sukses','Data telah diubah');
+    }
+    else {
+      $this->session->set_flashdata('psn_error','Gagal mengubah data ');
+    }
+
+    $this->load->view('customer/updateprofile'); 
+  }
 
  public function keluar()
 	{
