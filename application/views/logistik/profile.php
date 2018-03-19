@@ -11,8 +11,7 @@
 <body>
 
 <div class="container">
-  <h2>Data Profile</h2>
-    <?php   echo $profile; ?>
+  <h2>Data Profile</h2>    
   <table class="table table-bordered">
       <thead>
         <?php foreach($profile as $user):?>        

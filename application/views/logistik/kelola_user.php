@@ -24,7 +24,7 @@
           <div class="dropdown-header text-center">
             <strong>Account</strong>
           </div>
-          <a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></a>
+          <a class="dropdown-item" href="<?php echo base_url('/c_logistik/viewProfile');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a>
           <div class="dropdown-header text-center">
             <strong>Settings</strong>
           </div>
@@ -97,16 +97,12 @@
             <h3>  Kelola Vendor </h3>
           </div>
           <div class="card-body">
-            
-            <div>
-              
               <table id="dataUser" class="table ">
                 <thead>
                   <tr>
                     <th>No</th>
                     <th>Nama Perusahaan</th>
                     <th>Email</th>
-                    <th>Rule</th>
                     <th> Action </th>
                   </tr>
                 </thead>
@@ -122,14 +118,11 @@
                   <tr>
                     <td><?php  echo $no; ?></td>
                     <td><?php  echo $user['nama_perusahaan']; ?></td>
-                    <td><?php echo $user['email'];?></td>
-                    <td>
-                      <?php echo $user['hak_akses'];?>
-                    </td>
+                    <td><?php echo $user['email'];?></td>                    
                      <td>  
-                       <a href="#" class="btn btn-success">  Detil</a>
-                        <a href="#" class="btn btn-primary">  Edit</a>
-                        <a href="#" class="btn btn-warning">  Delete</a>
+                       <a href="#" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
+                        <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
+                        <a href="#" class="btn btn-warning"> <i class="fa fa-trash"> </i> Delete</a>
                     </td>
                   </tr>
                   <?php
@@ -137,49 +130,45 @@
                   ?>
                 </tbody>
               </table>
-              
             </div>
-
-
-
           </div>
-        </div>
-        <!--/.col-->
       </div>
+
       <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
-            <h3>  Kelola Logistik </h3>
+            <h3>  Kelola Customer </h3>
           </div>
           <div class="card-body">
             
             <div>
               
-              <table id="dataLogistik" class="table ">
+              <table id="dataCustomer" class="table ">
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Username</th>
-                    <th>Rule</th>
+                    <th>Nama perusahaan</th>
+                    <th>Email</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                  $logistik_user = json_decode(json_encode($logistik), true);
+                  $customer_user = json_decode(json_encode($customer), true);
                   //print_r($logistik_user);
                   $no = 0;
-                  foreach($logistik_user as $user):
+                  foreach($customer_user as $user):
                   $no++;
                   ?>
                   
                   <tr>
                     <td><?php  echo $no; ?></td>
-                    <td><?php  echo $user['username']; ?></td>
-                    <td><?php echo $user['hak_akses'];?></td>
+                    <td><?php echo $user['nama_perusahaan'];?></td>
+                    <td><?php echo $user['email'];?></td>                                     
                     <td>  
-                        <a href="#" class="btn btn-primary">  Edit</a>
-                        <a href="#" class="btn btn-warning">  Delete</a>
+                        <a href="#" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
+                        <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
+                        <a href="#" class="btn btn-warning"> <i class="fa fa-trash"> </i> Delete</a>
                     </td>
                   </tr>
                   <?php

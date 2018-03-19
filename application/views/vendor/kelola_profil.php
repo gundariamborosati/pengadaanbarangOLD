@@ -82,52 +82,66 @@
         <li class="breadcrumb-item">Home</li>
         <li class="breadcrumb-item"><a href="#">Vendor</a></li>
         <li class="breadcrumb-item active">Dashboard</li>
+
         <!-- Breadcrumb Menu-->
       </ol>
-
-      <div class="container-fluid">
-        <div class="animated fadeIn">
-             <div class="card-footer">
-              <ul>
-                <li>
-                  <div class="text-muted">Visits</div>
-                  <strong>29.703 Users (40%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">Unique</div>
-                  <strong>24.093 Users (20%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="text-muted">Pageviews</div>
-                  <strong>78.706 Views (60%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">New Users</div>
-                  <strong>22.123 Users (80%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">Bounce Rate</div>
-                  <strong>40.15%</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+    <?php foreach($profile as $user): ?>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5> <i class="fa fa-check"></i> Profil Perusahaan</h5> 
         </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-9">
+                <h3>Profil Perusahaan</h3>
+                <hr>
+                  <div class="panel-body">
+                    <div class="form-horizontal">
+                      <form>
+                        <div class="form-group">
+                          <label class="col-sm-4 control-label">Nama Perusahaan</label>
+                            <div class="col-sm-4">
+                              <input class="form-control" type="text" name="nama_perusahaan" value="<?php echo $user['nama_perusahaan']; ?>" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-4 control-label">Alamat Perusahaan</label>
+                            <div class="col-sm-4">
+                              <input class="form-control" type="text" name="alamat_perusahaan" value="<?php echo $user['alamat_perusahaan']; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-4 control-label">Email</label>
+                            <div class="col-sm-4">
+                              <input class="form-control" type="text" name="email" value="<?php echo $user['email']; ?>" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-4 control-label">Contact</label>
+                            <div class="col-sm-4">
+                              <input class="form-control" type="text" name="contact" value="<?php echo $user['contact']; ?>" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-4 control-label">Username</label>
+                            <div class="col-sm-4">
+                              <input class="form-control" type="text" name="username" placeholder="<?php echo $user['username']; ?>" disable>
+                            </div>
+                        </div>          
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-primary" ng-click="updateMe()">Update</button>
+                            </div>
+                        </div>
+                      <?php endforeach; ?>
+                      </form>
+                    </div>  <!-- end form-horizontal -->
+                  </div> <!-- end panel-body -->
+              </div>
+            </div>   
       </div>
-      <!-- /.conainer-fluid -->
+    </div>
+</div>
     </main>
-  </div>
+</div>

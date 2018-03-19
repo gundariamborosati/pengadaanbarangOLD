@@ -18,26 +18,6 @@ class c_vendor extends CI_Controller {
 		$this->load->view('vendor/registrasiVendor');
 	}
 
-	// unge nambahi tapi belum berhasil
-	// public function kelolaProfil (){	
-	// 	$username =$this->session->userdata('username');			
-	// 	$row= $this->m_vendor->detail('$username');
-	// 	print_r($row);
-	// 	if($row->num_rows()>0){
-	// 		$row=$row->result();
-	// 		$data['user']= array(			
-	// 			'akte_pendiri' => $row->akte_pendiri,
-	// 			'nama_perusahaan' => $row->nama_perusahaan,
-	// 			'alamat_perusahaan' => $row->alamat_perusahaan,
-	// 			'contact' => $row->contact,
-	// 			'email' => $row->email,
-	//             'username'=>$row->username,
-	//             'password'=>$row->password
-	// 		);	
-	// 		$this->load->view('vendor/profile',$data);							
-	// 	}				
-	// }
-
 	public function viewProfile(){
 		$data ['profile'] = $this->m_vendor->profileVendor($this->session->userdata('username'));
 		$this->load->view('vendor/profile',$data);
@@ -45,7 +25,9 @@ class c_vendor extends CI_Controller {
 
 	public function setting(){
 		$data ['profile'] = $this->m_vendor->profileVendor($this->session->userdata('username'));
-		$this->load->view('vendor/test',$data);
+		$this->load->view('template/header');
+		$this->load->view('vendor/kelola_profil',$data);
+		$this->load->view('template/footer');
 	}
 
 	function updateProfile(){
