@@ -20,7 +20,10 @@ class c_vendor extends CI_Controller {
 
 	public function viewProfile(){
 		$data ['profile'] = $this->m_vendor->profileVendor($this->session->userdata('username'));
-		$this->load->view('vendor/profile',$data);
+		$this->load->view('template/header');
+		$this->load->view('vendor/newProf',$data);
+		$this->load->view('template/footer');
+		//$this->load->view('vendor/profile',$data);
 	}
 
 	public function setting(){
@@ -31,8 +34,6 @@ class c_vendor extends CI_Controller {
 	}
 
 	function updateProfile(){
-
-			$akte_pendiri=$this->input->post('akte_pendiri');
 			$nama_perusahaan=$this->input->post('nama_perusahaan');
 			$alamat_perusahaan=$this->input->post('alamat_perusahaan');
 			$email=$this->input->post('email');
@@ -40,7 +41,6 @@ class c_vendor extends CI_Controller {
 			$username=$this->input->post('username');
 
 			$data=array(
-                'akte_pendiri'=>$akte_pendiri,
                 'nama_perusahaan'=>$nama_perusahaan,
                 'alamat_perusahaan'=>$alamat_perusahaan,
                 'email'=>$email,
@@ -52,7 +52,9 @@ class c_vendor extends CI_Controller {
 			     'username'=>$username
 			  );  
 			$this->m_vendor->updateProfile($where,$data,'vendor');  
+			$this->load->view('template/header');
 			$this->load->view('vendor/dashboard');
+			$this->load->view('template/footer');
 	}
 
 

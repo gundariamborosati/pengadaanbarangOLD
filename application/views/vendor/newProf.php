@@ -86,62 +86,40 @@
         <!-- Breadcrumb Menu-->
       </ol>
     <?php foreach($profile as $user): ?>
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <h5> <i class="fa fa-check"></i> Profil Perusahaan</h5> 
-        </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-9">
-                <h3>Profil Perusahaan</h3>
-                <hr>
-                  <div class="panel-body">
-                    <div class="form-horizontal">
-                      <form action="<?php echo base_url(). 'c_vendor/updateProfile'; ?>" method="post">
-                        <div class="form-group">
-                          <label class="col-sm-4 control-label">Nama Perusahaan</label>
-                            <div class="col-sm-4">
-                              <input class="form-control" type="text" name="nama_perusahaan" value="<?php echo $user['nama_perusahaan']; ?>" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-sm-4 control-label">Alamat Perusahaan</label>
-                            <div class="col-sm-4">
-                              <input class="form-control" type="text" name="alamat_perusahaan" value="<?php echo $user['alamat_perusahaan']; ?>">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-sm-4 control-label">Email</label>
-                            <div class="col-sm-4">
-                              <input class="form-control" type="text" name="email" value="<?php echo $user['email']; ?>" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-sm-4 control-label">Contact</label>
-                            <div class="col-sm-4">
-                              <input class="form-control" type="text" name="contact" value="<?php echo $user['contact']; ?>" >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-sm-4 control-label">Username</label>
-                            <div class="col-sm-4">
-                              <input class="form-control" type="text" name="username" placeholder="<?php echo $user['username']; ?>" disable>
-                            </div>
-                        </div>          
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button class="btn btn-primary">Update</button>
-                            </div>
-                        </div>
-                      <?php endforeach; ?>
-                      </form>
-                    </div>  <!-- end form-horizontal -->
-                  </div> <!-- end panel-body -->
+<div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header">
+                  <i class="fa fa-user-o"></i> Profil perusahaan
+                </div>
+                <div class="card-body">
+                  <table class="table table-responsive-sm table-striped">   
+                    <thead>
+                      <tr>                      
+                        <th>Nama Perusahaan</th>
+                        <th>Alamat Perusahaan</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Username</th>
+                      </tr>
+                    </thead>     
+                    <tbody>
+                      <tr>                      
+                        <td><?php echo $user['nama_perusahaan']; ?></td>
+                        <td><?php echo $user['alamat_perusahaan']; ?></td> 
+                        <td><?php echo $user['email']; ?></td> 
+                        <td><?php echo $user['contact']; ?></td> 
+                        <td><?php echo $user['username']; ?></td> 
+                      </tr>
+                    </tbody>                                      
+                  </table>
+                  <?php endforeach; ?>
+          </div>
               </div>
-            </div>   
-      </div>
-    </div>
-</div>
+            </div>
+            <!--/.col-->
+          </div>
+          <!--/.row-->
+        </div>
     </main>
 </div>

@@ -27,8 +27,9 @@ class m_vendor extends CI_Model {
 	// }
 
 	function updateProfile($where,$data,$table){
-		  $this->db->where($where);
-		  $this->db->update($table,$data);
+		$this->db->get('vendor');
+		$this->db->where($where);
+		$this->db->update($table,$data);
 	}
 
 	function cek($username, $password){
