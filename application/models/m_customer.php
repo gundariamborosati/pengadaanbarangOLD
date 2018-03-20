@@ -59,7 +59,7 @@ class m_customer extends CI_Model{
 	//    }
 	   
 	function updateprofil($username,$data){
-        
+ 
 	$this->db->where('username',$username);
 	$this->db->update('customer',$data);
 
