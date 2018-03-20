@@ -39,29 +39,26 @@ class m_customer extends CI_Model{
 		}
 
 	}
-
-	// public function updateProfile($userId) 
-	// {
-	// 	if($userId) {
-	// 		$update_data = array(
-	// 			'nama_perusahaan' => $this->input->post('nama_perusahaan'),
-	// 			'alamat_perusahaan' => $this->input->post('alamat_perusahaan'),
-	// 			'contact' => $this->input->post('contact'),
-	// 		);
-
-	// 		$this->db->where('username', $userId);
-	// 		$query = $this->db->update('customer', $update_data);
-
-	// 		return ($query === true) ? true : false;
-	// 	}
-	// }
-	
-	//  function updateProfile($data){
- //  $username=120;
- //  $this->db->where('username', $username);
- //  if($this->db->update('customer', $data)){
- //   return TRUE;
- //  } 
- // }
+	function updateProfile($username){
+			// echo $id;
+			$nama_perusahaan = $this->input->post('nama_perusahaan');
+			$alamat_perusahaan= $this->input->post('alamat_perusahaan');
+			$contact= $this->input->post('contact');
+			$data = array(
+				'nama_perusahaan' => $nama_perusahaan,
+				'alamat_perusahaan' => $alamat_perusahaan,
+				'contact' => $contact
+			);
+	    $this->db->where('username', $username);
+			$this->db->update('customer', $data);
+			if($this->db->affected_rows() > 0){
+				$this->session->set_userdata('nama_perusahaan', $nama_perusahaan);
+				$this->session->set_userdata('alamat_perusahaan', $alamat_perusahaan);
+				$this->session->set_userdata('contact', $contact);
+	 			return true;
+	 		} else {
+	 			return false;
+	 		}
+	   }
 }
 

@@ -15,14 +15,30 @@
   <table class="table table-bordered">
       <thead>
         <?php foreach($profile as $user):?>        
+       <tr>
+            <th>npwp</th>
+            <td><?php echo $user['npwp']; ?></td>
+        </tr>
+        <tr>
+            <th>Nama perusahaan</th>
+            <td><?php echo $user['nama_perusahaan']; ?></td>
+        </tr>
+        <tr>
+            <th>Alamat perusahaan</th>
+            <td><?php echo $user['alamat_perusahaan']; ?></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><?php echo $user['email']; ?></td>
+        </tr>
+        <tr>    
+            <th>Contact</th>
+            <td><?php echo $user['contact']; ?></td>  
+        </tr>
         <tr>
             <th>Username</th>
             <td><?php echo $user['username']; ?></td>
-        </tr>
-        <tr>
-            <th>Password</th>
-            <td><?php echo $user['password']; ?></td>
-        </tr>
+        </tr> 
         <?php endforeach; ?>
     </thead>
   </table>

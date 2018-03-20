@@ -85,26 +85,28 @@ class c_customer extends CI_Controller {
 
     }
 
-    public function update_profile(){
-    $username = $this->input->post('txt_username');
-    $nama_perusahaan = $this->input->post('txt_name');
-    $password = $this->input->post('txt_password');
-
-     $data = array(
-			'nama_perusahaan' => $nama_perusahaan,
-			'password'			=> md5($password)
-			);
-    $hasil = $this->m_customer->updateprofil($username,$data);
-    echo $hasil;
-    if($hasil){
-      $this->session->set_flashdata('psn_sukses','Data telah diubah');
-    }
-    else {
-      $this->session->set_flashdata('psn_error','Gagal mengubah data ');
-    }
-
-    $this->load->view('customer/updateprofile'); 
+  function update_profile(){
+    $hasil = $this->m_customer->updateProfile($this->session->userdata('username'));
+    // if($hasil){
+    //   $this->session->set_flashdata('psn_sukses','Data telah diubah');
+    // }
+    // else {
+    //   $this->session->set_flashdata('psn_error','Gagal mengubah data ');
+    // }
+     $this->load->view('customer/updateprofile');
   }
+
+// function update_profile() {
+//     $data = array(
+//      'nama_perusahaan' => $this->input->post('nama_perusahaan'),
+//      'alamat_perusahaan' => $this->input->post('alamat_perusahaan'),
+//      'contact' => $this->input->post('contact')
+//     );
+//     $this->load->model('m_customer');
+//     if($this->m_customer->updateProfile($data));
+    
+//      $this->load->view('customer/updateprofile');
+//     }
 
  public function keluar()
 	{
