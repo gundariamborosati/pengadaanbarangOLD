@@ -24,11 +24,7 @@
           <div class="dropdown-header text-center">
             <strong>Account</strong>
           </div>      
-          <a class="dropdown-item" href="<?php echo base_url('/c_vendor/viewProfile');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a>
-          <div class="dropdown-header text-center">
-            <strong>Settings</strong>
-          </div>
-          <a class="dropdown-item" href="<?php echo base_url('/c_vendor/setting');?>"><i class="fa fa-wrench"></i> Setting </a>
+          <a class="dropdown-item" href="<?php echo base_url('/c_vendor/viewProfile');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a>      
           <a class="dropdown-item" href="<?php echo base_url('c_vendor/keluar'); ?>"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
       </li>

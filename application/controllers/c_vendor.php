@@ -18,43 +18,49 @@ class c_vendor extends CI_Controller {
 		$this->load->view('vendor/registrasiVendor');
 	}
 
+	// coba detail user
+	// public function detail($username){
+	// 	$data ['user'] = $this->m_vendor->detail($username);
+	// 	$this->load->view('template/header');
+	// 	$this->load->view('logistik/detail_user',$data);
+	// 	$this->load->view('template/footer');		
+	// }
+
+	function edit($Username){
+		$where = array('username' => $username);
+		$data['user'] = $this->m_vendor->detail($where,'vendor')->result();
+		$this->load->view('template/header');
+		$this->load->view('logistik/detail_user',$data);
+		$this->load->view('template/footer');
+	}
+
 	public function viewProfile(){
 		$data ['profile'] = $this->m_vendor->profileVendor($this->session->userdata('username'));
 		$this->load->view('template/header');
-		$this->load->view('vendor/newProf',$data);
-		$this->load->view('template/footer');
-		//$this->load->view('vendor/profile',$data);
-	}
-
-	public function setting(){
-		$data ['profile'] = $this->m_vendor->profileVendor($this->session->userdata('username'));
-		$this->load->view('template/header');
 		$this->load->view('vendor/kelola_profil',$data);
-		$this->load->view('template/footer');
+		$this->load->view('template/footer');		
 	}
 
 	function updateProfile(){
 			$nama_perusahaan=$this->input->post('nama_perusahaan');
 			$alamat_perusahaan=$this->input->post('alamat_perusahaan');
 			$email=$this->input->post('email');
-			$contact=$this->input->post('contact');
-			$username=$this->input->post('username');
+			$contact=$this->input->post('contact');			
 
 			$data=array(
                 'nama_perusahaan'=>$nama_perusahaan,
                 'alamat_perusahaan'=>$alamat_perusahaan,
                 'email'=>$email,
-                'contact'=>$contact,
-                'username'=>$username
+                'contact'=>$contact                
 				);
 
 			$where=array(
-			     'username'=>$username
+			     'username'=>$this->session->userdata('username')
 			  );  
 			$this->m_vendor->updateProfile($where,$data,'vendor');  
 			$this->load->view('template/header');
 			$this->load->view('vendor/dashboard');
-			$this->load->view('template/footer');
+			$this->load->view('template/footer');		
 	}
 
 

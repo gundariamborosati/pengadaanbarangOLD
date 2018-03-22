@@ -19,7 +19,6 @@ class c_logistik extends CI_Controller {
 
 	public function viewProfile(){
 		$data ['profile'] = $this->m_logistik->profileLogistik($this->session->userdata('username'));
-
 		$this->load->view('logistik/profile',$data);
 	}
 

@@ -25,11 +25,7 @@
             <strong>Account</strong>
           </div>      
           <a class="dropdown-item" href="<?php echo base_url('/c_vendor/viewProfile');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a>
-          <div class="dropdown-header text-center">
-            <strong>Settings</strong>
-          </div>
-          <a class="dropdown-item" href="<?php echo base_url('/c_vendor/setting');?>"><i class="fa fa-wrench"></i> Setting </a>
-          <a class="dropdown-item" href="<?php echo base_url('c_vendor/keluar'); ?>"><i class="fa fa-sign-out"></i> Logout</a>
+          <a class="dropdown-item" href="<?php echo base_url('/c_vendor/keluar'); ?>"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
       </li>
     </ul>
@@ -126,12 +122,12 @@
                         <div class="form-group">
                           <label class="col-sm-4 control-label">Username</label>
                             <div class="col-sm-4">
-                              <input class="form-control" type="text" name="username" placeholder="<?php echo $user['username']; ?>" disable>
+                              <input class="form-control" type="text" name="username" placeholder="<?php echo $user['username']; ?>" disabled>
                             </div>
                         </div>          
                         <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button class="btn btn-primary">Update</button>
+                            <div class="col-sm-offset-2 col-sm-10">              
+                                <button class="btn btn-primary"> <i class="fa fa-check">Update</i></button>
                             </div>
                         </div>
                       <?php endforeach; ?>

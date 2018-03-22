@@ -87,93 +87,38 @@
         <!-- Breadcrumb Menu-->
       </ol>
       <!-- /.conainer-fluid -->
-      <div class="container-fluid">
-        <div class="card card-accent-success">
-          <div class="card-header">
-            <h3>  Kelola Vendor </h3>
-          </div>
-          <div class="card-body">
-              <table id="dataUser" class="table ">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama Perusahaan</th>
-                    <th>Username</th>
-                    <th> Action </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  $vendor_user = json_decode(json_encode($vendor), true);
-                  $no = 0;
-                  foreach($vendor_user as $user):
-                  $no++;
-                  ?>
-                  
-                  <tr>
-                    <td><?php  echo $no; ?></td>
-                    <td><?php  echo $user['nama_perusahaan']; ?></td>
-                    <td><?php echo $user['username'];?></td>                    
-                     <td>  
-                       <a href="<?php echo base_url('/c_vendor/edit');?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
-                        <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
-                        <a href="#" class="btn btn-warning"> <i class="fa fa-trash"> </i> Delete</a>
-                    </td>
-                  </tr>
-                  <?php
-                  endforeach;
-                  ?>
-                </tbody>
-              </table>
+    <?php foreach($user as $detail): ?>
+    <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header">
+                  <i class="fa fa-align-justify"></i> Detail 
+                </div>
+                <div class="card-body">
+                  <table class="table table-responsive-sm">
+                    <thead>
+                      <tr>
+                        <th>Nama Perusahaan</th>
+                        <th>Alamat Perusahaan</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Username</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><?php echo $detail['nama_perusahaan'];?></td>
+                        <td><?php echo $detail['alamat_perusahaan'];?></td>
+                        <td><?php echo $detail['email'];?></td>
+                        <td><?php echo $detail['contact'];?></td>
+                        <td><?php echo $detail['username'];?></td>                        
+                      </tr>                                  
+                    </tbody>
+                  </table>                 
+                </div>
+              </div>
             </div>
           </div>
-      </div>
-
-      <div class="container-fluid">
-        <div class="card card-accent-success">
-          <div class="card-header">
-            <h3>  Kelola Customer </h3>
-          </div>
-          <div class="card-body">
-            
-            <div>
-              
-              <table id="dataCustomer" class="table ">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama perusahaan</th>
-                    <th>Username</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  $customer_user = json_decode(json_encode($customer), true);                  
-                  $no = 0;
-                  foreach($customer_user as $user):
-                  $no++;
-                  ?>
-                  
-                  <tr>
-                    <td><?php  echo $no; ?></td>
-                    <td><?php echo $user['nama_perusahaan'];?></td>
-                    <td><?php echo $user['username'];?></td>                                     
-                    <td>  
-                        <a href="#" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
-                        <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
-                        <a href="#" class="btn btn-warning"> <i class="fa fa-trash"> </i> Delete</a>
-                    </td>
-                  </tr>
-                  <?php
-                  endforeach;
-                  ?>
-                </tbody>
-              </table>
-              
-            </div>
-    </div>
-  </div>
+    <?php endforeach; ?>
 </div>
 </main>
 </div>
