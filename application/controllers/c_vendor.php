@@ -18,15 +18,7 @@ class c_vendor extends CI_Controller {
 		$this->load->view('vendor/registrasiVendor');
 	}
 
-	// coba detail user
-	// public function detail($username){
-	// 	$data ['user'] = $this->m_vendor->detail($username);
-	// 	$this->load->view('template/header');
-	// 	$this->load->view('logistik/detail_user',$data);
-	// 	$this->load->view('template/footer');		
-	// }
-
-	function edit($Username){
+	public function detail_user($username){
 		$where = array('username' => $username);
 		$data['user'] = $this->m_vendor->detail($where,'vendor')->result();
 		$this->load->view('template/header');

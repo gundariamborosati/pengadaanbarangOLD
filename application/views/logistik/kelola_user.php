@@ -41,7 +41,7 @@
             Menu
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=""><i class="fa fa-home"></i> Home</a>
+            <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>"><i class="fa fa-home"></i> Home</a>
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>Dokumen</a>
@@ -115,7 +115,7 @@
                     <td><?php  echo $user['nama_perusahaan']; ?></td>
                     <td><?php echo $user['username'];?></td>                    
                      <td>  
-                       <a href="<?php echo base_url('/c_vendor/edit');?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
+                       <a href="<?php echo base_url('/c_vendor/detail_user/'.$user['username']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
                         <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
                         <a href="#" class="btn btn-warning"> <i class="fa fa-trash"> </i> Delete</a>
                     </td>

@@ -106,11 +106,11 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td><?php echo $detail['nama_perusahaan'];?></td>
-                        <td><?php echo $detail['alamat_perusahaan'];?></td>
-                        <td><?php echo $detail['email'];?></td>
-                        <td><?php echo $detail['contact'];?></td>
-                        <td><?php echo $detail['username'];?></td>                        
+                        <td><?php echo $detail->nama_perusahaan ;?></td>
+                        <td><?php echo $detail->alamat_perusahaan;?></td>
+                        <td><?php echo $detail->email;?></td>
+                        <td><?php echo $detail->contact;?></td>
+                        <td><?php echo $detail->username;?></td>                        
                       </tr>                                  
                     </tbody>
                   </table>                 
