@@ -34,8 +34,13 @@ class c_vendor extends CI_Controller {
 	}
 
 	function updateProfile(){
+
+			$this->form_validation->set_rules('email', 'Email','required|valid_email');
+		$this->form_validation->set_rules('contact', 'Contact','required|numeric');
 			$nama_perusahaan=$this->input->post('nama_perusahaan');
 			$alamat_perusahaan=$this->input->post('alamat_perusahaan');
+			if($this->form_validation->run() == TRUE) {
+
 			$email=$this->input->post('email');
 			$contact=$this->input->post('contact');			
 
@@ -50,9 +55,14 @@ class c_vendor extends CI_Controller {
 			     'username'=>$this->session->userdata('username')
 			  );  
 			$this->m_vendor->updateProfile($where,$data,'vendor');  
-			$this->load->view('template/header');
-			$this->load->view('vendor/dashboard');
-			$this->load->view('template/footer');		
+			// $this->load->view('template/header');
+			// $this->load->view('vendor/dashboard');
+			// $this->load->view('template/footer');	
+
+			$this->viewProfile();
+		} else {
+			$this->viewProfile();
+		}
 	}
 
 
@@ -90,7 +100,8 @@ class c_vendor extends CI_Controller {
 							  'contact' => $this->input->post('contact'),
 							  'email' => $this->input->post('email'),
 							  'username' => $this->input->post('username'),
-							  'password' => md5($this->input->post('password'))
+							  'password' => md5($this->input->post('password')),
+							  'status' =>'aktif'
 							  );					
 			 			$this->m_vendor->insert($data);		
 			     } 						   

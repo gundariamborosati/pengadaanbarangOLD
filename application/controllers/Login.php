@@ -52,16 +52,20 @@ class Login extends CI_Controller
 				$sess_data['username'] = $data->username;
 				$sess_data['password'] = $data->password;
 				$sess_data['hak_akses'] = $data->hak_akses;
+				$sess_data['status'] = $data->status;
 				$this->session->set_userdata($sess_data);
 			}
 		
-			if($this->session->userdata('hak_akses') == 'vendor')
+			if($this->session->userdata('hak_akses') == 'vendor' && $this->session->userdata('status') == 'aktif')
 			{
 				redirect('c_vendor/home');
 
 			}else{
-				$_SESSION['pesan'] = 'Maaf, kombinasi username dengan password salah.';
-				$this->session->mark_as_flash('pesan');
+				 ?>
+                     <script type=text/javascript>alert("Status tidak aktif");</script>
+
+        		<?php
+        		$this->index();
 			}
 		} else if($cekCustomer->num_rows() == 1)
 			{
@@ -69,17 +73,21 @@ class Login extends CI_Controller
 				$sess_data['username'] = $data->username;
 				$sess_data['password'] = $data->password;
 				$sess_data['hak_akses'] = $data->hak_akses;
+				$sess_data['status'] = $data->status;
+
 				$this->session->set_userdata($sess_data);
-				
 			}
 		
-			if($this->session->userdata('hak_akses') == 'customer')
+			if($this->session->userdata('hak_akses') == 'customer' && $this->session->userdata('status') == 'aktif')
 			{
 				redirect('c_customer/home');
 
 			}else{
-				$_SESSION['pesan'] = 'Maaf, kombinasi username dengan password salah.';
-				$this->session->mark_as_flash('pesan');
+				?>
+                     <script type=text/javascript>alert("Status tidak aktif");</script>
+
+        		<?php
+        		$this->index();
 			}
 		} else if ($cekDirektur->num_rows() == 1)
 			{
@@ -103,7 +111,7 @@ class Login extends CI_Controller
 		}
 		else {
 			 ?>
-                     <script type=text/javascript>alert("Username & Password Salah");</script>
+                     <script type=text/javascript>alert("Username & Password Salah ");</script>
 
         	<?php
 			$this->index();
