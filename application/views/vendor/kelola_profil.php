@@ -126,8 +126,10 @@
                         </div>
                         <div class="col-md-6">
                           <h2>Akte Perusahaan</h2>
-                          <div>
-                            <img src="<?php echo $user['akte_pendiri'];?>" alt="">
+                          <div class="col-md-6">
+
+                          <!--  -->
+                            <img style="width:200%" class="img-responsive" src="<?php echo base_url('akte/'.$user['akte_pendiri'])?>" alt="">
                           </div>
                         </div>
                       </div>

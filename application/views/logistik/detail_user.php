@@ -88,7 +88,6 @@
       </ol>
       <!-- /.conainer-fluid -->
     <?php foreach($user as $detail): ?>
-    <div class="col-lg-6">
               <div class="card">
                 <div class="card-header">
                   <i class="fa fa-align-justify"></i> Detail 
@@ -116,8 +115,6 @@
                   </table>                 
                 </div>
               </div>
-            </div>
-          </div>
     <?php endforeach; ?>
 </div>
 </main>
