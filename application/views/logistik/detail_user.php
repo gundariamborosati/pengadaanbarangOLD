@@ -96,20 +96,24 @@
                   <table class="table table-responsive-sm">
                     <thead>
                       <tr>
+                        <th>Akte Pendiri</th>
                         <th>Nama Perusahaan</th>
                         <th>Alamat Perusahaan</th>
                         <th>Email</th>
                         <th>Contact</th>
                         <th>Username</th>
+                        <th>Status</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
+                        <td><?php echo $detail->akte_pendiri ;?></td>
                         <td><?php echo $detail->nama_perusahaan ;?></td>
                         <td><?php echo $detail->alamat_perusahaan;?></td>
                         <td><?php echo $detail->email;?></td>
                         <td><?php echo $detail->contact;?></td>
-                        <td><?php echo $detail->username;?></td>                        
+                        <td><?php echo $detail->username;?></td>    
+                        <td><?php echo $detail->status;?></td>                                                
                       </tr>                                  
                     </tbody>
                   </table>                 

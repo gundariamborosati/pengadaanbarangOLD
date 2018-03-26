@@ -119,8 +119,16 @@
                             </div>
                           </div>
                           <div class="form-group">
+                            <label class="control-label">Status</label>
+                            <div>
+                              <input class="form-control" type="text" name="username" placeholder="<?php echo $user['status']; ?>" disabled>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                               <button class="btn btn-primary"> <i class="fa fa-check">Update</i></button>
+                              <button class="btn btn-success"> <i class="fa fa-pencil">Change Password</i></button>
                             </div>
                           </div>
                         </div>
