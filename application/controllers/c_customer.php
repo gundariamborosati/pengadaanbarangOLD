@@ -92,8 +92,12 @@ class c_customer extends CI_Controller {
  
 
     function updateProfile(){
+
+			$this->form_validation->set_rules('email', 'Email','required|valid_email');
+		    $this->form_validation->set_rules('contact', 'Contact','required|numeric');
 			$nama_perusahaan=$this->input->post('nama_perusahaan');
 			$alamat_perusahaan=$this->input->post('alamat_perusahaan');
+			if($this->form_validation->run() == TRUE) {
 			$email=$this->input->post('email');
 			$contact=$this->input->post('contact');			
 
@@ -108,21 +112,39 @@ class c_customer extends CI_Controller {
 			     'username'=>$this->session->userdata('username')
 			  );  
 			$this->m_customer->updateProfile($where,$data,'customer');  
-			$this->load->view('template/header');
-			$this->load->view('customer/dashboard');
-			$this->load->view('template/footer');		
+			// $this->load->view('template/header');
+			// $this->load->view('template/footer');		
+			$this->viewProfile();
+		} else {
+			$this->viewProfile();
+		}
 	}
 
 function update_password(){
-    $hasil = $this->m_customer->updatePassword();
-    echo json_encode(array("status" => true));
-    if($hasil){
-      $this->session->set_flashdata('psn_sukses','Data telah diubah');
-    }
-    else {
-      $this->session->set_flashdata('psn_error','Gagal mengubah data ');
-    }
+        $username = $this->session->userdata['username'];
+
+        $this->form_validation->set_rules('pw_baru','password baru','required');
+        $this->form_validation->set_rules('cpw_baru','password kedua','required|matches[pw_baru]');
+
+        $this->form_validation->set_error_delimiters('<p class="alert">','</p>');
+
+        if( $this->form_validation->run() == FALSE ){
+            $this->load->view('customer/kelola_profile');
+   } else {
+            $post = $this->input->post();
+            
+            $data = array(
+                'password' => md5($post['pw_baru']),
+            );
+
+            $this->m_customer->update($username, $data, 'customer');
+
+        }
   }
+
+
+
+
 
 
  public function keluar()

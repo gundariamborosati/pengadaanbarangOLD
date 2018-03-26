@@ -94,50 +94,62 @@
       <div class="card">
         <div class="card-header">
           <h5> <i class="fa fa-check"></i> Profil Perusahaan</h5> 
-        </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-9">
-                <h3>Profil Perusahaan</h3>
+           <h3>Profil Perusahaan</h3>
+                <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
                 <hr>
-                  <div class="panel-body">
-                    <div class="form-horizontal">
-                      <form action="<?php echo base_url(). 'c_customer/updateProfile'; ?>" method="post">
-                        <div class="form-group">
-                          <label class="col-sm-4 control-label">Nama Perusahaan</label>
-                            <div class="col-sm-4">
+                <div class="panel-body">
+                  <div class="form-horizontal">
+                    <form action="<?php echo base_url(). 'c_customer/updateProfile'; ?>" method="post">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="control-label">Nama Perusahaan</label>
+                            <div class="">
                               <input class="form-control" type="text" name="nama_perusahaan" value="<?php echo $user['nama_perusahaan']; ?>" >
                             </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-sm-4 control-label">Alamat Perusahaan</label>
-                            <div class="col-sm-4">
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label">Alamat Perusahaan</label>
+                            <div>
                               <input class="form-control" type="text" name="alamat_perusahaan" value="<?php echo $user['alamat_perusahaan']; ?>">
                             </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-sm-4 control-label">Email</label>
-                            <div class="col-sm-4">
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <div>
                               <input class="form-control" type="text" name="email" value="<?php echo $user['email']; ?>" >
                             </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-sm-4 control-label">Contact</label>
-                            <div class="col-sm-4">
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label">Contact</label>
+                            <div>
                               <input class="form-control" type="text" name="contact" value="<?php echo $user['contact']; ?>" >
                             </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-sm-4 control-label">Username</label>
-                            <div class="col-sm-4">
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label">Username</label>
+                            <div>
                               <input class="form-control" type="text" name="username" placeholder="<?php echo $user['username']; ?>" disabled>
                             </div>
-                        </div>          
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">              
-                                <button class="btn btn-primary"> <i class="fa fa-check">Update</i></button>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+ 
+                              <button class="btn btn-primary"> <i class="fa fa-check">Update</i></button>
+                                <!-- Tombol untuk menampilkan modal-->
+                            <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil">Ubah Password</i></button>
                             </div>
+                          </div>
                         </div>
+                        <div class="col-md-6">
+                          <h2>NPWP</h2>
+                          <div class="col-md-6">
+
+                          <!--  -->
+                            <img style="width:200%" class="img-responsive" src="<?php echo base_url('npwp/'.$user['npwp'])?>" alt="">
+                          </div>
+                        </div>
+                      </div>
                       <?php endforeach; ?>
                       </form>
                     </div>  <!-- end form-horizontal -->
@@ -147,6 +159,61 @@
       </div>
     </div>
 </div>
+<!-- Modal -->
+
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- konten modal-->
+      <div class="modal-content">
+        <!-- heading modal -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <!--    <h4 class="modal-title">update password</h4> -->
+        </div>
+        <!-- body modal -->
+        <?php $data = $this->session->userdata(); ?>
+
+      
+        <form action="<?= base_url('c_customer/update_password'); ?>" method="POST">
+        <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-lock"></i></span>
+              </div>
+              <input type="text" name="password" class="inputan" placeholder="password" value="<?= $data['password']; ?>" >
+            </div>
+          
+               <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-lock"></i></span>
+              </div>
+              <input type="password" name="pw_baru"  class="inputan" placeholder="password baru">    <br>
+            <?= form_error('pw_baru'); ?>
+            </div>
+           
+
+             <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-lock"></i></span>
+              </div>
+             <input type="text" name="cpw_baru"  class="inputan" placeholder="ulangi password baru">  <br>
+            <?= form_error('cpw_baru'); ?>
+            </div>
+
+            <!-- <input type="submit" name="submit" value="Ganti Password"> -->
+     
+
+        <!-- footer modal -->
+        <div class="modal-footer">
+         <button type="submit"  class="btn btn-success"><i class="fa fa-check icon-white"></i> Simpan</button>
+         </form>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
     </main>
 </div>
-       
+<
