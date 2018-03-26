@@ -88,7 +88,6 @@
       </ol>
       <!-- /.conainer-fluid -->
     <?php foreach($user as $detail): ?>
-    <div class="col-lg-6">
               <div class="card">
                 <div class="card-header">
                   <i class="fa fa-align-justify"></i> Detail 
@@ -106,18 +105,16 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td><?php echo $detail['nama_perusahaan'];?></td>
-                        <td><?php echo $detail['alamat_perusahaan'];?></td>
-                        <td><?php echo $detail['email'];?></td>
-                        <td><?php echo $detail['contact'];?></td>
-                        <td><?php echo $detail['username'];?></td>                        
+                        <td><?php echo $detail->nama_perusahaan ;?></td>
+                        <td><?php echo $detail->alamat_perusahaan;?></td>
+                        <td><?php echo $detail->email;?></td>
+                        <td><?php echo $detail->contact;?></td>
+                        <td><?php echo $detail->username;?></td>                        
                       </tr>                                  
                     </tbody>
                   </table>                 
                 </div>
               </div>
-            </div>
-          </div>
     <?php endforeach; ?>
 </div>
 </main>

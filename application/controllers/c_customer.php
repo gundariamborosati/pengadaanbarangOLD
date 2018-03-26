@@ -61,7 +61,9 @@ class c_customer extends CI_Controller {
 						  'contact' => $this->input->post('contact'),
 						  'email' => $this->input->post('email'),
 						  'username' => $this->input->post('username'),
-						  'password' => md5($this->input->post('password')));					
+						  'password' => md5($this->input->post('password')),
+						  'status' =>'aktif'
+						);					
 		 			$this->m_customer->insert($data); 
 		 			//$this->load->view('utama/v_login');		 			
 		        } 
