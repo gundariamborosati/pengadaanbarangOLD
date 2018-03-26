@@ -29,8 +29,10 @@
           <div class="dropdown-header text-center">
             <strong>Settings</strong>
           </div>
-          <a class="dropdown-item" href="<?php echo base_url('c_customer/viewProfile'); ?>"><i class="fa fa-user"></i> Profile</a>
-          <a class="dropdown-item" href="<?php echo base_url('c_customer/update_profile'); ?>"><i class="fa fa-wrench"></i> Settings</a>
+          <!-- <a class="dropdown-item" href="<?php echo base_url('c_customer/viewProfile'); ?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?>
+        </a></a> -->
+       <!--    <a class="dropdown-item" href="<?php echo base_url('c_customer/updateProfile'); ?>"><i class="fa fa-wrench"></i> Settings</a> -->
+        <a class="dropdown-item" href="<?php echo base_url('/c_customer/viewProfile');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a> 
           <a class="dropdown-item" href="<?php echo base_url('c_customer/keluar'); ?>"><i class="fa fa-lock"></i> Logout</a>
         </div>
       </li>
@@ -65,8 +67,9 @@
               </li> 
             </ul>
           </li>  
+
            <li class="nav-item">
-            <a class="nav-link" href="widgets.html"><i class="fa fa-cart-arrow-down"></i> melihat status pesanan </a>
+            <a class="nav-link" href="widgets.html"><i class="fa fa-cart-arrow-down"></i> melihat status pesanan</a>
             <a class="nav-link" href="widgets.html"><i class="fa fa-comment"></i> ulasan saya </a>
           </li>
           <li class="divider"></li>
@@ -88,7 +91,7 @@
         <!-- Breadcrumb Menu-->
       </ol>
 
-      <div class="container-fluid">
+      <!-- <div class="container-fluid">
         <div class="animated fadeIn">
              <div class="card-footer">
               <ul>
@@ -130,7 +133,7 @@
               </ul>
             </div>
         </div>
-      </div>
+      </div> -->
       <!-- /.conainer-fluid -->
     </main>
 

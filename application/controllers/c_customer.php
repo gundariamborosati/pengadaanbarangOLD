@@ -83,32 +83,47 @@ class c_customer extends CI_Controller {
 
    
         // print_r($data);
- 	 $this->load->view('customer/profilecustomer',$data); 
+		$this->load->view('template/header');
+ 	    $this->load->view('customer/kelola_profile',$data); 
+ 	    $this->load->view('template/footer');
 
     }
 
-  function update_profile(){
-    $hasil = $this->m_customer->updateProfile($this->session->userdata('username'));
-    // if($hasil){
-    //   $this->session->set_flashdata('psn_sukses','Data telah diubah');
-    // }
-    // else {
-    //   $this->session->set_flashdata('psn_error','Gagal mengubah data ');
-    // }
-     $this->load->view('customer/updateprofile');
+ 
+
+    function updateProfile(){
+			$nama_perusahaan=$this->input->post('nama_perusahaan');
+			$alamat_perusahaan=$this->input->post('alamat_perusahaan');
+			$email=$this->input->post('email');
+			$contact=$this->input->post('contact');			
+
+			$data=array(
+                'nama_perusahaan'=>$nama_perusahaan,
+                'alamat_perusahaan'=>$alamat_perusahaan,
+                'email'=>$email,
+                'contact'=>$contact                
+				);
+
+			$where=array(
+			     'username'=>$this->session->userdata('username')
+			  );  
+			$this->m_customer->updateProfile($where,$data,'customer');  
+			$this->load->view('template/header');
+			$this->load->view('customer/dashboard');
+			$this->load->view('template/footer');		
+	}
+
+function update_password(){
+    $hasil = $this->m_customer->updatePassword();
+    echo json_encode(array("status" => true));
+    if($hasil){
+      $this->session->set_flashdata('psn_sukses','Data telah diubah');
+    }
+    else {
+      $this->session->set_flashdata('psn_error','Gagal mengubah data ');
+    }
   }
 
-// function update_profile() {
-//     $data = array(
-//      'nama_perusahaan' => $this->input->post('nama_perusahaan'),
-//      'alamat_perusahaan' => $this->input->post('alamat_perusahaan'),
-//      'contact' => $this->input->post('contact')
-//     );
-//     $this->load->model('m_customer');
-//     if($this->m_customer->updateProfile($data));
-    
-//      $this->load->view('customer/updateprofile');
-//     }
 
  public function keluar()
 	{
