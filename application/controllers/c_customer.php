@@ -120,7 +120,7 @@ class c_customer extends CI_Controller {
 		}
 	}
 
-function update_password(){
+function updatePassword(){
         $username = $this->session->userdata['username'];
 
         $this->form_validation->set_rules('pw_baru','password baru','required');
@@ -137,15 +137,10 @@ function update_password(){
                 'password' => md5($post['pw_baru']),
             );
 
-            $this->m_customer->update($username, $data, 'customer');
+            $this->m_customer->updatePassword($username, $data, 'customer');
 
         }
   }
-
-
-
-
-
 
  public function keluar()
 	{
