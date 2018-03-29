@@ -87,7 +87,7 @@
         <!-- Breadcrumb Menu-->
       </ol>
       <!-- /.conainer-fluid -->
-    <?php foreach($user as $detail): ?>
+    <?php foreach($vendor as $detail): ?>
               <div class="card">
                 <div class="card-header">
                   <i class="fa fa-align-justify"></i> Detail 

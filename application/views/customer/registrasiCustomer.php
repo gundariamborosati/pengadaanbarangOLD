@@ -39,20 +39,20 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-building"></i></span>
               </div>
-              <input name="namaperusahaan" type="text" class="form-control" placeholder="Nama Perusahaan" value="" required>
+              <input name="namaperusahaan" type="text" class="form-control" placeholder="Nama Perusahaan" value="<?= set_value('nama_perusahaan')?>" required>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
               </div>
-              <input name="alamatperusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan" value="" required>
+              <input name="alamatperusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan" value="<?= set_value('alamat_perusahaan')?>" required>
             </div>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-user"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="Username" name="username" value="" required>
+              <input type="text" class="form-control" placeholder="Username" name="username" value="<?= set_value('username')?>" required>
             </div>
 
             <div class="input-group mb-3">
@@ -86,14 +86,14 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
               </div>
-              <input type="text" class="form-control" placeholder="email" name="email" value="" required>
+              <input type="text" class="form-control" placeholder="email" name="email" value="<?= set_value('email')?>" required>
             </div>
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-phone"></i></span>
               </div>
-              <input type="text" class="form-control" placeholder="contact" name="contact" value="" required>
+              <input type="text" class="form-control" placeholder="contact" name="contact" value="<?= set_value('contact')?>" required>
             </div> 
 
             <div class="input-group mb-3">
