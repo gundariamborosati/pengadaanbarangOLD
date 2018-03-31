@@ -26,10 +26,23 @@ class c_vendor extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function edit_user(){
-		$data['user'] = $this->m_vendor->profileVendor('username');
+	publIC function edit_user($username){
+		$where = array('username' => $username);
+		$data['user'] = $this->m_vendor->detail($where,'vendor')->result();
 		$this->load->view('template/header');
+		$this->load->view('logistik/edit_vendor',$data);
 		$this->load->view('template/footer');
+	}
+
+	public function update_user(){
+		$status=$this->input->post('status');
+		$data=array(
+			'status'=>$status
+			);
+		$where=array(
+			'username'=>$username
+			);
+		$this->m_vendor->updateProfile($where,$data,'vendor');
 	}
 
 	public function viewProfile(){

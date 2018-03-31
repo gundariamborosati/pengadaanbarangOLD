@@ -49,5 +49,10 @@ class m_customer extends CI_Model{
         $this->db->update($table,$data);
     }
 
+    function check_regis($username){
+		$this->db->where('username', $username);
+		return $this->db->get('customer');
+	}
+
 }
 

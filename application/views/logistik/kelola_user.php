@@ -25,7 +25,7 @@
             <strong>Account</strong>
           </div>
           <a class="dropdown-item" href="<?php echo base_url('/c_logistik/viewProfile');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a>
-          <a class="dropdown-item" href="<?php echo base_url('c_logistik/keluar'); ?>"><i class="fa fa-lock"></i> Logout</a>
+          <a class="dropdown-item" href="<?php echo base_url('c_logistik/keluar'); ?>"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
       </li>
     </ul>
@@ -116,7 +116,7 @@
                     <td><?php echo $user['username'];?></td>                    
                      <td>  
                        <a href="<?php echo base_url('/c_vendor/detail_user/'.$user['username']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
-                        <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
+                        <a href="<?php echo base_url('/c_vendor/edit_user/'.$user['username']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
                         <a href="#" class="btn btn-warning"> <i class="fa fa-trash"> </i> Delete</a>
                     </td>
                   </tr>
@@ -161,7 +161,7 @@
                     <td><?php echo $user['username'];?></td>                                     
                     <td>  
                         <a href="<?php echo base_url('/c_customer/detail_user/'.$user['username']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
-                        <a href="#" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
+                        <a href="<?php echo base_url('/c_customer/edit_user/'.$user['username']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
                         <a href="#" class="btn btn-warning"> <i class="fa fa-trash"> </i> Delete</a>
                     </td>
                   </tr>
