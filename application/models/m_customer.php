@@ -17,10 +17,16 @@ class m_customer extends CI_Model{
 		return $this->db->get('customer');
 	}
 
+
 	function cekRegistrasi($username){
  	$this->db->where('username', $username);
 	 	return $this->db->get('customer');
 	 }
+
+	function detail($where,$table){		
+		return $this->db->get_where($table,$where);
+	}
+
 
 	function getAllCustomer(){
 		 return $this->db->get('customer');
@@ -43,22 +49,17 @@ class m_customer extends CI_Model{
 		$this->db->update($table,$data);
 	}
 
-	public function update($username,$data,$table)
+	public function updatePassword($username,$data,$table)
     {
          //id apa yang mau di update, lalu DATA apa yang mau dikirim ke tabel di database
         $this->db->where('username',$username);
         $this->db->update($table,$data);
     }
 
- public function cek_old()
-  {
-   $old = md5($this->input->post('old'));    
-   $this->db->where('username',$old);
-   $query = $this->db->get('customer');
-      return $query->result();
-     }
-	  
-	
+    function check_regis($username){
+		$this->db->where('username', $username);
+		return $this->db->get('customer');
+	}
 
 }
 

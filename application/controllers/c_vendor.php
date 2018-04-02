@@ -20,10 +20,29 @@ class c_vendor extends CI_Controller {
 
 	public function detail_user($username){
 		$where = array('username' => $username);
+		$data['vendor'] = $this->m_vendor->detail($where,'vendor')->result();
+		$this->load->view('template/header');
+		$this->load->view('logistik/detail_vendor',$data);
+		$this->load->view('template/footer');
+	}
+
+	publIC function edit_user($username){
+		$where = array('username' => $username);
 		$data['user'] = $this->m_vendor->detail($where,'vendor')->result();
 		$this->load->view('template/header');
-		$this->load->view('logistik/detail_user',$data);
+		$this->load->view('logistik/edit_vendor',$data);
 		$this->load->view('template/footer');
+	}
+
+	public function update_user(){
+		$status=$this->input->post('status');
+		$data=array(
+			'status'=>$status
+			);
+		$where=array(
+			'username'=>$username
+			);
+		$this->m_vendor->updateProfile($where,$data,'vendor');
 	}
 
 	public function viewProfile(){
@@ -34,9 +53,8 @@ class c_vendor extends CI_Controller {
 	}
 
 	function updateProfile(){
-
 			$this->form_validation->set_rules('email', 'Email','required|valid_email');
-		$this->form_validation->set_rules('contact', 'Contact','required|numeric');
+			$this->form_validation->set_rules('contact', 'Contact','required|numeric');
 			$nama_perusahaan=$this->input->post('nama_perusahaan');
 			$alamat_perusahaan=$this->input->post('alamat_perusahaan');
 			if($this->form_validation->run() == TRUE) {
@@ -54,11 +72,7 @@ class c_vendor extends CI_Controller {
 			$where=array(
 			     'username'=>$this->session->userdata('username')
 			  );  
-			$this->m_vendor->updateProfile($where,$data,'vendor');  
-			// $this->load->view('template/header');
-			// $this->load->view('vendor/dashboard');
-			// $this->load->view('template/footer');	
-
+			$this->m_vendor->updateProfile($where,$data,'vendor');  	
 			$this->viewProfile();
 		} else {
 			$this->viewProfile();

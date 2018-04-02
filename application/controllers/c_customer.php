@@ -10,7 +10,6 @@ class c_customer extends CI_Controller {
 	}
 		 //call model
 	public function home(){
-		// $this->load->view('vendor/header_ven');
 		$this->load->view('template/header'); // default template
 		$this->load->view('customer/dashboard'); // dashboard vendornya
 		$this->load->view('template/footer'); 
@@ -21,14 +20,39 @@ class c_customer extends CI_Controller {
 		$this->load->view('customer/registrasiCustomer');
 	}
 
+	public function detail_user($username){
+		$where = array('username' => $username);
+		$data['customer'] = $this->m_customer->detail($where,'customer')->result();
+		$this->load->view('template/header');
+		$this->load->view('logistik/detail_customer',$data);
+		$this->load->view('template/footer');
+	}
+
+	publIC function edit_user($username){
+		$where = array('username' => $username);
+		$data['user'] = $this->m_customer->detail($where,'customer')->result();
+		$this->load->view('template/header');
+		$this->load->view('logistik/edit_customer',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function update_user(){
+		$status=$this->input->post('status');
+		$data=array(
+			'status'=>$status
+			);
+		$where=array(
+			'username'=>$username
+			);
+		$this->m_customer->updateProfile($where,$data,'customer');
+	}
+
 	public function registrasicustomer(){
-		//$this->load->view('utama/header');
-		// print_r($this->input->post('username'));
 		$this->form_validation->set_rules('email', 'Email','required|valid_email');
 		$this->form_validation->set_rules('contact', 'Contact','required|numeric');
 
 	if ($this->form_validation->run() == TRUE){
-		$dataCustomerAda=$this->m_customer->cekRegistrasi($this->input->post('username'));
+		$dataCustomerAda=$this->m_customer->check_regis($this->input->post('username'));
 		if($dataCustomerAda->num_rows() == 1){
 			?>
                 <script type=text/javascript>alert("Username sudah ada");</script>
@@ -79,10 +103,6 @@ class c_customer extends CI_Controller {
  	 
 
 		 $data['profile'] = $this->m_customer->profileCustomer($this->session->userdata('username'));
-
-
-   
-        // print_r($data);
 		$this->load->view('template/header');
  	    $this->load->view('customer/kelola_profile',$data); 
  	    $this->load->view('template/footer');
@@ -111,16 +131,14 @@ class c_customer extends CI_Controller {
 			$where=array(
 			     'username'=>$this->session->userdata('username')
 			  );  
-			$this->m_customer->updateProfile($where,$data,'customer');  
-			// $this->load->view('template/header');
-			// $this->load->view('template/footer');		
+			$this->m_customer->updateProfile($where,$data,'customer');  		
 			$this->viewProfile();
 		} else {
 			$this->viewProfile();
 		}
 	}
 
-function update_password(){
+function updatePassword(){
         $username = $this->session->userdata['username'];
 
         $this->form_validation->set_rules('pw_baru','password baru','required');
@@ -139,13 +157,12 @@ function update_password(){
 
             $this->m_customer->update($username, $data, 'customer');
             $this->viewProfile();
+
+            $this->m_customer->updatePassword($username, $data, 'customer');
+
+
         }
   }
-
-
-
-
-
 
  public function keluar()
 	{

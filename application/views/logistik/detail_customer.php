@@ -25,7 +25,7 @@
             <strong>Account</strong>
           </div>
           <a class="dropdown-item" href="<?php echo base_url('/c_logistik/viewProfile');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a>
-          <a class="dropdown-item" href="<?php echo base_url('c_logistik/keluar'); ?>"><i class="fa fa-lock"></i> Logout</a>
+          <a class="dropdown-item" href="<?php echo base_url('c_logistik/keluar'); ?>"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
       </li>
     </ul>
@@ -87,7 +87,7 @@
         <!-- Breadcrumb Menu-->
       </ol>
       <!-- /.conainer-fluid -->
-    <?php foreach($user as $detail): ?>
+    <?php foreach($customer as $detail): ?>
               <div class="card">
                 <div class="card-header">
                   <i class="fa fa-align-justify"></i> Detail 
@@ -96,20 +96,24 @@
                   <table class="table table-responsive-sm">
                     <thead>
                       <tr>
+                        <th>Npwp</th>
                         <th>Nama Perusahaan</th>
                         <th>Alamat Perusahaan</th>
                         <th>Email</th>
                         <th>Contact</th>
                         <th>Username</th>
+                        <th>Status</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
+                        <td><?php echo $detail->npwp ;?></td>
                         <td><?php echo $detail->nama_perusahaan ;?></td>
                         <td><?php echo $detail->alamat_perusahaan;?></td>
                         <td><?php echo $detail->email;?></td>
                         <td><?php echo $detail->contact;?></td>
-                        <td><?php echo $detail->username;?></td>                        
+                        <td><?php echo $detail->username;?></td>    
+                        <td><?php echo $detail->status;?></td>                                                
                       </tr>                                  
                     </tbody>
                   </table>                 
