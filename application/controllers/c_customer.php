@@ -138,7 +138,7 @@ function update_password(){
             );
 
             $this->m_customer->update($username, $data, 'customer');
-
+            $this->viewProfile();
         }
   }
 

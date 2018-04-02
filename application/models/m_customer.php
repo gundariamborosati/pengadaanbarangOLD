@@ -9,18 +9,18 @@ class m_customer extends CI_Model{
 	}
 
     function cek($username, $password){
-		$this->db->where('username', $username);
-		$this->db->where('password', md5($password));
-		return $this->db->get('customer');
-	}
+	 	$this->db->where('username', $username);
+	 	$this->db->where('password', md5($password));
+	 	return $this->db->get('customer');
+	 }
 	function view_cus (){
 		return $this->db->get('customer');
 	}
 
-	// function cekRegistrasi($username){
-	// 	$this->db->where('username', $username);
-	// 	return $this->db->get('customer');
-	// }
+	function cekRegistrasi($username){
+ 	$this->db->where('username', $username);
+	 	return $this->db->get('customer');
+	 }
 
 	function getAllCustomer(){
 		 return $this->db->get('customer');
