@@ -33,7 +33,6 @@
             <h1>Registrasi Vendor</h1>
             <p class="text-muted">Masukkan data-data perusahaan</p>
             <?php echo form_open_multipart(base_url('c_vendor/registrasiVendor')) ;?>
-
             <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
             <div class="input-group mb-3">
               <div class="input-group-prepend">

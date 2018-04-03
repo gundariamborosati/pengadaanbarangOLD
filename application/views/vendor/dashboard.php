@@ -61,7 +61,7 @@
           </li>          
 
           <li class="nav-item">          
-            <a class="nav-link" href="widgets.html"><i class="fa fa-square"></i> Kelola Barang </a>
+            <a class="nav-link" href="<?php echo base_url('/c_barang/view_barang');?>"> <i class="fa fa-square"></i> Kelola Barang </a>
           </li>
           <li class="divider"></li>
 

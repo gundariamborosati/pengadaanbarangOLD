@@ -26,7 +26,7 @@ class c_vendor extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	publIC function edit_user($username){
+	public function edit_user($username){
 		$where = array('username' => $username);
 		$data['user'] = $this->m_vendor->detail($where,'vendor')->result();
 		$this->load->view('template/header');
@@ -34,7 +34,7 @@ class c_vendor extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function update_user(){
+	public function update_user($username){	
 		$status=$this->input->post('status');
 		$data=array(
 			'status'=>$status
@@ -43,6 +43,16 @@ class c_vendor extends CI_Controller {
 			'username'=>$username
 			);
 		$this->m_vendor->updateProfile($where,$data,'vendor');
+		print_r($status);
+		print_r($username);
+	}
+
+	function delete_user($username){
+		$where=array(
+            'username'=>$username
+		);
+		$this->m_vendor->delete_user($where,'vendor');
+		redirect('c_logistik/kelola_user');
 	}
 
 	public function viewProfile(){
