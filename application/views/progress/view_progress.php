@@ -90,27 +90,26 @@
       <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
-            <h3>  Kelola Vendor </h3>
+            <h3>  Progress Pengadaan </h3>
           </div>
           <div class="card-body">
               <table id="dataUser" class="table ">
                 <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Nama Perusahaan</th>
-                    <th>Username</th>
-                    <th> Action </th>
+                    <th>no pesanan</th>
+                    <th>tanggal</th>
+                    <th>status</th>
+                    <th> kendala </th>
                   </tr>
                 </thead>
-                <tbody>
-                  <?php
+                <tbody> <!--   <?php
                   $vendor_user = json_decode(json_encode($vendor), true);
                   $no = 0;
                   foreach($vendor_user as $user):
                   $no++;
                   ?>
-                  
-                  <tr>
+                   -->
+                <!--   <tr>
                     <td><?php  echo $no; ?></td>
                     <td><?php  echo $user['nama_perusahaan']; ?></td>
                     <td><?php echo $user['username'];?></td>                    
@@ -122,14 +121,14 @@
                   </tr>
                   <?php
                   endforeach;
-                  ?>
+                  ?> -->
                 </tbody>
               </table>
             </div>
           </div>
       </div>
 
-      <div class="container-fluid">
+     <!--  <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
             <h3>  Kelola Customer </h3>
@@ -169,7 +168,7 @@
                   endforeach;
                   ?>
                 </tbody>
-              </table>
+              </table> -->
               
             </div>
     </div>
