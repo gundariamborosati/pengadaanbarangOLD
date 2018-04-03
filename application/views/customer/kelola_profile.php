@@ -170,10 +170,11 @@
         <div class="modal-header">
           <h4>Change Password</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
        <!--    <h4 class="modal-title">update password</h4> -->
         </div>
         <!-- body modal -->
-        <?php $data = $this->session->userdata(); ?>
+         <?php $data = $this->session->userdata(); ?> 
 
       
         <form action="<?= base_url('c_customer/updatePassword'); ?>" method="POST">
@@ -188,8 +189,8 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-lock"></i></span>
               </div>
-              <input type="password" name="pw_baru"  class="inputan" placeholder="password baru">    <br>
-            <?= form_error('pw_baru'); ?>
+              <input type="password" name="pw_baru"  class="inputan" placeholder="password baru">   <!--  <br>
+            <?= form_error('pw_baru'); ?> -->
             </div>
            
 
@@ -197,8 +198,8 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="icon-lock"></i></span>
               </div>
-             <input type="text" name="cpw_baru"  class="inputan" placeholder="ulangi password baru">  <br>
-            <?= form_error('cpw_baru'); ?>
+             <input type="text" name="cpw_baru"  class="inputan" placeholder="ulangi password baru"> <!--  <br>
+            <?= form_error('cpw_baru'); ?> -->
             </div>
 
             <!-- <input type="submit" name="submit" value="Ganti Password"> -->

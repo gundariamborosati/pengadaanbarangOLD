@@ -165,7 +165,11 @@ function updatePassword(){
                 'password' => md5($post['pw_baru']),
             );
 
+            $this->m_customer->update($username, $data, 'customer');
+            $this->viewProfile();
+
             $this->m_customer->updatePassword($username, $data, 'customer');
+
 
         }
   }
