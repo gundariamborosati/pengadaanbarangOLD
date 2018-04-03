@@ -26,10 +26,11 @@ class m_vendor extends CI_Model {
 			return $result;
 		}
 	}
-
-	// function editProfile($where,$table){
-	// 	return $this->db->get_where($table,$where);
-	// }
+	
+	function delete_user($where,$table){
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
 
 	function updateProfile($where,$data,$table){
 		$this->db->where($where);

@@ -91,17 +91,15 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h5> <i class="fa fa-check"></i> Profil Perusahaan</h5>
+            <h5> <i class="fa fa-check"></i>Detail Customer</h5>
           </div>
           <div class="card-body">
             <div class="row">
               <div class="col-md-9">
-                <h3>Detail Customer</h3>
-                <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
-                <hr>
+                <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>        
                 <div class="panel-body">
                   <div class="form-horizontal">
-                    <form action="<?php echo base_url(). 'c_customer/update_user'; ?>" method="post">
+                    <form action="<?php echo base_url(). 'c_customer/update_user/'.$detail->username; ?>" method="post">
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
@@ -137,8 +135,9 @@
                           <div class="form-group">
                             <label class="control-label">Status</label>
                             <div>
-                              <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status=='aktif'?'checked':'';?>"> Aktif</input></label>
-                              <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status=='tidak aktif'?'checked':'';?>">Tidak Aktif</input></label>                            
+                              <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status=='aktif'?'checked':'';?>" value="aktif"> Aktif</input></label>
+                              <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status=='tidak aktif'?'checked':'';?>"
+                              value="tidak aktif">Tidak Aktif</input></label>                            
                             </div>
                           </div>
 

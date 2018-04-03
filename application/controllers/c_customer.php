@@ -36,7 +36,7 @@ class c_customer extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function update_user(){
+	public function update_user($username){
 		$status=$this->input->post('status');
 		$data=array(
 			'status'=>$status
@@ -45,6 +45,16 @@ class c_customer extends CI_Controller {
 			'username'=>$username
 			);
 		$this->m_customer->updateProfile($where,$data,'customer');
+		print_r($status);
+		print_r($username);
+	}
+
+	function delete_user($username){
+		$where=array(
+            'username'=>$username
+		);
+		$this->m_vendor->delete_user($where,'customer');
+		redirect('c_logistik/kelola_user');
 	}
 
 	public function registrasicustomer(){

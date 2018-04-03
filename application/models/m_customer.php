@@ -34,7 +34,6 @@ class m_customer extends CI_Model{
 	}
 
 	function profileCustomer ($username){
-
 		if($username) {
 			$sql = "SELECT * FROM customer WHERE username = ?";
 			$query = $this->db->query($sql, array($username));
@@ -42,8 +41,13 @@ class m_customer extends CI_Model{
 
 			return $result;
 		}
-
 	}
+
+	function delete_user($where,$table){
+		$this->db->where($where);
+		$this->db->delete($table);
+	}
+	
 	function updateProfile($where,$data,$table){
 		$this->db->where($where);
 		$this->db->update($table,$data);

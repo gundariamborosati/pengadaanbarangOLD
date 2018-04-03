@@ -147,11 +147,13 @@ function init(url) {
 
 
 $(document).ready(function() {
-    $('#dataUser').DataTable();
+    $('#dataVendor').DataTable();
 
     $('#dataLogistik').DataTable();
 
     $('#dataCustomer').DataTable();
 
     $('#dataDirektur').DataTable();
+
+    $('#dataBarang').DataTable();
 } );

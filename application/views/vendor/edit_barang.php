@@ -55,7 +55,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="widgets.html"><i class="fa fa-square"></i> Kelola Barang </a>
+            <a class="nav-link" href="<?php echo base_url('/c_barang/view_barang');?>"><i class="fa fa-square"></i> Kelola Barang </a>
           </li>
           <li class="divider"></li>
         </ul>
@@ -71,75 +71,55 @@
         <li class="breadcrumb-item active">Dashboard</li>
         <!-- Breadcrumb Menu-->
       </ol>
-      <?php foreach($profile as $user): ?>
+            <!-- /.conainer-fluid -->
+      <?php foreach($barang as $detail): ?>
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h5> <i class="fa fa-check"></i> Profil Perusahaan</h5>
+            <h5> <i class="fa fa-check"></i> Barang</h5>
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-md-9">              
-                <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
+              <div class="col-md-9">                             
                 <div class="panel-body">
                   <div class="form-horizontal">
-                    <form action="<?php echo base_url(). 'c_vendor/updateProfile'; ?>" method="post">
+                    <form action="<?php echo base_url(). 'c_barang/update_barang/'.$detail->idbarang; ?>" method="post">
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label class="control-label">Nama Perusahaan</label>
+                            <label class="control-label">NId Barang</label>
                             <div class="">
-                              <input class="form-control" type="text" name="nama_perusahaan" value="<?php echo $user['nama_perusahaan']; ?>" >
+                              <input class="form-control" type="text" name="idbarang" value="<?php echo $detail->idbarang ;?>" disabled>
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="control-label">Alamat Perusahaan</label>
+                            <label class="control-label">Nama Barang</label>
                             <div>
-                              <input class="form-control" type="text" name="alamat_perusahaan" value="<?php echo $user['alamat_perusahaan']; ?>">
+                              <input class="form-control" type="text" name="namabarang" value="<?php echo $detail->namabarang ;?>" >
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="control-label">Email</label>
+                            <label class="control-label">Jenis</label>
                             <div>
-                              <input class="form-control" type="text" name="email" value="<?php echo $user['email']; ?>" >
+                              <input class="form-control" type="text" name="jenis" value="<?php echo $detail->jenis ;?>" >
                             </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label">Contact</label>
-                            <div>
-                              <input class="form-control" type="text" name="contact" value="<?php echo $user['contact']; ?>" >
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label">Username</label>
-                            <div>
-                              <input class="form-control" type="text" name="username" placeholder="<?php echo $user['username']; ?>" disabled>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label">Status</label>
-                            <div>
-                              <input class="form-control" type="text" name="username" placeholder="<?php echo $user['status']; ?>" disabled>
+                          </div>              
+                           <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                             <a href=""><button class="btn btn-primary"> <i class="fa fa-pencil">Edit</i></button></a>
+                              <a href=""><button class="btn btn-danger"> Cancel </button></a>
                             </div>
                           </div>
 
-                          <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                              <button class="btn btn-primary"> <i class="fa fa-check">Update</i></button>
-                              <button class="btn btn-success"> <i class="fa fa-pencil">Change Password</i></button>
-                            </div>
-                          </div>
                         </div>
                         <div class="col-md-6">
-                          <h2>Akte Perusahaan</h2>
+                          <h2>Gambar</h2>
                           <div class="col-md-6">
-
                           <!--  -->
-                            <img style="width:200%" class="img-responsive" src="<?php echo base_url('akte/'.$user['akte_pendiri'])?>" alt="">
+                            <img style="width:200%" class="img-responsive" src="<?php echo base_url('barang/'.$detail->gambar)?>" alt="">
                           </div>
                         </div>
                       </div>
-                      
                       <?php endforeach; ?>
                     </form>
                     </div>  <!-- end form-horizontal -->
@@ -148,6 +128,6 @@
                 </div>
               </div>
             </div>
-          </div>
-        </main>
-      </div>
+          </div>  
+  </main>
+</div>
