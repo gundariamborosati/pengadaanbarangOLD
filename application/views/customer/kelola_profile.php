@@ -146,7 +146,7 @@
                           <div class="col-md-6">
 
                           <!--  -->
-                            <img style="width:200%" class="img-responsive" src="<?php echo base_url('npwp/'.$user['npwp'])?>" alt="">
+                            <img style="width:200%" class="img-responsive" src="<?php echo base_url('asset/npwp/'.$user['npwp'])?>" alt="">
                           </div>
                         </div>
                       </div>

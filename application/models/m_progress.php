@@ -5,15 +5,14 @@ class m_progress extends CI_Model {
 
 	
 
-	function viewProgress($no_pesanan){
-		if($no_pesanan){
-			$sql = "SELECT * FROM progress_pengadaan WHERE no_pesanan = ?";
-			$query = $this->db->query($sql,array($no_pesanan));
-			$result = $query->result_array();
-			return $result;
+	function viewProgress(){
+	return $this->db->get('progress_pengadaan');
 		}
-	}
-
+	
+     function inputProgress($data,$table){
+        $this->db->insert($table,$data);
+    }
+    
 
 
 }

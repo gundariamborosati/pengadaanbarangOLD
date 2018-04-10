@@ -16,11 +16,44 @@ class c_progress extends CI_Controller {
 	}
 
 	public function viewProgress(){
-		$data ['progress'] = $this->m_progress->viewProgress($this->session->userdata('no_pesanan'));
+		$data ['progress'] = $this->m_progress->viewProgress()->result();
 		$this->load->view('template/header');
-		$this->load->view('progress/view_progress',$data);
+		$this->load->view('logistik/view_progress',$data);
 		$this->load->view('template/footer'); 
 	}
+
+	public function viewProgress_direktur(){
+		$data ['progress'] = $this->m_progress->viewProgress()->result();
+		$this->load->view('template/header');
+		$this->load->view('direktur/view_progress_direct',$data);
+		$this->load->view('template/footer'); 
+	}
+
+	 function input(){
+         $this->load->view('template/header');
+		$this->load->view('logistik/input_progress');
+		$this->load->view('template/footer');
+    }  
+	function inputProgress(){
+         $no_pesanan  = $this->input->post('no_pesanan');
+        $tanggal     = $this->input->post('tanggal');
+        $nama_customer = $this->input->post('nama_customer');
+        $nama_vendor = $this->input->post('nama_vendor');
+        $status      = $this->input->post('status');
+        $kendala     = $this->input->post('kendala');
+        
+        $data = array(
+        'no_pesanan' => $no_pesanan,
+        'tanggal'     => $tanggal,
+        'nama_customer' => $nama_customer,
+        'nama_vendor' =>$nama_vendor,
+        'status'      =>$status,
+        'kendala'     =>$kendala
+        );
+        $this->m_progress->inputProgress($data, 'progress_pengadaan');
+        redirect('c_progress/viewProgress');   
+       
+}
 
 	
  public function keluar()

@@ -83,98 +83,84 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
         <li class="breadcrumb-item"><a href="#">Logistik</a></li>
-        <li class="breadcrumb-item active">Kelola User</li>
-
+        <li class="breadcrumb-item active">Dashboard</li>
         <!-- Breadcrumb Menu-->
       </ol>
       <!-- /.conainer-fluid -->
-     
       <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
-            <h3>  Kelola Vendor </h3>
+            <h3>  Progress Pengadaan </h3>
           </div>
-          <div class="card-body">
-          
-              <table id="dataVendor" class="table ">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama Perusahaan</th>
-                    <th>Username</th>
-                    <th> Action </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  $vendor_user = json_decode(json_encode($vendor), true);
-                  $no = 0;
-                  foreach($vendor_user as $user):
-                  $no++;
-                  ?>
-                  
-                  <tr>
-                    <td><?php  echo $no; ?></td>
-                    <td><?php  echo $user['nama_perusahaan']; ?></td>
-                    <td><?php echo $user['username'];?></td>                    
-                     <td>  
-                       <a href="<?php echo base_url('/c_vendor/detail_user/'.$user['username']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
-                        <a href="<?php echo base_url('/c_vendor/edit_user/'.$user['username']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
-                        <a href="<?php echo base_url('/c_vendor/delete_user/'.$user['username']);?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"> <i class="fa fa-trash"> </i> Delete</a>
-                    </td>
-                  </tr>
-                  <?php
-                  endforeach;
-                  ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-      </div>
+    <div class="pull-right">
 
-      <div class="container-fluid">
-        <div class="card card-accent-success">
-          <div class="card-header">
-            <h3>  Kelola Customer </h3>
-          </div>
-          <div class="card-body">
-            
-            <div>
-              
-              <table id="dataCustomer" class="table ">
-                <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Nama perusahaan</th>
-                    <th>Username</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  $customer_user = json_decode(json_encode($customer), true);                  
-                  $no = 0;
-                  foreach($customer_user as $user):
-                  $no++;
-                  ?>
-                  
-                  <tr>
-                    <td><?php  echo $no; ?></td>
-                    <td><?php echo $user['nama_perusahaan'];?></td>
-                    <td><?php echo $user['username'];?></td>                                     
-                    <td>  
-                        <a href="<?php echo base_url('/c_customer/detail_user/'.$user['username']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
-                        <a href="<?php echo base_url('/c_customer/edit_user/'.$user['username']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
-                        <a href="<?php echo base_url('/c_customer/delete_user/'.$user['username']);?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"> <i class="fa fa-trash"> </i> Delete</a>
-                    </td>
-                  </tr>
-                  <?php
-                  endforeach;
-                  ?>
-                </tbody>
-              </table>
+    <a href="<?php echo base_url('c_progress/viewProgress')?>" class="btn btn-primary pull-right"><i class="fa fa-arrow-left"> </i> kembali </a>
+
+    </div>
+          <body>
+                  <!-- Navigation -->
+           
+     <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                       <!--  <h1 class="page-header">INPUT ANAK</h1> -->
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                
+                            </div>
+                           <!--  <div class="panel-body"> -->
+                           <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        
+                                        <?php echo form_open('c_progress/inputProgress'); ?>
+                                            <div class="form-group">
+                                                <label>No Pesanan</label>
+                                                <input name="no_pesanan" class="form-control" >
+                                                
+                                            </div> 
+                                            
+                                            <div class="form-group">
+                                                <label>Tanggal</label>
+                                                <input name="tanggal" class="form-control" type="date">
+                                             
+                                            </div>
+                                            <div class="form-group">
+                                                <label>nama customer</label>
+                                                <input name="nama_customer" class="form-control" rows="3">
+                                               
+                                           </div>
+                                              <div class="form-group">
+                                                <label>nama vendor</label>
+                                                <input name="nama_vendor" class="form-control">
+                                          
+                                            </div>
+                                              <div class="form-group">
+                                                <label>status</label>
+                                                <input name="status" class="form-control">
+                                                
+                                            </div>
+                                            <div class="form-group">
+                                                <label>kendala</label>
+                                                 <textarea name="kendala" class="form-control" rows="3"></textarea>
+                                               
+                                            </div>
+                                            <button type="submit" name="simpan" value="submit" class="btn btn-primary">Submit</button>
+                                           </form>
+
               
             </div>
+            </div>
+            </div>
+            </main>
+            </div>
+          
     </div>
   </div>
 </div>
