@@ -156,4 +156,6 @@ $(document).ready(function() {
     $('#dataDirektur').DataTable();
 
     $('#dataBarang').DataTable();
+
+    $('#dataProgress').DataTable();
 } );

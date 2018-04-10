@@ -88,51 +88,63 @@
       </ol>
 
       <div class="container-fluid">
-        <div class="animated fadeIn">
-             <div class="card-footer">
-              <ul>
-                <li>
-                  <div class="text-muted">Visits</div>
-                  <strong>29.703 Users (40%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">Unique</div>
-                  <strong>24.093 Users (20%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="text-muted">Pageviews</div>
-                  <strong>78.706 Views (60%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">New Users</div>
-                  <strong>22.123 Users (80%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">Bounce Rate</div>
-                  <strong>40.15%</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-              </ul>
+        <div class="card card-accent-success">
+          <div class="card-header">
+            <h3>  Progress Pengadaan </h3>
+          </div>
+    <div class="pull-left">
+    <a href="<?php echo base_url('c_progress/input')?>" class="btn btn-primary pull-left"><i class="fa fa-plus"> </i> tambah data </a>
+    </div>
+          <div class="card-body">
+                <table id="dataProgress" class="table ">
+                <thead>
+                  <tr>
+                    <th>No pesanan</th>
+                    <th>tanggal</th>
+                    <th>nama customer</th>
+                    <th>nama vendor</th>
+                    <th>status</th>
+                    <th>kendala</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php              
+                  // $no = 0;
+                  foreach($progress as $prog):
+                  // $no++;
+                  ?>
+                  
+                  <tr>
+                    <!-- <td><?php  echo $no; ?></td> -->
+                    <td><?php echo $prog->no_pesanan ;?></td>
+                    <td><?php echo $prog->tanggal ;?></td>    
+                    <td><?php echo $prog->nama_customer ;?></td>  
+                   <td><?php echo $prog->nama_vendor ;?></td>                                   
+                    <td><?php echo $prog->status ;?></td>                                     
+                    <td><?php echo $prog->kendala ;?></td> 
+                
+                  </tr>
+                  <?php
+                  endforeach;
+                  ?>
+                 
+                </tbody>
+              </table>
+              
+              
             </div>
-        </div>
-      </div>
-      <!-- /.conainer-fluid -->
-    </main>
+            </div>
+            </div>
+            </main>
+            </div>
+          
+    </div>
+  </div>
 </div>
+</main>
+</div>
+
  <!--Start of Tawk.to Script-->
             <script type="text/javascript">
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

@@ -77,7 +77,7 @@ class c_customer extends CI_Controller {
 					$config['max_width']     = 1024; 
 					$config['max_height']    = 768;
 					$this->load->library('upload',$config);  				
-				if ( ! $this->upload->do_upload('npwp')) {
+				if ( ! $this->upload->do_upload('asset/npwp')) {
 		        	$error = array('error' => $this->upload->display_errors()); 		        	
 		        	?>
                      <script type=text/javascript>alert("File tidak sesuai");</script>
