@@ -55,7 +55,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="widgets.html"><i class="fa fa-square"></i> Kelola Barang </a>
+            <a class="nav-link" href="<?php echo base_url('/c_barang/view_barang');?>"><i class="fa fa-square"></i> Kelola Barang </a>
           </li>
           <li class="divider"></li>
         </ul>
@@ -68,7 +68,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
         <li class="breadcrumb-item"><a href="#">Vendor</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item active">Kelola Profil</li>
         <!-- Breadcrumb Menu-->
       </ol>
       <?php foreach($profile as $user): ?>
@@ -135,7 +135,7 @@
                           <div class="col-md-6">
 
                           <!--  -->
-                            <img style="width:200%" class="img-responsive" src="<?php echo base_url('akte/'.$user['akte_pendiri'])?>" alt="">
+                            <img style="width:200%" class="img-responsive" src="<?php echo base_url('asset/img/akte/'.$user['akte_pendiri'])?>" alt="">
                           </div>
                         </div>
                       </div>

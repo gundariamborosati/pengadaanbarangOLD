@@ -134,11 +134,14 @@
                           <div class="form-group">
                             <label class="control-label">Status</label>
                             <div>
-                            <?php if ($data->status == 'aktif'){ ?>
+                            <?php if ($detail->status == 'aktif'){ ?>
                                <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status='aktif'?'checked':'';?>" value="aktif"> Aktif</input></label>
-                            <?php '}' ?>
+                               <label class="radio-inline"><input type="radio" name="status"  value="tidak aktif">Tidak Aktif</input></label>
+                            <?php } else { ?>
+                              <label class="radio-inline"><input type="radio" name="status" value="aktif"> Aktif</input></label>
                               <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status='tidak aktif'?'checked':'';?>" value="tidak aktif">Tidak Aktif</input></label>                            
                             </div>
+                            <?php } ?>
                           </div>
 
                            <div class="form-group">
@@ -149,14 +152,14 @@
                           </div>
 
                         </div>
-                        <div class="col-md-6">
-                          <h2>Akte Perusahaan</h2>
                           <div class="col-md-6">
-                          <!--  -->
-                            <img style="width:200%" class="img-responsive" src="<?php echo base_url('akte/'.$detail->akte_pendiri)?>" alt="">
+                            <h2>Akte Perusahaan</h2>
+                              <div class="col-md-6">
+                                  <img style="width:200%" class="img-responsive" src="<?php echo base_url('akte/'.$detail->akte_pendiri)?>" alt="">
+                              </div>
                           </div>
                         </div>
-                      </div>
+                        
                       <?php endforeach; ?>
                     </form>
                     </div>  <!-- end form-horizontal -->

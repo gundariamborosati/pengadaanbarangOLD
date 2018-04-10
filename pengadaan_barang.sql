@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: 127.0.0.1
--- Waktu pembuatan: 26 Feb 2018 pada 04.03
+-- Waktu pembuatan: 10 Apr 2018 pada 08.36
 -- Versi Server: 5.5.32
 -- Versi PHP: 5.4.16
 
@@ -25,6 +25,30 @@ USE `pengadaan_barang`;
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `barang`
+--
+
+CREATE TABLE IF NOT EXISTS `barang` (
+  `idbarang` varchar(20) NOT NULL,
+  `namabarang` varchar(20) NOT NULL,
+  `gambar` varchar(20) NOT NULL,
+  `jenis` varchar(30) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  PRIMARY KEY (`idbarang`),
+  KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `barang`
+--
+
+INSERT INTO `barang` (`idbarang`, `namabarang`, `gambar`, `jenis`, `username`) VALUES
+('1', 'buku', 'bayar.jpg', 'peralatan kantor', 'media'),
+('23', 'kursi', 'bayar1.jpg', 'peralatan kantor', 'media');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `customer`
 --
 
@@ -37,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `email` varchar(50) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(32) NOT NULL,
+  `status` varchar(12) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -44,8 +69,10 @@ CREATE TABLE IF NOT EXISTS `customer` (
 -- Dumping data untuk tabel `customer`
 --
 
-INSERT INTO `customer` (`hak_akses`, `npwp`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `email`, `username`, `password`) VALUES
-('customer', 'angry.jpg', 'Telkom University', 'bojongsoang', '123', 'tel@', 'telu', 'e57a85988269f041485c');
+INSERT INTO `customer` (`hak_akses`, `npwp`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `email`, `username`, `password`, `status`) VALUES
+('customer', 'Capture.JPG', 'smile', 'bandung', '123', 'smile@gmail.com', 'smile', '3ddaeb82fbba964fb3461d4e4f1342eb', 'aktif'),
+('customer', 'abs.JPG', 'smktelkom', 'medan', '12345', 'smk@gmail.com', 'smk', '3e671ea34dcac32e7e9e7c67ee8cfc0b', 'tidak aktif'),
+('customer', 'acak.JPG', 'Telkom University', 'bojongsoang', '123', 'telu@', 'telu', 'e57a85988269f041485c870baac915c6', 'tidak aktif');
 
 -- --------------------------------------------------------
 
@@ -102,6 +129,7 @@ CREATE TABLE IF NOT EXISTS `vendor` (
   `email` varchar(50) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(32) NOT NULL,
+  `status` varchar(12) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -109,9 +137,19 @@ CREATE TABLE IF NOT EXISTS `vendor` (
 -- Dumping data untuk tabel `vendor`
 --
 
-INSERT INTO `vendor` (`hak_akses`, `akte_pendiri`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `email`, `username`, `password`) VALUES
-('vendor', 'angry8.jpg', 'csm', 'sukapura', '0891', 'csm@', 'csm', 'b4f8b027877dd73de5654b8def971c04'),
-('vendor', 'acak2.JPG', 'hyundai', 'soeta', '123', 'hyundai@', 'hyundai', 'df98d265fc651a91faa09d4e82f096cc');
+INSERT INTO `vendor` (`hak_akses`, `akte_pendiri`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `email`, `username`, `password`, `status`) VALUES
+('vendor', 'acak3.JPG', 'media', 'bandung', '190', 'media@gmail.com', 'media', '62933a2951ef01f4eafd9bdf4d3cd2f0', 'aktif'),
+('vendor', 'angry10.jpg', 'paytren', 'bandung', '1234', 'paytren@gmail.com', 'paytren', 'a18315a270a8bb795e7d47268f5a0cbd', 'aktif');
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `barang`
+--
+ALTER TABLE `barang`
+  ADD CONSTRAINT `barang_ibfk_2` FOREIGN KEY (`username`) REFERENCES `vendor` (`username`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

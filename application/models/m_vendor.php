@@ -8,12 +8,6 @@ class m_vendor extends CI_Model {
 		return $data;
 	}
 
-	// function detail($username){
-	// 	$this->db->where('username',$username);
-	// 	return $this->db->get('vendor');
-	// }
-
-
 	function detail($where,$table){		
 		return $this->db->get_where($table,$where);
 	}

@@ -55,7 +55,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="widgets.html"><i class="fa fa-square"></i> Kelola Barang </a>
+            <a class="nav-link" href="<?php echo base_url('/c_barang/view_barang');?>"><i class="fa fa-square"></i> Kelola Barang </a>
           </li>
           <li class="divider"></li>
         </ul>
@@ -68,7 +68,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
         <li class="breadcrumb-item"><a href="#">Vendor</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item active">Tambah Barang</li>
         <!-- Breadcrumb Menu-->
       </ol>  
       <div class="col-md-12">
@@ -82,7 +82,7 @@
                 <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
                 <div class="panel-body">
                   <div class="form-horizontal">
-                    <form action="<?php echo base_url(). 'c_barang/add_barang'; ?>" method="post">
+                    <form action="<?php echo base_url(). 'c_barang/add_barang'; ?>" enctype="multipart/form-data" method="post">
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
@@ -98,21 +98,25 @@
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="control-label">Jenis</label>
-                            <div>
-                              <input class="form-control" type="text" name="jenis" value="" required>
-                            </div>
+                            <label for="sel1" >Jenis</label>
+                            <select name="jenis" class="form-control" id="sel1">
+                            <option value="peralatan kantor">Peralatan kantor</option>
+                            <option value="peralatan laboratorium">Peralatan Laboratorium</option>
+                            <option value="Meubelair / furniture">Meubelair / furniture</option>
+                            <option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>
+                            <option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>
+                            </select>
                           </div>
                           <div class="form-group">
                             <label class="control-label">Gambar</label>
                             <div>
-                               <input type="file" class="form-control" placeholder="choose file" name="akte_pendiri"  value="akte " required>
+                               <input type="file" class="form-control" placeholder="choose file" name="gambar" value="barang" required>
                             </div>
                           </div>                        
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                              <a href="" class="btn btn-primary" onclick="return confirm('Apakah anda yakin ingin menambah data?')"> <i class="fa fa-plus">Tambah</i></a>
-                              <button class="btn btn-danger">Cancel</button>
+                              <button class="btn-primary"><i class="fa fa-plus">Tambah</i></button>      
+                              <button class="btn-danger">Batal</button>                                                    
                             </div>
                           </div>
                         </div>                      

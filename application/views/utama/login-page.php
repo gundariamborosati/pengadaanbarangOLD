@@ -38,7 +38,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-user"></i></span>
                 </div>
-                <input type="text" class="form-control" placeholder="Username" name="username">
+                <input type="text" class="form-control" placeholder="Username" name="username" value="<?= set_value('username')?>">
               </div>
               <div class="input-group mb-4">
                 <div class="input-group-prepend">
