@@ -83,53 +83,52 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
         <li class="breadcrumb-item"><a href="#">Logistik</a></li>
-        <li class="breadcrumb-item active">Kelola User</li>
+        <li class="breadcrumb-item active">Dashboard</li>
         <!-- Breadcrumb Menu-->
       </ol>
       <!-- /.conainer-fluid -->
       <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
-            <h3>  Kelola Vendor </h3>
+            <h3>  Progress Pengadaan </h3>
           </div>
           <div class="card-body">
-              <table id="dataVendor" class="table ">
+              <table id="dataUser" class="table ">
                 <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Nama Perusahaan</th>
-                    <th>Username</th>
-                    <th> Action </th>
+                    <th>no pesanan</th>
+                    <th>tanggal</th>
+                    <th>status</th>
+                    <th> kendala </th>
                   </tr>
                 </thead>
-                <tbody>
-                  <?php
+                <tbody> <!--   <?php
                   $vendor_user = json_decode(json_encode($vendor), true);
                   $no = 0;
                   foreach($vendor_user as $user):
                   $no++;
                   ?>
-                  
-                  <tr>
+                   -->
+                <!--   <tr>
                     <td><?php  echo $no; ?></td>
                     <td><?php  echo $user['nama_perusahaan']; ?></td>
                     <td><?php echo $user['username'];?></td>                    
                      <td>  
                        <a href="<?php echo base_url('/c_vendor/detail_user/'.$user['username']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
                         <a href="<?php echo base_url('/c_vendor/edit_user/'.$user['username']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
-                        <a href="<?php echo base_url('/c_vendor/delete_user/'.$user['username']);?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"> <i class="fa fa-trash"> </i> Delete</a>
+                        <a href="#" class="btn btn-warning"> <i class="fa fa-trash"> </i> Delete</a>
                     </td>
                   </tr>
                   <?php
                   endforeach;
-                  ?>
+                  ?> -->
                 </tbody>
               </table>
             </div>
           </div>
       </div>
 
-      <div class="container-fluid">
+     <!--  <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
             <h3>  Kelola Customer </h3>
@@ -162,14 +161,14 @@
                     <td>  
                         <a href="<?php echo base_url('/c_customer/detail_user/'.$user['username']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
                         <a href="<?php echo base_url('/c_customer/edit_user/'.$user['username']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
-                        <a href="<?php echo base_url('/c_customer/delete_user/'.$user['username']);?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"> <i class="fa fa-trash"> </i> Delete</a>
+                        <a href="#" class="btn btn-warning"> <i class="fa fa-trash"> </i> Delete</a>
                     </td>
                   </tr>
                   <?php
                   endforeach;
                   ?>
                 </tbody>
-              </table>
+              </table> -->
               
             </div>
     </div>

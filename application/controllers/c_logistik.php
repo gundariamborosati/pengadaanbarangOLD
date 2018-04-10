@@ -47,6 +47,7 @@ class c_logistik extends CI_Controller {
 		//print_r($getDirektur->result());
 		//print_r($getLogistik->result());
 	}
+	
 
 	public function keluar()
 	{
