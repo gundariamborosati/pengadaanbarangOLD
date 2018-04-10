@@ -7,15 +7,23 @@ class m_barang extends CI_Model {
         parent::__construct();
     }
 	
+	function getAllBarang(){
+		$hasil = $this->db->get('barang');
+		if($hasil->num_rows() > 0){
+			return $hasil->result();
+		} else {
+			return array();
+		}
+	}
+
 	function insert_barang($data){
-		$this->db->insert('barang',$data);
-		return $data;
+		$query = $this->db->insert('barang',$data);
+		return $query;
 	}
 
-	function getBarang(){
-		return $this->db->get('barang');
+	function getBarang($where,$table){
+		return $this->db->get_where($table,$where);
 	}
-
 	function delete_barang($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);

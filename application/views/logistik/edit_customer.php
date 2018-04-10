@@ -135,9 +135,13 @@
                           <div class="form-group">
                             <label class="control-label">Status</label>
                             <div>
+                            <?php if ($detail->status=='tidak aktif') {?>
                               <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status=='aktif'?'checked':'';?>" value="aktif"> Aktif</input></label>
-                              <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status=='tidak aktif'?'checked':'';?>"
-                              value="tidak aktif">Tidak Aktif</input></label>                            
+                              <label class="radio-inline"><input type="radio" name="status"  value="tidak aktif">Tidak Aktif</input></label>
+                            <?php } else { ?>
+                              <label class="radio-inline"><input type="radio" name="status"  value="aktif">Aktif</input></label>
+                              <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status=='aktif'?'checked':'';?>" value="tidak aktif"> Tidak Aktif</input></label>                    
+                            <?php } ?>                                                    
                             </div>
                           </div>
 
@@ -152,8 +156,6 @@
                         <div class="col-md-6">
                           <h2>Akte Perusahaan</h2>
                           <div class="col-md-6">
-
-                          <!--  -->
                             <img style="width:200%" class="img-responsive" src="<?php echo base_url('npwp/'.$detail->npwp)?>" alt="">
                           </div>
                         </div>

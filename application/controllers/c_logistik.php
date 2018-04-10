@@ -9,11 +9,14 @@ class c_logistik extends CI_Controller {
 		$this->load->model('m_direktur');
 		$this->load->model('m_customer');
 		$this->load->model('m_vendor');
+		$this->load->model('m_barang');
 	}
 
 	public function home(){
+		$data['barang'] = $this->m_barang->getAllBarang('barang');
 		$this->load->view('template/header');
-		$this->load->view('logistik/dashboard');
+		$this->load->view('logistik/view_barang',$data);
+		// $this->load->view('logistik/dashboard');
 		$this->load->view('template/footer');
 	}
 

@@ -43,8 +43,7 @@ class c_vendor extends CI_Controller {
 			'username'=>$username
 			);
 		$this->m_vendor->updateProfile($where,$data,'vendor');
-		print_r($status);
-		print_r($username);
+		$this->detail_user();
 	}
 
 	function delete_user($username){
@@ -102,7 +101,7 @@ class c_vendor extends CI_Controller {
 	        	<?php
 	        	$this->load->view('vendor/registrasiVendor');
 			}else{				
-					$config['upload_path']   = './akte/'; 
+					$config['upload_path']   = 'asset/img/akte/'; 
 					$config['allowed_types'] = 'gif|jpg|png'; 
 					$config['max_size']      = 10000; 
 					$config['max_width']     = 1024; 

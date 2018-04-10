@@ -53,7 +53,7 @@
 							<div class="6u 12u$(medium)">
 								<header class="major">
 									<h2>Maecenas luctus lectus</h2>
-									<p>Perspiciatis doloremque recusandae dolor</p>
+									<p>Perspiciatis doloremque recusandae dolor</p>								
 								</header>
 							</div>
 							<div class="6u$ 12u$(medium)">
@@ -96,49 +96,20 @@
 				<section id="three" class="wrapper style1">
 					<div class="container">
 						<header class="major special">
-							<h2>Mauris vulputate dolor</h2>
-							<p>Feugiat sed lorem ipsum magna</p>
+							<h2>Klien</h2>				
 						</header>
 						<div class="feature-grid">
 							<div class="feature">
-								<div class="image rounded"><img src="asset/img/pic04.jpg" alt="" /></div>
-								<div class="content">
-									<header>
-										<h4>Lorem ipsum</h4>
-										<p>Lorem ipsum dolor sit</p>
-									</header>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore esse tenetur accusantium porro omnis, unde mollitia totam sit nesciunt consectetur.</p>
-								</div>
+								<div class="image rounded"><img src="asset/img/telu.jpg" alt="" /></div>								
 							</div>
 							<div class="feature">
-								<div class="image rounded"><img src="asset/img/pic05.jpg" alt="" /></div>
-								<div class="content">
-									<header>
-										<h4>Recusandae nemo</h4>
-										<p>Ratione maiores a, commodi</p>
-									</header>
-									<p>Animi mollitia optio culpa expedita. Dolorem alias minima culpa repellat. Dolores, fuga maiores ut obcaecati blanditiis, at aperiam doloremque.</p>
-								</div>
+								<div class="image rounded"><img src="asset/img/zora.png" alt="" /></div>								
 							</div>
 							<div class="feature">
-								<div class="image rounded"><img src="asset/img/pic06.jpg" alt="" /></div>
-								<div class="content">
-									<header>
-										<h4>Laudantium fugit</h4>
-										<p>Possimus ex reprehenderit eaque</p>
-									</header>
-									<p>Maiores iusto inventore fugit architecto est iste expedita commodi sed, quasi feugiat nam neque mollitia vitae omnis, ea natus facere.</p>
-								</div>
+								<div class="image rounded"><img src="asset/img/sandhy.png" alt="" /></div>								
 							</div>
 							<div class="feature">
-								<div class="image rounded"><img src="asset/img/pic07.jpg" alt="" /></div>
-								<div class="content">
-									<header>
-										<h4>Porro aliquam</h4>
-										<p>Quaerat, excepturi eveniet laboriosam</p>
-									</header>
-									<p>Vitae earum unde, autem labore voluptas ex, iste dolorum inventore natus consequatur iure similique obcaecati aut corporis hic in! Porro sed.</p>
-								</div>
+								<div class="image rounded"><img src="asset/img/tschool.png" alt="" /></div>								
 							</div>
 						</div>
 					</div>

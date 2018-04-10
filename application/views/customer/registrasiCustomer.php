@@ -39,13 +39,13 @@
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-building"></i></span>
               </div>
-              <input name="nama_perusahaan" type="text" class="form-control" placeholder="Nama Perusahaan" value="<?= set_value('nama_perusahaan')?>" required>
+              <input name="namaperusahaan" type="text" class="form-control" placeholder="Nama Perusahaan" value="<?= set_value('namaperusahaan')?>" required>
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
               </div>
-              <input name="alamat_perusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan" value="<?= set_value('alamat_perusahaan')?>" required>
+              <input name="alamatperusahaan" type="text" class="form-control" placeholder="Alamat Perusahaan" value="<?= set_value('alamatperusahaan')?>" required>
             </div>
 
             <div class="input-group mb-3">
