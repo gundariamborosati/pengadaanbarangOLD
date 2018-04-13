@@ -68,14 +68,13 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
         <li class="breadcrumb-item"><a href="#">Vendor</a></li>
-        <li class="breadcrumb-item active">Kelola Profil</li>
+        <li class="breadcrumb-item active">Tambah Barang</li>
         <!-- Breadcrumb Menu-->
-      </ol>
-      <?php foreach($profile as $user): ?>
+      </ol>  
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h5> <i class="fa fa-check"></i> Profil Perusahaan</h5>
+            <h5> Update Password </h5>
           </div>
           <div class="card-body">
             <div class="row">
@@ -83,65 +82,36 @@
                 <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
                 <div class="panel-body">
                   <div class="form-horizontal">
-                    <form action="<?php echo base_url(). 'c_vendor/updateProfile'; ?>" method="post">
+                    <form action="<?php echo base_url(). 'c_vendor/update_password'; ?>" method="post">
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label class="control-label">Nama Perusahaan</label>
+                            <label class="control-label">Password Lama</label>
                             <div class="">
-                              <input class="form-control" type="text" name="nama_perusahaan" value="<?php echo $user['nama_perusahaan']; ?>" >
+                              <input class="form-control" type="password" name="curr_password" value="" >  
+                               <em class="help-text"> *Masukan password lama untuk konfirmasi perubahan</em>                            
                             </div>
                           </div>
                           <div class="form-group">
-                            <label class="control-label">Alamat Perusahaan</label>
-                            <div>
-                              <input class="form-control" type="text" name="alamat_perusahaan" value="<?php echo $user['alamat_perusahaan']; ?>">
+                            <label class="control-label">Password Baru</label>
+                            <div class="">
+                              <input class="form-control" type="password" name="new_password" value="" >                             
                             </div>
-                          </div>
+                          </div>  
                           <div class="form-group">
-                            <label class="control-label">Email</label>
-                            <div>
-                              <input class="form-control" type="text" name="email" value="<?php echo $user['email']; ?>" >
+                            <label class="control-label">Konfirmasi Password Baru </label>
+                            <div class="">
+                              <input class="form-control" type="password" name="conf_password" value="" >                             
                             </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label">Contact</label>
-                            <div>
-                              <input class="form-control" type="text" name="contact" value="<?php echo $user['contact']; ?>" >
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label">Username</label>
-                            <div>
-                              <input class="form-control" type="text" name="username" placeholder="<?php echo $user['username']; ?>" disabled>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label">Status</label>
-                            <div>
-                              <input class="form-control" type="text" name="username" placeholder="<?php echo $user['status']; ?>" disabled>
-                            </div>
-                          </div>
-
+                          </div>                                                                
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                              <button class="btn btn-primary"> <i class="fa fa-check">Update</i></button>
-                              <a href="<?php echo base_url(). 'c_vendor/form_update'; ?>" class="btn btn-success" ><i class="fa fa-pencil">Ubah Password</i></a>
-                              <button type="button"  class="btn btn-success"><i class="fa fa-pencil">Ubah Password</i></button>
+                              <button type="submit" class="btn-primary" value="submit">Simpan Perubahan</button>     
+                              <button type="button" onclick="window.history.go(-1)" class="btn-danger" >Cancel</i></button>                                                 
                             </div>
                           </div>
-                        </div>
-                        <div class="col-md-6">
-                          <h2>Akte Perusahaan</h2>
-                          <div class="col-md-6">
-
-                          <!--  -->
-                            <img style="width:200%" class="img-responsive" src="<?php echo base_url('asset/img/akte/'.$user['akte_pendiri'])?>" alt="">
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <?php endforeach; ?>
+                        </div>                      
+                      </div>                      
                     </form>
                     </div>  <!-- end form-horizontal -->
                     </div> <!-- end panel-body -->

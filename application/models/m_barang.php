@@ -6,7 +6,8 @@ class m_barang extends CI_Model {
 	function __construct() {
         parent::__construct();
     }
-	
+
+	//untuk logistik 
 	function getAllBarang(){
 		$hasil = $this->db->get('barang');
 		if($hasil->num_rows() > 0){
@@ -21,8 +22,15 @@ class m_barang extends CI_Model {
 		return $query;
 	}
 
+	//untuk vendor
 	function getBarang($where,$table){
 		return $this->db->get_where($table,$where);
+	}
+
+	function cek_id($idbarang){
+		$this->db->select('idbarang');
+		$this->db->from('barang');
+		$this->db->order_by('idbarang', 'DESC');
 	}
 	function delete_barang($where,$table){
 		$this->db->where($where);

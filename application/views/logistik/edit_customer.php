@@ -148,7 +148,7 @@
                            <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                              <a href=""><button class="btn btn-primary"> <i class="fa fa-pencil">Edit</i></button></a>
-                              <a href=""><button class="btn btn-danger"> <i class="fa fa-pencil">Cancel</i></button></a>
+                              <a href="<?php echo base_url('c_logistik/kelola_user')?>" class="btn btn-danger"> Cancel </a>
                             </div>
                           </div>
 

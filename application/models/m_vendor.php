@@ -45,4 +45,22 @@ class m_vendor extends CI_Model {
 	function getAllVendor(){
 		return $this->db->get('vendor');
 	}
+
+	function getCurrentPass($username){
+		$query = $this->db->where(['username'=>$username])
+							->get('vendor');
+		if($query->num_rows() > 0) {
+			return $query->row();
+		}
+	}
+
+	function update_password($new_password,$uname){
+		$data = array (
+			'password' => md5($new_password)
+		);
+
+		return $this->db->where('username',$uname)
+		->update('vendor',$data);
+	}
+
 }

@@ -85,12 +85,12 @@
                     <form action="<?php echo base_url(). 'c_barang/add_barang'; ?>" enctype="multipart/form-data" method="post">
                       <div class="row">
                         <div class="col-md-6">
-                          <div class="form-group">
+                          <!-- <div class="form-group">
                             <label class="control-label">Id Barang</label>
                             <div class="">
                               <input class="form-control" type="text" name="idbarang" value="" required>
                             </div>
-                          </div>
+                          </div> -->
                           <div class="form-group">
                             <label class="control-label">Nama Barang</label>
                             <div class="">
@@ -107,16 +107,16 @@
                             <option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>
                             </select>
                           </div>
-                          <div class="form-group">
+                          <!-- <div class="form-group">
                             <label class="control-label">Gambar</label>
                             <div>
                                <input type="file" class="form-control" placeholder="choose file" name="gambar" value="barang" required>
                             </div>
-                          </div>                        
+                          </div>  -->                       
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                              <button class="btn-primary"><i class="fa fa-plus">Tambah</i></button>      
-                              <button class="btn-danger">Batal</button>                                                    
+                              <button type="submit" class="btn-primary"><i class="fa fa-plus">Tambah</i></button>     
+                              <button type="button" class="btn-danger" >Cancel</i></button>                                                 
                             </div>
                           </div>
                         </div>                      
