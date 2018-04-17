@@ -29,6 +29,14 @@ class c_progress extends CI_Controller {
 		$this->load->view('template/footer'); 
 	}
 
+	 // function cetakpdf(){
+  //     $this->load->model("m_progress");
+  //        $data['progress'] = $this->m_progress->cetak()->result();
+        
+  //       $this->load->view('direktur/vcetaklaporan',$data);
+  //    }
+
+	
 	 function input(){
          $this->load->view('template/header');
 		$this->load->view('logistik/input_progress');
@@ -52,8 +60,49 @@ class c_progress extends CI_Controller {
         );
         $this->m_progress->inputProgress($data, 'progress_pengadaan');
         redirect('c_progress/viewProgress');   
+       }
+
+	
+
+       public function edit($no_pesanan){
+		$where = array('no_pesanan' => $no_pesanan);
+		$data['progress'] = $this->m_progress->edit_data($where,'progress_pengadaan')->result();
+		$this->load->view('template/header');
+		$this->load->view('logistik/edit_progress',$data);
+		$this->load->view('template/footer');
+	}
+
+	public function updateProgress($no_pesanan){	
+		$status=$this->input->post('status');
+		$kendala=$this->input->post('kendala');
+
+		$data=array(
+			'status' => $status,
+			'kendala'=>$kendala
+			);
+		$where=array(
+			'no_pesanan' => $no_pesanan
+			);
+		$this->m_progress->update_progress($where,$data,'progress_pengadaan');
+	
+		     redirect('c_progress/viewProgress');
+	}
+
+	function hapusProgress($no_pesanan){
+        $where=array('no_pesanan' => $no_pesanan);
+        $this->m_progress->delete($where,'progress_pengadaan');
+        redirect('c_progress/viewProgress');
+        }
+
+function cetakpdf() {
+        $query['data1'] = $this->m_progress->ToExcelAll();
+        $this->load->view('laporanpembelian/vcetaklaporan',$query);
+
+    }
+
+
+
        
-}
 
 	
  public function keluar()

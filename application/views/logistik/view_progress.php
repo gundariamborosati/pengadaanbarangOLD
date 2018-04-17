@@ -92,8 +92,8 @@
           <div class="card-header">
             <h3>  Progress Pengadaan </h3>
           </div>
-    <div class="pull-left">
-    <a href="<?php echo base_url('c_progress/input')?>" class="btn btn-primary pull-left"><i class="fa fa-plus"> </i> tambah data </a>
+    <div class="pull-center">
+    <a href="<?php echo base_url('c_progress/input')?>" class="btn btn-primary pull-center"><i class="fa fa-plus"> </i> tambah data </a>
     </div>
           <div class="card-body">
                 <table id="dataProgress" class="table ">
@@ -105,14 +105,16 @@
                     <th>nama vendor</th>
                     <th>status</th>
                     <th>kendala</th>
+                    <th>aksi</th>
+
                     
                   </tr>
                 </thead>
                 <tbody>
                   <?php              
-                  // $no = 0;
+                  
                   foreach($progress as $prog):
-                  // $no++;
+                
                   ?>
                   
                   <tr>
@@ -122,8 +124,40 @@
                     <td><?php echo $prog->nama_customer ;?></td>  
                    <td><?php echo $prog->nama_vendor ;?></td>                                   
                     <td><?php echo $prog->status ;?></td>                                     
-                    <td><?php echo $prog->kendala ;?></td> 
-                
+           
+             <td
+             <a href="#view<?php echo $prog->no_pesanan ;?>" data-toggle="modal"> <button type="button" class="btn btn-primary"><i class="fa fa-external-link"> </i> kendala<span class="" aria-hidden="true"></span></button></a></td>
+             <!-- Modal Tambah -->
+  <div   role="dialog" tabindex="" id="view<?php echo $prog->no_pesanan; ?>" class="modal fade">
+      <div class="modal-dialog">
+      
+          <div class="modal-content">
+              <div class="modal-header">
+              <h4 class="modal-title">kendala</h4> 
+                  <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>         
+              </div>
+
+
+                <div class="modal-body">
+               <?php echo $prog->kendala ;?></td>
+              
+                       </div> 
+                        <div class="form-group">
+
+                            
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-warning" data-dismiss="modal"> Back</button>
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- END Modal Tambah -->
+             <td>
+            <center><a href="<?=base_url()?>c_progress/hapusProgress/<?=$prog->no_pesanan?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><i class="fa fa-trash"></i></a> 
+            <a href="<?=base_url()?>c_progress/edit/<?=$prog->no_pesanan?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center>
                   </tr>
                   <?php
                   endforeach;

@@ -88,6 +88,7 @@ class c_barang extends CI_Controller {
 					'jenis' => $this->input->post('jenis'),
 					'username' => $this->session->userdata('username')
 				);
+				
 				$this->m_barang->insert_barang($data);
 				$this->load->view('template/header');	
 				$this->load->view('vendor/add_barang');	 

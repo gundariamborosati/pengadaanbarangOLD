@@ -35,19 +35,10 @@ class c_direktur extends CI_Controller {
 
 	}
 
-	function insert_user(){
-		$username=$this->input->post('username');
-		$password=$this->input->post('password');
+	
 
-		$data=array(
-			
-            'username'=>$username,
-            'password'=>$password
-			);
 
-		$this->m_user->insert_user($data,'user');
-		redirect('c_user/view_user');
-	} 
+	
 	 public function keluar()
 	{
 		$this->session->sess_destroy();

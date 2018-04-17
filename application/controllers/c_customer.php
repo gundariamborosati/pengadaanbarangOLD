@@ -57,6 +57,7 @@ class c_customer extends CI_Controller {
 		redirect('c_logistik/kelola_user');
 	}
 
+
 	public function registrasicustomer(){
 		$this->form_validation->set_rules('email', 'Email','required|valid_email');
 		$this->form_validation->set_rules('contact', 'Contact','required|numeric');
@@ -71,13 +72,13 @@ class c_customer extends CI_Controller {
         	$this->load->view('vendor/registrasiCustomer');
 		}else{
 
-					$config['upload_path']   = './npwp/'; 
+					$config['upload_path']   = 'asset/img/npwp/'; 
 					$config['allowed_types'] = 'gif|jpg|png'; 
 					$config['max_size']      = 10000; 
 					$config['max_width']     = 1024; 
 					$config['max_height']    = 768;
 					$this->load->library('upload',$config);  				
-				if ( ! $this->upload->do_upload('asset/npwp')) {
+				if ( ! $this->upload->do_upload('npwp')) {
 		        	$error = array('error' => $this->upload->display_errors()); 		        	
 		        	?>
                      <script type=text/javascript>alert("File tidak sesuai");</script>

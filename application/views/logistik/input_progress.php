@@ -122,7 +122,7 @@
                                         <?php echo form_open('c_progress/inputProgress'); ?>
                                             <div class="form-group">
                                                 <label>No Pesanan</label>
-                                                <input name="no_pesanan" class="form-control" >
+                                                <input name="no_pesanan" class="form-control" required>
                                                 
                                             </div> 
                                             
@@ -147,9 +147,8 @@
                                                 
                                             </div>
                                             <div class="form-group">
-                                                <label>kendala</label>
-                                                 <textarea name="kendala" class="form-control" rows="3"></textarea>
-                                               
+                                                <label>kendala</label><br>
+                                               <textarea name="kendala" class="form-control"  rows="7" cols="80"></textarea>
                                             </div>
                                             <button type="submit" name="simpan" value="submit" class="btn btn-primary">Submit</button>
                                            </form>
