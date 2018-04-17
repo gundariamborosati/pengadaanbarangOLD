@@ -45,5 +45,22 @@ class m_barang extends CI_Model {
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
+
+	function getIdBarang(){
+		$this->db->select('RIGHT(barang.idbarang,4) as id', FALSE);
+		$this->db->order_by('idbarang','DESC');    
+		$this->db->limit(1);    
+		  $query = $this->db->get('barang');    
+		  if($query->num_rows() <> 0){      		  
+		   $data = $query->row();      
+		   $kode = intval($data->id) + 1;    
+		  }
+		  else {      		  
+		   $kode = 1;    
+		  }
+		  $kodemax = str_pad($kode, 4, "0", STR_PAD_LEFT);
+		  $kodejadi = "BARANG-".$kodemax;    
+		  return $kodejadi;
+	}
 	
 }

@@ -107,12 +107,12 @@
                             <option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>
                             </select>
                           </div>
-                          <!-- <div class="form-group">
+                          <div class="form-group">
                             <label class="control-label">Gambar</label>
                             <div>
                                <input type="file" class="form-control" placeholder="choose file" name="gambar" value="barang" required>
                             </div>
-                          </div>  -->                       
+                          </div>                        
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                               <button type="submit" class="btn-primary"><i class="fa fa-plus">Tambah</i></button>     
