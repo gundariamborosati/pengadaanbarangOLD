@@ -63,6 +63,7 @@ class c_barang extends CI_Controller {
 	}
 
 	public function add_barang(){
+		$id = $this->m_barang->getIdBarang();
 		$this->form_validation->set_rules('namabarang', 'Nama Barang','required|alpha_numeric_spaces');
 		if ($this->form_validation->run() == TRUE){	
 			$config['upload_path']   = 'asset/img/barang/'; 
@@ -73,7 +74,7 @@ class c_barang extends CI_Controller {
 			$this->load->library('upload',$config); 
 			if(! $this->upload->do_upload('gambar')){
 				$error = array('error' => $this->upload->display_errors()); 
-		        ?>
+		 		?>
                      <script type=text/javascript>alert("File tidak sesuai format");</script>
         		<?php
         		$this->load->view('template/header');		
@@ -82,7 +83,7 @@ class c_barang extends CI_Controller {
 			}else{
 				$upload=$this->upload->data();			      
 				$data = array(
-					'idbarang' => $this->input->post('idbarang'),
+					'idbarang' => $id,
 					'namabarang' => $this->input->post('namabarang'),
 					'gambar' => $upload['file_name'],
 					'jenis' => $this->input->post('jenis'),

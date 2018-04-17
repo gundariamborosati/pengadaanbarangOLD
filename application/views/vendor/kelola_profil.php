@@ -126,7 +126,7 @@
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                               <button class="btn btn-primary"> <i class="fa fa-check">Update</i></button>
-                              <button class="btn btn-success"> <i class="fa fa-pencil">Change Password</i></button>
+                              <a href="<?php echo base_url(). 'c_vendor/form_update'; ?>" class="btn btn-success" ><i class="fa fa-pencil">Ubah Password</i></a>                              
                             </div>
                           </div>
                         </div>

@@ -74,7 +74,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h5> <i class="fa fa-plus"></i> Tambah Barang</h5>
+            <h5> Update Password </h5>
           </div>
           <div class="card-body">
             <div class="row">
@@ -82,41 +82,32 @@
                 <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
                 <div class="panel-body">
                   <div class="form-horizontal">
-                    <form action="<?php echo base_url(). 'c_barang/add_barang'; ?>" enctype="multipart/form-data" method="post">
+                    <form action="<?php echo base_url(). 'c_vendor/update_password'; ?>" method="post">
                       <div class="row">
                         <div class="col-md-6">
-                          <!-- <div class="form-group">
-                            <label class="control-label">Id Barang</label>
-                            <div class="">
-                              <input class="form-control" type="text" name="idbarang" value="" required>
-                            </div>
-                          </div> -->
                           <div class="form-group">
-                            <label class="control-label">Nama Barang</label>
+                            <label class="control-label">Password Lama</label>
                             <div class="">
-                              <input class="form-control" type="text" name="namabarang" value="" required>
+                              <input class="form-control" type="password" name="curr_password" value="" >  
+                               <em class="help-text"> *Masukan password lama untuk konfirmasi perubahan</em>                            
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="sel1" >Jenis</label>
-                            <select name="jenis" class="form-control" id="sel1">
-                            <option value="peralatan kantor">Peralatan kantor</option>
-                            <option value="peralatan laboratorium">Peralatan Laboratorium</option>
-                            <option value="Meubelair / furniture">Meubelair / furniture</option>
-                            <option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>
-                            <option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label">Gambar</label>
-                            <div>
-                               <input type="file" class="form-control" placeholder="choose file" name="gambar" value="barang" required>
+                            <label class="control-label">Password Baru</label>
+                            <div class="">
+                              <input class="form-control" type="password" name="new_password" value="" >                             
                             </div>
-                          </div>                        
+                          </div>  
+                          <div class="form-group">
+                            <label class="control-label">Konfirmasi Password Baru </label>
+                            <div class="">
+                              <input class="form-control" type="password" name="conf_password" value="" >                             
+                            </div>
+                          </div>                                                                
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                              <button type="submit" class="btn-primary"><i class="fa fa-plus">Tambah</i></button>     
-                              <button type="button" class="btn-danger" >Cancel</i></button>                                                 
+                              <button type="submit" class="btn-primary" value="submit">Simpan Perubahan</button>     
+                              <button type="button" onclick="window.history.go(-1)" class="btn-danger" >Cancel</i></button>                                                 
                             </div>
                           </div>
                         </div>                      

@@ -154,14 +154,11 @@ function updatePassword(){
 
         $this->form_validation->set_rules('pw_baru','password baru','required');
         $this->form_validation->set_rules('cpw_baru','password kedua','required|matches[pw_baru]');
-
         $this->form_validation->set_error_delimiters('<p class="alert">','</p>');
-
         if( $this->form_validation->run() == FALSE ){
             $this->load->view('customer/kelola_profile');
-   } else {
-            $post = $this->input->post();
-            
+  		} else {
+            $post = $this->input->post();            
             $data = array(
                 'password' => md5($post['pw_baru']),
             );

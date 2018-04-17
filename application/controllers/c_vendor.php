@@ -55,7 +55,7 @@ class c_vendor extends CI_Controller {
 	}
 
 	public function viewProfile(){
-		$data ['profile'] = $this->m_vendor->profileVendor($this->session->userdata('username'));
+		$data ['profile'] = $this->m_vendor->profileVendor($this->session->userdata('username'));	
 		$this->load->view('template/header');
 		$this->load->view('vendor/kelola_profil',$data);
 		$this->load->view('template/footer');		
@@ -81,10 +81,64 @@ class c_vendor extends CI_Controller {
 			$where=array(
 			     'username'=>$this->session->userdata('username')
 			  );  
-			$this->m_vendor->updateProfile($where,$data,'vendor');  	
+			$this->m_vendor->updateProfile($where,$data,'vendor');  			
 			$this->viewProfile();
 		} else {
 			$this->viewProfile();
+		}
+	}
+
+	public function form_update(){
+		$this->load->view('template/header');
+		$this->load->view('vendor/update_pass');
+		$this->load->view('template/footer');
+	}
+
+	public function update_password(){
+		$this->form_validation->set_rules('curr_password', 'current password','required|alpha_numeric');
+		$this->form_validation->set_rules('new_password', 'new password','required|alpha_numeric');
+		$this->form_validation->set_rules('conf_password', 'confirm password','required|alpha_numeric');
+		if($this->form_validation->run()){
+			$curr_password = $this->input->post('curr_password');
+			$new_password = $this->input->post('new_password');
+			$conf_password = $this->input->post('conf_password');			
+			$uname = $this->session->userdata('username');
+			$data= $this->m_vendor->getCurrentpass($uname);					
+				if($data->password == md5($curr_password)) {			
+					if($new_password == $conf_password ){
+						if($this->m_vendor->update_password($new_password, $uname)){						
+							?>
+	                    		 <script type=text/javascript>alert("update sukses!");</script>
+	        				<?php
+		        			$this->load->view('template/header');
+							$this->load->view('vendor/kelola_profil');
+							$this->load->view('template/footer');
+						}else{						
+							?>
+	                    		 <script type=text/javascript>alert("Gagal update password!");</script>
+	        				<?php
+	        				$this->load->view('template/header');
+							$this->load->view('vendor/update_pass');
+							$this->load->view('template/footer');
+						}
+					}else{
+						?>
+	                     <script type=text/javascript>alert("password baru dan confirm password tidak cocok!");</script>
+	        			<?php
+	        			$this->load->view('template/header');
+						$this->load->view('vendor/update_pass');
+						$this->load->view('template/footer');				
+					}
+				}else{
+					?>
+                     <script type=text/javascript>alert("password lama yang anda masukan salah!");</script>
+        			<?php
+        			$this->load->view('template/header');
+					$this->load->view('vendor/update_pass');
+					$this->load->view('template/footer');
+				}				
+		}else{
+			$this->load->view('vendor/update_pass');
 		}
 	}
 
