@@ -51,7 +51,7 @@ class c_customer extends CI_Controller {
 		$where=array(
             'username'=>$username
 		);
-		$this->m_vendor->delete_user($where,'customer');
+		$this->m_customer->delete_user($where,'customer');
 		redirect('c_logistik/kelola_user');
 	}
   	

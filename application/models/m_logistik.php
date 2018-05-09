@@ -27,4 +27,22 @@ class m_logistik extends CI_Model {
 		return $this->db->get('logistik');
 	}
 
+	function getCurrentPass($username){
+		$query = $this->db->where(['username'=>$username])
+							->get('logistik');
+		if($query->num_rows() > 0) {
+			return $query->row();
+		}
+	}
+
+	function update_password($new_password,$uname){
+		$data = array (
+			'password' => $new_password
+		);
+
+		return $this->db->where('username',$uname)
+		->update('logistik',$data);
+	}
+
+
 }

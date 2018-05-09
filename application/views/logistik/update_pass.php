@@ -43,21 +43,6 @@
           <li class="nav-item">
             <a class="nav-link" href=""><i class="fa fa-home"></i> Home</a>
           </li>
-           <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('/c_sph/input');?>"><i class="fa fa-shopping-cart"></i> templete </a>
-              </li>
-              <li class="nav-item nav-dropdown"> 
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kirim Surat </a>          
-            <ul class="nav-dropdown-items">
-              <li class="nav-item">
-                 <a class="nav-link" href=" <?php echo base_url('/c_suratkeluarcust/add');?>"><i class="fa fa-comment"></i> customer </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-download"></i>vendor</a>
-              </li> 
-            </ul>
-          </li>  
-          </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>Dokumen</a>
             <ul class="nav-dropdown-items">
@@ -76,15 +61,15 @@
                 <a class="nav-link" href="<?php echo base_url('/c_logistik/kelola_user');?>"><i class="fa fa-user"></i> Kelola user</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('/c_progress/viewProgress');?>"><i class="fa fa-tasks"></i> Kelola progress pengadaan</a>
+                <a class="nav-link" href="#"><i class="fa fa-tasks"></i> Kelola progress pengadaan</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('/c_statusPesanan/input');?>"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
+                <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('/c_ulasan/viewUlasanlog');?>"><i class="fa fa-comment"></i>View Ulasan</a>
+            <a class="nav-link" href=" <?php echo base_url('');?> "><i class="fa fa-comment"></i>View Ulasan</a>
           </li>
           <li class="divider"></li>
         </ul>
@@ -98,30 +83,58 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
         <li class="breadcrumb-item"><a href="#">Logistik</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item active">Detail vendor</li>
         <!-- Breadcrumb Menu-->
       </ol>
-
-      <table>
-        <H1>Data Barang</H1>
-        <body>
-          <div class="row">
-            <?php foreach($barang as $detail): ?>
-              <div class="col-sm-3 col-md-3">
-                <div class="thumbnail">
-                 <!--  <img src="('asset/img/barang'.$detail->gambar)"> -->
-                  <img src="<?php echo base_url('asset/img/barang/').$detail->gambar; ?>" alt="menu" style="height: 200px; width: 200px;">
-                <div class="caption">
-                  <h8 style="min-height:60px;"> <?=$detail->namabarang?></h3>
-                  <p> <?=$detail->jenis ?> </p>
-                </div>
+      <!-- /.conainer-fluid -->
+   <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5> Update Password </h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-9">              
+                <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
+                <div class="panel-body">
+                  <div class="form-horizontal">
+                    <form action="<?php echo base_url(). 'c_logistik/update_password'; ?>" method="post">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="control-label">Password Lama</label>
+                            <div class="">
+                              <input class="form-control" type="password" name="curr_password" value="" >  
+                               <em class="help-text"> *Masukan password lama untuk konfirmasi perubahan</em>                            
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label">Password Baru</label>
+                            <div class="">
+                              <input class="form-control" type="password" name="new_password" value="" >                             
+                            </div>
+                          </div>  
+                          <div class="form-group">
+                            <label class="control-label">Konfirmasi Password Baru </label>
+                            <div class="">
+                              <input class="form-control" type="password" name="conf_password" value="" >                             
+                            </div>
+                          </div>                                                                
+                          <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                              <button type="submit" class="btn-primary" value="submit">Simpan Perubahan</button>     
+                              <button type="button" onclick="window.history.go(-1)" class="btn-danger" >Cancel</i></button>                                                 
+                            </div>
+                          </div>
+                        </div>                      
+                      </div>                      
+                    </form>
+                    </div>  <!-- end form-horizontal -->
+                    </div> <!-- end panel-body -->
+                  </div>
                 </div>
               </div>
-            <?php endforeach; ?>
+            </div>
           </div>
-        </body>
-      </table>
-
-      
 </main>
 </div>

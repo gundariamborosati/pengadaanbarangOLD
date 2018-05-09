@@ -116,9 +116,9 @@
                           </div>                        
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                              <button type="submit" class="btn-primary"><i class="fa fa-plus">Tambah</i></button>     
-                              <button type="button" class="btn-danger" >Cancel</i></button>                                                 
-                            </div>
+                              <button type="submit" class="btn-primary"><i class="fa fa-plus">Tambah</i></button>                              
+                              <a class="btn btn-danger" href="<?php echo base_url('c_barang/view_barang')?>"><i class="fa fa-close"></i> Batal</a>
+                              </div>
                           </div>
                         </div>                      
                       </div>                      

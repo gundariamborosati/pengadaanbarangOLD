@@ -91,11 +91,12 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h5> <i class="fa fa-check"></i> Detail Vendor</h5>
+            <h5> <i class="fa fa-check"></i>Detail Vendor</h5>
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-md-9">                             
+              <div class="col-md-9">
+                <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>        
                 <div class="panel-body">
                   <div class="form-horizontal">
                     <form action="<?php echo base_url(). 'c_vendor/update_user/'.$detail->username; ?>" method="post">
@@ -134,32 +135,32 @@
                           <div class="form-group">
                             <label class="control-label">Status</label>
                             <div>
-                            <?php if ($detail->status == 'aktif'){ ?>
-                               <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status='aktif'?'checked':'';?>" value="aktif"> Aktif</input></label>
-                               <label class="radio-inline"><input type="radio" name="status"  value="tidak aktif">Tidak Aktif</input></label>
+                            <?php if ($detail->status=='aktif') {?>
+                              <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status=='aktif'?'checked':'';?>" value="aktif"> Aktif</input></label>
+                              <label class="radio-inline"><input type="radio" name="status"  value="tidak aktif">Tidak Aktif</input></label>
                             <?php } else { ?>
-                              <label class="radio-inline"><input type="radio" name="status" value="aktif"> Aktif</input></label>
-                              <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status='tidak aktif'?'checked':'';?>" value="tidak aktif">Tidak Aktif</input></label>                            
+                              <label class="radio-inline"><input type="radio" name="status"  value="aktif">Aktif</input></label>
+                              <label class="radio-inline"><input type="radio" name="status" checked="<?= $detail->status=='aktif'?'checked':'';?>" value="tidak aktif"> Tidak Aktif</input></label>                    
+                            <?php } ?>                                                    
                             </div>
-                            <?php } ?>
                           </div>
 
                            <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                              <a href=""><button class="btn btn-primary"> <i class="fa fa-pencil">Edit</i></button></a>
-                             <a href="<?php echo base_url('c_logistik/kelola_user')?>" class="btn btn-danger"> Cancel </a>
+                              <a href="<?php echo base_url('c_logistik/kelola_user')?>" class="btn btn-danger"> Cancel </a>
                             </div>
                           </div>
 
                         </div>
                           <div class="col-md-6">
-                            <h2>Akte Perusahaan</h2>
+                            <h2>Akte Pendiri</h2>
                               <div class="col-md-6">
-                                  <img style="width:200%" class="img-responsive" src="<?php echo base_url('akte/'.$detail->akte_pendiri)?>" alt="">
-                              </div>
+                               <img style="width:200%" class="img-responsive" src="<?php echo base_url('asset/img/akte/'.$detail->akte_pendiri)?>" alt="">
+                               </div>
                           </div>
-                        </div>
-                        
+                         </div>
+                      
                       <?php endforeach; ?>
                     </form>
                     </div>  <!-- end form-horizontal -->
@@ -168,6 +169,7 @@
                 </div>
               </div>
             </div>
-          </div>  
-    </main>
+          </div>
+      
+</main>
 </div>

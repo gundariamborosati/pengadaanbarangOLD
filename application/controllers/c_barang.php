@@ -39,21 +39,58 @@ class c_barang extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function update_barang($idbarang){	
-		$namabarang=$this->input->post('namabarang');
-		$jenis=$this->input->post('jenis');
-		$gambar=$this->input->post('gambar');
+	public function update_gambar(){
+		$config['upload_path']   = 'asset/img/barang/'; 
+		$config['allowed_types'] = 'gif|jpg|png'; 
+		$config['max_size']      = 100; 
+		$config['max_width']     = 1024; 
+		$config['max_height']    = 768;
+		$this->load->library('upload',$config); 
+			if(! $this->upload->do_upload('gambar')){
+				$error = array('error' => $this->upload->display_errors()); 
+		 		?>
+                     <script type=text/javascript>alert("File tidak sesuai format");</script>
+        		<?php
+        	}else{
+        		$upload=$this->upload->data();			
+        		      
+        		$data = array (
+					'gambar' =>  $this->upload->data('file_name')
+				);      
+        		$this->m_barang->updateGambar();
 
-		$data=array(
-			'namabarang' => $namabarang,
-			'jenis'=>$jenis,
-			'gambar'=>$gambar
-			);
-		$where=array(
-			'idbarang'=>$idbarang
-			);
-		$this->m_barang->update_barang($where,$data,'barang');
-		//$this->load->view('c_vendor/home');		
+        		redirect(base_url('c_barang/view_barang'));
+
+        	}
+	}
+
+	public function update_barang($idbarang){	
+		$config['upload_path']   = 'asset/img/barang/'; 
+		$config['allowed_types'] = 'gif|jpg|png'; 
+		$config['max_size']      = 100; 
+		$config['max_width']     = 1024; 
+		$config['max_height']    = 768;
+		$this->load->library('upload',$config); 
+			if(! $this->upload->do_upload('gambar')){
+				$error = array('error' => $this->upload->display_errors()); 
+		 		?>
+                     <script type=text/javascript>alert("File tidak sesuai format");</script>
+        		<?php
+        	}else{
+    			
+				$namabarang=$this->input->post('namabarang');
+				$jenis=$this->input->post('jenis');	
+				$data=array(
+					'namabarang' => $namabarang,
+					'gambar' =>  $this->upload->data('file_name'),
+					'jenis'=>$jenis		
+					);
+				$where=array(
+					'idbarang'=>$idbarang
+					);
+				$this->m_barang->update_barang($where,$data,'barang');	
+				$this->view_barang();
+			}
 	}
 
 	public function form_add(){
@@ -91,9 +128,7 @@ class c_barang extends CI_Controller {
 				);
 				
 				$this->m_barang->insert_barang($data);
-				$this->load->view('template/header');	
-				$this->load->view('vendor/add_barang');	 
-				$this->load->view('template/footer');
+				redirect(base_url('c_barang/view_barang'));				
 			}
 		}else{
 			$this->load->view('template/header');		

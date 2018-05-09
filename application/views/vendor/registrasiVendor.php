@@ -68,7 +68,7 @@
               <input id="confirm_password" name="confirm_password" type="password" class="form-control" placeholder="Repeat password" onkeyup='check();' required>
               <span id='message'> </span>
             </div>
-            <script> 
+            <!-- <script> 
             var check = function() {
                 if (document.getElementById('password').value ==
                   document.getElementById('confirm_password').value && document.getElementById('password').value != '') {
@@ -79,7 +79,7 @@
                   document.getElementById('message').innerHTML = 'not matching';
                 }
               } 
-            </script>
+            </script> -->
           
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -100,6 +100,7 @@
                 <span class="input-group-text"><i class="fa fa-file-image-o"></i></span>
               </div>
               <input type="file" class="form-control" placeholder="choose file" name="akte_pendiri"  value="akte " required>
+              <em class="help-text"> *Akte Pendiri</em>
             </div>
 
             <button type="submit" class="btn btn-block btn-success">Create Account</button>
