@@ -102,25 +102,30 @@
         <!-- Breadcrumb Menu-->
       </ol>
 
-      <table>
+        <div class="container-fluid"> 
+
         <H1>Data Barang</H1>
         <body>
           <div class="row">
+
             <?php foreach($barang as $detail): ?>
               <div class="col-sm-3 col-md-3">
-                <div class="thumbnail">
-                 <!--  <img src="('asset/img/barang'.$detail->gambar)"> -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3> <?=$detail->namabarang?></h3>
+                  </div>
+                  <div class="card-body">
                   <img src="<?php echo base_url('asset/img/barang/').$detail->gambar; ?>" alt="menu" style="height: 200px; width: 200px;">
-                <div class="caption">
-                  <h8 style="min-height:60px;"> <?=$detail->namabarang?></h3>
-                  <p> <?=$detail->jenis ?> </p>
-                </div>
+                  <div> 
+                    <p> <?=$detail->jenis ?> </p>
+                  </div>
+                  </div>
                 </div>
               </div>
             <?php endforeach; ?>
           </div>
         </body>
-      </table>
+        </div>
 
       
 </main>

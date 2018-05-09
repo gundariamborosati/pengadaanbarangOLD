@@ -34,6 +34,7 @@ class c_barang extends CI_Controller {
 	public function edit_barang($idbarang){
 		$where = array('idbarang' => $idbarang);
 		$data['barang'] = $this->m_barang->detail($where,'barang')->result();
+
 		$this->load->view('template/header');
 		$this->load->view('vendor/edit_barang',$data);
 		$this->load->view('template/footer');
@@ -64,7 +65,7 @@ class c_barang extends CI_Controller {
         	}
 	}
 
-	public function update_barang($idbarang){	
+	public function update_barang($idbarang){
 		$config['upload_path']   = 'asset/img/barang/'; 
 		$config['allowed_types'] = 'gif|jpg|png'; 
 		$config['max_size']      = 100; 
@@ -91,6 +92,9 @@ class c_barang extends CI_Controller {
 				$this->m_barang->update_barang($where,$data,'barang');	
 				$this->view_barang();
 			}
+
+			        		redirect(base_url('c_barang/view_barang'));
+
 	}
 
 	public function form_add(){

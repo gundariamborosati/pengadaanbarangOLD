@@ -106,7 +106,7 @@
                     <td><?php echo $brg->idbarang ;?></td>
                     <td><?php echo $brg->namabarang ;?></td>                                     
                     <td><?php echo $brg->jenis ;?></td>                                     
-                     <td><?php echo $brg->gambar ;?></td>  
+                     <td> <img src="<?php echo base_url('asset/img/barang/').$brg->gambar; ?>" ></td>  
                     <td>                    
                         <a href="<?php echo base_url('/c_barang/edit_barang/'.$brg->idbarang);?>" class="btn btn-success"> <i class="fa fa-pencil"></i> Edit</a>
                         <a href="<?php echo base_url('/c_barang/delete_barang/'.$brg->idbarang);?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"> <i class="fa fa-trash"> </i> Delete</a>
