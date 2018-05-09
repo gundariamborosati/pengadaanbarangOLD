@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 01:07 PM
+-- Generation Time: May 09, 2018 at 10:42 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -140,7 +140,8 @@ CREATE TABLE IF NOT EXISTS `progress_pengadaan` (
 --
 
 INSERT INTO `progress_pengadaan` (`tanggal`, `nama_customer`, `nama_vendor`, `status`, `kendala`, `id_progress`) VALUES
-('0102-01-01', 's', 'sm', 'sss', 'd', 'PROGRESS-0001');
+('0102-01-01', 's', 'sm', 'sss', 'd', 'PROGRESS-0001'),
+('2001-01-01', 'wah', 'exol', '1', 'asas\r\na\r\nsa\r\nd\r\nad\r\n\r\nad\r\n', 'PROGRESS-0002');
 
 -- --------------------------------------------------------
 
@@ -162,10 +163,10 @@ CREATE TABLE IF NOT EXISTS `status_pesanan` (
 --
 
 INSERT INTO `status_pesanan` (`no_pesanan`, `username`, `tanggal`, `status`, `catatan`) VALUES
-('PESANAN-0011', 'do', '0000-00-00', 'waiting', 'a'),
+('PESANAN-0011', 'do', '0000-00-00', 'finish', ' a'),
 ('PESANAN-0012', 'exo', '0000-00-00', 'waiting', ''),
-('PESANAN-0013', 'exo', '0001-01-01', 'waiting', '1'),
-('PESANAN-0014', 'exo', '2017-01-01', 'finish', 'yeah');
+('PESANAN-0013', 'exo', '0000-00-00', 'finish', ''),
+('PESANAN-0014', 'exo', '0000-00-00', 'progress', '');
 
 -- --------------------------------------------------------
 
@@ -176,22 +177,23 @@ INSERT INTO `status_pesanan` (`no_pesanan`, `username`, `tanggal`, `status`, `ca
 CREATE TABLE IF NOT EXISTS `surat_keluar` (
   `id_surat` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
+  `jenis_surat` varchar(30) NOT NULL,
   `no_surat` varchar(20) NOT NULL,
   `tgl_surat` date NOT NULL,
   `pesan` varchar(200) NOT NULL,
   `tujuan` varchar(20) NOT NULL,
   `file` varchar(200) NOT NULL,
   PRIMARY KEY (`id_surat`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `surat_keluar`
 --
 
-INSERT INTO `surat_keluar` (`id_surat`, `username`, `no_surat`, `tgl_surat`, `pesan`, `tujuan`, `file`) VALUES
-(1, 'exo', '099', '0099-09-08', 'ok', 'direktur', 'Cetak_Agenda_Surat_Masuk2.pdf'),
-(2, 'exo', '012', '2018-02-02', 'ok', 'direktur', 'warna1.jpg'),
-(3, 'sehun', '0192', '2018-02-20', 'a', 'direktur', 'warna2.jpg');
+INSERT INTO `surat_keluar` (`id_surat`, `username`, `jenis_surat`, `no_surat`, `tgl_surat`, `pesan`, `tujuan`, `file`) VALUES
+(16, 'sehun', 'SPPH', '01/sss/2/p', '2001-02-20', 'yups', 'direktur', 'warna13.jpg'),
+(17, 'sehun', 'SPH', '02/sde/12', '2010-02-19', 'qa', 'destayana', 'warna14.jpg'),
+(18, 'destayana', 'SPH', '0203/2s', '0222-01-01', '', 'sehun', 'warna15.jpg');
 
 -- --------------------------------------------------------
 
