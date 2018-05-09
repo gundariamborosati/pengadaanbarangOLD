@@ -15,8 +15,8 @@ class c_logistik extends CI_Controller {
 	public function home(){
 		$data['barang'] = $this->m_barang->getAllBarang('barang');
 		$this->load->view('template/header');
-		 //$this->load->view('logistik/view_barang',$data);
-		 $this->load->view('logistik/dashboard');
+		$this->load->view('logistik/view_barang',$data);
+		// $this->load->view('logistik/dashboard');
 		$this->load->view('template/footer');
 	}
 

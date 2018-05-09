@@ -71,7 +71,7 @@
         <li class="breadcrumb-item active">Dashboard</li>
         <!-- Breadcrumb Menu-->
       </ol>
-            <!-- /.conainer-fluid -->
+      <!-- /.conainer-fluid -->
       <?php foreach($barang as $detail): ?>
       <div class="col-md-12">
         <div class="card">
@@ -80,60 +80,79 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="col-md-9">                             
+              <div class="col-md-12">
                 <div class="panel-body">
                   <div class="form-horizontal">
-                    <form action="<?php echo base_url(). 'c_barang/update_barang/'.$detail->idbarang; ?>" method="post">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label">Id Barang</label>
-                            <div class="">
-                              <input class="form-control" type="text" name="idbarang" value="<?php echo $detail->idbarang ;?>" readonly>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <form   action="<?php echo base_url(). 'c_barang/update_barang/'.$detail->idbarang; ?>" enctype="multipart/form-data" method="post">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <!-- <div class="form-group">
+                                <label class="control-label">Id Barang</label>
+                                <div class="">
+                                  <input class="form-control" type="text" name="idbarang" value="" required>
+                                </div>
+                              </div> -->
+                              <div class="form-group">
+                                <label class="control-label">Nama Barang</label>
+                                <div class="">
+                                  <input class="form-control" type="text" name="namabarang" value="<?php echo $detail->namabarang ;?>" required>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="sel1" >Jenis</label>
+                                <select name="jenis" class="form-control" id="sel1">
+                                  <?php
+                                  if( $detail->jenis == 'peralatan kantor') {
+                                  echo '<option value="peralatan kantor" selected>Peralatan kantor</option>';
+                                  echo '      <option value="peralatan laboratorium">Peralatan Laboratorium</option>
+                                  <option value="Meubelair / furniture">Meubelair / furniture</option>
+                                  <option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>
+                                  <option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>';
+                                  } elseif ( $detail->jenis == 'peralatan laboratorium') {
+                                  echo '<option value="peralatan laboratorium" selected>Peralatan Laboratorium</option>';
+                                  } elseif ($detail->jenis == 'Meubelair / furniture') {
+                                  echo ' <option value="Meubelair / furniture">Meubelair / furniture</option>';
+                                  } elseif ($detail->jenis == 'Jaringan IT dan Telekomunikasi') {
+                                  echo '<option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>';
+                                  } elseif ($detail->jenis == 'Peralatan wisuda dan pesta') {
+                                  echo '<option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>';
+                                  }  ;?>
+                                  
+                                  
+                                </select>
+                              </div>
                             </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="control-label">Gambar</label>
+                                <div>
+                                  <img style="width:50%" class="img-responsive" src="<?php echo base_url('asset/img/barang/'.$detail->gambar)?>" alt="">
+                                  <input type="file" class="form-control" placeholder="ganti gambar" name="gambar" value="barang" >
+                                </div>
+                              </div>
+                              
+                            </div>
+                            
                           </div>
-                          <div class="form-group">
-                            <label class="control-label">Nama Barang</label>
-                            <div>
-                              <input class="form-control" type="text" name="namabarang" value="<?php echo $detail->namabarang ;?>" >
-                            </div>
+                        <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus">Edit</i></button>
+                            <a class="btn btn-danger" href="<?php echo base_url('c_barang/view_barang')?>"><i class="fa fa-close"></i> Batal</a>
                           </div>
-                          <div class="form-group">
-                            <label class="control-label">Jenis</label>
-                            <div>
-                              <input class="form-control" type="text" name="jenis" value="<?php echo $detail->jenis ;?>" >
-                            </div>
-                          </div>              
-                           <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                             <a href=""><button class="btn btn-primary"> <i class="fa fa-pencil">Edit</i></button></a>
-                              <a class="btn btn-danger" href="<?php echo base_url('c_barang/view_barang')?>"><i class="fa fa-close"></i> Batal</a>
-                            </div>
-                          </div>
-
                         </div>
-                        <div class="col-md-6">
-                          <h2>Gambar</h2>
-                          <div class="col-md-6">                      
-                          <!--  -->
-                            <img style="width:110%" class="img-responsive" src="<?php echo base_url('asset/img/barang/'.$detail->gambar)?>" alt="">
-                            <!--  <?php
-                                 echo form_open_multipart(base_url('c_barang/update_barang'));
-                              ?> -->
-                              <label class="btn btn-sm btn-block btn-primary">
-                                  Ganti Gambar <input type="file" id="file" style="display: none;" name="gambar">
-                              </label>                                                
-                          </div>
                         </div>
-                      </div>
-                      <?php endforeach; ?>
-                    </form>
+                        <?php endforeach; ?>
+                      </form>
+                      
+                    </div>
                     </div>  <!-- end form-horizontal -->
                     </div> <!-- end panel-body -->
                   </div>
                 </div>
               </div>
             </div>
-          </div>  
-  </main>
-</div>
+          </div>
+        </main>
+      </div>
