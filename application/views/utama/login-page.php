@@ -32,7 +32,7 @@
           <div class="card p-4">
             <div class="card-body">
               <h1>Login</h1>
-              <p class="text-muted">Sign In to your account</p>
+              <p class="text-muted">Login to your account</p>
               <form action="<?php echo base_url('login/validate');?>" method="POST">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -69,8 +69,7 @@
           <div class="card text-white bg-red py-5 d-md-down-none" style="width:44%">
             <div class="card-body text-center">
               <div>
-                <h2>Sign up</h2>
-                <p>Aplikasi Pengadaan Barang</p>
+                <h2>Aplikasi Pengadaan Barang</h2>                
               </div>
             </div>
           </div>

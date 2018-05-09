@@ -46,6 +46,20 @@ class m_barang extends CI_Model {
 		$this->db->update($table,$data);
 	}
 
+	function updateGambar(){
+				//$relative_url = './avatar/'. $this->upload->file_name;
+				//check if password was updated
+				
+ 				$id = 'idbarang';
+				$this->db->where('idbarang', $id);
+				$this->db->update('barang', $data);
+				if($this->db->affected_rows() > 0){					
+					return true;
+		 		} else {
+		 			return false;
+		 		}
+			}
+
 	function getIdBarang(){
 		$this->db->select('RIGHT(barang.idbarang,4) as id', FALSE);
 		$this->db->order_by('idbarang','DESC');    

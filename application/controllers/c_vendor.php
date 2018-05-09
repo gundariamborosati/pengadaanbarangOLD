@@ -111,8 +111,7 @@ class c_vendor extends CI_Controller {
 	                    		 <script type=text/javascript>alert("update sukses!");</script>
 	        				<?php
 		        			$this->load->view('template/header');
-							$this->load->view('vendor/kelola_profil');
-							$this->load->view('template/footer');
+							$this->viewProfile();							
 						}else{						
 							?>
 	                    		 <script type=text/javascript>alert("Gagal update password!");</script>
@@ -146,6 +145,8 @@ class c_vendor extends CI_Controller {
 	public function registrasiVendor(){
 		$this->form_validation->set_rules('email', 'Email','required|valid_email');
 		$this->form_validation->set_rules('contact', 'Contact','required|numeric');
+		$this->form_validation->set_rules('password', 'password','required');
+		$this->form_validation->set_rules('confirm_password', 'Confirm password','required|matches[password]');
 
 		if ($this->form_validation->run() == TRUE){
 			$dataVendorAda=$this->m_vendor->check_regis($this->input->post('username'));		

@@ -87,9 +87,9 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label class="control-label">NId Barang</label>
+                            <label class="control-label">Id Barang</label>
                             <div class="">
-                              <input class="form-control" type="text" name="idbarang" value="<?php echo $detail->idbarang ;?>" disabled>
+                              <input class="form-control" type="text" name="idbarang" value="<?php echo $detail->idbarang ;?>" readonly>
                             </div>
                           </div>
                           <div class="form-group">
@@ -107,16 +107,22 @@
                            <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                              <a href=""><button class="btn btn-primary"> <i class="fa fa-pencil">Edit</i></button></a>
-                              <a href=""><button class="btn btn-danger"> Cancel </button></a>
+                              <a class="btn btn-danger" href="<?php echo base_url('c_barang/view_barang')?>"><i class="fa fa-close"></i> Batal</a>
                             </div>
                           </div>
 
                         </div>
                         <div class="col-md-6">
                           <h2>Gambar</h2>
-                          <div class="col-md-6">
+                          <div class="col-md-6">                      
                           <!--  -->
-                            <img style="width:200%" class="img-responsive" src="<?php echo base_url('barang/'.$detail->gambar)?>" alt="">
+                            <img style="width:110%" class="img-responsive" src="<?php echo base_url('asset/img/barang/'.$detail->gambar)?>" alt="">
+                            <!--  <?php
+                                 echo form_open_multipart(base_url('c_barang/update_barang'));
+                              ?> -->
+                              <label class="btn btn-sm btn-block btn-primary">
+                                  Ganti Gambar <input type="file" id="file" style="display: none;" name="gambar">
+                              </label>                                                
                           </div>
                         </div>
                       </div>

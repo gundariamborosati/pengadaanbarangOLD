@@ -88,7 +88,7 @@
       </ol>
 
       <table>
-        <head> Data Barang </head>
+        <H1>Data Barang</H1>
         <body>
           <div class="row">
             <?php foreach($barang as $detail): ?>

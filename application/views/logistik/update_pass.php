@@ -12,7 +12,7 @@
     </style>
     <ul class="nav navbar-nav d-md-down-none">
       <li class="nav-item px-3">
-        <a class="nav-link" href="<?php echo base_url('/c_vendor/home');?>">Dashboard</a>
+        <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>">Dashboard</a>
       </li>
     </ul>
     <ul class="nav navbar-nav ml-auto">
@@ -24,8 +24,8 @@
           <div class="dropdown-header text-center">
             <strong>Account</strong>
           </div>
-          <a class="dropdown-item" href="<?php echo base_url('/c_vendor/viewProfile');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a>
-          <a class="dropdown-item" href="<?php echo base_url('/c_vendor/keluar'); ?>"><i class="fa fa-sign-out"></i> Logout</a>
+          <a class="dropdown-item" href="<?php echo base_url('/c_logistik/viewProfile');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a>
+          <a class="dropdown-item" href="<?php echo base_url('c_logistik/keluar'); ?>"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
       </li>
     </ul>
@@ -35,16 +35,16 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('/c_vendor/home');?>"><i class="icon-speedometer"></i>Vendor Dashboard </a>
+            <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>"><i class="icon-speedometer"></i>Logistik Dashboard </a>
           </li>
           <li class="nav-title">
             Menu
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="widgets.html"><i class="fa fa-home"></i> Home </a>
+            <a class="nav-link" href=""><i class="fa fa-home"></i> Home</a>
           </li>
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>Dokumen</a>
             <ul class="nav-dropdown-items">
               <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fa fa-share"></i> Send Dokumen</a>
@@ -54,8 +54,22 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-pencil"></i>Kelola</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('/c_logistik/kelola_user');?>"><i class="fa fa-user"></i> Kelola user</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-tasks"></i> Kelola progress pengadaan</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('/c_barang/view_barang');?>"><i class="fa fa-square"></i> Kelola Barang </a>
+            <a class="nav-link" href=" <?php echo base_url('');?> "><i class="fa fa-comment"></i>View Ulasan</a>
           </li>
           <li class="divider"></li>
         </ul>
@@ -64,17 +78,19 @@
     </div>
     <!-- Main content -->
     <main class="main">
+      
       <!-- Breadcrumb -->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
-        <li class="breadcrumb-item"><a href="#">Vendor</a></li>
-        <li class="breadcrumb-item active">Tambah Barang</li>
+        <li class="breadcrumb-item"><a href="#">Logistik</a></li>
+        <li class="breadcrumb-item active">Detail vendor</li>
         <!-- Breadcrumb Menu-->
-      </ol>  
-      <div class="col-md-12">
+      </ol>
+      <!-- /.conainer-fluid -->
+   <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h5> <i class="fa fa-plus"></i> Tambah Barang</h5>
+            <h5> Update Password </h5>
           </div>
           <div class="card-body">
             <div class="row">
@@ -82,42 +98,33 @@
                 <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
                 <div class="panel-body">
                   <div class="form-horizontal">
-                    <form action="<?php echo base_url(). 'c_barang/add_barang'; ?>" enctype="multipart/form-data" method="post">
+                    <form action="<?php echo base_url(). 'c_logistik/update_password'; ?>" method="post">
                       <div class="row">
                         <div class="col-md-6">
-                          <!-- <div class="form-group">
-                            <label class="control-label">Id Barang</label>
-                            <div class="">
-                              <input class="form-control" type="text" name="idbarang" value="" required>
-                            </div>
-                          </div> -->
                           <div class="form-group">
-                            <label class="control-label">Nama Barang</label>
+                            <label class="control-label">Password Lama</label>
                             <div class="">
-                              <input class="form-control" type="text" name="namabarang" value="" required>
+                              <input class="form-control" type="password" name="curr_password" value="" >  
+                               <em class="help-text"> *Masukan password lama untuk konfirmasi perubahan</em>                            
                             </div>
                           </div>
                           <div class="form-group">
-                            <label for="sel1" >Jenis</label>
-                            <select name="jenis" class="form-control" id="sel1">
-                            <option value="peralatan kantor">Peralatan kantor</option>
-                            <option value="peralatan laboratorium">Peralatan Laboratorium</option>
-                            <option value="Meubelair / furniture">Meubelair / furniture</option>
-                            <option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>
-                            <option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label">Gambar</label>
-                            <div>
-                               <input type="file" class="form-control" placeholder="choose file" name="gambar" value="barang" required>
+                            <label class="control-label">Password Baru</label>
+                            <div class="">
+                              <input class="form-control" type="password" name="new_password" value="" >                             
                             </div>
-                          </div>                        
+                          </div>  
+                          <div class="form-group">
+                            <label class="control-label">Konfirmasi Password Baru </label>
+                            <div class="">
+                              <input class="form-control" type="password" name="conf_password" value="" >                             
+                            </div>
+                          </div>                                                                
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                              <button type="submit" class="btn-primary"><i class="fa fa-plus">Tambah</i></button>                              
-                              <a class="btn btn-danger" href="<?php echo base_url('c_barang/view_barang')?>"><i class="fa fa-close"></i> Batal</a>
-                              </div>
+                              <button type="submit" class="btn-primary" value="submit">Simpan Perubahan</button>     
+                              <button type="button" onclick="window.history.go(-1)" class="btn-danger" >Cancel</i></button>                                                 
+                            </div>
                           </div>
                         </div>                      
                       </div>                      
@@ -129,5 +136,5 @@
               </div>
             </div>
           </div>
-        </main>
-      </div>
+</main>
+</div>
