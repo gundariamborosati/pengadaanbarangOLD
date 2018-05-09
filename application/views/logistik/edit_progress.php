@@ -64,12 +64,12 @@
                 <a class="nav-link" href="<?php echo base_url('/c_progress/viewProgress');?>"><i class="fa fa-tasks"></i> Kelola progress pengadaan</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
+                <a class="nav-link" href="<?php echo base_url('/c_statusPesanan/input');?>"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=" <?php echo base_url('');?> "><i class="fa fa-comment"></i>View Ulasan</a>
+            <a class="nav-link" href="<?php echo base_url('/c_ulasan/viewUlasanlog');?>"><i class="fa fa-comment"></i>View Ulasan</a>
           </li>
           <li class="divider"></li>
         </ul>
@@ -102,23 +102,30 @@
                 <table id="dataProgress" class="table ">
                   <div class="row">
                 
-                 <form action="<?php echo base_url().'c_progress/updateProgress/'.$progress[0]->no_pesanan ?>" method="post">
+                 <form action="<?php echo base_url().'c_progress/updateProgress/'.$progress[0]->id_progress ?>" method="post">
+                 </div>
+                 </div>
                                     
-                                      <div class="form-group">
+                                      <!-- <div class="form-group">
                                         <label>no pesanan</label>
-                                        <input name="no_pesanan" type="text" id="no_pesanan" value="<?php echo $progress[0]->no_pesanan ?>" class="form-control" readonly>
-                                    
-                                              <div class="form-group">
-                                                <label>status</label>
+                                        <input name="no_pesanan" type="text" id="id_progress" value="<?php echo $progress[0]->id_progress ?>" class="form-control" readonly> 
+                                               </div>   -->
+                                            
+                                             <div class="form-group">
+                                                 <label for="tipe" class="col-md-3 control-label">status</label>
+                                                <div class="col-md-7 col-sm-12 required">
                                                 <input name="status" class="form-control" value="<?php echo $progress[0]->status ?>">
-                                                 
-                                            </div>
-                                              <div class="form-group">
-                                                <label>kendala</label><br>
-                                               <textarea style="resize:none;" name="kendala" class="form-control"  rows="5" cols="50" value="<?php echo $progress[0]->kendala ?>"></textarea> 
-                                              
+                                               </div> 
                                             </div> 
-                                          
+                                          </div>
+                                  
+                                              <div class="form-group">
+                                                 <label for="tipe" class="col-md-3 control-label">kendala</label>
+                                                 <div class="col-md-7 required">
+                                               <textarea style="resize:none;" name="kendala" class="form-control"  rows="5" cols="50"> <?php echo $progress[0]->kendala ?> </textarea> 
+                                              </div>
+                                            </div> 
+                                          </div>
                                             <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
                                            </form>
                                                </div>
@@ -126,8 +133,17 @@
                                             
                                             
                                            
-                                          
-                 
+                         </table>
+                         </div>
+                         </div>
+                         </div>
+                         </main>
+                         </div>
+                         </body>
+                         
+
+
+                 </table>
                 </tbody>
               </table>
               </div>

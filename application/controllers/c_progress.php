@@ -5,8 +5,8 @@ class c_progress extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('m_progress');
+			$this->load->model('m_statusPesanan');
 
-		
 	}
 		 //call model
 	public function home(){
@@ -16,25 +16,23 @@ class c_progress extends CI_Controller {
 	}
 
 	public function viewProgress(){
-		$data ['progress'] = $this->m_progress->viewProgress()->result();
-		$this->load->view('template/header');
+	
+	 	$data ['progress'] = $this->m_progress->viewProgress()->result();
+	 	$this->load->view('template/header');
 		$this->load->view('logistik/view_progress',$data);
 		$this->load->view('template/footer'); 
-	}
+	 }
 
 	public function viewProgress_direktur(){
 		$data ['progress'] = $this->m_progress->viewProgress()->result();
-		$this->load->view('template/header');
-		$this->load->view('direktur/view_progress_direct',$data);
-		$this->load->view('template/footer'); 
-	}
+	 	$this->load->view('template/header');
+	 	$this->load->view('direktur/view_progress_direct',$data);
+	$this->load->view('template/footer'); 
+	 }
 
-	 // function cetakpdf(){
-  //     $this->load->model("m_progress");
-  //        $data['progress'] = $this->m_progress->cetak()->result();
-        
-  //       $this->load->view('direktur/vcetaklaporan',$data);
-  //    }
+	
+
+
 
 	
 	 function input(){
@@ -43,7 +41,7 @@ class c_progress extends CI_Controller {
 		$this->load->view('template/footer');
     }  
 	function inputProgress(){
-         $no_pesanan  = $this->input->post('no_pesanan');
+		 $id_progress = $this->m_progress->getIdProgress();
         $tanggal     = $this->input->post('tanggal');
         $nama_customer = $this->input->post('nama_customer');
         $nama_vendor = $this->input->post('nama_vendor');
@@ -51,7 +49,8 @@ class c_progress extends CI_Controller {
         $kendala     = $this->input->post('kendala');
         
         $data = array(
-        'no_pesanan' => $no_pesanan,
+         'id_progress' => $id_progress,
+       
         'tanggal'     => $tanggal,
         'nama_customer' => $nama_customer,
         'nama_vendor' =>$nama_vendor,
@@ -64,15 +63,15 @@ class c_progress extends CI_Controller {
 
 	
 
-       public function edit($no_pesanan){
-		$where = array('no_pesanan' => $no_pesanan);
+       public function edit($id_progress){
+		$where = array('id_progress' => $id_progress);
 		$data['progress'] = $this->m_progress->edit_data($where,'progress_pengadaan')->result();
 		$this->load->view('template/header');
 		$this->load->view('logistik/edit_progress',$data);
 		$this->load->view('template/footer');
 	}
 
-	public function updateProgress($no_pesanan){	
+	public function updateProgress($id_progress){	
 		$status=$this->input->post('status');
 		$kendala=$this->input->post('kendala');
 
@@ -81,24 +80,37 @@ class c_progress extends CI_Controller {
 			'kendala'=>$kendala
 			);
 		$where=array(
-			'no_pesanan' => $no_pesanan
+			'id_progress' => $id_progress
 			);
 		$this->m_progress->update_progress($where,$data,'progress_pengadaan');
 	
 		     redirect('c_progress/viewProgress');
 	}
 
-	function hapusProgress($no_pesanan){
-        $where=array('no_pesanan' => $no_pesanan);
+	function hapusProgress($id_progress){
+        $where=array('id_progress' => $id_progress);
         $this->m_progress->delete($where,'progress_pengadaan');
         redirect('c_progress/viewProgress');
         }
 
-function cetakpdf() {
-        $query['data1'] = $this->m_progress->ToExcelAll();
-        $this->load->view('laporanpembelian/vcetaklaporan',$query);
 
-    }
+
+
+   public function cetak() {
+	
+		$tgl_start		= $this->input->post('tgl_start');
+		$tgl_end		= $this->input->post('tgl_end');
+		
+		$data['tgl_start']	= $tgl_start;
+		$data['tgl_end']	= $tgl_end;		
+ 	
+			 $data['progress']	= $this->db->query("SELECT * FROM progress_pengadaan WHERE tanggal >= '$tgl_start' AND tanggal <= '$tgl_end' ORDER BY id_progress")->result(); 
+			$this->load->view('direktur/vcetaklaporan', $data);
+		 
+	}	
+	
+
+
 
 
 

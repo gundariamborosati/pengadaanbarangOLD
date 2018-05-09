@@ -2,10 +2,10 @@
 -- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Inang: 127.0.0.1
--- Waktu pembuatan: 10 Apr 2018 pada 08.36
--- Versi Server: 5.5.32
--- Versi PHP: 5.4.16
+-- Host: 127.0.0.1
+-- Generation Time: May 06, 2018 at 01:07 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Basis data: `pengadaan_barang`
+-- Database: `pengadaan_barang`
 --
 CREATE DATABASE IF NOT EXISTS `pengadaan_barang` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `pengadaan_barang`;
@@ -25,7 +25,7 @@ USE `pengadaan_barang`;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 CREATE TABLE IF NOT EXISTS `barang` (
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`idbarang`, `namabarang`, `gambar`, `jenis`, `username`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `barang` (`idbarang`, `namabarang`, `gambar`, `jenis`, `username`) V
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customer`
+-- Table structure for table `customer`
 --
 
 CREATE TABLE IF NOT EXISTS `customer` (
@@ -61,23 +61,27 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `email` varchar(50) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(32) NOT NULL,
-  `status` varchar(12) NOT NULL,
+  `status` varchar(20) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `customer`
+-- Dumping data for table `customer`
 --
 
 INSERT INTO `customer` (`hak_akses`, `npwp`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `email`, `username`, `password`, `status`) VALUES
-('customer', 'Capture.JPG', 'smile', 'bandung', '123', 'smile@gmail.com', 'smile', '3ddaeb82fbba964fb3461d4e4f1342eb', 'aktif'),
-('customer', 'abs.JPG', 'smktelkom', 'medan', '12345', 'smk@gmail.com', 'smk', '3e671ea34dcac32e7e9e7c67ee8cfc0b', 'tidak aktif'),
-('customer', 'acak.JPG', 'Telkom University', 'bojongsoang', '123', 'telu@', 'telu', 'e57a85988269f041485c870baac915c6', 'tidak aktif');
+('customer', 'warna14.jpg', 'do', 'do1', '111', 'do@s.com', 'do', '03c7c0ace395d80182db07ae2c30f034', 'aktif'),
+('customer', 'warna15.jpg', 'exo', 'exo', '111', 'exo@aaa.com', 'exo', '64fea43893b845d96ac6cb974b3a5d23', 'aktif'),
+('customer', 'warna16.jpg', 'sd', 'sd', '12345', 'sd@d.com', 'sd', '6226f7cbe59e99a90b5cef6f94f966fd', 'aktif'),
+('customer', 'warna17.jpg', 'sehun', 'sehun', '12345', 'sehun@gmai.com', 'sehun', '931b5a46ca4727cb3dc6261b0122fd49', 'aktif'),
+('customer', 'warna11.jpg', 'sm', 'sm', '12345', 'shinee@gmail.com', 'shinee', '03c7c0ace395d80182db07ae2c30f034', ''),
+('customer', 'Main.jpg', 'suju', 'suju', '1213', 'suju@Gmail.com', 'suju', '0870ee638d51d09f8f299e7356a48f36', 'aktif'),
+('customer', 'B12742.png', 'yg', 'yg', '111', 'yg@tt.com', 'yg', '2bd3b10a9bb1ae7613231ed98232f149', 'aktif');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `direktur`
+-- Table structure for table `direktur`
 --
 
 CREATE TABLE IF NOT EXISTS `direktur` (
@@ -88,16 +92,17 @@ CREATE TABLE IF NOT EXISTS `direktur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `direktur`
+-- Dumping data for table `direktur`
 --
 
 INSERT INTO `direktur` (`hak_akses`, `username`, `password`) VALUES
+('direktur', 'asd', '123'),
 ('direktur', 'direktur', '12345');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `logistik`
+-- Table structure for table `logistik`
 --
 
 CREATE TABLE IF NOT EXISTS `logistik` (
@@ -108,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `logistik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `logistik`
+-- Dumping data for table `logistik`
 --
 
 INSERT INTO `logistik` (`hak_akses`, `username`, `password`) VALUES
@@ -117,7 +122,130 @@ INSERT INTO `logistik` (`hak_akses`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `vendor`
+-- Table structure for table `progress_pengadaan`
+--
+
+CREATE TABLE IF NOT EXISTS `progress_pengadaan` (
+  `tanggal` date NOT NULL,
+  `nama_customer` varchar(30) NOT NULL,
+  `nama_vendor` varchar(30) NOT NULL,
+  `status` varchar(25) NOT NULL,
+  `kendala` varchar(500) NOT NULL,
+  `id_progress` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_progress`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `progress_pengadaan`
+--
+
+INSERT INTO `progress_pengadaan` (`tanggal`, `nama_customer`, `nama_vendor`, `status`, `kendala`, `id_progress`) VALUES
+('0102-01-01', 's', 'sm', 'sss', 'd', 'PROGRESS-0001');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status_pesanan`
+--
+
+CREATE TABLE IF NOT EXISTS `status_pesanan` (
+  `no_pesanan` varchar(30) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `tanggal` date NOT NULL,
+  `status` varchar(30) NOT NULL,
+  `catatan` varchar(200) NOT NULL,
+  PRIMARY KEY (`no_pesanan`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `status_pesanan`
+--
+
+INSERT INTO `status_pesanan` (`no_pesanan`, `username`, `tanggal`, `status`, `catatan`) VALUES
+('PESANAN-0011', 'do', '0000-00-00', 'waiting', 'a'),
+('PESANAN-0012', 'exo', '0000-00-00', 'waiting', ''),
+('PESANAN-0013', 'exo', '0001-01-01', 'waiting', '1'),
+('PESANAN-0014', 'exo', '2017-01-01', 'finish', 'yeah');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `surat_keluar`
+--
+
+CREATE TABLE IF NOT EXISTS `surat_keluar` (
+  `id_surat` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
+  `no_surat` varchar(20) NOT NULL,
+  `tgl_surat` date NOT NULL,
+  `pesan` varchar(200) NOT NULL,
+  `tujuan` varchar(20) NOT NULL,
+  `file` varchar(200) NOT NULL,
+  PRIMARY KEY (`id_surat`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `surat_keluar`
+--
+
+INSERT INTO `surat_keluar` (`id_surat`, `username`, `no_surat`, `tgl_surat`, `pesan`, `tujuan`, `file`) VALUES
+(1, 'exo', '099', '0099-09-08', 'ok', 'direktur', 'Cetak_Agenda_Surat_Masuk2.pdf'),
+(2, 'exo', '012', '2018-02-02', 'ok', 'direktur', 'warna1.jpg'),
+(3, 'sehun', '0192', '2018-02-20', 'a', 'direktur', 'warna2.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `templete_sph`
+--
+
+CREATE TABLE IF NOT EXISTS `templete_sph` (
+  `id` int(6) NOT NULL AUTO_INCREMENT,
+  `nomor` varchar(50) NOT NULL,
+  `lampiran` varchar(40) NOT NULL,
+  `tgl_surat` date NOT NULL,
+  `perihal` varchar(50) NOT NULL,
+  `kepada` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `templete_sph`
+--
+
+INSERT INTO `templete_sph` (`id`, `nomor`, `lampiran`, `tgl_surat`, `perihal`, `kepada`) VALUES
+(7, '1', '1', '0000-00-00', '2gggggggggggggggggggggg', 's');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ulasan`
+--
+
+CREATE TABLE IF NOT EXISTS `ulasan` (
+  `dari_vendor` varchar(20) NOT NULL,
+  `tanggal` date NOT NULL,
+  `id_ulasan` int(11) NOT NULL AUTO_INCREMENT,
+  `komentar` varchar(200) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `rating` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_ulasan`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `ulasan`
+--
+
+INSERT INTO `ulasan` (`dari_vendor`, `tanggal`, `id_ulasan`, `komentar`, `username`, `rating`) VALUES
+('s', '0000-00-00', 1, 's', 'exo', ''),
+('ss', '0000-00-00', 3, 'ss', 'exo', ''),
+('d', '0000-00-00', 4, 'd', 'exo', ''),
+('sm', '0000-00-00', 5, 'sm', 'sd', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vendor`
 --
 
 CREATE TABLE IF NOT EXISTS `vendor` (
@@ -129,27 +257,17 @@ CREATE TABLE IF NOT EXISTS `vendor` (
   `email` varchar(50) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(32) NOT NULL,
-  `status` varchar(12) NOT NULL,
+  `status` varchar(20) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `vendor`
+-- Dumping data for table `vendor`
 --
 
 INSERT INTO `vendor` (`hak_akses`, `akte_pendiri`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `email`, `username`, `password`, `status`) VALUES
-('vendor', 'acak3.JPG', 'media', 'bandung', '190', 'media@gmail.com', 'media', '62933a2951ef01f4eafd9bdf4d3cd2f0', 'aktif'),
-('vendor', 'angry10.jpg', 'paytren', 'bandung', '1234', 'paytren@gmail.com', 'paytren', 'a18315a270a8bb795e7d47268f5a0cbd', 'aktif');
-
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `barang`
---
-ALTER TABLE `barang`
-  ADD CONSTRAINT `barang_ibfk_2` FOREIGN KEY (`username`) REFERENCES `vendor` (`username`);
+('vendor', 'warna.jpg', 'as', 'as', '3', 'asa@c.com', 'as', 'f970e2767d0cfe75876ea857f92e319b', 'aktif'),
+('vendor', 'acak2.JPG', 'hyundai', 'soeta', '123', 'hyundai@', 'hyundai', 'df98d265fc651a91faa09d4e82f096cc', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

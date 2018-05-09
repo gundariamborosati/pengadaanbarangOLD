@@ -1,14 +1,99 @@
-<form class="navbar-form navbar-left" role="search" action="<?php echo site_url('c_progress/cetakpdf');?>" method="post">
-        <div class="form-group">
-            <label>Tanggal Awal :</label>
-            <input type="date" class="form-control" placeholder="Search" name="cari">
-            <label>Tanggal Akhir :</label>
-            <input type="date" class="form-control" placeholder="Search" name="cari2">
-        </div>
-        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i> Cari</button>
-    </form>
-    <div class="absolute">
-        <a href='<?php echo site_url('laporanpembelian/toExcelAll'); ?>' class="btn btn-primary"><i class="glyphicon glyphicon-download-alt" 
-           aria-hidden="true"> 
-        </i>Cetak Laporan</a>
-    </div>
+<html>
+<head>
+<style type="text/css" media="print">
+    table {border: solid 1px #000; border-collapse: collapse; width: 100%}
+    tr { border: solid 1px #000; page-break-inside: avoid;}
+    td { padding: 7px 5px; font-size: 10px}
+    th {
+        font-family:Arial;
+        color:black;
+        font-size: 11px;
+        background-color:lightgrey;
+    }
+    thead {
+        display:table-header-group;
+    }
+    tbody {
+        display:table-row-group;
+    }
+    h3 { margin-bottom: -17px }
+    h2 { margin-bottom: 0px }
+</style>
+<style type="text/css" media="screen">
+    table {border: solid 1px #000; border-collapse: collapse; width: 100%}
+    tr { border: solid 1px #000}
+    th {
+        font-family:Arial;
+        color:black;
+        font-size: 11px;
+        background-color: #999;
+        padding: 8px 0;
+    }
+    td { padding: 7px 5px;font-size: 10px}
+    h3 { margin-bottom: -17px }
+    h2 { margin-bottom: 0px }
+</style>
+<title>Cetak Progress oleh direktur</title>
+</head>
+
+<body onload="window.print()">
+    <center><b style="font-size: 20px"><h3> Progress Pengadaan</h3></b><br>
+    
+
+     Dari tanggal <b><?=date('F d Y', strtotime($tgl_start))."</b> sampai dengan tanggal <b>". date('F d Y',strtotime($tgl_end))."</b>"; ?> 
+    </center><br> 
+
+     <table id="dataProgress" class="table ">
+                <thead>
+                  <tr>
+                  <th> nomor</th>
+                     <th>No pesanan</th>
+                    <th>tanggal</th>
+                    <th>nama customer</th>
+                    <th>nama vendor</th>
+                    <th>status</th>
+                    <th >kendala</th>
+                   
+
+                  
+                  </tr>
+                </thead>
+                <tbody>
+
+            <?php 
+            if (!empty($progress)) {
+                $no = 0;
+                foreach ($progress as $d) {
+                    $no++;
+            ?>
+            <tr>
+                <td><?php echo $no; ?></td>
+               
+              <!--   <td><?php echo $d->no_pesanan; ?></td> -->
+                <td><?php echo $d->tanggal; ?></td>
+                <td><?php echo $d->nama_customer; ?></td>
+                <td><?php echo $d->nama_vendor; ?></td>
+              <!--   <td><?php echo $d->tanggal; ?></td> -->
+                <td><?php echo $d->status; ?></td>
+                <td><?php echo $d->kendala; ?></td>
+               
+            </tr>
+            <?php 
+                }
+            } else {
+                echo "<tr><td style='text-align: center'>Tidak ada data</td></tr>";
+            }
+            ?> 
+         
+         
+
+
+   
+    
+  
+
+        </tbody>
+    </table>
+</body>
+</html>
+

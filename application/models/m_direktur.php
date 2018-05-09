@@ -12,7 +12,9 @@ class m_direktur extends CI_Model {
 		$this->db->where('password', $password);
 		return $this->db->get('direktur');
 	}
-
+function detail($where,$table){		
+		return $this->db->get_where($table,$where);
+	}
 	function getAllDirektur(){
 		 return $this->db->get('direktur');
    	      

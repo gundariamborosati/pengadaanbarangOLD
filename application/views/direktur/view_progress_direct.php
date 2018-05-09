@@ -11,6 +11,7 @@
     body { font-family: sans-serif; }
    </style>
 
+
     <ul class="nav navbar-nav d-md-down-none">
       <li class="nav-item px-3">
         <a class="nav-link" href="<?php echo base_url('/c_direktur/home');?>">Dashboard</a>
@@ -92,19 +93,24 @@
           <div class="card-header">
             <h3>  Progress Pengadaan </h3>
           </div>
+           <div class="pull-right">
+
+  
+<button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#myModal"><h5><i class="fa fa-print"> cetak report  </i></h5></button>
+    </div>
     <div class="pull-left">
     </div>
     <div class="card-body">
                 <table id="dataProgress" class="table ">
                 <thead>
                   <tr>
-                    <th>No pesanan</th>
+                   <!--  <th>No pesanan</th> -->
                     <th>tanggal</th>
                     <th>nama customer</th>
                     <th>nama vendor</th>
                     <th>status</th>
                     <th>kendala</th>
-                    <!-- <th>evaluasi</th> -->
+                 
 
                     
                   </tr>
@@ -117,17 +123,17 @@
                   ?>
                   
                   <tr>
-                    <!-- <td><?php  echo $no; ?></td> -->
-                    <td><?php echo $prog->no_pesanan ;?></td>
-                    <td><?=date('d F Y', strtotime($prog->tanggal));?></td>    
+                  
+                    <!-- <td><?php echo $prog->no_pesanan ;?></td> -->
+                    <td><?=date('F d Y', strtotime($prog->tanggal));?></td>    
                     <td><?php echo $prog->nama_customer ;?></td>  
                    <td><?php echo $prog->nama_vendor ;?></td>                                   
                     <td><?php echo $prog->status ;?></td>                                     
            
              <td
-             <a href="#view<?php echo $prog->no_pesanan ;?>" data-toggle="modal"> <button type="button" class="btn btn-info"><i class="fa fa-external-link"> </i> kendala<span class="" aria-hidden="true"></span></button></a></td>
+             <a href="#view<?php echo $prog->id_progress ;?>" data-toggle="modal"> <button type="button" class="btn btn-info"><i class="fa fa-external-link"> </i> kendala<span class="" aria-hidden="true"></span></button></a></td>
              <!-- Modal Tambah -->
-  <div   role="dialog" tabindex="" id="view<?php echo $prog->no_pesanan; ?>" class="modal fade">
+  <div   role="dialog" tabindex="" id="view<?php echo $prog->id_progress; ?>" class="modal fade">
       <div class="modal-dialog">
       
           <div class="modal-content">
@@ -154,23 +160,73 @@
       </div>
   </div>
   <!-- END Modal Tambah -->
-                        <!-- <td> 
-                        <a href="<?php echo base_url() . 'c_progress/identifikasi/' . $prog->no_pesanan ?>" class="btn btn-primary"> <i class="fa fa-pencil"></i>evaluasi</a>
-                    </td> -->
+                     
                      </tr>
                   <?php
                   endforeach;
                   ?>
-
-                  <!-- <a class="btn btn-default" data-toggle="modal" data-target="cetakpdf"><i class="fa fa-print"></i>
-                  cetak pdf </a> -->
-
-         
-                 
                 </tbody>
               </table>
-              <td><a href="<?php echo site_url('c_progress/cetakpdf');?>" class="btn btn-warning" onclick="return confirm('Apakah anda yakin ingin mencetak laporan?')">Cetak Laporan</a>
-              </td>
+        <!-- Modal -->
+
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- konten modal-->
+      <div class="modal-content">
+        <!-- heading modal -->
+        <div class="modal-header">
+          <h4>print progress pengadaan</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>  
+        </div>
+        <!-- body modal -->
+       
+           <div class="well">
+<form action="<?php echo site_url('c_progress/cetak');?>" target="blank" method="post" accept-charset="utf-8" enctype="multipart/form-data"> 
+  <table class="table-form" width="100%">
+  <tr><td width="20%">Dari Tanggal </td><td><b><input type="date" name="tgl_start" id="tgl_start" class="form-control" style="width: 200px" required></b></td></tr>   
+
+  <tr><td width="30%">Sampai Tanggal </td><td><b><input type="date" name="tgl_end" id="tgl_end" class="form-control" style="width:200px"  required></b></td></tr> 
+  <tr><td colspan="2">
+  <br>
+ 
+        <!-- footer modal -->
+        <div class="modal-footer">
+       <button type="submit" class="btn btn-primary"><i class="fa fa-print"></i> Cetak</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+          </td></tr>
+  </table>
+  </fieldset>
+</form>
+</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+    </main>
+</div>
+
+     
+
+
+
       
               
             </div>
@@ -184,6 +240,7 @@
 </div>
 </main>
 </div>
+
 
  <!--Start of Tawk.to Script-->
             <script type="text/javascript">

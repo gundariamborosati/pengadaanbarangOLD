@@ -53,16 +53,33 @@ class m_customer extends CI_Model{
 		$this->db->update($table,$data);
 	}
 
-	public function updatePassword($username,$data,$table)
-    {
-         //id apa yang mau di update, lalu DATA apa yang mau dikirim ke tabel di database
-        $this->db->where('username',$username);
-        $this->db->update($table,$data);
-    }
+	// public function updatePassword($username,$data,$table)
+ //    {
+
+ //         //id apa yang mau di update, lalu DATA apa yang mau dikirim ke tabel di database
+ //        $this->db->where('username',$username);
+ //        $this->db->update($table,$data);
+ //    }
 
     function check_regis($username){
 		$this->db->where('username', $username);
 		return $this->db->get('customer');
+	}
+
+	function getCurrentPass($username){
+		$query = $this->db->where(['username'=>$username]) ->get('customer');
+		if($query->num_rows() > 0) {
+			return $query->row();
+		}
+	}
+
+	function update_password($new_password,$uname){
+		$data = array (
+			'password' => md5($new_password)
+		);
+
+		return $this->db->where('username',$uname)
+		->update('customer',$data);
 	}
 
 }

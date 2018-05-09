@@ -60,7 +60,7 @@
                 <a class="nav-link" href="#"><i class="fa fa-share"></i> Send Dokumen</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-download"></i> Receive Dokumen</a>
+                <a class="nav-link" href="<?php echo base_url('/c_suratMasuk/surat_masukDirektur');?>"><i class="fa fa-download"></i> Receive Dokumen</a>
               </li> 
             </ul>
           </li>  

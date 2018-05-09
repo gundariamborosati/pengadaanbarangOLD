@@ -64,12 +64,12 @@
                 <a class="nav-link" href="<?php echo base_url('/c_progress/viewProgress');?>"><i class="fa fa-tasks"></i> Kelola progress pengadaan</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
+                <a class="nav-link" href="<?php echo base_url('/c_statusPesanan/input');?>"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=" <?php echo base_url('');?> "><i class="fa fa-comment"></i>View Ulasan</a>
+            <a class="nav-link" href="<?php echo base_url('/c_ulasan/viewUlasanlog');?>"><i class="fa fa-comment"></i>View Ulasan</a>
           </li>
           <li class="divider"></li>
         </ul>
@@ -99,7 +99,7 @@
                 <table id="dataProgress" class="table ">
                 <thead>
                   <tr>
-                    <th>No pesanan</th>
+                <!--     <th>No pesanan</th> -->
                     <th>tanggal</th>
                     <th>nama customer</th>
                     <th>nama vendor</th>
@@ -118,17 +118,17 @@
                   ?>
                   
                   <tr>
-                    <!-- <td><?php  echo $no; ?></td> -->
-                    <td><?php echo $prog->no_pesanan ;?></td>
+                    
+                   <!--  <td><?php echo $prog->no_pesanan ;?></td> -->
                     <td><?php echo $prog->tanggal ;?></td>    
                     <td><?php echo $prog->nama_customer ;?></td>  
                    <td><?php echo $prog->nama_vendor ;?></td>                                   
                     <td><?php echo $prog->status ;?></td>                                     
            
              <td
-             <a href="#view<?php echo $prog->no_pesanan ;?>" data-toggle="modal"> <button type="button" class="btn btn-primary"><i class="fa fa-external-link"> </i> kendala<span class="" aria-hidden="true"></span></button></a></td>
+             <a href="#view<?php echo $prog->id_progress ;?>" data-toggle="modal"> <button type="button" class="btn btn-primary"><i class="fa fa-external-link"> </i> kendala<span class="" aria-hidden="true"></span></button></a></td>
              <!-- Modal Tambah -->
-  <div   role="dialog" tabindex="" id="view<?php echo $prog->no_pesanan; ?>" class="modal fade">
+  <div   role="dialog" tabindex="" id="view<?php echo $prog->id_progress; ?>" class="modal fade">
       <div class="modal-dialog">
       
           <div class="modal-content">
@@ -155,9 +155,10 @@
       </div>
   </div>
   <!-- END Modal Tambah -->
+  
              <td>
-            <center><a href="<?=base_url()?>c_progress/hapusProgress/<?=$prog->no_pesanan?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><i class="fa fa-trash"></i></a> 
-            <a href="<?=base_url()?>c_progress/edit/<?=$prog->no_pesanan?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center>
+            <center><a href="<?=base_url()?>c_progress/hapusProgress/<?=$prog->id_progress?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><i class="fa fa-trash"></i></a> 
+            <a href="<?=base_url()?>c_progress/edit/<?=$prog->id_progress?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center>
                   </tr>
                   <?php
                   endforeach;
@@ -173,6 +174,7 @@
             </main>
             </div>
           
+
     </div>
   </div>
 </div>

@@ -158,4 +158,6 @@ $(document).ready(function() {
     $('#dataBarang').DataTable();
 
     $('#dataProgress').DataTable();
+
+     $('#dataUlasan').DataTable();
 } );

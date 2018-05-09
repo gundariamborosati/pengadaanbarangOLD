@@ -16,9 +16,7 @@ class c_customer extends CI_Controller {
 	}
 
 	
-	public function add(){		
-		$this->load->view('customer/registrasiCustomer');
-	}
+
 
 	public function detail_user($username){
 		$where = array('username' => $username);
@@ -28,7 +26,7 @@ class c_customer extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	publIC function edit_user($username){
+	public function edit_user($username){
 		$where = array('username' => $username);
 		$data['user'] = $this->m_customer->detail($where,'customer')->result();
 		$this->load->view('template/header');
@@ -56,6 +54,10 @@ class c_customer extends CI_Controller {
 		$this->m_vendor->delete_user($where,'customer');
 		redirect('c_logistik/kelola_user');
 	}
+  	
+  		public function add(){		
+		$this->load->view('customer/registrasiCustomer');
+	}
 
 
 	public function registrasicustomer(){
@@ -69,7 +71,7 @@ class c_customer extends CI_Controller {
                 <script type=text/javascript>alert("Username sudah ada");</script>
 
         	<?php
-        	$this->load->view('vendor/registrasiCustomer');
+        	$this->load->view('customer/registrasiCustomer');
 		}else{
 
 					$config['upload_path']   = 'asset/img/npwp/'; 
@@ -149,28 +151,85 @@ class c_customer extends CI_Controller {
 		}
 	}
 
-function updatePassword(){
-        $username = $this->session->userdata['username'];
+// function updatePassword(){
+//         $username = $this->session->userdata['username'];
 
-        $this->form_validation->set_rules('pw_baru','password baru','required');
-        $this->form_validation->set_rules('cpw_baru','password kedua','required|matches[pw_baru]');
-        $this->form_validation->set_error_delimiters('<p class="alert">','</p>');
-        if( $this->form_validation->run() == FALSE ){
-            $this->load->view('customer/kelola_profile');
-  		} else {
-            $post = $this->input->post();            
-            $data = array(
-                'password' => md5($post['pw_baru']),
-            );
+//         $this->form_validation->set_rules('pw_baru','password baru','required');
+//         $this->form_validation->set_rules('cpw_baru','password kedua','required|matches[pw_baru]');
+//         $this->form_validation->set_error_delimiters('<p class="alert">','</p>');
+//         if( $this->form_validation->run() == FALSE ){
+//             $this->load->view('customer/kelola_profile');
+//   		} else {
+//             $post = $this->input->post();            
+//             $data = array(
+//                 'password' => md5($post['pw_baru']),
+//             );
 
-            $this->m_customer->update($username, $data, 'customer');
-            $this->viewProfile();
+//             $this->m_customer->update($username, $data, 'customer');
+//             $this->viewProfile();
 
-            $this->m_customer->updatePassword($username, $data, 'customer');
+//             $this->m_customer->updatePassword($username, $data, 'customer');
 
 
-        }
-  }
+//         }
+//   }
+	public function form_update(){
+		$this->load->view('template/header');
+		$this->load->view('customer/kelola_profile');
+		$this->load->view('template/footer');
+	}
+
+	public function updatePassword(){
+		$this->form_validation->set_rules('curr_password', 'current password','required|alpha_numeric');
+		$this->form_validation->set_rules('new_password', 'new password','required|alpha_numeric');
+		$this->form_validation->set_rules('conf_password', 'confirm password','required|alpha_numeric');
+		if($this->form_validation->run()){
+			$curr_password = $this->input->post('curr_password');
+			$new_password = $this->input->post('new_password');
+			$conf_password = $this->input->post('conf_password');			
+			$uname = $this->session->userdata('username');
+			$data= $this->m_customer->getCurrentpass($uname);					
+				if($data->password == md5($curr_password)) {			
+					if($new_password == $conf_password ){
+						if($this->m_customer->update_password($new_password, $uname)){						
+							?>
+	                    		 <script type=text/javascript>alert("update sukses!");</script>
+	        				<?php
+		        			$this->load->view('template/header');
+							// $this->load->view('customer/kelola_profile');
+							// $this->load->view('template/footer');
+							// redirect('viewProfile');
+						}else{						
+							?>
+	                    		 <script type=text/javascript>alert("Gagal update password!");</script>
+	        				<?php
+	        				$this->load->view('template/header');
+							$this->load->view('customer/kelola_profile');
+							$this->load->view('template/footer');
+						}
+					}else{
+						?>
+	                     <script type=text/javascript>alert("password baru dan confirm password tidak cocok!");</script>
+	        			<?php
+	        			$this->load->view('template/header');
+						 $this->load->view('customer/kelola_profile');
+						$this->load->view('template/footer');				
+					}
+				}else{
+					?>
+                     <script type=text/javascript>alert("password lama yang anda masukan salah!");</script>
+        			<?php
+        			$this->load->view('template/header');
+     //    			 $this->load->view('customer/kelola_profile');
+					// // $this->load->view('vendor/update_pass');
+					// $this->load->view('template/footer');
+					redirect('c_customer/viewProfile');
+				}				
+		}else{
+			  $this->load->view('customer/kelola_profile');
+		}
+	}
+
 
  public function keluar()
 	{

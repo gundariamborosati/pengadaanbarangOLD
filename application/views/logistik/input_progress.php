@@ -15,6 +15,7 @@
         <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>">Dashboard</a>
       </li>
     </ul>
+    
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -64,12 +65,12 @@
                 <a class="nav-link" href="<?php echo base_url('/c_progress/viewProgress');?>"><i class="fa fa-tasks"></i> Kelola progress pengadaan</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
+                <a class="nav-link" href="<?php echo base_url('/c_statusPesanan/input');?>"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=" <?php echo base_url('');?> "><i class="fa fa-comment"></i>View Ulasan</a>
+            <a class="nav-link" href="<?php echo base_url('/c_ulasan/viewUlasanlog');?>"><i class="fa fa-comment"></i>View Ulasan</a>
           </li>
           <li class="divider"></li>
         </ul>
@@ -103,7 +104,7 @@
      <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                       <!--  <h1 class="page-header">INPUT ANAK</h1> -->
+                       
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -120,35 +121,35 @@
                                     <div class="col-lg-6">
                                         
                                         <?php echo form_open('c_progress/inputProgress'); ?>
-                                            <div class="form-group">
-                                                <label>No Pesanan</label>
-                                                <input name="no_pesanan" class="form-control" required>
+                                            <!--  <div class="form-group">
+                                                <label>id progress</label>
+                                                <input name="id_progress" class="form-control" required>
                                                 
-                                            </div> 
-                                            
+                                            </div>  
+                                             -->
                                             <div class="form-group">
                                                 <label>Tanggal</label>
-                                                <input name="tanggal" class="form-control" type="date">
+                                                <input name="tanggal" class="form-control" type="date" required>
                                              
                                             </div>
                                             <div class="form-group">
                                                 <label>nama customer</label>
-                                                <input name="nama_customer" class="form-control" rows="3">
+                                                <input name="nama_customer" class="form-control" rows="3" required>
                                                
                                            </div>
                                               <div class="form-group">
                                                 <label>nama vendor</label>
-                                                <input name="nama_vendor" class="form-control">
+                                                <input name="nama_vendor" class="form-control" required>
                                           
                                             </div>
                                               <div class="form-group">
                                                 <label>status</label>
-                                                <input name="status" class="form-control">
+                                                <input name="status" class="form-control" required>
                                                 
                                             </div>
                                             <div class="form-group">
                                                 <label>kendala</label><br>
-                                               <textarea name="kendala" class="form-control"  rows="7" cols="80"></textarea>
+                                               <textarea name="kendala" class="form-control"  rows="7" cols="80" required></textarea>
                                             </div>
                                             <button type="submit" name="simpan" value="submit" class="btn btn-primary">Submit</button>
                                            </form>

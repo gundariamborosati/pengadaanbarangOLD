@@ -54,23 +54,35 @@
 
           <li class="nav-item">  
           <a class="nav-link" href=" <?php echo base_url('/c_customer/home');?> "><i class="fa fa-home"></i> Home</a>
+     <!--       <a class="nav-link" href=" <?php echo base_url('/c_suratkeluarcust/add');?>"><i class="fa fa-comment"></i> compose </a> -->
+          <li class="divider">
+           <li class="nav-item nav-dropdown"> 
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kirim Surat </a>          
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                 <a class="nav-link" href=" <?php echo base_url('/c_suratKeluar/inputSuratDirektur');?>"><i class="fa fa-comment"></i> direktur </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=" <?php echo base_url('/c_suratKeluar/inputSuratLogistik');?>"><i class="fa fa-download"></i>logistik</a>
+              </li> 
+            </ul>
+          </li>  
           </li>
-
           <li class="nav-item nav-dropdown"> 
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>          
             <ul class="nav-dropdown-items">
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-share"></i> Send Dokumen</a>
+                <a class="nav-link" href=" <?php echo base_url('/c_suratKeluar/viewSuratKeluarCustomer');?>"><i class="fa fa-share"></i> Surat Keluar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-download"></i> Receive Dokumen</a>
+                <a class="nav-link" href="<?php echo base_url('/c_suratMasuk/surat_masukCustomer');?>"><i class="fa fa-download"></i> Kotak Masuk</a>
               </li> 
             </ul>
           </li>  
 
            <li class="nav-item">
-            <a class="nav-link" href="widgets.html"><i class="fa fa-cart-arrow-down"></i> melihat status pesanan</a>
-            <a class="nav-link" href="widgets.html"><i class="fa fa-comment"></i> ulasan saya </a>
+            <a class="nav-link" href="<?php echo base_url('/c_statusPesanan/viewStatusPesanan');?>"><i class="fa fa-cart-arrow-down"></i> melihat status pesanan</a>
+            <a class="nav-link" href="<?php echo base_url('/c_ulasan/input');?>"><i class="fa fa-comment"></i> ulasan saya </a>
           </li>
           <li class="divider"></li>
 
@@ -91,49 +103,7 @@
         <!-- Breadcrumb Menu-->
       </ol>
 
-      <!-- <div class="container-fluid">
-        <div class="animated fadeIn">
-             <div class="card-footer">
-              <ul>
-                <li>
-                  <div class="text-muted">Visits</div>
-                  <strong>29.703 Users (40%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">Unique</div>
-                  <strong>24.093 Users (20%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="text-muted">Pageviews</div>
-                  <strong>78.706 Views (60%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">New Users</div>
-                  <strong>22.123 Users (80%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">Bounce Rate</div>
-                  <strong>40.15%</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-        </div>
-      </div> -->
+   
       <!-- /.conainer-fluid -->
     </main>
     </div>

@@ -69,7 +69,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=" <?php echo base_url('');?> "><i class="fa fa-comment"></i>View Ulasan</a>
+            <a class="nav-link" href="<?php echo base_url('/c_ulasan/viewUlasanlog');?>" ><i class="fa fa-comment"></i>View Ulasan</a>
           </li>
           <li class="divider"></li>
         </ul>

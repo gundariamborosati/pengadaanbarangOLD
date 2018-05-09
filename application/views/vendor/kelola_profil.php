@@ -20,6 +20,7 @@
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           Selamat datang <?php echo $this->session->userdata('username');?>
         </a>
+
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-header text-center">
             <strong>Account</strong>
@@ -126,7 +127,8 @@
                           <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                               <button class="btn btn-primary"> <i class="fa fa-check">Update</i></button>
-                              <a href="<?php echo base_url(). 'c_vendor/form_update'; ?>" class="btn btn-success" ><i class="fa fa-pencil">Ubah Password</i></a>                              
+                              <!--  <a href="<?php echo base_url(). 'c_vendor/form_update'; ?>" class="btn btn-success" ><i class="fa fa-pencil">Ubah Password</i></a>    -->          
+                              <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil">Ubah Password</i></button>            
                             </div>
                           </div>
                         </div>
@@ -151,3 +153,57 @@
           </div>
         </main>
       </div>
+      
+      <!-- Modal -->
+
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- konten modal-->
+      <div class="modal-content">
+        <!-- heading modal -->
+        <div class="modal-header">
+          <h4>Change Password</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+       
+        </div>
+        <!-- body modal -->
+       
+  <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
+      
+    <form action="<?php echo base_url(). 'c_vendor/update_password'; ?>" method="post">
+        
+          <table class="table-form" width="100%">
+  <tr><td width="20%">Password Lama</td><td><b><input type="password"  name="curr_password"  class="form-control" style="width: 200px" required></b></td></tr>   
+
+  <tr><td width="30%">Password Baru </td><td><b><input type="password" name="new_password"  class="form-control" style="width:200px"  required></b></td></tr> 
+  <tr><td colspan="2">
+  
+  <tr><td width="40%">konfirmasi password baru </td><td><b><input type="password" name="conf_password"  class="form-control" style="width:200px"  required></b></td></tr> 
+  <tr><td colspan="2">
+  <br>
+         
+        <!-- footer modal -->
+        <div class="modal-footer">
+      <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
+         </form>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+        </div>
+        </table>
+  </fieldset>
+</form>
+</div>
+</td>
+</tr>
+</table>
+</form>
+      </div>
+
+    </div>
+  </div>
+</div>
+    </main>
+</div>
+
+    

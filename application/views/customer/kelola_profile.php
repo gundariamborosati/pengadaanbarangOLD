@@ -55,21 +55,34 @@
           <li class="nav-item">  
           <a class="nav-link" href=" <?php echo base_url('/c_customer/home');?> "><i class="fa fa-home"></i> Home</a>
           </li>
-
           <li class="nav-item nav-dropdown"> 
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kirim Surat </a>          
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                 <a class="nav-link" href=" <?php echo base_url('/c_suratkeluarcust/add');?>"><i class="fa fa-comment"></i> direktur </a>
+              </li>
+              <li class="nav-item">
+                 <a class="nav-link" href=" <?php echo base_url('/c_suratkeluarcust/input');?>"><i class="fa fa-download"></i>logistik</a>
+              </li> 
+            </ul>
+          </li>  
+          </li>
+          </li>
+
+            <li class="nav-item nav-dropdown"> 
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>          
             <ul class="nav-dropdown-items">
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-share"></i> Send Dokumen</a>
+                <a class="nav-link" href=" <?php echo base_url('/c_suratkeluarcust/viewSuratKeluar');?>"><i class="fa fa-share"></i> Surat Keluar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-download"></i> Receive Dokumen</a>
+                <a class="nav-link" href="#"><i class="fa fa-download"></i> Kotak Masuk</a>
               </li> 
             </ul>
           </li>  
            <li class="nav-item">
-            <a class="nav-link" href="widgets.html"><i class="fa fa-cart-arrow-down"></i> melihat status pesanan </a>
-            <a class="nav-link" href="widgets.html"><i class="fa fa-comment"></i> ulasan saya </a>
+           <a class="nav-link" href="<?php echo base_url('/c_statusPesanan/viewStatusPesanan');?>"><i class="fa fa-cart-arrow-down"></i> melihat status pesanan</a>
+            <a class="nav-link" href="<?php echo base_url('/c_ulasan/input');?>"><i class="fa fa-comment"></i> ulasan saya </a>
           </li>
           <li class="divider"></li>
 
@@ -171,46 +184,39 @@
           <h4>Change Password</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           
-       <!--    <h4 class="modal-title">update password</h4> -->
+       
         </div>
         <!-- body modal -->
-         <?php $data = $this->session->userdata(); ?> 
-
+       
+  <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
       
         <form action="<?= base_url('c_customer/updatePassword'); ?>" method="POST">
-        <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-lock"></i></span>
-              </div>
-              <input type="text" name="password" class="inputan" placeholder="password" value="<?= $data['password']; ?>" >
-            </div>
-          
-               <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-lock"></i></span>
-              </div>
-              <input type="password" name="pw_baru"  class="inputan" placeholder="password baru">   <!--  <br>
-            <?= form_error('pw_baru'); ?> -->
-            </div>
-           
+  
 
-             <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="icon-lock"></i></span>
-              </div>
-             <input type="text" name="cpw_baru"  class="inputan" placeholder="ulangi password baru"> <!--  <br>
-            <?= form_error('cpw_baru'); ?> -->
-            </div>
+          <table class="table-form" width="100%">
+  <tr><td width="20%">Password Lama</td><td><b><input type="password"  name="curr_password"  class="form-control" style="width: 200px" required></b></td></tr>   
 
-            <!-- <input type="submit" name="submit" value="Ganti Password"> -->
-     
-
+  <tr><td width="30%">Password Baru </td><td><b><input type="password" name="new_password"  class="form-control" style="width:200px"  required></b></td></tr> 
+  <tr><td colspan="2">
+  
+  <tr><td width="40%">konfirmasi password baru </td><td><b><input type="password" name="conf_password"  class="form-control" style="width:200px"  required></b></td></tr> 
+  <tr><td colspan="2">
+  <br>
+         
         <!-- footer modal -->
         <div class="modal-footer">
-         <button type="submit"  class="btn btn-success"><i class="fa fa-check icon-white"></i> Simpan</button>
+      <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
          </form>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
         </div>
+        </table>
+  </fieldset>
+</form>
+</div>
+</td>
+</tr>
+</table>
+</form>
       </div>
 
     </div>
@@ -218,4 +224,3 @@
 </div>
     </main>
 </div>
-<
