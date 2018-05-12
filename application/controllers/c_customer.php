@@ -45,8 +45,7 @@ class c_customer extends CI_Controller {
 			'username'=>$username
 			);
 		$this->m_customer->updateProfile($where,$data,'customer');
-		print_r($status);
-		print_r($username);
+		redirect('c_logistik/kelola_user');
 	}
 
 	function delete_user($username){
