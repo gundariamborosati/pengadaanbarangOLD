@@ -82,9 +82,9 @@ class c_barang extends CI_Controller {
 				$namabarang=$this->input->post('namabarang');
 				$jenis=$this->input->post('jenis');	
 				$data=array(
-					'namabarang' => $namabarang,
+					'namabarang' =>$namabarang,
 					'gambar' =>  $this->upload->data('file_name'),
-					'jenis'=>$jenis		
+					'jenis'=>$jenis				
 					);
 				$where=array(
 					'idbarang'=>$idbarang
@@ -92,9 +92,7 @@ class c_barang extends CI_Controller {
 				$this->m_barang->update_barang($where,$data,'barang');	
 				$this->view_barang();
 			}
-
-			        		redirect(base_url('c_barang/view_barang'));
-
+		redirect(base_url('c_barang/view_barang'));
 	}
 
 	public function form_add(){

@@ -43,7 +43,7 @@ class c_vendor extends CI_Controller {
 			'username'=>$username
 			);
 		$this->m_vendor->updateProfile($where,$data,'vendor');
-		$this->detail_user();
+		redirect('c_logistik/kelola_user');
 	}
 
 	function delete_user($username){

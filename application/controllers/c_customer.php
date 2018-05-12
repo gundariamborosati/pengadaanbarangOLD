@@ -112,9 +112,7 @@ class c_customer extends CI_Controller {
 	}
 
  public function viewProfile(){
- 	 
-
-		 $data['profile'] = $this->m_customer->profileCustomer($this->session->userdata('username'));
+		$data['profile'] = $this->m_customer->profileCustomer($this->session->userdata('username'));
 		$this->load->view('template/header');
  	    $this->load->view('customer/kelola_profile',$data); 
  	    $this->load->view('template/footer');

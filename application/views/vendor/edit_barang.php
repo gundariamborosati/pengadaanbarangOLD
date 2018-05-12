@@ -88,39 +88,49 @@
                         <form   action="<?php echo base_url(). 'c_barang/update_barang/'.$detail->idbarang; ?>" enctype="multipart/form-data" method="post">
                           <div class="row">
                             <div class="col-md-6">
-                              <!-- <div class="form-group">
-                                <label class="control-label">Id Barang</label>
-                                <div class="">
-                                  <input class="form-control" type="text" name="idbarang" value="" required>
-                                </div>
-                              </div> -->
+    
                               <div class="form-group">
                                 <label class="control-label">Nama Barang</label>
                                 <div class="">
                                   <input class="form-control" type="text" name="namabarang" value="<?php echo $detail->namabarang ;?>" required>
                                 </div>
                               </div>
+
                               <div class="form-group">
                                 <label for="sel1" >Jenis</label>
                                 <select name="jenis" class="form-control" id="sel1">
                                   <?php
                                   if( $detail->jenis == 'peralatan kantor') {
-                                  echo '<option value="peralatan kantor" selected>Peralatan kantor</option>';
-                                  echo '      <option value="peralatan laboratorium">Peralatan Laboratorium</option>
-                                  <option value="Meubelair / furniture">Meubelair / furniture</option>
-                                  <option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>
-                                  <option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>';
+                                    echo '<option value="peralatan kantor" selected>Peralatan kantor</option>';
+                                    echo '<option value="peralatan laboratorium">Peralatan Laboratorium</option>
+                                    <option value="Meubelair / furniture">Meubelair / furniture</option>
+                                    <option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>
+                                    <option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>';
                                   } elseif ( $detail->jenis == 'peralatan laboratorium') {
-                                  echo '<option value="peralatan laboratorium" selected>Peralatan Laboratorium</option>';
+                                    echo '<option value="peralatan laboratorium" selected>Peralatan Laboratorium</option>';
+                                    echo '<option value="peralatan kantor">Peralatan kantor</option>
+                                    <option value="Meubelair / furniture">Meubelair / furniture</option>
+                                    <option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>
+                                    <option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>';
                                   } elseif ($detail->jenis == 'Meubelair / furniture') {
-                                  echo ' <option value="Meubelair / furniture">Meubelair / furniture</option>';
+                                    echo ' <option value="Meubelair / furniture">Meubelair / furniture</option>';
+                                    echo '<option value="peralatan kantor">Peralatan kantor</option>
+                                    <option value="Meubelair / furniture">Meubelair / furniture</option>
+                                    <option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>
+                                    <option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>';
                                   } elseif ($detail->jenis == 'Jaringan IT dan Telekomunikasi') {
-                                  echo '<option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>';
+                                    echo '<option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>';
+                                    echo '<option value="peralatan kantor">Peralatan kantor</option>
+                                    <option value="peralatan laboratorium">Peralatan Laboratorium</option>
+                                    <option value="Meubelair / furniture">Meubelair / furniture</option>                                  
+                                    <option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>';
                                   } elseif ($detail->jenis == 'Peralatan wisuda dan pesta') {
-                                  echo '<option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>';
-                                  }  ;?>
-                                  
-                                  
+                                    echo '<option value="Peralatan wisuda dan pesta" >Peralatan wisuda dan pesta</option>';
+                                    echo '<option value="peralatan kantor">Peralatan kantor</option>
+                                    <option value="peralatan laboratorium">Peralatan Laboratorium</option>
+                                    <option value="Meubelair / furniture">Meubelair / furniture</option>
+                                    <option value="Jaringan IT dan Telekomunikasi" >Jaringan IT dan Telekomunikasi</option>';
+                                  }  ;?>                                  
                                 </select>
                               </div>
                             </div>
