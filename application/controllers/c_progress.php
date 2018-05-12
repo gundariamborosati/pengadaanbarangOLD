@@ -45,7 +45,7 @@ class c_progress extends CI_Controller {
         $tanggal     = $this->input->post('tanggal');
         $nama_customer = $this->input->post('nama_customer');
         $nama_vendor = $this->input->post('nama_vendor');
-        $status      = $this->input->post('status');
+        $progress      = $this->input->post('progress');
         $kendala     = $this->input->post('kendala');
         
         $data = array(
@@ -54,7 +54,7 @@ class c_progress extends CI_Controller {
         'tanggal'     => $tanggal,
         'nama_customer' => $nama_customer,
         'nama_vendor' =>$nama_vendor,
-        'status'      =>$status,
+        'progress'      =>$progress,
         'kendala'     =>$kendala
         );
         $this->m_progress->inputProgress($data, 'progress_pengadaan');
@@ -72,11 +72,11 @@ class c_progress extends CI_Controller {
 	}
 
 	public function updateProgress($id_progress){	
-		$status=$this->input->post('status');
+		$progress=$this->input->post('progress');
 		$kendala=$this->input->post('kendala');
 
 		$data=array(
-			'status' => $status,
+			'progress' => $progress,
 			'kendala'=>$kendala
 			);
 		$where=array(
@@ -104,7 +104,7 @@ class c_progress extends CI_Controller {
 		$data['tgl_start']	= $tgl_start;
 		$data['tgl_end']	= $tgl_end;		
  	
-			 $data['progress']	= $this->db->query("SELECT * FROM progress_pengadaan WHERE tanggal >= '$tgl_start' AND tanggal <= '$tgl_end' ORDER BY id_progress")->result(); 
+		$data['progress']	= $this->db->query("SELECT * FROM progress_pengadaan WHERE tanggal >= '$tgl_start' AND tanggal <= '$tgl_end' ORDER BY id_progress")->result(); 
 			$this->load->view('direktur/vcetaklaporan', $data);
 		 
 	}	

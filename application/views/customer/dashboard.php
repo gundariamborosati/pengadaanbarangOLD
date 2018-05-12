@@ -54,16 +54,16 @@
 
           <li class="nav-item">  
           <a class="nav-link" href=" <?php echo base_url('/c_customer/home');?> "><i class="fa fa-home"></i> Home</a>
-     <!--       <a class="nav-link" href=" <?php echo base_url('/c_suratkeluarcust/add');?>"><i class="fa fa-comment"></i> compose </a> -->
+     
           <li class="divider">
            <li class="nav-item nav-dropdown"> 
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kirim Surat </a>          
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-paper-plane-o"></i> Kirim Surat </a>          
             <ul class="nav-dropdown-items">
               <li class="nav-item">
-                 <a class="nav-link" href=" <?php echo base_url('/c_suratKeluar/inputSuratDirektur');?>"><i class="fa fa-comment"></i> direktur </a>
+                 <a class="nav-link" href=" <?php echo base_url('/c_suratKeluar/inputSuratDirektur');?>"><i class="fa fa-paper-plane"></i> direktur </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href=" <?php echo base_url('/c_suratKeluar/inputSuratLogistik');?>"><i class="fa fa-download"></i>logistik</a>
+                <a class="nav-link" href=" <?php echo base_url('/c_suratKeluar/inputSuratLogistik');?>"><i class="fa fa-paper-plane"></i>logistik</a>
               </li> 
             </ul>
           </li>  
@@ -102,13 +102,43 @@
 
         <!-- Breadcrumb Menu-->
       </ol>
+ 
+      
 
+        <div class="container-fluid"> 
+
+        <H1>Data Barang</H1>
+        <body>
+          <div class="row">
+
+            <?php foreach($barang as $detail): ?>
+              <div class="col-sm-3 col-md-3">
+                <div class="card">
+                  <div class="card-header">
+                    <h3> <?=$detail->namabarang?></h3>
+                  </div>
+                  <div class="card-body">
+                  <img src="<?php echo base_url('asset/img/barang/').$detail->gambar; ?>" alt="menu" style="height: 200px; width: 200px;">
+                  <div> 
+                    <p> <?=$detail->jenis ?> </p>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </body>
+        </div>
+
+      
+</main>
+</div>
    
       <!-- /.conainer-fluid -->
     </main>
     </div>
        <!--Start of Tawk.to Script-->
-            <script type="text/javascript">
+           <!--  <script type="text/javascript">
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -118,7 +148,7 @@
             s1.setAttribute('crossorigin','*');
             s0.parentNode.insertBefore(s1,s0);
             })();
-            </script>
+            </script> -->
             <!--End of Tawk.to Script-->
             </body>
     </body>

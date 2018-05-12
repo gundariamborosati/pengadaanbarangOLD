@@ -123,14 +123,13 @@
                      <td><?php echo $st['jenis_surat'] ;?></td>
                    <td><?php echo $st['no_surat'] ;?></td>
                     <td><?php echo $st['tgl_surat'];?></td>
-                    
                       <td><?php echo "<br><b>File : </b><i><a href='".base_URL()."asset/upload/surat_keluar/".$st['file']."' target='_blank'>".$st['file']."</a>"?></td> 
                        <td><?php echo $st['pesan'];?></td>
                          <td>
             <center>
-            <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center>
+            <a href="<?=base_url()?>c_approveDirektur/approve_direktur/<?=$st['id_surat']?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center>
                  
-           
+             
              
             
                   </tr>

@@ -5,17 +5,19 @@ class c_customer extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('m_customer');
+		$this->load->model('m_barang');
 
 		
 	}
 		 //call model
 	public function home(){
+		$data['barang'] = $this->m_barang->getAllBarang('barang');
 		$this->load->view('template/header'); // default template
-		$this->load->view('customer/dashboard'); // dashboard vendornya
+		$this->load->view('customer/dashboard',$data); // dashboard vendornya
 		$this->load->view('template/footer'); 
 	}
 
-	
+
 
 
 	public function detail_user($username){
@@ -151,28 +153,6 @@ class c_customer extends CI_Controller {
 		}
 	}
 
-// function updatePassword(){
-//         $username = $this->session->userdata['username'];
-
-//         $this->form_validation->set_rules('pw_baru','password baru','required');
-//         $this->form_validation->set_rules('cpw_baru','password kedua','required|matches[pw_baru]');
-//         $this->form_validation->set_error_delimiters('<p class="alert">','</p>');
-//         if( $this->form_validation->run() == FALSE ){
-//             $this->load->view('customer/kelola_profile');
-//   		} else {
-//             $post = $this->input->post();            
-//             $data = array(
-//                 'password' => md5($post['pw_baru']),
-//             );
-
-//             $this->m_customer->update($username, $data, 'customer');
-//             $this->viewProfile();
-
-//             $this->m_customer->updatePassword($username, $data, 'customer');
-
-
-//         }
-//   }
 	public function form_update(){
 		$this->load->view('template/header');
 		$this->load->view('customer/kelola_profile');
@@ -196,9 +176,8 @@ class c_customer extends CI_Controller {
 	                    		 <script type=text/javascript>alert("update sukses!");</script>
 	        				<?php
 		        			$this->load->view('template/header');
-							// $this->load->view('customer/kelola_profile');
-							// $this->load->view('template/footer');
-							// redirect('viewProfile');
+							
+							$this->viewProfile();
 						}else{						
 							?>
 	                    		 <script type=text/javascript>alert("Gagal update password!");</script>
@@ -220,15 +199,16 @@ class c_customer extends CI_Controller {
                      <script type=text/javascript>alert("password lama yang anda masukan salah!");</script>
         			<?php
         			$this->load->view('template/header');
-     //    			 $this->load->view('customer/kelola_profile');
-					// // $this->load->view('vendor/update_pass');
-					// $this->load->view('template/footer');
+            	 $this->load->view('customer/kelola_profile');
+	
+					 $this->load->view('template/footer');
 					redirect('c_customer/viewProfile');
 				}				
 		}else{
 			  $this->load->view('customer/kelola_profile');
 		}
 	}
+
 
 
  public function keluar()

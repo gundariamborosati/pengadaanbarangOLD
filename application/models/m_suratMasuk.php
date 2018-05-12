@@ -14,5 +14,19 @@ class m_suratMasuk extends CI_Model {
     }
   }
 
+ function approveDirektur($approve){
+    if($approve) {
+      $sql = "SELECT * FROM approve_direktur WHERE jenis_surat = ?";
+      $query = $this->db->query($sql, array($approve));
+      $result = $query->result_array();
 
+      return $result;
+    }
+  }
+  function getApprove(){
+		return $this->db->get('approve_direktur');
+	}
+  	
 }
+
+

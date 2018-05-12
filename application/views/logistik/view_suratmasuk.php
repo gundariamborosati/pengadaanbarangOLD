@@ -108,11 +108,12 @@
         <!-- Breadcrumb Menu-->
       </ol>
 
-     
+
+
       <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
-            <h3>  kotak masuk </h3>
+            <h3>  kotak masuk Dari Customer </h3>
           </div>
            <div class="pull-right">
 
@@ -127,7 +128,8 @@
                     <th>tanggal</th>
                     <th> surat </th>
                     <th>pesan</th>
-                   <th> aksi </th>
+                 
+
 
                     
                   </tr>
@@ -135,7 +137,7 @@
                 <tbody>
                   <?php              
                   
-                  foreach($surat_masuk as $st):
+                 foreach($surat_masuk as $st):
                 
                   ?>
                   
@@ -147,9 +149,7 @@
                     
                       <td><?php echo "<br><b>File : </b><i><a href='".base_URL()."asset/upload/surat_keluar/".$st['file']."' target='_blank'>".$st['file']."</a>"?></td> 
                        <td><?php echo $st['pesan'];?></td>
-                         <td>
-            <center>
-            <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center>
+          <!--   <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center> -->
                  
            
              
@@ -158,22 +158,70 @@
                   <?php
                   endforeach;
                   ?>
+            </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+
+</div>
+
+
+
+
+      <div class="container-fluid">
+        <div class="card card-accent-success">
+          <div class="card-header">
+            <h3>  Kotak Masuk Dari Direktur </h3>
+          </div>
+          <div class="card-body">
+            
+            <div>
+              
+              <table id="dataCustomer" class="table ">
+                <thead>
+                  <tr>
+                <th> surat dari customer </th>
+                <th> jenis_surat </th>
+                  <th>nomor surat </th>
+                    <th>tanggal</th>
+                    <th> surat </th>
+                    <th>pesan</th>
+                    <th> status </th>
+                  </tr>
+                </thead>
+                <tbody>
+                   <?php              
+                  
+                 foreach($surat_approve as $st):
+                
+                  ?>
+                  
+                    <tr>
+                  <td><?php echo $st->dari_customer ;?></td>
+                   <td><?php echo $st->jenis_surat ;?></td>
+                   <td><?php echo $st->no_surat ;?></td>
+                    <td><?php echo $st->tgl_surat;?></td>
+                    
+                      <td><?php echo "<br><b>File : </b><i><a href='".base_URL()."asset/upload/surat_keluar/".$st->file."' target='_blank'>".$st->file."</a>"?></td> 
+                       <td><?php echo $st->pesan;?></td>
+                      <td><?php echo $st->status_approve ;?></td> 
+                    
+          <!--   <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center> -->
                  
+           
+             
+            
+                  </tr>
+                  <?php
+                  endforeach;
+                  ?>
                 </tbody>
               </table>
               
-
-</div>
-</td>
-</tr>
-</table>
-</form>
-      <!-- /.conainer-fluid -->
-    </main>
+            </div>
     </div>
-    </body>
-    
-
-
-
-  </div>  
+  </div>
+</div>
+</main>
+</div>

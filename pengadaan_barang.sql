@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2018 at 10:42 AM
+-- Generation Time: May 12, 2018 at 10:45 AM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.16
 
@@ -21,6 +21,32 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `pengadaan_barang` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `pengadaan_barang`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `approve_direktur`
+--
+
+CREATE TABLE IF NOT EXISTS `approve_direktur` (
+  `id_approve` int(11) NOT NULL AUTO_INCREMENT,
+  `dari_customer` varchar(20) NOT NULL,
+  `jenis_surat` varchar(30) NOT NULL,
+  `no_surat` varchar(30) NOT NULL,
+  `tgl_surat` date NOT NULL,
+  `pesan` varchar(200) NOT NULL,
+  `file` varchar(200) NOT NULL,
+  `status_approve` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_approve`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `approve_direktur`
+--
+
+INSERT INTO `approve_direktur` (`id_approve`, `dari_customer`, `jenis_surat`, `no_surat`, `tgl_surat`, `pesan`, `file`, `status_approve`) VALUES
+(13, 'exo', 'SPPH', 'haru', '2019-01-03', '', 'DA082DOUAAAfKMo2.jpg', 'YA'),
+(14, 'exo', 'SPPH', 'haru', '2001-01-28', '', 'DA082DOUAAAfKMo2.jpg', 'TIDAK');
 
 -- --------------------------------------------------------
 
@@ -44,7 +70,8 @@ CREATE TABLE IF NOT EXISTS `barang` (
 
 INSERT INTO `barang` (`idbarang`, `namabarang`, `gambar`, `jenis`, `username`) VALUES
 ('1', 'buku', 'bayar.jpg', 'peralatan kantor', 'media'),
-('23', 'kursi', 'bayar1.jpg', 'peralatan kantor', 'media');
+('23', 'kursi', 'bayar1.jpg', 'peralatan kantor', 'media'),
+('BARANG-0024', 'jj', 'warna1.jpg', 'peralatan kantor', 'as');
 
 -- --------------------------------------------------------
 
@@ -129,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `progress_pengadaan` (
   `tanggal` date NOT NULL,
   `nama_customer` varchar(30) NOT NULL,
   `nama_vendor` varchar(30) NOT NULL,
-  `status` varchar(25) NOT NULL,
+  `progress` varchar(100) NOT NULL,
   `kendala` varchar(500) NOT NULL,
   `id_progress` varchar(30) NOT NULL,
   PRIMARY KEY (`id_progress`)
@@ -139,9 +166,8 @@ CREATE TABLE IF NOT EXISTS `progress_pengadaan` (
 -- Dumping data for table `progress_pengadaan`
 --
 
-INSERT INTO `progress_pengadaan` (`tanggal`, `nama_customer`, `nama_vendor`, `status`, `kendala`, `id_progress`) VALUES
-('0102-01-01', 's', 'sm', 'sss', 'd', 'PROGRESS-0001'),
-('2001-01-01', 'wah', 'exol', '1', 'asas\r\na\r\nsa\r\nd\r\nad\r\n\r\nad\r\n', 'PROGRESS-0002');
+INSERT INTO `progress_pengadaan` (`tanggal`, `nama_customer`, `nama_vendor`, `progress`, `kendala`, `id_progress`) VALUES
+('2001-01-01', 'sm', 'yg', 'sudah dikirim spph', 'tidak ada', 'PROGRESS-0003');
 
 -- --------------------------------------------------------
 
@@ -163,8 +189,8 @@ CREATE TABLE IF NOT EXISTS `status_pesanan` (
 --
 
 INSERT INTO `status_pesanan` (`no_pesanan`, `username`, `tanggal`, `status`, `catatan`) VALUES
-('PESANAN-0011', 'do', '0000-00-00', 'finish', ' a'),
-('PESANAN-0012', 'exo', '0000-00-00', 'waiting', ''),
+('PESANAN-0011', 'do', '0000-00-00', 'finish', '          a'),
+('PESANAN-0012', 'exo', '0000-00-00', 'finish', '  '),
 ('PESANAN-0013', 'exo', '0000-00-00', 'finish', ''),
 ('PESANAN-0014', 'exo', '0000-00-00', 'progress', '');
 
@@ -184,16 +210,16 @@ CREATE TABLE IF NOT EXISTS `surat_keluar` (
   `tujuan` varchar(20) NOT NULL,
   `file` varchar(200) NOT NULL,
   PRIMARY KEY (`id_surat`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `surat_keluar`
 --
 
 INSERT INTO `surat_keluar` (`id_surat`, `username`, `jenis_surat`, `no_surat`, `tgl_surat`, `pesan`, `tujuan`, `file`) VALUES
-(16, 'sehun', 'SPPH', '01/sss/2/p', '2001-02-20', 'yups', 'direktur', 'warna13.jpg'),
-(17, 'sehun', 'SPH', '02/sde/12', '2010-02-19', 'qa', 'destayana', 'warna14.jpg'),
-(18, 'destayana', 'SPH', '0203/2s', '0222-01-01', '', 'sehun', 'warna15.jpg');
+(24, 'exo', 'SPPH', 'haru', '2019-01-01', 'shawol', 'direktur', 'DA082DOUAAAfKMo2.jpg'),
+(25, 'exo', 'SPPH', 'f(x)', '2017-11-20', 'f', 'direktur', '662d873a785a97f989a2f81ea248a161.jpg'),
+(27, 'sehun', 'SPPH', 'gufamily', '2001-01-01', 'snsd', 'direktur', 'DA082DOUAAAfKMo3.jpg');
 
 -- --------------------------------------------------------
 
@@ -268,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `vendor` (
 --
 
 INSERT INTO `vendor` (`hak_akses`, `akte_pendiri`, `nama_perusahaan`, `alamat_perusahaan`, `contact`, `email`, `username`, `password`, `status`) VALUES
-('vendor', 'warna.jpg', 'as', 'as', '3', 'asa@c.com', 'as', 'f970e2767d0cfe75876ea857f92e319b', 'aktif'),
+('vendor', 'warna.jpg', 'as', 'as', '3', 'asa@c.com', 'as', 'b1bd5d407c76e58bb22b340548816c3d', 'aktif'),
 ('vendor', 'acak2.JPG', 'hyundai', 'soeta', '123', 'hyundai@', 'hyundai', 'df98d265fc651a91faa09d4e82f096cc', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

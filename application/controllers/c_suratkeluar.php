@@ -5,6 +5,7 @@ class c_suratKeluar extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('m_suratKeluar');
+				$this->load->model('m_suratMasuk');
 		$this->load->model('m_direktur');
 		 $this->load->model('m_logistik');
 		  $this->load->model('m_customer');
@@ -128,6 +129,30 @@ class c_suratKeluar extends CI_Controller {
   
 // diatas adalah view input surat di menu customer
 
+	function approve_direktur($kode = 0){
+		$data = $this->m_suratKeluar->ambilDataPermintaanbyID($kode);
+print_r($data);
+	
+
+		$this->load->view('template/header');
+	
+		$this->load->view('direktur/identifikasi', $data);
+		
+		$this->load->view('template/footer');
+
+	}
+	//simpan identifikasi
+	//terus ubah status menjadi on progress
+	function simpan_identifikasi(){
+		 $this->m_suratMasuk->simpanDataIdentifikasi();
+		// if($hasil){
+		// 	$this->session->set_flashdata('psn_sukses','Pekerjaan telah diidentifikasi');
+		// }
+		// else {
+		// 	$this->session->set_flashdata('psn_error','Gagal identifikasi pekerjaan');
+		// }
+		// redirect(base_url('permintaan'));
+	}
 
 // DIBAWAH ADA DIHALAMAN LOGISTIK
 

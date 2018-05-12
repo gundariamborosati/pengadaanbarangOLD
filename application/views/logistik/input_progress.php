@@ -143,8 +143,8 @@
                                           
                                             </div>
                                               <div class="form-group">
-                                                <label>status</label>
-                                                <input name="status" class="form-control" required>
+                                                <label>progress</label>
+                                                <input name="progress" class="form-control" required>
                                                 
                                             </div>
                                             <div class="form-group">

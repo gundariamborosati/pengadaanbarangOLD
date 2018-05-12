@@ -128,7 +128,7 @@
                     <td><?=date('F d Y', strtotime($prog->tanggal));?></td>    
                     <td><?php echo $prog->nama_customer ;?></td>  
                    <td><?php echo $prog->nama_vendor ;?></td>                                   
-                    <td><?php echo $prog->status ;?></td>                                     
+                    <td><?php echo $prog->progress ;?></td>                                     
            
              <td
              <a href="#view<?php echo $prog->id_progress ;?>" data-toggle="modal"> <button type="button" class="btn btn-info"><i class="fa fa-external-link"> </i> kendala<span class="" aria-hidden="true"></span></button></a></td>

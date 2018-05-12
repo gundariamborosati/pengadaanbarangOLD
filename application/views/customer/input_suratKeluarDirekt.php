@@ -61,10 +61,10 @@
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kirim Surat </a>          
             <ul class="nav-dropdown-items">
               <li class="nav-item">
-                 <a class="nav-link" href=" <?php echo base_url('/c_suratkeluarcust/add');?>"><i class="fa fa-comment"></i> direktur </a>
+                <a class="nav-link" href=" <?php echo base_url('/c_suratKeluar/inputSuratDirektur');?>"><i class="fa fa-paper-plane"></i> direktur </a>
               </li>
               <li class="nav-item">
-                 <a class="nav-link" href=" <?php echo base_url('/c_suratkeluarcust/input');?>"><i class="fa fa-download"></i>logistik</a>
+                <a class="nav-link" href=" <?php echo base_url('/c_suratKeluar/inputSuratLogistik');?>"><i class="fa fa-paper-plane"></i>logistik</a>
               </li> 
             </ul>
           </li>  
@@ -73,10 +73,10 @@
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>          
             <ul class="nav-dropdown-items">
               <li class="nav-item">
-                <a class="nav-link" href=" <?php echo base_url('/c_suratkeluarcust/viewSuratKeluar');?>"><i class="fa fa-share"></i> Surat Keluar</a>
+                <a class="nav-link" href=" <?php echo base_url('/c_suratKeluar/viewSuratKeluarCustomer');?>"><i class="fa fa-share"></i> Surat Keluar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-download"></i> Kotak Masuk</a>
+                <a class="nav-link" href="<?php echo base_url('/c_suratMasuk/surat_masukCustomer');?>"><i class="fa fa-download"></i> Kotak Masuk</a>
               </li> 
             </ul>
           </li>  
