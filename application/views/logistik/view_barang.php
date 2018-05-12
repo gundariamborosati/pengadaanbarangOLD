@@ -46,28 +46,30 @@
            <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('/c_sph/input');?>"><i class="fa fa-shopping-cart"></i> templete </a>
               </li>
-              <li class="nav-item nav-dropdown"> 
+           <li class="nav-item nav-dropdown"> 
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kirim Surat </a>          
             <ul class="nav-dropdown-items">
               <li class="nav-item">
-                 <a class="nav-link" href=" <?php echo base_url('/c_suratkeluarcust/add');?>"><i class="fa fa-comment"></i> customer </a>
+                 <a class="nav-link" href="<?php echo base_url('/c_suratKeluar/inputSuratCustomer');?>"><i class="fa fa-comment"></i> Customer </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-download"></i>vendor</a>
+                <a class="nav-link" href="#"><i class="fa fa-download"></i> Vendor </a>
               </li> 
             </ul>
           </li>  
           </li>
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>Dokumen</a>
+          </li>
+           <li class="nav-item nav-dropdown"> 
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>Dokumen</a>          
             <ul class="nav-dropdown-items">
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-share"></i> Send Dokumen</a>
+                <a class="nav-link" href="<?php echo base_url('/c_suratKeluar/viewSuratKeluarLogistik');?>"><i class="fa fa-share"></i> Surat Keluar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-download"></i> Receive Dokumen</a>
-              </li>
+                <a class="nav-link" href=" <?php echo base_url('/c_suratMasuk/surat_masukLogistik');?>" > <i class="fa fa-download"></i> Kotak Masuk</a>
+              </li> 
             </ul>
+          </li>   
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-pencil"></i>Kelola</a>

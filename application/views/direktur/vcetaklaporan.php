@@ -47,11 +47,11 @@
                 <thead>
                   <tr>
                   <th> nomor</th>
-                     <th>No pesanan</th>
+                     
                     <th>tanggal</th>
                     <th>nama customer</th>
                     <th>nama vendor</th>
-                    <th>status</th>
+                    <th>progress</th>
                     <th >kendala</th>
                    
 
@@ -68,13 +68,11 @@
             ?>
             <tr>
                 <td><?php echo $no; ?></td>
-               
-              <!--   <td><?php echo $d->no_pesanan; ?></td> -->
                 <td><?php echo $d->tanggal; ?></td>
                 <td><?php echo $d->nama_customer; ?></td>
                 <td><?php echo $d->nama_vendor; ?></td>
               <!--   <td><?php echo $d->tanggal; ?></td> -->
-                <td><?php echo $d->status; ?></td>
+                <td><?php echo $d->progress; ?></td>
                 <td><?php echo $d->kendala; ?></td>
                
             </tr>

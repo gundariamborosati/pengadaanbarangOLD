@@ -119,23 +119,30 @@
 
                                                </div>  
                                                </div>
-                                                <div class="form-group ">
-                                        <label for="tipe" class="col-md-3 control-label">ke customer</label>
+                                        
+                                 <div class="form-group ">
+                                        <label for="tipe" class="col-md-3 control-label">status</label>
                                              <div class="col-md-7 required">
                                        <select class="form-control select2" style="min-width:250px;" required name="status" id="status" value="<?php echo $status[0]->status ?>">
-                                         <option>waiting </option>
-                                                <option>progress</option>
-                                                 <option>finish</option> 
-                                           
-                              
-                                              
-                                   <!--  <option <?php if ($status == 'waiting'  ) echo 'selected' ; ?> value="<?php echo $status[0]->status ?>">waiting</option>
-                                  <option <?php if ($status == 'progress' ) echo 'selected' ; ?> value="<?php echo $status[0]->status ?>">progress</option>
-                                  <option <?php if ($status == 'finish' ) echo 'selected' ; ?> value="<?php echo $status[0]->status ?>">finish</option>
-                                   -->
-                                               </select>
-                                                      </div>
-                                                        </div> 
+                                  <?php
+                                  if( $status[0]->status == 'waiting') {
+                                   echo '<option value="waiting" selected>waiting</option>';
+                                  echo '      <option value="progress">progress</option>
+                                  <option value="finish" >finish</option>';
+                                  } elseif ( $status[0]->status == 'progress') {
+                                echo '      <option value="progress">progress</option>';
+                                echo '      <option value="progress">waiting</option>
+                                  <option value="finish" >finish</option>';
+                                  } elseif ($status[0]->status == 'finish') {
+                                  echo   '   <option value="finish">finish</option>';
+                                  echo '      <option value="progress">progress</option>
+                                  <option value="finish" >waiting</option>';
+                                  }    ;?>
+                                  
+                                  
+                                </select>
+                              </div>
+                            </div>
 
                                      <div class="form-group">
                                                  <label for="tipe" class="col-md-3 control-label">catatan</label>
@@ -151,7 +158,7 @@
                                          
                                             
                                             
-                                           
+                                         
                          </table>
                          </div>
                          </div>

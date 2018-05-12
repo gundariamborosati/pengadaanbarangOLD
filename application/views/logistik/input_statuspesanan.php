@@ -160,7 +160,7 @@
                       </div>
                   </div>
               <div class="form-group ">
-                      <label for="tipe" class="col-md-3 control-label">ke customer</label>
+                      <label for="tipe" class="col-md-3 control-label">status</label>
                       <div class="col-md-7 required">
                         <select class="form-control select2" style="min-width:250px;" required name="status" id="">
                           <option>waiting</option>

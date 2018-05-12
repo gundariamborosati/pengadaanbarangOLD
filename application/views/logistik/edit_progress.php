@@ -110,11 +110,16 @@
                                         <label>no pesanan</label>
                                         <input name="no_pesanan" type="text" id="id_progress" value="<?php echo $progress[0]->id_progress ?>" class="form-control" readonly> 
                                                </div>   -->
-                                            
-                                             <div class="form-group">
-                                                 <label for="tipe" class="col-md-3 control-label">status</label>
+                                             <div class="form-group ">
+                                                <label for="no_surat" class="col-md-3 control-label">tanggal </label>
                                                 <div class="col-md-7 col-sm-12 required">
-                                                <input name="status" class="form-control" value="<?php echo $progress[0]->status ?>">
+                                                  <input type="date"  value="<?php echo $progress[0]->tanggal ?>" class="form-control" name="tanggal"  required>
+                                                </div>
+                                            </div> 
+                                             <div class="form-group">
+                                                 <label for="tipe" class="col-md-3 control-label">progress</label>
+                                                <div class="col-md-7 col-sm-12 required">
+                                                <input name="progress" class="form-control" value="<?php echo $progress[0]->progress ?>">
                                                </div> 
                                             </div> 
                                           </div>
