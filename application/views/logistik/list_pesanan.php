@@ -24,7 +24,7 @@
           <div class="dropdown-header text-center">
             <strong>Account</strong>
           </div>
-          <a class="dropdown-item" href="<?php echo base_url('/c_logistik/viewProfile');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a>
+          <a class="dropdown-item" href="<?php echo base_url('/c_logistik/form_update');?>"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username');?></a>
           <a class="dropdown-item" href="<?php echo base_url('c_logistik/keluar'); ?>"><i class="fa fa-sign-out"></i> Logout</a>
         </div>
       </li>
@@ -33,6 +33,7 @@
   <div class="app-body">
     <div class="sidebar">
       <nav class="sidebar-nav">
+        <ul class="nav">
         <ul class="nav">
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>"><i class="icon-speedometer"></i>Logistik Dashboard </a>
@@ -101,35 +102,54 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item">Home</li>
         <li class="breadcrumb-item"><a href="#">Logistik</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item active">Kelola Pesanan</li>
+
         <!-- Breadcrumb Menu-->
       </ol>
-
-        <div class="container-fluid"> 
-
-        <H1>Data Barang</H1>
-        <body>
-          <div class="row">
-
-            <?php foreach($barang as $detail): ?>
-              <div class="col-sm-3 col-md-3">
-                <div class="card">
-                  <div class="card-header">
-                    <h3> <?=$detail->namabarang?></h3>
-                  </div>
-                  <div class="card-body">
-                  <img src="<?php echo base_url('asset/img/barang/').$detail->gambar; ?>" alt="menu" style="height: 200px; width: 200px;">
-                  <div> 
-                    <p> <?=$detail->jenis ?> </p>
-                  </div>
-                  </div>
-                </div>
-              </div>
-            <?php endforeach; ?>
+      <!-- /.conainer-fluid -->
+     
+      <div class="container-fluid">
+        <div class="card card-accent-success">
+          <div class="card-header">
+            <h3>  Kelola Pesanan </h3>
           </div>
-        </body>
-        </div>
+          <div class="card-body">
+          
+              <table id="dataVendor" class="table ">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama Perusahaan</th>
+                    <th>Username</th>
+                    <th> Action </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $vendor_user = json_decode(json_encode($vendor), true);
+                  $no = 0;
+                  foreach($vendor_user as $user):
+                  $no++;
+                  ?>
+                  
+                  <tr>
+                    <td><?php  echo $no; ?></td>
+                    <td><?php  echo $user['nama_perusahaan']; ?></td>
+                    <td><?php echo $user['username'];?></td>                    
+                     <td>  
+                       <a href="<?php echo base_url('/c_vendor/detail_user/'.$user['username']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
+                        <a href="<?php echo base_url('/c_vendor/edit_user/'.$user['username']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
+                        <a href="<?php echo base_url('/c_vendor/delete_user/'.$user['username']);?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"> <i class="fa fa-trash"> </i> Delete</a>
+                    </td>
+                  </tr>
+                  <?php
+                  endforeach;
+                  ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
 
-      
 </main>
 </div>
