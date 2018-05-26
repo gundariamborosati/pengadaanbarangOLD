@@ -28,7 +28,7 @@ class c_suratKeluar extends CI_Controller {
 		
 	}
 
-
+	//form input spph
 	function inputSuratDirektur()
 	{
 			$data = array(
@@ -42,10 +42,40 @@ class c_suratKeluar extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	
-	function inputSuratKeluarDirektur(){
-		
+	//sph ke logistik
+	function formsph(){
+		$this->load->view('template/header');
+		$this->load->view('vendor/formsuratsph');
+		$this->load->view('template/footer');	
+	}
 
+	//sph ke logistik
+	function addsph(){
+		$config['upload_path'] 		= 'asset/upload/surat_keluar';
+		$config['allowed_types'] 	= 'gif|jpg|png|pdf|doc|docx';
+		$config['max_size']			= '2000';
+		$config['max_width']  		= '3000';
+		$config['max_height'] 		= '3000';
+			$this->load->library('upload', $config);
+			$this->upload->do_upload('file');
+		    $upload	 	= $this->upload->data();
+
+		$data = array (
+			'tujuan' => 'logistik',
+			'jenis_surat' => 'sph',
+			'no_surat' => $this->input->post('no_surat'),
+			'tgl_surat' => $this->input->post('tgl_surat'),
+			'file' => $upload['file_name'],
+			'pesan' => $this->input->post('pesan'),
+			'penanggungjawab' => $this->input->post('penanggungjawab'),
+			'no_telp' => $this->input->post('no_telp'),
+			'username' =>  $this->session->userdata('username')
+		);
+		$this->m_suratKeluar->insertData($data, 'surat_keluar');
+	}
+
+	
+	function inputSuratKeluarDirektur(){	
     $username = $this->input->post('tujuan');
     $jenis_surat = $this->input->post('jenis_surat');
     $no_surat = $this->input->post('no_surat');
