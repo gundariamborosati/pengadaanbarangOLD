@@ -46,7 +46,7 @@
 
           <li class="nav-item">
             <a class="nav-link" href="widgets.html"><i class="fa fa-home"></i> Home </a>   
-              <a class="nav-link" href="widgets.html"><i class="fa fa-home"></i> Kirim Surat</a>                   
+              <a class="nav-link" href="<?php echo base_url('/c_suratkeluar/formsph');?>"><i class="fa fa-home"></i> Kirim Surat</a>                   
           </li>
 
           <li class="nav-item nav-dropdown"> 

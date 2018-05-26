@@ -133,25 +133,25 @@
                                   }  ;?>                                  
                                 </select>
                               </div>
+                            <div class="form-group">
+                              <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus">Edit</i></button>
+                                <a class="btn btn-danger" href="<?php echo base_url('c_barang/view_barang')?>"><i class="fa fa-close"></i> Batal</a>
+                              </div>
+                            </div>
+
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
                                 <label class="control-label">Gambar</label>
                                 <div>
                                   <img style="width:50%" class="img-responsive" src="<?php echo base_url('asset/img/barang/'.$detail->gambar)?>" alt="">
-                                  <input type="file" class="form-control" placeholder="ganti gambar" name="gambar" value="barang" >
+                                  <!-- <input type="file" class="form-control" placeholder="ganti gambar" name="gambar" value="barang" > -->
                                 </div>
-                              </div>
-                              
-                            </div>
-                            
+                                <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil">Ubah Gambar</i></button>
+                              </div>                              
+                            </div>                            
                           </div>
-                        <div class="form-group">
-                          <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus">Edit</i></button>
-                            <a class="btn btn-danger" href="<?php echo base_url('c_barang/view_barang')?>"><i class="fa fa-close"></i> Batal</a>
-                          </div>
-                        </div>
                         </div>
                         <?php endforeach; ?>
                       </form>
@@ -166,3 +166,50 @@
           </div>
         </main>
       </div>
+
+            <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- konten modal-->
+      <div class="modal-content">
+        <!-- heading modal -->
+        <div class="modal-header">
+          <h4>Change Gambareeeee</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+       
+        </div>
+        <!-- body modal -->
+      
+    <form action="<?php echo base_url(). 'c_barang/update_gambar'; ?>" method="post">
+   <center>     
+   <div>
+    <img style="width:50%" class="img-responsive" src="<?php echo base_url('asset/img/barang/'.$detail->gambar)?>" alt="">
+    <input type="file" class="form-control" placeholder="ganti gambar" name="gambar" value="barang" >
+  </div>
+  </center>
+        <!-- footer modal -->
+        <div class="modal-footer">
+      <!--tombol upload file-->
+      
+      <!--button upload end-->
+      <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
+         </form>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Batall</button>
+        </div>
+        </table>
+  </fieldset>
+</form>
+</div>
+</td>
+</tr>
+</form>
+      </div>
+
+    </div>
+  </div>
+</div>
+    </main>
+</div>
+

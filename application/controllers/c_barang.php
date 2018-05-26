@@ -66,32 +66,32 @@ class c_barang extends CI_Controller {
 	}
 
 	public function update_barang($idbarang){
-		$config['upload_path']   = 'asset/img/barang/'; 
-		$config['allowed_types'] = 'gif|jpg|png'; 
-		$config['max_size']      = 100; 
-		$config['max_width']     = 1024; 
-		$config['max_height']    = 768;
-		$this->load->library('upload',$config); 
-			if(! $this->upload->do_upload('gambar')){
-				$error = array('error' => $this->upload->display_errors()); 
-		 		?>
-                     <script type=text/javascript>alert("File tidak sesuai format");</script>
-        		<?php
-        	}else{
+		// $config['upload_path']   = 'asset/img/barang/'; 
+		// $config['allowed_types'] = 'gif|jpg|png'; 
+		// $config['max_size']      = 100; 
+		// $config['max_width']     = 1024; 
+		// $config['max_height']    = 768;
+		// $this->load->library('upload',$config); 
+		// 	if(! $this->upload->do_upload('gambar')){
+		// 		$error = array('error' => $this->upload->display_errors()); 
+		//  		?>
+  //                    <script type=text/javascript>alert("File tidak sesuai format");</script>
+  //       		<?php
+  //       	}else{
     			
 				$namabarang=$this->input->post('namabarang');
 				$jenis=$this->input->post('jenis');	
 				$data=array(
 					'namabarang' =>$namabarang,
-					'gambar' =>  $this->upload->data('file_name'),
+					// 'gambar' =>  $this->upload->data('file_name'),
 					'jenis'=>$jenis				
 					);
 				$where=array(
 					'idbarang'=>$idbarang
 					);
-				$this->m_barang->update_barang($where,$data,'barang');	
+				$this->m_barang->update_barang($where,$data,"barang");	
 				$this->view_barang();
-			}
+			// }
 		redirect(base_url('c_barang/view_barang'));
 	}
 
