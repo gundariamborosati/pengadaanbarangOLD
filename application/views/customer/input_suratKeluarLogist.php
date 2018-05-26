@@ -154,12 +154,25 @@
                         </select>
                       </div>
                   </div>
+                    <div class="form-group">
+                            <label for="tipe" class="col-md-3 control-label"><br>Nama Penanggung Jawab </label>
+                             <div class="col-md-7 required">
+                             <input type="text" name="penanggung_jawab" class="form-control"  rows="7" cols="80" required></textarea>
+                              </div>
+                              </div>
+                                <div class="form-group">
+                            <label for="tipe" class="col-md-3 control-label">Contact Penanggung Jawab </label>
+                             <div class="col-md-7 required">
+                             <input type="text" name="no_hp" class="form-control"  rows="7" cols="80" required></textarea>
+                              </div>
+                              </div>
+
                     <div class="form-group ">
                       <label for="tipe" class="col-md-3 control-label">Jenis Surat </label>
                       <div class="col-md-7 required">
-                        <select class="form-control select2" style="min-width:250px;" required name="jenis_surat" id="">
-                            <option>----pilih jenis surat----</option>
-                            <option>SPH</option>   
+                        <select class="form-control select2" style="min-width:250px;" required name="jenis_surat" id="" required>
+                
+                            <option> </option>   
                                <option>SPK</option>        
                         </select>
                       </div>
@@ -182,7 +195,7 @@
                   <div class="form-group">
                             <label for="tipe" class="col-md-3 control-label">upload</label>
                              <div class="col-md-7 required">
-                             <input type="file" class="form-control" placeholder="choose file" name="file"  value="" required>
+                             <input type="file" class="form-control" placeholder="choose file" name="file"  value="" >
                               </div>
                               </div> 
                 
@@ -193,8 +206,13 @@
                               </div>
                               </div>
 
-                                            <button type="submit" name="simpan" value="submit" class="btn btn-primary">Submit</button>
+                                           
+                                           <div class="form-group">
+                                             <div class="col-md-7 required">
+                                            <button type="submit" name="simpan" value="submit" class="btn btn-primary">kirim</button>
                                            </form>
+                                           </div>
+                                            </div>
 
 
               

@@ -149,36 +149,9 @@ class C_surat extends CI_Controller {
 
 	    $pdf->Output();
     }
-    
-    function suratSPK(){
-    	$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);    
 
-    	// set document information
-    	 // set document information
-	    $pdf->SetCreator(PDF_CREATOR);
-	    $pdf->SetAuthor('Logistik PT Bhakti Unggul');
-	    $pdf->SetTitle('Surat SPK');
-	    $pdf->SetSubject('SPK');
-
-	   	// nambahin halaman
-	   	$pdf->AddPage();
-
-	   	// header
-	    $pdf->SetFont('Times','b',14);
-	    //Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=0, $link='', $stretch=0, $ignore_min_height=false, $calign='T', $valign='M')
-
-	    
-	    $pdf->Cell(0,0,'SURAT PERINTAH KERJA',0,1,'C');
-	    $nomor = '9999';
-	    $pdf->Cell(0,0,'No.  '.$nomor,0,1,'C');
-
-
-	    $text = 'Dengan berdasarkan hasil negosiasi harga tanggal xxxxx antara PT. Bhakti Unggul Teknovasi dengan XXXXXX tentang Pengadaan XXXXXX, maka kami yang bertanda tangan dibawah ini :';
-
-		$pdf->Ln(4); // SPASI ENTER
-
-    function surat_sph(){
-		$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);    	
+    function suratSPH(){
+    	$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);    	
     	// set document information
 		$pdf->SetCreator(PDF_CREATOR);
 	    $pdf->SetAuthor('Logistik PT Bhakti Unggul Teknovasi');
@@ -254,17 +227,17 @@ class C_surat extends CI_Controller {
     }
 
 
-	    $pdf->SetFont('Times','',12);
-	    $pdf->Multicell(0,0,$text,0);
+	 //    $pdf->SetFont('Times','',12);
+	 //    $pdf->Multicell(0,0,$text,0);
 
 
-	    $text = 'Yang dalam hal ini mewakili secara sah : PT. Bhakti Unggul Teknovasi, selanjutnya disebut sebagai             PT. BUT, memberi perintah kerja Pengadaan XXXXXX, kepada :';
+	 //    $text = 'Yang dalam hal ini mewakili secara sah : PT. Bhakti Unggul Teknovasi, selanjutnya disebut sebagai             PT. BUT, memberi perintah kerja Pengadaan XXXXXX, kepada :';
 
-		$pdf->Ln(4); // SPASI ENTER
+		// $pdf->Ln(4); // SPASI ENTER
 
 
-	    $pdf->SetFont('Times','',12);
-	    $pdf->Multicell(0,0,$text,0);
+	 //    $pdf->SetFont('Times','',12);
+	 //    $pdf->Multicell(0,0,$text,0);
 
 	    
 
@@ -272,9 +245,39 @@ class C_surat extends CI_Controller {
 
 
 
-	    $pdf->Output();
-    }
+	 //    $pdf->Output();
+  //   }
      
+
+    }
+    
+    function suratSPK(){
+    	$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);    
+
+    	// set document information
+    	 // set document information
+	    $pdf->SetCreator(PDF_CREATOR);
+	    $pdf->SetAuthor('Logistik PT Bhakti Unggul');
+	    $pdf->SetTitle('Surat SPK');
+	    $pdf->SetSubject('SPK');
+
+	   	// nambahin halaman
+	   	$pdf->AddPage();
+
+	   	// header
+	    $pdf->SetFont('Times','b',14);
+	    //Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=0, $link='', $stretch=0, $ignore_min_height=false, $calign='T', $valign='M')
+
+	    
+	    $pdf->Cell(0,0,'SURAT PERINTAH KERJA',0,1,'C');
+	    $nomor = '9999';
+	    $pdf->Cell(0,0,'No.  '.$nomor,0,1,'C');
+
+
+	    $text = 'Dengan berdasarkan hasil negosiasi harga tanggal xxxxx antara PT. Bhakti Unggul Teknovasi dengan XXXXXX tentang Pengadaan XXXXXX, maka kami yang bertanda tangan dibawah ini :';
+
+		$pdf->Ln(4); // SPASI ENTER
+
 
     function testImport(){
      	//$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);

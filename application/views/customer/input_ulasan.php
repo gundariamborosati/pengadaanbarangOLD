@@ -138,6 +138,7 @@
                                         
                                         <?php echo form_open('c_ulasan/inputUlasan'); ?>
                                         <div class="form-group">
+
                                         <div class="form-group">
                                                 <label>Tanggal</label>
                                                 <input name="tanggal" class="form-control" type="date" required>
@@ -145,9 +146,23 @@
                                             </div>
                                                 <label>barang dari vendor</label>
                                                 <input name="dari_vendor" class="form-control" required>
-                                                
                                             </div> 
-                                            
+
+                                            <div class="form-group ">
+                      <label >Rating </label>
+                      <div >
+                        <select class="form-control select2" style="min-width:499px;" required name="rating" id="" equired>
+                            <option>----pilih Rating----</option>
+                            <option>Sangat Tidak Baik</option>     
+                             <option>Tidak Baik</option>
+                              <option>Biasa saja</option>  
+                                <option>Baik</option>     
+                                  <option>Sangat Baik</option>            
+                        </select>
+                      </div>
+                  </div>
+
+
                                             <div class="form-group">
                                                 <label>Komentar</label><br>
                                                <textarea name="komentar" class="form-control"  rows="7" cols="80" required></textarea>

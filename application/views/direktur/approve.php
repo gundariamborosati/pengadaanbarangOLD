@@ -51,8 +51,12 @@
           <li class="nav-item">  
           <a class="nav-link" href=" <?php echo base_url('/c_direktur/home');?> "><i class="fa fa-home"></i> Home</a>
           </li>
+           <li class="nav-item">  
+         <a class="nav-link" href="<?php echo base_url('/c_suratMasuk/surat_masukDirektur');?>"><i class="fa fa-download"></i> approve surat</a>
+          </li>
 
-          <li class="nav-item nav-dropdown"> 
+
+         <!--  <li class="nav-item nav-dropdown"> 
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>          
             <ul class="nav-dropdown-items">
               <li class="nav-item">
@@ -62,7 +66,7 @@
                 <a class="nav-link" href="<?php echo base_url('/c_suratMasuk/surat_masukDirektur');?>"><i class="fa fa-download"></i> Receive Dokumen</a>
               </li> 
             </ul>
-          </li>  
+          </li>   -->
            <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('/c_progress/viewProgress_direktur');?>"><i class="fa fa-cart-arrow-down"></i> melihat progress pengadaan </a>
             
@@ -93,10 +97,7 @@
             <h3>  APPROVE </h3>
           </div>
     <div class="pull-right">
-<!-- 
-<a href="<?php echo base_url('c_statusPesanan/viewStatuslog')?>" class="btn btn-primary pull-right"><i class="fa fa-eye"> </i> status pesanan </a>
 
-     -->
     </div>
           <body>
             <!-- Navigation -->
@@ -119,56 +120,28 @@
                            <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-6">
-       <form action="<?php echo base_url('c_approveDirektur/simpan_approve')?>" method="post" class="form-horizontal">
+ 
+  <form action="<?php echo base_url().'c_suratMasuk/simpan_approve/'.$approve[0]->id_surat ?>" method="post">
                <div class="form-group ">
 
                
-                  <div class="form-group ">
-                      <label for="no" class="col-md-3 control-label">dari customer</label>
-                      <div class="col-md-7 col-sm-12 required">
-                        <input type="text" value="<?php echo $username; ?>" class="form-control" name="dari_customer" readonly required>
-                      </div>
                   </div>
 
-                  <div class="form-group ">
-                      <label for="jenis_surat" class="col-md-3 control-label"> jenis surat</label>
-                      <div class="col-md-7 col-sm-12 required">
-                        <input type="text" value="<?php echo $jenis_surat; ?>" class="form-control" name="jenis_surat" readonly required>
-                      </div>
-                  </div> 
-                  
-                   <div class="form-group ">
-                      <label for="no_surat" class="col-md-3 control-label">no surat</label>
-                      <div class="col-md-7 col-sm-12 required">
-                        <input type="text" value="<?php echo $no_surat; ?>" class="form-control" name="no_surat" readonly required>
-                      </div>
-                  </div> 
-                
-                   <div class="form-group ">
-                      <label for="no_surat" class="col-md-3 control-label">dokumen</label>
-                      <div class="col-md-7 col-sm-12 required">
-                        <input type="text" value="<?php echo $file; ?>" class="form-control" name="file"  readonly required>
-                      </div>
-                  </div> 
-                  <div class="form-group ">
-                      <label for="no_surat" class="col-md-3 control-label">tanggal </label>
-                      <div class="col-md-7 col-sm-12 required">
-                        <input type="date" value="<?php echo $tgl_surat; ?>" class="form-control" name="tgl_surat"  required>
-                      </div>
-                  </div> 
                     <div class="form-group ">
                       <label for="tipe" class="col-md-3 control-label"> Approve </label>
                       <div class="col-md-7 required">
-                        <select class="form-control select2" style="min-width:250px;" required name="status_approve" id="">
-                            <option>YA</option>
-                            <option>TIDAK</option>        
+                        <select class="form-control select2" style="min-width:250px;" required name="status_approve" id=""  value="<?php echo $approve[0]->status_approve ?>" readonly required>
+                             <option>YA</option>
+                            
+                            
                         </select>
                       </div>
                   </div>
+             
 
               <div class="form-group "> 
                    <button type="submit" name="btnSimpan" class="btn btn-success"><i class="fa fa-check icon-white"></i> Simpan</button>
-                      <a class="btn btn-danger" href="<?php echo base_url('c_suratMasuk/surat_masukDirektur/'. $id_surat )?>"><i class="fa fa-close"></i> Batal</a> 
+                     <a class="btn btn-danger" href="<?php echo base_url('c_suratMasuk/surat_masukDirektur/'. $approve[0]->id_surat )?>"><i class="fa fa-close"></i> Batal</a>  
                     </div>
                     </div>
                     </form>

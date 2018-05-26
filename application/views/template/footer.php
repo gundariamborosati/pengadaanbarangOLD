@@ -1,6 +1,6 @@
   <footer class="app-footer">
-    <span><a href="http://coreui.io">CoreUI</a> © 2018 creativeLabs.</span>
-    <span class="ml-auto">Powered by <a href="http://coreui.io">CoreUI</a></span>
+    <span><a href="http://be-telu.co.id/">PT BHAKTI UNGGUL TEKNOVASI</a> © 2018 </span>
+  <!--   <span class="ml-auto">Powered by <a href="http://coreui.io"></a></span> -->
   </footer>
 
   <!-- Bootstrap and necessary plugins -->

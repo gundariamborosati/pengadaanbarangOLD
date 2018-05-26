@@ -123,7 +123,7 @@
                     <th>tanggal</th>
                     <th> surat </th>
                     <th>pesan</th>
-                   <th> aksi </th>
+                  <!--  <th> aksi </th> -->
 
                     
                   </tr>

@@ -113,10 +113,7 @@
                   <th> username</th>
                     <th>status</th>
                     <th>catatan</th>
-                    <th> aksi</th>
-                 
-
-                   
+                    <th> update</th>                   
 
                     
                   </tr>

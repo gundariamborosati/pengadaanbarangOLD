@@ -115,6 +115,8 @@
                 <thead>
                   <tr>
                   <th> tujuan </th>
+                  <th> nama penanggung jawab </th>
+                  <th> contact </th>
                   <th> jenis surat </th>
                   <th>nomor surat </th>
                     <th>tanggal</th>
@@ -134,6 +136,8 @@
                   
                   <tr>
                        <td><?php echo $ul->tujuan ;?></td>
+                        <td><?php echo $ul->penanggung_jawab ;?></td>
+                         <td><?php echo $ul->no_hp ;?></td>
                         <td><?php echo $ul->jenis_surat ;?></td>
                    <td><?php echo $ul->no_surat ;?></td>
                    <td><?php echo $ul->tgl_surat ;?></td>

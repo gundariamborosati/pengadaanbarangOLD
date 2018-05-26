@@ -53,8 +53,12 @@
           <li class="nav-item">  
           <a class="nav-link" href=" <?php echo base_url('/c_direktur/home');?> "><i class="fa fa-home"></i> Home</a>
           </li>
+           <li class="nav-item">  
+         <a class="nav-link" href="<?php echo base_url('/c_suratMasuk/surat_masukDirektur');?>"><i class="fa fa-download"></i> approve surat</a>
+          </li>
 
-          <li class="nav-item nav-dropdown"> 
+
+        <!--   <li class="nav-item nav-dropdown"> 
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>          
             <ul class="nav-dropdown-items">
               <li class="nav-item">
@@ -64,7 +68,7 @@
                 <a class="nav-link" href="#"><i class="fa fa-download"></i> Receive Dokumen</a>
               </li> 
             </ul>
-          </li>  
+          </li>   -->
            <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('/c_progress/viewProgress_direktur');?>"><i class="fa fa-cart-arrow-down"></i> melihat progress pengadaan </a>
             

@@ -123,6 +123,8 @@
                 <thead>
                    <tr>
               <th> dari </th>
+              <th> penanggung jawab </th>
+              <th> contact </th>
                 <th> jenis_surat </th>
                   <th>nomor surat </th>
                     <th>tanggal</th>
@@ -143,6 +145,8 @@
                   
                   <tr>
                   <td><?php echo $st['username'] ;?></td>
+                     <td><?php echo $st['penanggung_jawab'] ;?></td>
+                     <td><?php echo $st['no_hp'] ;?></td>
                    <td><?php echo $st['jenis_surat'] ;?></td>
                    <td><?php echo $st['no_surat'] ;?></td>
                     <td><?php echo $st['tgl_surat'];?></td>
@@ -168,11 +172,10 @@
 
 
 
-
       <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
-            <h3>  Kotak Masuk Dari Direktur </h3>
+            <h3>  Approve SPPH Dari Direktur </h3>
           </div>
           <div class="card-body">
             
@@ -181,13 +184,15 @@
               <table id="dataCustomer" class="table ">
                 <thead>
                   <tr>
-                <th> surat dari customer </th>
+                
                 <th> jenis_surat </th>
+                  <th> penanggung jawab </th>
+              <th> contact </th>
                   <th>nomor surat </th>
                     <th>tanggal</th>
                     <th> surat </th>
-                    <th>pesan</th>
-                    <th> status </th>
+                   
+                    <th> status approve</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -198,15 +203,18 @@
                   ?>
                   
                     <tr>
-                  <td><?php echo $st->dari_customer ;?></td>
+                  
                    <td><?php echo $st->jenis_surat ;?></td>
+                      <td><?php echo $st->penanggung_jawab ;?></td>
+                         <td><?php echo $st->no_hp ;?></td>
                    <td><?php echo $st->no_surat ;?></td>
                     <td><?php echo $st->tgl_surat;?></td>
                     
                       <td><?php echo "<br><b>File : </b><i><a href='".base_URL()."asset/upload/surat_keluar/".$st->file."' target='_blank'>".$st->file."</a>"?></td> 
-                       <td><?php echo $st->pesan;?></td>
+                     
                       <td><?php echo $st->status_approve ;?></td> 
-                    
+                      
+    </div>
           <!--   <a href="" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center> -->
                  
            

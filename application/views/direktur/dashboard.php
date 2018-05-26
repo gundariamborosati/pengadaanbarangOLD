@@ -53,6 +53,10 @@
           <a class="nav-link" href=" <?php echo base_url('/c_direktur/home');?> "><i class="fa fa-home"></i> Home</a>
           </li>
 
+          <li class="nav-item">  
+         <a class="nav-link" href="<?php echo base_url('/c_suratMasuk/surat_masukDirektur');?>"><i class="fa fa-download"></i> approve surat</a>
+          </li>
+<!-- 
           <li class="nav-item nav-dropdown"> 
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>          
             <ul class="nav-dropdown-items">
@@ -63,7 +67,7 @@
                 <a class="nav-link" href="<?php echo base_url('/c_suratMasuk/surat_masukDirektur');?>"><i class="fa fa-download"></i> kotak masuk</a>
               </li> 
             </ul>
-          </li>  
+          </li>   -->
            <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('/c_progress/viewProgress_direktur');?>"><i class="fa fa-cart-arrow-down"></i> melihat progress pengadaan </a>
             
@@ -87,54 +91,40 @@
         <!-- Breadcrumb Menu-->
       </ol>
 
-      <div class="container-fluid">
-        <div class="animated fadeIn">
-             <div class="card-footer">
-              <ul>
-                <li>
-                  <div class="text-muted">Visits</div>
-                  <strong>29.703 Users (40%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="container-fluid"> 
+
+        <H1>Data Barang</H1>
+        <body>
+          <div class="row">
+
+            <?php foreach($barang as $detail): ?>
+              <div class="col-sm-3 col-md-3">
+                <div class="card">
+                  <div class="card-header">
+                    <h3> <?=$detail->namabarang?></h3>
                   </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">Unique</div>
-                  <strong>24.093 Users (20%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="card-body">
+                  <img src="<?php echo base_url('asset/img/barang/').$detail->gambar; ?>" alt="menu" style="height: 200px; width: 200px;">
+                  <div> 
+                    <p> <?=$detail->jenis ?> </p>
                   </div>
-                </li>
-                <li>
-                  <div class="text-muted">Pageviews</div>
-                  <strong>78.706 Views (60%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">New Users</div>
-                  <strong>22.123 Users (80%)</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-                <li class="d-none d-md-table-cell">
-                  <div class="text-muted">Bounce Rate</div>
-                  <strong>40.15%</strong>
-                  <div class="progress progress-xs mt-2">
-                    <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+          </div>
+        </body>
         </div>
-      </div>
+
+      
+</main>
+</div>
+   
       <!-- /.conainer-fluid -->
     </main>
-</div>
- <!--Start of Tawk.to Script-->
-            <script type="text/javascript">
+    </div>
+       <!--Start of Tawk.to Script-->
+           <!--  <script type="text/javascript">
             var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
             (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -144,9 +134,12 @@
             s1.setAttribute('crossorigin','*');
             s0.parentNode.insertBefore(s1,s0);
             })();
-            </script>
+            </script> -->
             <!--End of Tawk.to Script-->
-</body>
+            </body>
+    </body>
+
+
 
 
   </div>

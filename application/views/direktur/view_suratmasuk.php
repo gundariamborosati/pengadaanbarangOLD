@@ -53,7 +53,11 @@
           <li class="nav-item">  
           <a class="nav-link" href=" <?php echo base_url('/c_direktur/home');?> "><i class="fa fa-home"></i> Home</a>
           </li>
+           <li class="nav-item">  
+         <a class="nav-link" href="<?php echo base_url('/c_suratMasuk/surat_masukDirektur');?>"><i class="fa fa-download"></i> approve surat</a>
+          </li>
 
+<!-- 
           <li class="nav-item nav-dropdown"> 
           <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kelola dokumen</a>          
             <ul class="nav-dropdown-items">
@@ -64,7 +68,7 @@
                 <a class="nav-link" href="#"><i class="fa fa-download"></i> Receive Dokumen</a>
               </li> 
             </ul>
-          </li>  
+          </li>   -->
            <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('/c_progress/viewProgress_direktur');?>"><i class="fa fa-cart-arrow-down"></i> melihat progress pengadaan </a>
             
@@ -91,7 +95,7 @@
       <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
-            <h3>  kotak masuk </h3>
+            <h3>  Kotak Masuk SPPH dari Customer</h3>
           </div>
            <div class="pull-right">
 
@@ -100,13 +104,17 @@
                 <table id="dataUlasan" class="table ">
                 <thead>
                    <tr>
-              <th> dari </th>
+              <th> dari perusahaan </th>
+              <th> nama penanggung jawab </th>
+                  <th> contact </th>
               <th> jenis surat </th>
                   <th>nomor surat </th>
                     <th>tanggal</th>
                     <th> surat </th>
-                    <th>pesan</th>
+                   
+                    <th> status approve </th>
                    <th> aksi </th>
+
 
                     
                   </tr>
@@ -120,14 +128,21 @@
                   
                   <tr>
                   <td><?php echo $st['username'] ;?></td>
+                      <td><?php echo $st['penanggung_jawab'] ;?></td>
+                          <td><?php echo $st['no_hp'] ;?></td>
                      <td><?php echo $st['jenis_surat'] ;?></td>
                    <td><?php echo $st['no_surat'] ;?></td>
                     <td><?php echo $st['tgl_surat'];?></td>
                       <td><?php echo "<br><b>File : </b><i><a href='".base_URL()."asset/upload/surat_keluar/".$st['file']."' target='_blank'>".$st['file']."</a>"?></td> 
-                       <td><?php echo $st['pesan'];?></td>
+                       
+                       <td><?php echo $st['status_approve'];?></td>
                          <td>
-            <center>
-            <a href="<?=base_url()?>c_approveDirektur/approve_direktur/<?=$st['id_surat']?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a></td></center>
+       
+             <center>
+            <a href="<?=base_url()?>c_suratMasuk/approve_direktur/<?=$st['id_surat']?>" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i> approve </a> <a href="<?=base_url()?>c_suratMasuk/hapusSuratMasukDirektur/<?=$st['id_surat']?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><i class="fa fa-trash"></i></a> </td></center>
+
+
+
                  
              
              

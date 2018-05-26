@@ -66,8 +66,9 @@
                 <a class="nav-link" href="<?php echo base_url('/c_suratKeluar/viewSuratKeluarLogistik');?>"><i class="fa fa-share"></i> Surat Keluar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href=" <?php echo base_url('/c_suratMasuk/surat_masukLogistik');?>" > <i class="fa fa-download"></i> Kotak Masuk</a>
-              </li> 
+                <a class="nav-link" href=" <?php echo base_url('/c_suratMasuk/surat_masukLogistik/');?>" > <i class="fa fa-download"></i> Kotak Masuk</a>
+              </li>
+          
             </ul>
           </li>   
           </li>

@@ -70,7 +70,7 @@ class c_progress extends CI_Controller {
 		$this->load->view('logistik/edit_progress',$data);
 		$this->load->view('template/footer');
 	}
-
+	
 	public function updateProgress($id_progress){	
 		$progress=$this->input->post('progress');
 		$kendala=$this->input->post('kendala');

@@ -47,10 +47,12 @@ class c_suratKeluar extends CI_Controller {
 		
 
     $username = $this->input->post('tujuan');
+    $penanggung_jawab  = $this->input->post('penanggung_jawab');
+    $no_hp =  $this->input->post('no_hp');
     $jenis_surat = $this->input->post('jenis_surat');
     $no_surat = $this->input->post('no_surat');
     $tgl_surat =$this->input->post('tgl_surat');
-    $pesan = $this->input->post('pesan');
+    
     $config['upload_path'] 		= 'asset/upload/surat_keluar';
 		$config['allowed_types'] 	= 'gif|jpg|png|pdf|doc|docx';
 		$config['max_size']			= '2000';
@@ -64,11 +66,13 @@ class c_suratKeluar extends CI_Controller {
     $data = array(
     
       'tujuan' => $username,
+      'penanggung_jawab' => $penanggung_jawab,
+      'no_hp' => $no_hp,
       'jenis_surat' => $jenis_surat,
       'no_surat' => $no_surat,
       'tgl_surat' => $tgl_surat,
        'file' => $upload['file_name'],
-      'pesan' => $pesan,
+    
       'username' => $this->session->userdata('username')
       
       );
@@ -96,6 +100,8 @@ class c_suratKeluar extends CI_Controller {
 		
 
     $username = $this->input->post('tujuan');
+    $penanggung_jawab  = $this->input->post('penanggung_jawab');
+    $no_hp =  $this->input->post('no_hp');
     $jenis_surat = $this->input->post('jenis_surat');
     $no_surat = $this->input->post('no_surat');
     $tgl_surat =$this->input->post('tgl_surat');
@@ -113,6 +119,8 @@ class c_suratKeluar extends CI_Controller {
     $data = array(
     
       'tujuan' => $username,
+       'penanggung_jawab' => $penanggung_jawab,
+        'no_hp' => $no_hp,
       'jenis_surat' => $jenis_surat,
       'no_surat' => $no_surat,
       'tgl_surat' => $tgl_surat,
@@ -129,30 +137,31 @@ class c_suratKeluar extends CI_Controller {
   
 // diatas adalah view input surat di menu customer
 
-	function approve_direktur($kode = 0){
-		$data = $this->m_suratKeluar->ambilDataPermintaanbyID($kode);
-print_r($data);
-	
-
-		$this->load->view('template/header');
-	
-		$this->load->view('direktur/identifikasi', $data);
-		
-		$this->load->view('template/footer');
-
+	// dibawah adalah approve direktur
+	   public function approve_direktur ($id_surat){
+		$where = array('id_surat' => $id_surat);
+		$data['progress'] = $this->m_suratKeluar->edit_data($where,'surat_keluar')->result();
+		 	$this->load->view('template/header');
+	$this->load->view('direktur/approve', $data);
+	 	$this->load->view('template/footer');
 	}
-	//simpan identifikasi
-	//terus ubah status menjadi on progress
-	function simpan_identifikasi(){
-		 $this->m_suratMasuk->simpanDataIdentifikasi();
-		// if($hasil){
-		// 	$this->session->set_flashdata('psn_sukses','Pekerjaan telah diidentifikasi');
-		// }
-		// else {
-		// 	$this->session->set_flashdata('psn_error','Gagal identifikasi pekerjaan');
-		// }
-		// redirect(base_url('permintaan'));
+
+	public function simpan_approve($id_surat){	
+	
+		$status_approve=$this->input->post('status_approve');
+
+		$data=array(
+			
+			'status_approve'=>$status_approve
+			);
+		$where=array(
+			'id_surat' => $id_surat
+			);
+		$this->m_suratKeluar->update_status($where,$data,'surat_keluar');
+	
+		     // redirect('c_progress/viewProgress');
 	}
+
 
 // DIBAWAH ADA DIHALAMAN LOGISTIK
 

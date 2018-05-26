@@ -116,6 +116,7 @@
                   <tr>
                   <th> tanggal </th>
                   <th>barang dari vendor </th>
+                  <th> Rating </th>
                     <th>Komentar</th>
 
                    
@@ -133,6 +134,7 @@
                   <tr>
                   <td><?php echo $ul->tanggal ;?></td>
                    <td><?php echo $ul->dari_vendor ;?></td>
+                      <td><?php echo $ul->rating ;?></td>
                     <td><?php echo $ul->komentar ;?></td>
                                                         
            

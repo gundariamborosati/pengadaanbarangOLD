@@ -146,12 +146,13 @@
                             </div>
                           </div>
                           <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
+                
  
-                              <button class="btn btn-primary"> <i class="fa fa-check">Update</i></button>
+                              <button class="btn btn-primary"> <i class="fa fa-check"> UPDATE </i></button>
                                 <!-- Tombol untuk menampilkan modal-->
-                            <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-pencil">Ubah Password</i></button>
+                            <button type="button"  class="btn btn-success" data-toggle="modal" data-target="#myModal" ><i class="fa fa-pencil"> UBAH PASSWORD</i></button>
                             </div>
+                           <div class="col-sm-offset-2 col-sm-10">
                           </div>
                         </div>
                         <div class="col-md-6">
@@ -205,7 +206,7 @@
          
         <!-- footer modal -->
         <div class="modal-footer">
-      <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
+      <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"> </i> Simpan</button>
          </form>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
         </div>

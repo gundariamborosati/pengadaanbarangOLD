@@ -49,11 +49,14 @@ class c_ulasan extends CI_Controller {
     }  
 
 	function inputUlasan(){
+		 $tanggal  = $this->input->post('tanggal');
 		  $dari_vendor  = $this->input->post('dari_vendor');
+		   $rating  = $this->input->post('rating');
          $komentar  = $this->input->post('komentar');
         $data = array(
         'tanggal' => $tanggal,
         'dari_vendor' => $dari_vendor,
+        'rating' => $rating,
         'komentar' => $komentar,
         'username' => $this->session->userdata('username')
         );
