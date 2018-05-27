@@ -7,6 +7,7 @@ class c_pesanan extends CI_Controller {
 		parent::__construct();		
 		$this->load->model('m_pesanan');
 		$this->load->model('m_detil_pesanan');
+		$this->load->model('m_customer');
 
 	}
 
@@ -29,6 +30,16 @@ class c_pesanan extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	//form add barang
 
+	public function formadd(){
+
+		$data = array(
+				'nama_perusahaan' => $this->m_customer->getNamaPerusahaan()
+		);
+		$this->load->view('template/header');
+		$this->load->view('logistik/form_addpesanan',$data);
+		$this->load->view('template/footer');	
+	}
 
 }

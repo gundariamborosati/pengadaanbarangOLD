@@ -75,5 +75,16 @@ class m_customer extends CI_Model{
 		->update('customer',$data);
 	}
 
+	// nama perusahaaan untuk pesanan
+	function getNamaPerusahaan(){
+    	$this->db->order_by('nama_perusahaan','asc');
+    	$query = $this->db->get('customer');
+    	if($query->num_rows()>0){
+      		return $query->result();
+    	}else{
+      		return false;
+    	}
+	}
+
 }
 
