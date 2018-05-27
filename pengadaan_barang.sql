@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2018 at 11:26 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 5.6.36
+-- Generation Time: May 27, 2018 at 10:15 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -78,6 +76,22 @@ INSERT INTO `customer` (`hak_akses`, `npwp`, `nama_perusahaan`, `alamat_perusaha
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `detil_pesanan`
+--
+
+CREATE TABLE `detil_pesanan` (
+  `id_detil_pesanan` varchar(20) NOT NULL,
+  `id_pesanan` varchar(20) NOT NULL,
+  `nama_barang` varchar(50) NOT NULL,
+  `spesifikasi_barang` text NOT NULL,
+  `volume_barang` int(4) NOT NULL,
+  `satuan` varchar(25) NOT NULL,
+  `harga_barang` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `direktur`
 --
 
@@ -112,6 +126,19 @@ CREATE TABLE `logistik` (
 
 INSERT INTO `logistik` (`hak_akses`, `username`, `password`) VALUES
 ('logistik', 'destayana', '12345');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pesanan`
+--
+
+CREATE TABLE `pesanan` (
+  `id_pesanan` varchar(20) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `nama_pesanan` varchar(50) NOT NULL,
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -171,23 +198,15 @@ CREATE TABLE `surat_keluar` (
   `no_surat` varchar(20) NOT NULL,
   `tgl_surat` date NOT NULL,
   `pesan` varchar(200) NOT NULL,
-  `tujuan` varchar(20) NOT NULL,
+  `tujuan_customer` varchar(20) DEFAULT NULL,
+  `tujuan_direktur` varchar(20) DEFAULT NULL,
+  `tujuan_vendor` varchar(20) DEFAULT NULL,
+  `tujuan_logistik` varchar(20) DEFAULT NULL,
   `file` varchar(200) NOT NULL,
   `status_approve` varchar(30) NOT NULL,
   `penanggung_jawab` varchar(20) NOT NULL,
   `no_hp` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `surat_keluar`
---
-
-INSERT INTO `surat_keluar` (`id_surat`, `username`, `jenis_surat`, `no_surat`, `tgl_surat`, `pesan`, `tujuan`, `file`, `status_approve`, `penanggung_jawab`, `no_hp`) VALUES
-(42, 'exo', 'SPH', 'a', '1200-10-01', '', 'destayana', 'DA082DOUAAAfKMo8.jpg', '', '', ''),
-(45, 'exo', 'SPK', '1/a/b/11', '2001-01-01', '', 'destayana', 'header-13.png', '', '', ''),
-(48, 'exo', 'SPK', '01012/102', '2002-01-01', '', 'destayana', 'Image_3a93d574.jpg', '', 'taemin', '09121312'),
-(50, 'exo', 'SPPH', '01012/102', '2002-01-01', '', 'direktur', 'warna18.jpg', 'YA', 'minho', ''),
-(51, 'sd', 'SPPH', '01/20/2011', '2001-01-01', '', 'direktur', 'warna19.jpg', 'YA', 'call', '123');
 
 -- --------------------------------------------------------
 
@@ -260,6 +279,13 @@ ALTER TABLE `customer`
   ADD KEY `username` (`username`);
 
 --
+-- Indexes for table `detil_pesanan`
+--
+ALTER TABLE `detil_pesanan`
+  ADD PRIMARY KEY (`id_detil_pesanan`),
+  ADD KEY `fk_detil_pesanan` (`id_pesanan`);
+
+--
 -- Indexes for table `direktur`
 --
 ALTER TABLE `direktur`
@@ -270,6 +296,13 @@ ALTER TABLE `direktur`
 --
 ALTER TABLE `logistik`
   ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pesanan`
+--
+ALTER TABLE `pesanan`
+  ADD PRIMARY KEY (`id_pesanan`),
+  ADD KEY `fk_pesanan` (`username`);
 
 --
 -- Indexes for table `progress_pengadaan`
@@ -290,7 +323,11 @@ ALTER TABLE `status_pesanan`
 ALTER TABLE `surat_keluar`
   ADD PRIMARY KEY (`id_surat`),
   ADD KEY `username` (`username`),
-  ADD KEY `username_2` (`username`);
+  ADD KEY `username_2` (`username`),
+  ADD KEY `fk1` (`tujuan_customer`),
+  ADD KEY `fk2` (`tujuan_direktur`),
+  ADD KEY `fk3` (`tujuan_vendor`),
+  ADD KEY `fk4` (`tujuan_logistik`);
 
 --
 -- Indexes for table `ulasan`
@@ -314,16 +351,26 @@ ALTER TABLE `vendor`
 --
 ALTER TABLE `surat_keluar`
   MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
-
 --
 -- AUTO_INCREMENT for table `ulasan`
 --
 ALTER TABLE `ulasan`
   MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `detil_pesanan`
+--
+ALTER TABLE `detil_pesanan`
+  ADD CONSTRAINT `fk_detil_pesanan` FOREIGN KEY (`id_pesanan`) REFERENCES `pesanan` (`id_pesanan`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pesanan`
+--
+ALTER TABLE `pesanan`
+  ADD CONSTRAINT `fk_pesanan` FOREIGN KEY (`username`) REFERENCES `customer` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `status_pesanan`
@@ -332,11 +379,19 @@ ALTER TABLE `status_pesanan`
   ADD CONSTRAINT `status_pesanan_ibfk_1` FOREIGN KEY (`username`) REFERENCES `customer` (`username`);
 
 --
+-- Constraints for table `surat_keluar`
+--
+ALTER TABLE `surat_keluar`
+  ADD CONSTRAINT `fk1` FOREIGN KEY (`tujuan_customer`) REFERENCES `customer` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk2` FOREIGN KEY (`tujuan_direktur`) REFERENCES `direktur` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk3` FOREIGN KEY (`tujuan_vendor`) REFERENCES `vendor` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk4` FOREIGN KEY (`tujuan_logistik`) REFERENCES `logistik` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `ulasan`
 --
 ALTER TABLE `ulasan`
   ADD CONSTRAINT `ulasan_ibfk_1` FOREIGN KEY (`username`) REFERENCES `customer` (`username`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
