@@ -167,6 +167,10 @@ $(document).ready(function() {
 
      $('#dataSuratMasuk').DataTable();
 
+<<<<<<< HEAD
+     
+=======
      $('#dataPesanan').DataTable();
      $('#detilPesanan').DataTable();
+>>>>>>> 6b4a472bb3a673cbfa63353b67c70488f2423fa2
 } );
