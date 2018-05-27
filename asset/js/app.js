@@ -160,4 +160,10 @@ $(document).ready(function() {
     $('#dataProgress').DataTable();
 
      $('#dataUlasan').DataTable();
+
+     $('#dataStatus').DataTable();
+
+     $('#dataSuratKeluar').DataTable();
+
+     $('#dataSuratMasuk').DataTable();
 } );

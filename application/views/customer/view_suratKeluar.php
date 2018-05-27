@@ -110,12 +110,13 @@
             <h5>  Surat keluar </h5>
           </div>
  
-          <div class="card-body">
-                <table id="dataUlasan" class="table ">
+            <div class="card-body">
+                <table id="dataProgress" class="table ">
                 <thead>
                   <tr>
-                  <th> tujuan </th>
-                  <th> nama penanggung jawab </th>
+               
+                   <th> tujuan </th>
+                  <th> penanggung jawab </th>
                   <th> contact </th>
                   <th> jenis surat </th>
                   <th>nomor surat </th>
@@ -128,22 +129,57 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php              
+                 <?php              
                   
                   foreach($surat_keluar as $ul):
                 
                   ?>
                   
                   <tr>
-                       <td><?php echo $ul->tujuan ;?></td>
+                    <td><?php echo $ul->tujuan_direktur ;?> <?php echo $ul->tujuan_logistik ;?> </td>
+                 
                         <td><?php echo $ul->penanggung_jawab ;?></td>
                          <td><?php echo $ul->no_hp ;?></td>
                         <td><?php echo $ul->jenis_surat ;?></td>
                    <td><?php echo $ul->no_surat ;?></td>
                    <td><?php echo $ul->tgl_surat ;?></td>
                     <td><?php echo "<br><b>File : </b><i><a href='".base_URL()."asset/upload/surat_keluar/".$ul->file."' target='_blank'>".$ul->file."</a>"?></td> 
-                    <td><?php echo $ul->pesan ;?></td>
-                                                      
+                  
+               
+                    
+                   
+              <!--  DIBAWAH UNTUK MODAL   --> 
+             <td
+             <a href="#view<?php echo $ul->id_surat ;?>" data-toggle="modal"> <button type="button" class="btn btn-primary"><i class="fa fa-external-link"> </i> pesan<span class="" aria-hidden="true"></span></button></a></td>
+             <!-- Modal Tambah -->
+  <div   role="dialog" tabindex="" id="view<?php echo $ul->id_surat; ?>" class="modal fade">
+      <div class="modal-dialog">
+      
+          <div class="modal-content">
+              <div class="modal-header">
+              <h4 class="modal-title">pesan</h4> 
+                  <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>         
+              </div>
+
+
+                <div class="modal-body">
+               <?php echo $ul->pesan ;?></td>
+              
+                       </div> 
+                        <div class="form-group">
+
+                            
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-warning" data-dismiss="modal"> Back</button>
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- END Modal Tambah -->
+             <tr>
                   </tr>
                   <?php
                   endforeach;
@@ -155,20 +191,13 @@
               
             </div>
             </div>
-
-
-
-
-            
             </div>
             </main>
             </div>
-
-
           
+
     </div>
   </div>
 </div>
 </main>
 </div>
-

@@ -62,7 +62,8 @@ function edit_data($where,$table){
 
  	
      function inputSuratKeluar($data,$table){
-        $this->db->insert($table,$data);
+       $res = $this->db->insert($table,$data);
+       return $res; 
     }
 
 
@@ -70,6 +71,8 @@ function edit_data($where,$table){
    function insertData($data,$table){
         $this->db->insert($table,$data);
     }
+
+
 
   function ambilSPPHbyID($id_surat){
      $this->db->where('id_surat', $id_surat);

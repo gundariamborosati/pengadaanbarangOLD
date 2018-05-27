@@ -155,13 +155,13 @@
                       </div>
                   </div>
                      <div class="form-group">
-                            <label for="tipe" class="col-md-3 control-label">Nama Penanggung Jawab </label>
+                            <label for="tipe" class="col-md-3 control-label">Penanggung Jawab </label>
                              <div class="col-md-7 required">
                              <input type="text" name="penanggung_jawab" class="form-control"  rows="7" cols="80" required ></textarea>
                               </div>
                               </div>
                                 <div class="form-group">
-                            <label for="tipe" class="col-md-3 control-label">Contact Penanggung Jawab </label>
+                            <label for="tipe" class="col-md-3 control-label">Contact  </label>
                              <div class="col-md-7 required">
                              <input type="text" name="no_hp" class="form-control"  rows="7" cols="80" required></textarea>
                               </div>
@@ -188,7 +188,7 @@
                       <label for="tgl" class="col-md-3 control-label">Tanggal</label>
                       <div class="col-md-7 col-sm-12 required">
                         <div class="input-group date">
-                          <input type="date" name="tgl_surat" class="form-control pull-right" id="datepickerNow" data-date-format="dd/mm/yyyy" required>
+                          <input type="date" name="tgl_surat" class="form-control pull-right" id="datepickerNow" data-date-format="yyyy/mm/dd" required>
                         </div>
                       </div>
                   </div>

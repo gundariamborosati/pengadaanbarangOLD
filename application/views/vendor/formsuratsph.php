@@ -106,56 +106,80 @@
                 <div class="col-lg-6">                                        
                     <?php echo form_open_multipart(base_url('c_suratKeluar/addsph')) ;?>           
                   <div class="form-group">
-                 <!-- departemen -->                            
-                    
-                  <div class="form-group">
-                    <label for="tipe" class="col-md-3 control-label">nomor surat</label>
-                    <div class="col-md-7 required">
-                      <input type="text" name="no_surat" class="form-control"  rows="7" cols="80" ></textarea>
-                    </div>
-                  </div>
-                  <!-- tgl-->
-                  <div class="form-group ">
-                    <label for="tgl" class="col-md-3 control-label">Tanggal</label>
-                    <div class="col-md-7 col-sm-12 required">
-                      <div class="input-group date">
-                        <input type="date" name="tgl_surat" class="form-control pull-right" id="datepickerNow" data-date-format="dd/mm/yyyy" required>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="tipe" class="col-md-3 control-label">upload</label>
+                       <div class="form-group ">
+                      <label for="tipe" class="col-md-3 control-label">tujuan</label>
                       <div class="col-md-7 required">
-                        <input type="file" class="form-control" placeholder="choose file" name="file"  value="" required>
+                        <select class="form-control select2" style="min-width:250px;" required name="tujuan" id="tujuan">
+                          <option></option>
+                           <?php
+                           if($username){
+                             foreach($username as $d){
+                               echo "<option value='$d->username'>$d->username</option>";
+                              }
+                            }
+                          ?>
+                        </select>
                       </div>
-                  </div> 
+                  </div>
+                    <div class="form-group">
+                            <label for="tipe" class="col-md-3 control-label"><br>Penanggung Jawab </label>
+                             <div class="col-md-7 required">
+                             <input type="text" name="penanggung_jawab" class="form-control"  rows="7" cols="80" required></textarea>
+                              </div>
+                              </div>
+                                <div class="form-group">
+                            <label for="tipe" class="col-md-3 control-label">Contact</label>
+                             <div class="col-md-7 required">
+                             <input type="text" name="no_hp" class="form-control"  rows="7" cols="80" required></textarea>
+                              </div>
+                              </div>
+
+                    <div class="form-group ">
+                      <label for="tipe" class="col-md-3 control-label">Jenis Surat </label>
+                      <div class="col-md-7 required">
+                        <select class="form-control select2" style="min-width:250px;" required name="jenis_surat" id="" required>
+                
+                            <option> </option>   
+                               <option>SPH</option>        
+                        </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                            <label for="tipe" class="col-md-3 control-label">nomor surat</label>
+                             <div class="col-md-7 required">
+                             <input type="text" name="no_surat" class="form-control"  rows="7" cols="80" ></textarea>
+                              </div>
+                              </div>
+                  <!-- tgl-->
+                   <div class="form-group ">
+                      <label for="tgl" class="col-md-3 control-label">Tanggal</label>
+                      <div class="col-md-7 col-sm-12 required">
+                        <div class="input-group date">
+                          <input type="date" name="tgl_surat" class="form-control pull-right" id="datepickerNow" data-date-format="dd/mm/yyyy" required>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                            <label for="tipe" class="col-md-3 control-label">upload</label>
+                             <div class="col-md-7 required">
+                             <input type="file" class="form-control" placeholder="choose file" name="file"  value="" >
+                              </div>
+                              </div> 
                 
                   <div class="form-group">
-                    <label for="tipe" class="col-md-3 control-label">pesan</label>
-                      <div class="col-md-7 required">
-                        <textarea name="pesan" class="form-control"  rows="7" cols="80" ></textarea>
-                      </div>
-                  </div>
+                            <label for="tipe" class="col-md-3 control-label">pesan</label>
+                             <div class="col-md-7 required">
+                             <textarea name="pesan" class="form-control"  rows="7" cols="80" ></textarea>
+                              </div>
+                              </div>
 
-                  <div class="form-group">
-                    <label for="tipe" class="col-md-3 control-label">penanggung jawab</label>
-                    <div class="col-md-7 required">
-                      <input type="text" name="penanggungjawab" class="form-control"  rows="7" cols="80" ></textarea>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="tipe" class="col-md-3 control-label">Nomor Telepon</label>
-                    <div class="col-md-7 required">
-                      <input type="text" name="no_telp" class="form-control"  rows="7" cols="80" ></textarea>
-                    </div>
-                  </div>
-
-
-
-                                            <button type="submit" name="simpan" value="submit" class="btn btn-primary">Submit</button>
+                                           
+                                           <div class="form-group">
+                                             <div class="col-md-7 required">
+                                            <button type="submit" name="simpan" value="submit" class="btn btn-primary">kirim</button>
                                            </form>
+                                           </div>
+                                            </div>
 
 
               
