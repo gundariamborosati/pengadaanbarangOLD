@@ -143,6 +143,8 @@
                      <td>  
                        <a href="<?php echo base_url('/c_pesanan/detil_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
                         <a href="<?php echo base_url('/c_pesanan/edit_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
+                        <a href="<?php echo base_url('/c_surat/suratSPPH/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Print</a>
+                        <a href="<?php echo base_url('/c_pesanan/edit_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Kirim</a>
                     </td>
                   </tr>
                   <?php
