@@ -12,7 +12,8 @@ class m_customer extends CI_Model{
 	 	$this->db->where('username', $username);
 	 	$this->db->where('password', md5($password));
 	 	return $this->db->get('customer');
-	 }
+	}
+
 	function view_cus (){
 		return $this->db->get('customer');
 	}
@@ -52,14 +53,6 @@ class m_customer extends CI_Model{
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
-
-	// public function updatePassword($username,$data,$table)
- //    {
-
- //         //id apa yang mau di update, lalu DATA apa yang mau dikirim ke tabel di database
- //        $this->db->where('username',$username);
- //        $this->db->update($table,$data);
- //    }
 
     function check_regis($username){
 		$this->db->where('username', $username);

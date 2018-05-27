@@ -166,4 +166,6 @@ $(document).ready(function() {
      $('#dataSuratKeluar').DataTable();
 
      $('#dataSuratMasuk').DataTable();
+
+     
 } );
