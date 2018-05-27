@@ -17,6 +17,20 @@ class m_pesanan extends CI_Model {
 		}
 	}
 
+	function joinPesananDetil(){
+		$this->db->select('*');
+		$this->db->from('pesanan');
+		$this->db->join('customer', 'customer.username = pesanan.username');
+		$query = $this->db->get();
+
+		if($query->num_rows() > 0){
+			return $query->result();
+		} else {
+			return array();
+		} 
+
+	}
+
 	function insert_pesanan($data){
 		$query = $this->db->insert('pesanan',$data);
 		return $query;
