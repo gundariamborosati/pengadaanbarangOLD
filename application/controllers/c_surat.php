@@ -5,6 +5,11 @@ class C_surat extends CI_Controller {
     {
         parent::__construct();
         $this->load->library("Pdf"); // panggil library cpdf
+
+        // load model
+		$this->load->model('m_detil_pesanan');
+		$this->load->model('m_pesanan');
+
     }
 
 
@@ -97,7 +102,16 @@ class C_surat extends CI_Controller {
 
 	    $pdf->Output();
     }
-   	function suratSPPH(){
+    
+   	function suratSPPH($id){
+   		// get dulu model si pesanan terus ambil datanya.
+   		$data = $this->m_pesanan->joinPesananDetil();
+   		//print_r($data);
+   		//print_r($data[0]->username); 
+
+   		$nama_perusahaan = $data[0]->username;
+   		
+
     	$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);    
     	
     	 // set document information
