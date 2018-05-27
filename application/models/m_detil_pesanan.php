@@ -7,15 +7,15 @@ class m_detil_pesanan extends CI_Model {
         parent::__construct();
     }
 
-	//untuk logistik 
-	function getDetilPesanan(){
-		$hasil = $this->db->get('detil_pesanan');
-		if($hasil->num_rows() > 0){
-			return $hasil->result();
-		} else {
-			return array();
-		}
-	}
+	// //untuk logistik 
+	// function getDetilPesanan(){
+	// 	$hasil = $this->db->get('detil_pesanan');
+	// 	if($hasil->num_rows() > 0){
+	// 		return $hasil->result();
+	// 	} else {
+	// 		return array();
+	// 	}
+	// }
 
 	function insertDetilPesanan($data){
 		$query = $this->db->insert('detil_pesanan',$data);
@@ -23,8 +23,11 @@ class m_detil_pesanan extends CI_Model {
 	}
 
 	//untuk vendor
-	function getDetilPesanan($where,$table){
-		return $this->db->get_where($table,$where);
+	function getDetilPesanan($id){
+
+		//$query = $this->db->get_where($table, $where); 
+		return $this->db->select('*')->where('id_pesanan',$id)->get('detil_pesanan')->result();
+		
 	}
 
 	function cek_id($idbarang){

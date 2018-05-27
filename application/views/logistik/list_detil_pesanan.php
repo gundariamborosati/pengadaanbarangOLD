@@ -115,34 +115,33 @@
           </div>
           <div class="card-body">
           
-              <table id="dataPesanan" class="table ">
+              <table id="detilPesanan" class="table ">
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>ID Pesanan</th>
-                    <th>Nama Perusahaan</th>
-                    <th>Nama Pesanan</th>
-                    <th>Tanggal Pesanan</th>
+                    <th>Nama Barang</th>
+                    <th>Spesifikasi Barang</th>
+                    <th>Volume</th>
+                    <th>Satuan</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                  $dataPesanan = json_decode(json_encode($pesanan), true);
+                  $detilPesanan = json_decode(json_encode($detil_pesan), true);
                   $no = 0;
-                  foreach($dataPesanan as $pecah):
+                  foreach($detilPesanan as $pecah):
                   $no++;
                   ?>
                   
                   <tr>
                     <td><?php  echo $no; ?></td>
-                    <td><?php  echo $pecah['id_pesanan']; ?></td>
-                    <td><?php echo $pecah['nama_perusahaan'];?></td>                     
-                    <td><?php echo $pecah['nama_pesanan'];?></td>                     
-                    <td><?php echo $pecah['tanggal'];?></td>                     
+                    <td><?php  echo $pecah['nama_barang']; ?></td>
+                    <td><?php echo $pecah['spesifikasi_barang'];?></td>                     
+                    <td><?php echo $pecah['volume_barang'];?></td>                     
+                    <td><?php echo $pecah['satuan'];?></td>                     
                      <td>  
-                       <a href="<?php echo base_url('/c_pesanan/detil_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
-                        <a href="<?php echo base_url('/c_pesanan/edit_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
+                        <a href="<?php echo base_url('/c_pesanan/edit_detil_pesanan/'.$pecah['id_detil_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
                     </td>
                   </tr>
                   <?php

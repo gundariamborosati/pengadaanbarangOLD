@@ -12,9 +12,21 @@ class c_pesanan extends CI_Controller {
 
 	// lihat detail pesanan dari table
 	public function listPesanan(){
-		$this->load->view('utama/header');
-		$this->load->view('logistik/list_pesanan');
-		$this->load->view('utama/footer');
+
+		$data['pesanan'] = $this->m_pesanan->joinPesananDetil();
+
+		$this->load->view('template/header');
+		$this->load->view('logistik/list_pesanan' , $data);
+		$this->load->view('template/footer');
+	}
+
+	// ini untuk detil
+	public function detil_pesanan($id){
+		$data['detil_pesan'] = $this->m_detil_pesanan->getDetilPesanan($id);
+		//print_r($data);
+		$this->load->view('template/header');
+		$this->load->view('logistik/list_detil_pesanan' , $data);
+		$this->load->view('template/footer');
 	}
 
 
