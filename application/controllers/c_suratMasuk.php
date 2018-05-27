@@ -18,7 +18,7 @@ class c_suratMasuk extends CI_Controller {
 
 
 	public function surat_masukDirektur(){  //dihalaman direktur
-		$data ['surat_masuk'] = $this->m_suratMasuk->kotak_masuk($this->session->userdata('username'));
+		$data ['surat_masuk'] = $this->m_suratMasuk->kotak_masuk_direktur($this->session->userdata('username'));
 		$this->load->view('template/header');
 		$this->load->view('direktur/view_suratmasuk',$data);
 		$this->load->view('template/footer'); 
@@ -59,7 +59,7 @@ class c_suratMasuk extends CI_Controller {
 
 
 	public function surat_masukLogistik($status_approve1="YA" ){ //dihalaman logitik
-		$data ['surat_masuk'] = $this->m_suratMasuk->kotak_masuk($this->session->userdata('username'));
+		$data ['surat_masuk'] = $this->m_suratMasuk->kotak_masuk_logistik($this->session->userdata('username'));
 
 		 $where = array('status_approve' => $status_approve1);
 
@@ -85,7 +85,7 @@ class c_suratMasuk extends CI_Controller {
 
 	 
 	 	public function surat_masukCustomer(){ //dihalaman customer
-		$data ['surat_masuk'] = $this->m_suratMasuk->kotak_masuk($this->session->userdata('username'));
+		$data ['surat_masuk'] = $this->m_suratMasuk->kotak_masuk_customer($this->session->userdata('username'));
 		$this->load->view('template/header');
 		$this->load->view('customer/view_suratmasuk',$data);
 		$this->load->view('template/footer'); 

@@ -155,13 +155,13 @@
                       </div>
                   </div>
                     <div class="form-group">
-                            <label for="tipe" class="col-md-3 control-label"><br>Nama Penanggung Jawab </label>
+                            <label for="tipe" class="col-md-3 control-label"><br>Penanggung Jawab </label>
                              <div class="col-md-7 required">
                              <input type="text" name="penanggung_jawab" class="form-control"  rows="7" cols="80" required></textarea>
                               </div>
                               </div>
                                 <div class="form-group">
-                            <label for="tipe" class="col-md-3 control-label">Contact Penanggung Jawab </label>
+                            <label for="tipe" class="col-md-3 control-label">Contact</label>
                              <div class="col-md-7 required">
                              <input type="text" name="no_hp" class="form-control"  rows="7" cols="80" required></textarea>
                               </div>

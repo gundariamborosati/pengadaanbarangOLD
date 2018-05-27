@@ -60,7 +60,7 @@ class c_customer extends CI_Controller {
 		$this->load->view('customer/registrasiCustomer');
 	}
 
-
+//diatas untuk kelola user
 	public function registrasicustomer(){
 		$this->form_validation->set_rules('email', 'Email','required|valid_email');
 		$this->form_validation->set_rules('contact', 'Contact','required|numeric');
@@ -101,7 +101,8 @@ class c_customer extends CI_Controller {
 						  'username' => $this->input->post('username'),
 						  'password' => md5($this->input->post('password')),
 						  'status' =>'aktif'
-						);					
+						);			
+
 		 			$this->m_customer->insert($data); 
 		 			//$this->load->view('utama/v_login');		 			
 		        } 

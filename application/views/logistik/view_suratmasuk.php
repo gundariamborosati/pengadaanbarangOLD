@@ -113,7 +113,7 @@
       <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
-            <h3>  kotak masuk Dari Customer </h3>
+            <h3>  kotak masuk Dari Customer dan Vendor</h3>
           </div>
            <div class="pull-right">
 

@@ -138,13 +138,44 @@
                   ?>
                   
                   <tr>
-                       <td><?php echo $ul->tujuan ;?></td>
+                       <td><?php echo $ul->tujuan_customer ;?> <?php echo $ul->tujuan_vendor ;?></td>
                         <td><?php echo $ul->jenis_surat ;?></td>
                    <td><?php echo $ul->no_surat ;?></td>
                    <td><?php echo $ul->tgl_surat ;?></td>
                     <td><?php echo "<br><b>File : </b><i><a href='".base_URL()."asset/upload/surat_keluar/".$ul->file."' target='_blank'>".$ul->file."</a>"?></td> 
-                    <td><?php echo $ul->pesan ;?></td>
                                                       
+                               <!--  DIBAWAH UNTUK MODAL   --> 
+             <td
+             <a href="#view<?php echo $ul->id_surat ;?>" data-toggle="modal"> <button type="button" class="btn btn-primary"><i class="fa fa-external-link"> </i> pesan <span class="" aria-hidden="true"></span></button></a></td>
+             <!-- Modal Tambah -->
+  <div   role="dialog" tabindex="" id="view<?php echo $ul->id_surat; ?>" class="modal fade">
+      <div class="modal-dialog">
+      
+          <div class="modal-content">
+              <div class="modal-header">
+              <h4 class="modal-title">pesan</h4> 
+                  <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>         
+              </div>
+
+
+                <div class="modal-body">
+               <?php echo $ul->pesan ;?></td>
+              
+                       </div> 
+                        <div class="form-group">
+
+                            
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-warning" data-dismiss="modal"> Back</button>
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- END Modal Tambah -->
+             <tr>
                   </tr>
                   <?php
                   endforeach;
@@ -156,21 +187,13 @@
               
             </div>
             </div>
-
-
-
-
-            
             </div>
             </main>
             </div>
-
-
           
+
     </div>
   </div>
 </div>
 </main>
 </div>
-
-
