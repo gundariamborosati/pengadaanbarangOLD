@@ -42,7 +42,7 @@
             Menu
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=""><i class="fa fa-home"></i> Home</a>
+            <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>"><i class="fa fa-home"></i> Home</a>
           </li>
            <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('/c_pesanan/listPesanan');?>"><i class="fa fa-shopping-cart"></i> Pesanan </a>

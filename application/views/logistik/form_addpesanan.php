@@ -42,7 +42,7 @@
             Menu
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=""><i class="fa fa-home"></i> Home</a>
+            <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>"><i class="fa fa-home"></i> Home</a>
           </li>
            <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url('/c_pesanan/listPesanan');?>"><i class="fa fa-shopping-cart"></i> Pesanan </a>
@@ -158,22 +158,22 @@
                                   </div>
                               </div>
 
-                             <!--  <div class="form-group ">
+                              <div class="form-group ">
                                   <label for="tipe" class="col-md-3 control-label">Nama Vendor</label>
                                   <div class="col-md-7 required">
                                     <select class="form-control select2" style="min-width:250px;" required name="vendor" id="vendor">
                                       <option></option>
                                        <?php
-                                       if($nama_perusahaan){
-                                         foreach($nama_perusahaan as $d){
+                                       if($nama_vendor){
+                                         foreach($nama_vendor as $d){
                                            echo "<option value='$d->username'>$d->nama_perusahaan</option>";
                                           }
                                         }
                                       ?>
                                     </select>
                                   </div>
-                              </div> -->
-
+                              </div>
+                         
                               <div class="form-group">
                                 <label for="tipe" class="col-md-3 control-label">Nama  Pesanan</label>
                                   <div class="col-md-7 required">

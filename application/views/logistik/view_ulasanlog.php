@@ -45,7 +45,7 @@
           </li>
 
           <li class="nav-item">  
-          <a class="nav-link" href=" <?php echo base_url('/c_logistik/kelola_user');?> "><i class="fa fa-home"></i> Home</a>
+          <a class="nav-link" href=" <?php echo base_url('/c_logistik/home');?>"><i class="fa fa-home"></i> Home</a>
           </li>
 
           <li class="nav-item nav-dropdown"> 

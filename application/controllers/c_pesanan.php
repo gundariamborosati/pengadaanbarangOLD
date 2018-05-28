@@ -26,7 +26,8 @@ class c_pesanan extends CI_Controller {
 	public function formadd(){
 
 		$data = array(
-				'nama_perusahaan' => $this->m_customer->getNamaPerusahaan()
+				'nama_perusahaan' => $this->m_customer->getNamaPerusahaan(),
+				'nama_vendor' => $this->m_vendor->getNamaVendor()
 		);
 		$this->load->view('template/header');
 		$this->load->view('logistik/form_addpesanan',$data);
@@ -39,7 +40,7 @@ class c_pesanan extends CI_Controller {
 		$data = array(
 					'id_pesanan' => $id,
 					'username' => $this->input->post('username'),
-					// 'vendor' => $this->input->post('vendor'),
+					'vendor' => $this->input->post('vendor'),
 					'nama_pesanan' => $this->input->post('nama_pesanan'),
 					'tanggal' => $this->input->post('tanggal')
 				);
