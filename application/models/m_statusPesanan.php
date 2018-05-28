@@ -63,7 +63,7 @@ class m_statusPesanan extends CI_Model {
        $kode = 1;    
       }
       $kodemax = str_pad($kode, 4, "0", STR_PAD_LEFT);
-      $kodejadi = "PESANAN-".$kodemax;    
+      $kodejadi = "STATUSPSN-".$kodemax;    
       return $kodejadi;
   }
 

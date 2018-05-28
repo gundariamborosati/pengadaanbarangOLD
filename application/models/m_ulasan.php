@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_ulasan extends CI_Model {
 
+
+
 	
 	function viewUlasanlog(){
 	return $this->db->get('ulasan');

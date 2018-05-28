@@ -110,10 +110,11 @@
                   <tr>
                   <th> komentar dari </th>
                   <th>barang dari vendor </th>
+                  <th> rating </th>
                     <th>Komentar</th>
                     <th>aksi</th>
 
-                   
+                  
 
                     
                   </tr>
@@ -128,6 +129,7 @@
                   <tr>
                   <td><?php echo $ul->username ;?></td>
                    <td><?php echo $ul->dari_vendor ;?></td>
+                      <td><?php echo $ul->rating ;?></td>
                     <td><?php echo $ul->komentar ;?></td>
                     <td>
             <center><a href="<?=base_url()?>c_ulasan/hapusUlasanlog/<?=$ul->id_ulasan?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><i class="fa fa-trash"></i></a> </td>

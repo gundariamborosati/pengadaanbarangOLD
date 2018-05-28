@@ -58,10 +58,10 @@ class c_suratMasuk extends CI_Controller {
         }
 
 
-	public function surat_masukLogistik($status_approve1="YA" ){ //dihalaman logitik
+	public function surat_masukLogistik($status_approve="YA" ){ //dihalaman logitik
 		$data ['surat_masuk'] = $this->m_suratMasuk->kotak_masuk_logistik($this->session->userdata('username'));
 
-		 $where = array('status_approve' => $status_approve1);
+		 $where = array('status_approve' => $status_approve);
 
 	   $data ['surat_approve'] = $this->m_suratMasuk->getApprove($where,'surat_keluar')->result();
 
