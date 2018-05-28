@@ -111,7 +111,7 @@
       <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
-            <h5>  kirim surat ke direktur </h5>
+            <h5>  Tambah Data Pesanan </h5>
           </div>
   <!--   <div class="pull-right">
 
@@ -123,98 +123,88 @@
 
            
      <div id="page-wrapper">
-                <div class="row">
-                    <div class="col-lg-12">
+      <div class="row">
+          <div class="col-lg-12">
                        
-                    </div>
+          </div>
                     <!-- /.col-lg-12 -->
-                </div>
+          </div>
                 <!-- /.row -->
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                
-                            </div>
+                  <div class="col-lg-12">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                      </div>
                            <!--  <div class="panel-body"> -->
-                           <div class="card-body">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <?php echo form_open_multipart(base_url('c_suratKeluar/inputSuratKeluarDirektur')) ;?>
-                              
-                                        <div class="form-group">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <?php echo form_open_multipart(base_url('c_pesanan/add_pesanan')) ;?>
+                            <div class="form-group">
                  <!-- departemen -->
-                  <div class="form-group ">
-                      <label for="tipe" class="col-md-3 control-label">Nama Perusahaan</label>
-                      <div class="col-md-7 required">
-                        <select class="form-control select2" style="min-width:250px;" required name="username" id="username">
-                          <option></option>
-                           <?php
-                           if($nama_perusahaan){
-                             foreach($nama_perusahaan as $d){
-                               echo "<option value='$d->nama_perusahaan'>$d->nama_perusahaan</option>";
-                              }
-                            }
-                          ?>
-                        </select>
-                      </div>
-                  </div>
-                     <div class="form-group">
-                            <label for="tipe" class="col-md-3 control-label">Penanggung Jawab </label>
-                             <div class="col-md-7 required">
-                             <input type="text" name="penanggung_jawab" class="form-control"  rows="7" cols="80" required ></textarea>
-                              </div>
-                              </div>
-                                <div class="form-group">
-                            <label for="tipe" class="col-md-3 control-label">Contact  </label>
-                             <div class="col-md-7 required">
-                             <input type="text" name="no_hp" class="form-control"  rows="7" cols="80" required></textarea>
-                              </div>
+                              <div class="form-group ">
+                                  <label for="tipe" class="col-md-3 control-label">Nama Perusahaan</label>
+                                  <div class="col-md-7 required">
+                                    <select class="form-control select2" style="min-width:250px;" required name="username" id="username">
+                                      <option></option>
+                                       <?php
+                                       if($nama_perusahaan){
+                                         foreach($nama_perusahaan as $d){
+                                           echo "<option value='$d->username'>$d->nama_perusahaan</option>";
+                                          }
+                                        }
+                                      ?>
+                                    </select>
+                                  </div>
                               </div>
 
-                    <div class="form-group ">
-                      <label for="tipe" class="col-md-3 control-label">Jenis Surat </label>
-                      <div class="col-md-7 required">
-                        <select class="form-control select2" style="min-width:250px;" required name="jenis_surat" id="">
-                         <option></option>
-                            <option>SPPH</option>        
-                        </select>
-                      </div>
-                  </div>
-                    
-                  <!-- tgl-->
-                   <div class="form-group ">
-                      <label for="tgl" class="col-md-3 control-label">Tanggal</label>
-                      <div class="col-md-7 col-sm-12 required">
-                        <div class="input-group date">
-                          <input type="date" name="tgl_surat" class="form-control pull-right" id="datepickerNow" data-date-format="yyyy/mm/dd" required>
-                        </div>
-                      </div>
-                  </div>                
-                  <div class="form-group">
-                          <!--   <label for="tipe" class="col-md-3 control-label">pesan</label> -->
-                             <div class="col-md-7 required">
-                             <!-- <textarea name="pesan" class="form-control"  rows="7" cols="80" ></textarea> -->
+                             <!--  <div class="form-group ">
+                                  <label for="tipe" class="col-md-3 control-label">Nama Vendor</label>
+                                  <div class="col-md-7 required">
+                                    <select class="form-control select2" style="min-width:250px;" required name="vendor" id="vendor">
+                                      <option></option>
+                                       <?php
+                                       if($nama_perusahaan){
+                                         foreach($nama_perusahaan as $d){
+                                           echo "<option value='$d->username'>$d->nama_perusahaan</option>";
+                                          }
+                                        }
+                                      ?>
+                                    </select>
+                                  </div>
+                              </div> -->
+
+                              <div class="form-group">
+                                <label for="tipe" class="col-md-3 control-label">Nama  Pesanan</label>
+                                  <div class="col-md-7 required">
+                                    <input type="text" name="nama_pesanan" class="form-control"  rows="7" cols="80" required ></textarea>
+                                  </div>
                               </div>
+
+                               <div class="form-group ">
+                                <label for="tgl" class="col-md-3 control-label">Tanggal</label>
+                                  <div class="col-md-7 col-sm-12 required">
+                                    <div class="input-group date">
+                                      <input type="date" name="tanggal" class="form-control pull-right" id="datepickerNow" data-date-format="yyyy/mm/dd" required>
+                                     </div>
+                                  </div>
+                               </div>
+
+                              <div class="form-group">
+                                <div class="col-md-7 required">
+                                  <button type="submit" name="simpan" value="submit" class="btn btn-primary">kirim</button>
+                                </div>
                               </div> 
-                
-                  
-                                        
-                                           <div class="form-group">
-                                             <div class="col-md-7 required">
-                                            <button type="submit" name="simpan" value="submit" class="btn btn-primary">kirim</button>
-                                           </form>
-                                           </div>
+                          </form>
+
+                              </div>
                                             </div>
-
-
-              
-            </div>
+           </div>
             </div>
             </div>
             </main>
             </div>
-          
+<!--           
     </div>
   </div>
 </div>
@@ -222,4 +212,4 @@
 
 
 </main>
-</div>
+</div> -->
