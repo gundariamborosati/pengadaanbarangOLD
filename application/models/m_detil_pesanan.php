@@ -35,6 +35,7 @@ class m_detil_pesanan extends CI_Model {
 		$this->db->from('barang');
 		$this->db->order_by('idbarang', 'DESC');
 	}
+	
 	function deleteDetilPesanan($where,$table){
 		$this->db->where($where);
 		$this->db->delete($table);
@@ -48,20 +49,6 @@ class m_detil_pesanan extends CI_Model {
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
-
-	function updateGambar(){
-				//$relative_url = './avatar/'. $this->upload->file_name;
-				//check if password was updated
-				
- 				$id = 'idbarang';
-				$this->db->where('idbarang', $id);
-				$this->db->update('barang', $data);
-				if($this->db->affected_rows() > 0){					
-					return true;
-		 		} else {
-		 			return false;
-		 		}
-			}
 
 	function getIDDetilPesanan(){
 		$this->db->select('RIGHT(detil_pesanan.id_detil_pesanan,8) as id', FALSE);

@@ -111,7 +111,7 @@
       <div class="container-fluid">
         <div class="card card-accent-success">
           <div class="card-header">
-            <h3>  Kelola Pesanan </h3>
+            <h3>  Detail Pesanan</h3>
           </div>
           <div class="card-body">
           
@@ -119,6 +119,7 @@
                 <thead>
                   <tr>
                     <th>No</th>
+                    <th>Id</th>
                     <th>Nama Barang</th>
                     <th>Spesifikasi Barang</th>
                     <th>Volume</th>
@@ -136,12 +137,14 @@
                   
                   <tr>
                     <td><?php  echo $no; ?></td>
+                    <td><?php  echo $pecah['id_detil_pesanan']; ?></td>
                     <td><?php  echo $pecah['nama_barang']; ?></td>
                     <td><?php echo $pecah['spesifikasi_barang'];?></td>                     
                     <td><?php echo $pecah['volume_barang'];?></td>                     
                     <td><?php echo $pecah['satuan'];?></td>                     
                      <td>  
-                        <a href="<?php echo base_url('/c_pesanan/edit_detil_pesanan/'.$pecah['id_detil_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
+                        <a href="<?php echo base_url('/c_detilpesanan/edit_detail_pesanan/'.$pecah['id_detil_pesanan']);?>" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> <i class="fa fa-pencil"></i> Edit</a>
+                     
                     </td>
                   </tr>
                   <?php
@@ -152,6 +155,71 @@
             </div>
           </div>
       </div>
+
+
+      <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- konten modal-->
+      <div class="modal-content">
+        <!-- heading modal -->
+        <div class="modal-header">
+          <h4>Edit Detil Pesanan</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+       
+        </div>
+        <!-- body modal -->
+       
+  <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
+      
+    <form action="<?php echo base_url(). 'c_detilpesanan/update_detilpesanan/'.$pecah['id_detil_pesanan']; ?>" method="post">
+        
+          <table class="table-form" width="100%">
+          <br>
+  <tr>
+  <td width="20%">Nama Barang</td>
+  <td><b><input type="text"  name="nama_barang" value="<?php  echo $pecah['nama_barang']; ?>" class="form-control" style="width: 200px" required></b></td>
+  </tr>   
+
+  <tr>
+  <td width="30%">Spesifikasi Barang </td>
+  <td><b><input type="text area" name="spesifikasi_barang"  value="<?php echo $pecah['spesifikasi_barang'];?>" class="form-control" style="width:200px"  required></b></td>
+  </tr> 
+  <tr><td colspan="2">
+  
+  <tr>
+  <td width="40%">Volume Barang</td>
+  <td><b><input type="text" name="volume_barang" value="<?php echo $pecah['volume_barang'];?>" class="form-control" style="width:200px"  required></b></td>
+  </tr> 
+  <tr><td colspan="2">
+
+  <tr>
+  <td width="40%">Satuan Barang</td>
+  <td><b><input type="text" name="satuan"  value="<?php echo $pecah['satuan'];?>" class="form-control" style="width:200px"  required></b></td
+  ></tr> 
+  <tr><td colspan="2">
+  <br>
+         
+        <!-- footer modal -->
+        <div class="modal-footer">
+      <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
+         </form>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+        </div>
+        </table>
+  </fieldset>
+</form>
+</div>
+</td>
+</tr>
+</table>
+</form>
+      </div>
+
+    </div>
+  </div>
 
 </main>
 </div>

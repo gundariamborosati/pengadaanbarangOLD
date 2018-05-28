@@ -63,4 +63,15 @@ class m_vendor extends CI_Model {
 		->update('vendor',$data);
 	}
 
+	// nama perusahaaan untuk pesanan
+	function getNamaVendor(){
+    	$this->db->order_by('nama_perusahaan','asc');
+    	$query = $this->db->get('vendor');
+    	if($query->num_rows()>0){
+      		return $query->result();
+    	}else{
+      		return false;
+    	}
+	}
+
 }
