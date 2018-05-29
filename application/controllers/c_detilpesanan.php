@@ -41,15 +41,21 @@ class c_detilpesanan extends CI_Controller {
 	}
 
 	//form add detil pesanan
-	public function form_addpesanan(){
+	// public function form_addpesanan(){
 
-		$data = array(
-				'nama_perusahaan' => $this->m_customer->getNamaPerusahaan()
-		);
+	// 	$data = array(
+	// 			'nama_perusahaan' => $this->m_customer->getNamaPerusahaan()
+	// 	);
+	// 	$this->load->view('template/header');
+	// 	$this->load->view('logistik/form_addpesanan',$data);
+	// 	$this->load->view('template/footer');	
+	// }
+
+	public function form_addpesanan(){
 		$this->load->view('template/header');
-		$this->load->view('logistik/form_addpesanan',$data);
-		$this->load->view('template/footer');	
-	}
+		$this->load->view('logistik/coba' );	
+		$this->load->view('template/footer');
+	}	
 
 	//aksi tambah detil pesanan
 	public function add_detailpesanan(){

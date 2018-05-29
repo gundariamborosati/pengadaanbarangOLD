@@ -22,6 +22,12 @@ class c_pesanan extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+
+	public function coba(){
+		$this->load->view('logistik/index' );	
+	}
+	
+
 	//form add barang
 	public function formadd(){
 
@@ -42,10 +48,11 @@ class c_pesanan extends CI_Controller {
 					'username' => $this->input->post('username'),
 					'vendor' => $this->input->post('vendor'),
 					'nama_pesanan' => $this->input->post('nama_pesanan'),
-					'tanggal' => $this->input->post('tanggal')
+					'no_surat' => '/LOG-BUT/',
+					'tanggal' => date('Y-m-d')
 				);
 		$this->m_pesanan->insert_pesanan($data);
-		// redirect(base_url('c_pesanan/form_adddetail'));
+		redirect(base_url('c_detilpesanan/form_addpesanan'));
 				
 	}
 

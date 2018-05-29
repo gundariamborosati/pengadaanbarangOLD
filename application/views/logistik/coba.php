@@ -107,100 +107,51 @@
         <!-- Breadcrumb Menu-->
       </ol>
       <!-- /.conainer-fluid -->
+ <div class="card card-accent-success">
+    <div class="card-header">
+      <h5>  Detil Pesanan </h5>
+    </div>
      
-      <div class="container-fluid">
-        <div class="card card-accent-success">
-          <div class="card-header">
-            <h5>  Tambah Data Pesanan </h5>
-          </div>
-  <!--   <div class="pull-right">
-
-    <a href="<?php echo base_url('c_ulasan/viewUlasan')?>" class="btn btn-link pull-right"><i class="fa fa-history"> </i> History Ulasan saya </a>
-
-    </div> -->
-          <body>
-                  <!-- Navigation -->
-
-           
-     <div id="page-wrapper">
-      <div class="row">
-          <div class="col-lg-12">
-                       
-          </div>
-                    <!-- /.col-lg-12 -->
-          </div>
-                <!-- /.row -->
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                      </div>
-                           <!--  <div class="panel-body"> -->
-                        <div class="card-body">
-                          <div class="row">
-                            <div class="col-lg-6">
-                              <?php echo form_open_multipart(base_url('c_pesanan/add_pesanan')) ;?>
-                            <div class="form-group">
-                 <!-- departemen -->
-                              <div class="form-group ">
-                                  <label for="tipe" class="col-md-3 control-label">Nama Perusahaan</label>
-                                  <div class="col-md-7 required">
-                                    <select class="form-control select2" style="min-width:250px;" required name="username" id="username">
-                                      <option></option>
-                                       <?php
-                                       if($nama_perusahaan){
-                                         foreach($nama_perusahaan as $d){
-                                           echo "<option value='$d->username'>$d->nama_perusahaan</option>";
-                                          }
-                                        }
-                                      ?>
-                                    </select>
-                                  </div>
-                              </div>
-
-                              <div class="form-group ">
-                                  <label for="tipe" class="col-md-3 control-label">Nama Vendor</label>
-                                  <div class="col-md-7 required">
-                                    <select class="form-control select2" style="min-width:250px;" required name="vendor" id="vendor">
-                                      <option></option>
-                                       <?php
-                                       if($nama_vendor){
-                                         foreach($nama_vendor as $d){
-                                           echo "<option value='$d->username'>$d->nama_perusahaan</option>";
-                                          }
-                                        }
-                                      ?>
-                                    </select>
-                                  </div>
-                              </div>
-                         
-                              <div class="form-group">
-                                <label for="tipe" class="col-md-3 control-label">Nama  Pesanan</label>
-                                  <div class="col-md-7 required">
-                                    <input type="text" name="nama_pesanan" class="form-control"  rows="7" cols="80" required ></textarea>
-                                  </div>
-                              </div>
-
-                              <!--  <div class="form-group ">
-                                <label for="tgl" class="col-md-3 control-label">Tanggal</label>
-                                  <div class="col-md-7 col-sm-12 required">
-                                    <div class="input-group date">
-                                      <input type="date" name="tanggal" class="form-control pull-right" id="datepickerNow" data-date-format="yyyy/mm/dd" required>
-                                     </div>
-                                  </div>
-                               </div> -->
-
-                              <div class="form-group">
-                                <div class="col-md-7 required">
-                                  <button type="submit" name="simpan" value="submit" class="btn btn-primary">kirim</button>
-                                </div>
-                              </div> 
-                          </form>
-
-                              </div>
-                                            </div>
-           </div>
-            </div>
+ <div class="row-fluid">
+  <div class="card-body">
+            <div class="span6">
+                <form action=""<?php echo base_url(). 'c_detilpesanan/form_addpesanan'; ?>"" method="post">
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th width="150px">Nama Barang</th>
+                                <th width="250px">Spesifikasi Barang</th>
+                                <th width="50px">Volume</th>
+                                <th width="50px">Satuan</th>
+                                <th width="80px"></th>
+                            </tr>
+                        </thead>
+                        <!--elemet sebagai target append-->
+                        <tbody id="itemlist">
+                            <tr>
+                                <td><input name="nama_input[0]" class="form-control" /></td>
+                                <td><input name="spesifikasi_input[0]" class="form-control" /></td>
+                                <td><input name="volume_input[0]" class="form-control" /></td>
+                                <td><input name="satuan_input[0]" class="form-control" /></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button class="btn btn-default" onclick="additem(); return false"><i class="glyphicon glyphicon-plus"></i>Tambah</button>
+                                    <button name="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i>Selesai</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </form>
+                </div>
+                </div>
             </div>
             </main>
             </div>
