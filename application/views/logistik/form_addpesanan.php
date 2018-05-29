@@ -181,14 +181,14 @@
                                   </div>
                               </div>
 
-                               <div class="form-group ">
+                              <!--  <div class="form-group ">
                                 <label for="tgl" class="col-md-3 control-label">Tanggal</label>
                                   <div class="col-md-7 col-sm-12 required">
                                     <div class="input-group date">
                                       <input type="date" name="tanggal" class="form-control pull-right" id="datepickerNow" data-date-format="yyyy/mm/dd" required>
                                      </div>
                                   </div>
-                               </div>
+                               </div> -->
 
                               <div class="form-group">
                                 <div class="col-md-7 required">
@@ -204,12 +204,3 @@
             </div>
             </main>
             </div>
-<!--           
-    </div>
-  </div>
-</div>
-
-
-
-</main>
-</div> -->
