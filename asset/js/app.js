@@ -167,10 +167,21 @@ $(document).ready(function() {
 
      $('#dataSuratMasuk').DataTable();
 
-<<<<<<< HEAD
-     
-=======
+
      $('#dataPesanan').DataTable();
      $('#detilPesanan').DataTable();
->>>>>>> 6b4a472bb3a673cbfa63353b67c70488f2423fa2
+
+      // modals untuk di detil
+      $('#edit-data').on('show.bs.modal', function (event) {
+          var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
+          var modal          = $(this);
+          
+          //console.log(div);
+          // Isi nilai pada field
+          modal.find('#nama_barang').attr("value",div.data('namabarang')); //div.data jangan huruf camelCase
+          modal.find('#spesifikasi_barang').attr("value",div.data('spesifikasibarang'));
+          modal.find('#volume_barang').attr("value",div.data('volumebarang'));
+          modal.find('#satuan').attr("value",div.data('satuan'));
+          modal.find('#id_detil_pesanan').attr("value",div.data('iddetilpesan'));
+      });
 } );

@@ -105,11 +105,14 @@ class C_surat extends CI_Controller {
     
    	function suratSPPH($id){
    		// get dulu model si pesanan terus ambil datanya.
-   		$data = $this->m_pesanan->joinPesananDetil();
+   		$data = $this->m_pesanan->getDetilPesanan($id);
    		//print_r($data);
    		//print_r($data[0]->username); 
+   		print_r($data);
+   		//$nama_perusahaan = $data[0]->username;
 
-   		$nama_perusahaan = $data[0]->username;
+   		// untuk data barangnya diambil
+   		//$data = $this->getDetilPesanan($id);
    		
 
     	$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);    
