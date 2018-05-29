@@ -32,20 +32,22 @@ class m_pesanan extends CI_Model {
 	}
 
 	function getDetilPesanan($id){
-		$this->db->select('*');
-		$this->db->from('pesanan');
-		$this->db->join('customer', 'customer.username = pesanan.username');
-		$this->db->join('detil_pesanan', 'detil_pesanan.id_pesanan = pesanan.id_pesanan');
-		$this->db->where('id_pesanan' , $id);
-		$query = $this->db->get();
 
-		print_r($query);
-		return $query;
-		// if($query->num_rows() > 0){
-		// 	return $query->result();
-		// } else {
-		// 	return array();
-		// } 
+		$this->db->select('*');
+		$this->db->from('pesanan a');
+		 $this->db->join('customer b', 'b.username = a.username');
+		 $this->db->join('detil_pesanan c', 'c.id_pesanan = a.id_pesanan');
+		$this->db->join('vendor d', 'd.username = a.vendor');
+		 $this->db->where('a.id_pesanan' , $id);
+		$query = $this->db->get();
+		//print_r(	$id);
+		//print_r($query->result());
+		//return $query;
+		if($query->num_rows() > 0){
+			return $query->result();
+		} else {
+			return array();
+		} 
 	}
 
 	function insert_pesanan($data){
