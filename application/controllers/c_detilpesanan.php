@@ -24,9 +24,6 @@ class c_detilpesanan extends CI_Controller {
 	}
 
 	public function update_detilpesanan($id_detil_pesanan){	
-		//print_r(	$id_detil_pesanan);
-		//$id_pesan = $this->uri->segment(3);
-		$id_detil_pesanan = $this->input->post('id_detil_pesanan'); //dari form hidden di viewnya
 		$nama_barang=$this->input->post('nama_barang');
 		$spesifikasi_barang=$this->input->post('spesifikasi_barang');
 		$volume_barang=$this->input->post('volume_barang');
@@ -40,18 +37,13 @@ class c_detilpesanan extends CI_Controller {
 		$where=array(
 			'id_detil_pesanan'=>$id_detil_pesanan
 			);
-		$this->m_detil_pesanan->updateDetilPesanan($where,$data,'detil_pesanan');
-
-		// redirect
-		// get id 
-		
-		//print_r($id_pesan);
-		$idPesan = $this->input->get('id_pesan'); //ambil si ?
-		print_r($idPesan);
-		redirect(base_url('c_detilpesanan/detil_pesanan/'.$idPesan));		
+		$this->m_detil_pesanan->updateDetilPesanan($where,$data,'detil_pesanan');		
 	}
 
+<<<<<<< HEAD
+=======
 	//form add detil pesanan
+>>>>>>> ce829c76e7d3616effdf4ea7298a343f462875d6
 	public function form_addpesanan(){
 
 		$data = array(

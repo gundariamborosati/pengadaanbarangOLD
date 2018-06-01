@@ -105,25 +105,14 @@ class C_surat extends CI_Controller {
     
    	function suratSPPH($id){
    		// get dulu model si pesanan terus ambil datanya.
-   		$data = $this->m_pesanan->getDetilPesanan($id);
-
+   		$data = $this->m_pesanan->joinPesananDetil();
    		//print_r($data);
    		//print_r($data[0]->username); 
-   		//print_r($data);
-   		//$nama_perusahaan = $data[0]->username;
-   		//print_r($id);
-   		// untuk data barangnya diambil
-   		//$data = $this->getDetilPesanan($id);
-   		
+
+   		$nama_perusahaan = $data[0]->username;
    		
 
     	$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);    
-
-    	$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-		$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-		$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);// remove default header/footer
-		$pdf->setPrintHeader(false);
-		$pdf->setPrintFooter(false);
     	
     	 // set document information
 	    $pdf->SetCreator(PDF_CREATOR);
@@ -138,7 +127,7 @@ class C_surat extends CI_Controller {
 	    $pdf->SetFont('Times','',12);
 	    //Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=0, $link='', $stretch=0, $ignore_min_height=false, $calign='T', $valign='M')
 
-	    $nomor = $data[0]->no_surat;
+	    $nomor = '9999';
 	    $date = date('d - m - Y');
 	    $pdf->Cell(10,2,'Nomor : '.$nomor,0,0,'L');
 	    $pdf->Cell(0,2,'Bandung, '.$date,0,1,'R');
@@ -150,55 +139,18 @@ class C_surat extends CI_Controller {
 	    $pdf->Ln(4); // SPASI ENTER
 
 	    $pdf->Cell(10,2,'Kepada,',0,1,'L');
-	    $vendor =  $data[0]->nama_perusahaan;
+	    $vendor = 'Nama Vendor';
 	    $pdf->Cell(10,2,'Yth.'.$vendor,0,1,'L');
-	    $alamat = $data[0]->alamat_perusahaan;
+	    $alamat = "alamat";
 	    $pdf->Cell(10,2,$alamat,0,1,'L');
 	    $pdf->Ln(10);
 
-		// $text = 'Sehubungan dengan katalog barang yang anda sediakan, kami tertarik untuk mendapatkan informasi harga mengenai barang dibawah ini:';
+	    $pdf->Cell(10,2,'Dengan Hormat,',0,1,'L');
+		$text = 'Sehubungan dengan katalog barang yang anda sediakan, kami tertarik untuk mendapatkan informasi harga mengenai barang dibawah ini:';
 
-		// $pdf->Multicell(0,0,$text,0);
+		$pdf->Multicell(0,0,$text,0);
 
-		$htmlText = ' <p style="text-align:justify;"> Dengan Hormat,
-			<br>
-			 Sehubungan dengan katalog barang yang anda sediakan, kami tertarik untuk mendapatkan informasi 
-			<br>
-			 harga mengenai barang dibawah ini: </p>';
-		$pdf->writeHTML($htmlText, true, false, true, false, '');
-		$pdf->Ln(10);
-
-
-			$head = '
-	<table  cellspacing="0" cellpadding="1" border="1" >
-		<thead>
-	    <tr align="center">
-	        <td width="30">No</td>
-	        <td width="190">Nama Barang</td>
-	        <td width="200">Spesifikasi Barang</td>
-	        <td width="45">Volume</td>
-	        <td width="45">Satuan</td>
-	    </tr>
-	    <thead>';
-
-		$body = '';
-	   	$dataBarang = json_decode(json_encode($data), true);
-	   	$no = 0;
-   		foreach($dataBarang as $pecah):
-   		$no++;
-	    $body .= '<tr>
-	        <td  align="center">'.$no.'</td>
-	        <td> ' .$pecah['nama_barang'].'</td>
-	        <td> '.$pecah['spesifikasi_barang'].'</td>
-	        <td align="center" >'.$pecah['volume_barang'].'</td>
-	        <td align="center" >'.$pecah['satuan'].'</td>
-	    	</tr>';
-   		endforeach;
-
-	$close = '</table> ';
-$pdf->writeHTML($head.$body.$close, true, false, false, false, '');
-
-		//$pdf->Ln(150);
+		$pdf->Ln(150);
 		$pdf->Cell(10,2,'Hormat kami,',0,1,'L');
 		$pdf->Cell(10,2,'PT Bhakti Unggul Teknovasi',0,1,'L');
 		$pdf->Ln(25);

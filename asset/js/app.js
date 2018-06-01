@@ -27,6 +27,8 @@ $.grayLightest =  '#f8f9fa';
 * MAIN NAVIGATION
 */
 
+
+
 $(document).ready(function($){
 
   // Add class .active to current link
@@ -167,10 +169,10 @@ $(document).ready(function() {
 
      $('#dataSuratMasuk').DataTable();
 
-
      $('#dataPesanan').DataTable();
      $('#detilPesanan').DataTable();
 
+<<<<<<< HEAD
       // modals untuk di detil
       $('#edit-data').on('show.bs.modal', function (event) {
           var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
@@ -184,4 +186,80 @@ $(document).ready(function() {
           modal.find('#satuan').attr("value",div.data('satuan'));
           modal.find('#id_detil_pesanan').attr("value",div.data('iddetilpesan'));
       });
+
+      // modal untuk pesanan
+      $('#edit-pesanan').on('show.bs.modal', function (event) {
+          var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
+          var modal          = $(this);
+          
+          //console.log(div);
+          // Isi nilai pada field
+          modal.find('#nama_pesanan').attr("value",div.data('nama_pesanan')); //div.data jangan huruf camelCase
+          modal.find('#nama_perusahaan').attr("value",div.data('nama_perusahaan'));
+          modal.find('#vendor').attr("value",div.data('vendor'));        
+          modal.find('#id_pesanan').attr("value",div.data('id_pesanan'));
+      });
+} 
+
+);
+
+ var i = 1;
+  
+            function additem() {
+                var itemlist = document.getElementById('itemlist');
+                
+//                membuat element
+                var row = document.createElement('tr');
+                var nama = document.createElement('td');
+                var spesifikasi = document.createElement('td');
+                var volume = document.createElement('td');
+                var satuan = document.createElement('td');
+                var aksi = document.createElement('td');
+
+//                meng append element
+                itemlist.appendChild(row);
+                row.appendChild(nama);
+                row.appendChild(spesifikasi);
+                row.appendChild(volume);
+                row.appendChild(satuan);
+                row.appendChild(aksi);
+
+//                membuat element input
+                var nama_input = document.createElement('input');
+                nama_input.setAttribute('name', 'nama_input[' + i + ']');
+                nama_input.setAttribute('class', 'form-control');
+
+                var spesifikasi_input = document.createElement('input');
+                spesifikasi_input.setAttribute('name', 'spesifikasi_input[' + i + ']');
+                spesifikasi_input.setAttribute('class', 'form-control');
+
+                var volume_input = document.createElement('input');
+                volume_input.setAttribute('name', 'volume_input[' + i + ']');
+                volume_input.setAttribute('class', 'form-control');
+
+                var satuan_input = document.createElement('input');
+                satuan_input.setAttribute('name', 'satuan_input[' + i + ']');
+                satuan_input.setAttribute('class', 'form-control');
+
+
+
+                var hapus = document.createElement('span');
+
+                nama.appendChild(nama_input);
+                spesifikasi.appendChild(spesifikasi_input);
+                volume.appendChild(volume_input);
+                satuan.appendChild(satuan_input);
+
+                aksi.appendChild(hapus);
+
+                hapus.innerHTML = '<button class="btn btn-small btn-default"><i class="glyphicon glyphicon-trash"></i>Hapus </button>';
+//                Aksi Delete
+                hapus.onclick = function () {
+                    row.parentNode.removeChild(row);
+                };
+
+                i++;
+            }
+=======
 } );
+>>>>>>> ce829c76e7d3616effdf4ea7298a343f462875d6

@@ -34,143 +34,133 @@
     <div class="sidebar">
       <nav class="sidebar-nav">
         <ul class="nav">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>"><i class="icon-speedometer"></i>Logistik Dashboard </a>
-            </li>
-            <li class="nav-title">
-              Menu
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=""><i class="fa fa-home"></i> Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url('/c_pesanan/listPesanan');?>"><i class="fa fa-shopping-cart"></i> Pesanan </a>
-            </li>
-            <li class="nav-item nav-dropdown">
-              <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kirim Surat </a>
-              <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <a class="nav-link" href="<?php echo base_url('/c_suratKeluar/inputSuratCustomer');?>"><i class="fa fa-comment"></i> Customer </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><i class="fa fa-download"></i> Vendor </a>
-                </li>
-              </ul>
-            </li>
-          </li>
-        </li>
-        <li class="nav-item nav-dropdown">
-          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>Dokumen</a>
-          <ul class="nav-dropdown-items">
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url('/c_suratKeluar/viewSuratKeluarLogistik');?>"><i class="fa fa-share"></i> Surat Keluar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href=" <?php echo base_url('/c_suratMasuk/surat_masukLogistik/');?>" > <i class="fa fa-download"></i> Kotak Masuk</a>
-            </li>
-            
-          </ul>
-        </li>
-      </li>
-      <li class="nav-item nav-dropdown">
-        <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-pencil"></i>Kelola</a>
-        <ul class="nav-dropdown-items">
+        <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('/c_logistik/kelola_user');?>"><i class="fa fa-user"></i> Kelola user</a>
+            <a class="nav-link" href="<?php echo base_url('/c_logistik/home');?>"><i class="icon-speedometer"></i>Logistik Dashboard </a>
+          </li>
+          <li class="nav-title">
+            Menu
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('/c_progress/viewProgress');?>"><i class="fa fa-tasks"></i> Kelola progress pengadaan</a>
+            <a class="nav-link" href=""><i class="fa fa-home"></i> Home</a>
+          </li>
+           <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('/c_pesanan/listPesanan');?>"><i class="fa fa-shopping-cart"></i> Pesanan </a>
+              </li>
+           <li class="nav-item nav-dropdown"> 
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i> Kirim Surat </a>          
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                 <a class="nav-link" href="<?php echo base_url('/c_suratKeluar/inputSuratCustomer');?>"><i class="fa fa-comment"></i> Customer </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-download"></i> Vendor </a>
+              </li> 
+            </ul>
+          </li>  
+          </li>
+          </li>
+           <li class="nav-item nav-dropdown"> 
+          <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-file"></i>Dokumen</a>          
+            <ul class="nav-dropdown-items">		
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('/c_suratKeluar/viewSuratKeluarLogistik');?>"><i class="fa fa-share"></i> Surat Keluar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=" <?php echo base_url('/c_suratMasuk/surat_masukLogistik/');?>" > <i class="fa fa-download"></i> Kotak Masuk</a>
+              </li>
+          
+            </ul>
+          </li>   
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-pencil"></i>Kelola</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('/c_logistik/kelola_user');?>"><i class="fa fa-user"></i> Kelola user</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('/c_progress/viewProgress');?>"><i class="fa fa-tasks"></i> Kelola progress pengadaan</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url('/c_statusPesanan/input');?>"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('/c_statusPesanan/input');?>"><i class="fa fa-shopping-cart"></i> Kelola status pesanan</a>
+            <a class="nav-link" href="<?php echo base_url('/c_ulasan/viewUlasanlog');?>"><i class="fa fa-comment"></i>View Ulasan</a>
           </li>
+          <li class="divider"></li>
         </ul>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('/c_ulasan/viewUlasanlog');?>"><i class="fa fa-comment"></i>View Ulasan</a>
-      </li>
-      <li class="divider"></li>
-    </ul>
-  </nav>
-  <button class="sidebar-minimizer brand-minimizer" type="button"></button>
-</div>
-<!-- Main content -->
-<main class="main">
-  
-  <!-- Breadcrumb -->
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">Home</li>
-    <li class="breadcrumb-item"><a href="#">Logistik</a></li>
-    <li class="breadcrumb-item active">Kelola Pesanan</li>
-    <!-- Breadcrumb Menu-->
-  </ol>
-  <!-- /.conainer-fluid -->
-  
-  <div class="container-fluid">
-    <div class="card card-accent-success">
-      <div class="card-header">
-        <h3>  Detail Pesanan</h3>
-      </div>
-      <div class="card-body">
-        
-        <table id="detilPesanan" class="table ">
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Id</th>
-              <th>Nama Barang</th>
-              <th>Spesifikasi Barang</th>
-              <th>Volume</th>
-              <th>Satuan</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            $detilPesanan = json_decode(json_encode($detil_pesan), true);
-            $no = 0;
-            // get second uri
-            $uri_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-            $uri_segments = explode('/', $uri_path);
-            $idPesan = $uri_segments[4];
-            //print_r( $idPesan );
-            foreach($detilPesanan as $pecah):
-            $no++;
-            ?>
-            
-            <tr>
-              <td><?php  echo $no; ?></td>
-              <td><?php  echo $pecah['id_detil_pesanan']; ?></td>
-              <td><?php  echo $pecah['nama_barang']; ?></td>
-              <td><?php echo $pecah['spesifikasi_barang'];?></td>
-              <td><?php echo $pecah['volume_barang'];?></td>
-              <td><?php echo $pecah['satuan'];?></td>
-              <td>
-                <!--  <a href="<?php echo base_url('/c_detilpesanan/edit_detail_pesanan/'.$pecah['id_detil_pesanan']);?>"
-                class="btn btn-primary" data-toggle="modal" data-target="#myModal"> <i class="fa fa-pencil"></i> Edit</a> -->
-                <a href="javascript:;"
-                  data-iddetilpesan = "<?php echo $pecah['id_detil_pesanan'];?>"
-                  data-namabarang = "<?php echo $pecah['nama_barang'];?>"
-                  data-spesifikasibarang = "<?php echo $pecah['spesifikasi_barang'];?>"
-                  data-volumebarang = "<?php echo $pecah['volume_barang'];?>"
-                  data-satuan = "<?php echo $pecah['satuan'];?>"
-                  data-toggle="modal" data-target="#edit-data"
-                > <button data-toggle="modal" data-target="#ubah-data" class="btn btn-info">Edit  </button></a>
-                
-              </td>
-            </tr>
-            <?php
-            endforeach;
-            ?>
-          </tbody>
-        </table>
-      </div>
+      </nav>
+      <button class="sidebar-minimizer brand-minimizer" type="button"></button>
     </div>
-  </div>
-  <!-- Modal -->
-  <div id="edit-data" class=" modal fade" role="dialog">
+    <!-- Main content -->
+    <main class="main">
+      
+      <!-- Breadcrumb -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">Home</li>
+        <li class="breadcrumb-item"><a href="#">Logistik</a></li>
+        <li class="breadcrumb-item active">Kelola Pesanan</li>
+
+        <!-- Breadcrumb Menu-->
+      </ol>
+      <!-- /.conainer-fluid -->
+     
+      <div class="container-fluid">
+        <div class="card card-accent-success">
+          <div class="card-header">
+            <h3>  Detail Pesanan</h3>
+          </div>
+          <div class="card-body">
+          
+              <table id="detilPesanan" class="table ">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Id</th>
+                    <th>Nama Barang</th>
+                    <th>Spesifikasi Barang</th>
+                    <th>Volume</th>
+                    <th>Satuan</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $detilPesanan = json_decode(json_encode($detil_pesan), true);
+                  $no = 0;
+                  foreach($detilPesanan as $pecah):
+                  $no++;
+                  ?>
+                  
+                  <tr>
+                    <td><?php  echo $no; ?></td>
+                    <td><?php  echo $pecah['id_detil_pesanan']; ?></td>
+                    <td><?php  echo $pecah['nama_barang']; ?></td>
+                    <td><?php echo $pecah['spesifikasi_barang'];?></td>                     
+                    <td><?php echo $pecah['volume_barang'];?></td>                     
+                    <td><?php echo $pecah['satuan'];?></td>                     
+                     <td>  
+                        <a href="<?php echo base_url('/c_detilpesanan/edit_detail_pesanan/'.$pecah['id_detil_pesanan']);?>" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> <i class="fa fa-pencil"></i> Edit</a>
+                     
+                    </td>
+                  </tr>
+                  <?php
+                  endforeach;
+                  ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+
+
+      <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
+
       <!-- konten modal-->
       <div class="modal-content">
         <!-- heading modal -->
@@ -178,68 +168,58 @@
           <h4>Edit Detil Pesanan</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           
-          
+       
         </div>
         <!-- body modal -->
-        <!--  tambah container -->
-        <div class="container-fluid">
-          
-          
-          <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
-          
-          <form action="<?php echo base_url(). 'c_detilpesanan/update_detilpesanan/'.$pecah['id_detil_pesanan'].'?id_pesan='. $idPesan ; ?>" method="post">
-            <input type="hidden" id="id_detil_pesanan" name="id_detil_pesanan">
-            <table class="table-form" width="100%">
-              <br>
-              <tr>
-                <td width="20%">Nama Barang</td>
-                <td><b><input type="text"  id="nama_barang" name="nama_barang" class="form-control" style="width: 200px" required></b></td>
-              </tr>
-              <tr>
-                <td width="30%">Spesifikasi Barang </td>
-                <td><b><input type="text area" id="spesifikasi_barang" name="spesifikasi_barang"  class="form-control" style="width:200px"  required></b></td>
-              </tr>
-              <tr><td colspan="2">
-                
-                <tr>
-                  <td width="40%">Volume Barang</td>
-                  <td><b><input type="text" id="volume_barang" name="volume_barang" class="form-control" style="width:200px"  required></b></td>
-                </tr>
-                <tr><td colspan="2">
-                  <tr>
-                    <td width="40%">Satuan Barang</td>
-                  <td><b><input type="text" id="satuan" name="satuan" class="form-control" style="width:200px"  required></b></td
-                ></tr>
-                <tr><td colspan="2">
-                  <br>
-                  
-                  <!-- footer modal -->
-                  <div class="modal-footer">
-                    <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
-                  </form>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                </div>
-              </table>
-            </fieldset>
-          </form>
+       
+  <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
+      
+    <form action="<?php echo base_url(). 'c_detilpesanan/update_detilpesanan/'.$pecah['id_detil_pesanan']; ?>" method="post">
+        
+          <table class="table-form" width="100%">
+          <br>
+  <tr>
+  <td width="20%">Nama Barang</td>
+  <td><b><input type="text"  name="nama_barang" value="<?php  echo $pecah['nama_barang']; ?>" class="form-control" style="width: 200px" required></b></td>
+  </tr>   
+
+  <tr>
+  <td width="30%">Spesifikasi Barang </td>
+  <td><b><input type="text area" name="spesifikasi_barang"  value="<?php echo $pecah['spesifikasi_barang'];?>" class="form-control" style="width:200px"  required></b></td>
+  </tr> 
+  <tr><td colspan="2">
+  
+  <tr>
+  <td width="40%">Volume Barang</td>
+  <td><b><input type="text" name="volume_barang" value="<?php echo $pecah['volume_barang'];?>" class="form-control" style="width:200px"  required></b></td>
+  </tr> 
+  <tr><td colspan="2">
+
+  <tr>
+  <td width="40%">Satuan Barang</td>
+  <td><b><input type="text" name="satuan"  value="<?php echo $pecah['satuan'];?>" class="form-control" style="width:200px"  required></b></td
+  ></tr> 
+  <tr><td colspan="2">
+  <br>
+         
+        <!-- footer modal -->
+        <div class="modal-footer">
+      <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
+         </form>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
         </div>
+        </table>
+  </fieldset>
+</form>
+</div>
+</td>
+</tr>
+</table>
+</form>
       </div>
+
     </div>
   </div>
-<!-- <script>
-    $(document).ready(function() {
-        // Untuk sunting
-        $('#edit-data').on('show.bs.modal', function (event) {
-            var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
-            var modal          = $(this);
- 
-            // Isi nilai pada field
-            modal.find('#nama_barang').attr("value",div.data('namaBarang'));
-            modal.find('#spesifikasi_barang').attr("value",div.data('spesifikasiBarang'));
-            modal.find('#volume_barang').attr("value",div.data('volumeBarang'));
-            modal.find('#satuan').attr("value",div.data('satuan'));
-        });
-    });
-</script> -->
+
 </main>
 </div>

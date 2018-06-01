@@ -31,25 +31,6 @@ class m_pesanan extends CI_Model {
 
 	}
 
-	function getDetilPesanan($id){
-
-		$this->db->select('*');
-		$this->db->from('pesanan a');
-		 $this->db->join('customer b', 'b.username = a.username');
-		 $this->db->join('detil_pesanan c', 'c.id_pesanan = a.id_pesanan');
-		$this->db->join('vendor d', 'd.username = a.vendor');
-		 $this->db->where('a.id_pesanan' , $id);
-		$query = $this->db->get();
-		//print_r(	$id);
-		//print_r($query->result());
-		//return $query;
-		if($query->num_rows() > 0){
-			return $query->result();
-		} else {
-			return array();
-		} 
-	}
-
 	function insert_pesanan($data){
 		$query = $this->db->insert('pesanan',$data);
 		return $query;
@@ -78,20 +59,6 @@ class m_pesanan extends CI_Model {
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
-
-	function updateGambar(){
-				//$relative_url = './avatar/'. $this->upload->file_name;
-				//check if password was updated
-				
- 				$id = 'idbarang';
-				$this->db->where('idbarang', $id);
-				$this->db->update('barang', $data);
-				if($this->db->affected_rows() > 0){					
-					return true;
-		 		} else {
-		 			return false;
-		 		}
-			}
 
 	function getIDPesanan(){
 		$this->db->select('RIGHT(pesanan.id_pesanan,5) as id', FALSE);

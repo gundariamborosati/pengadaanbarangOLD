@@ -143,9 +143,17 @@
                     <td><?php echo $pecah['tanggal'];?></td>                     
                      <td>  
                        <a href="<?php echo base_url('/c_detilpesanan/detil_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-success"> <i class="fa fa-external-link"> </i> detail</a>
-                        <a href="<?php echo base_url('/c_pesanan/edit_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a>
-                        <a href="<?php echo base_url('/c_surat/suratSPPH/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Print</a>
-                        <a href="<?php echo base_url('/c_pesanan/edit_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Kirim</a>
+                       <!--  <a href="<?php echo base_url('/c_pesanan/edit_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-pencil"></i> Edit</a> -->
+
+                        <a href="javascript:;"
+                            data-id_pesanan = "<?php echo $pecah['id_pesanan'];?>"
+                            data-nama_perusahaan = "<?php echo $pecah['nama_perusahaan'];?>"
+                            data-vendor = "<?php echo $pecah['vendor'];?>"
+                            data-nama_pesanan = "<?php echo $pecah['nama_pesanan'];?>"                            
+                            data-toggle="modal" data-target="#edit-pesanan"> 
+                        <button data-toggle="modal" data-target="#ubah-data" class="btn btn-primary"> <i class="fa fa-pencil">Edit  </button></a></i>
+                        <a href="<?php echo base_url('/c_surat/suratSPPH/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-print"></i> Print</a>
+                        <a href="<?php echo base_url('/c_pesanan/edit_pesanan/'.$pecah['id_pesanan']);?>" class="btn btn-primary"> <i class="fa fa-share-square-o"></i> Kirim</a>
                     </td>
                   </tr>
                   <?php
@@ -157,5 +165,58 @@
           </div>
       </div>
 
+  <div id="edit-pesanan" class=" modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- konten modal-->
+      <div class="modal-content">
+        <!-- heading modal -->
+        <div class="modal-header">
+          <h4>Edit Pesanan</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+          
+        </div>
+        <!-- body modal -->
+        <!--  tambah container -->
+        <div class="container-fluid">
+          
+          
+          <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
+          
+          <form action="<?php echo base_url(). 'c_pesanan/update_pesanan/'.$pecah['id_pesanan'] ; ?>" method="post">
+            <input type="hidden" id="id_pesanan" name="id_pesanan">
+            <table class="table-form" width="100%">
+              <br>
+              <tr>
+                <td width="20%">Nama Pesanan</td>
+                <td><b><input type="text"  id="nama_pesanan" name="nama_pesanan" class="form-control" style="width: 200px" required></b></td>
+              </tr>
+              <tr>
+                <td width="30%">Nama Perusahaan </td>
+                <td><!-- <b><input type="text area" id="nama_perusahaan" name="nama_perusahaan"  class="form-control" style="width:200px"  required></b> -->
+                </td>
+              </tr>
+              <tr><td colspan="2">
+                
+                <tr>
+                  <td width="40%">Vendor</td>
+                  <td><b><input type="text" id="vendor" name="vendor" class="form-control" style="width:200px"  required></b></td>
+                </tr>
+                <tr><td colspan="2">                
+                  <br>
+                  
+                  <!-- footer modal -->
+                  <div class="modal-footer">
+                    <button type="submit"  class="btn btn-success" value="submit"><i class="fa fa-check icon-white"></i> Simpan</button>
+                  </form>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                </div>
+              </table>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 </div>
