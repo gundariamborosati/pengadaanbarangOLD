@@ -122,8 +122,6 @@
                     <th>No</th>
                     <th>ID Pesanan</th>
                     <th>Nama Perusahaan</th>
-                    <th>Nama Vendor</th>
-                    <th>Nomor Surat</th>
                     <th>Nama Pesanan</th>
                     <th>Tanggal Pesanan</th>
                     <th>Aksi</th>
@@ -140,9 +138,7 @@
                   <tr>
                     <td><?php  echo $no; ?></td>
                     <td><?php  echo $pecah['id_pesanan']; ?></td>
-                    <td><?php echo $pecah['nama_perusahaan'];?></td> 
-                    <td><?php echo $pecah['vendor'];?></td> 
-                    <td><?php echo $pecah['no_surat'];?></td> 
+                    <td><?php echo $pecah['nama_perusahaan'];?></td>                     
                     <td><?php echo $pecah['nama_pesanan'];?></td>                     
                     <td><?php echo $pecah['tanggal'];?></td>                     
                      <td>  

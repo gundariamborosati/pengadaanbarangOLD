@@ -27,6 +27,8 @@ $.grayLightest =  '#f8f9fa';
 * MAIN NAVIGATION
 */
 
+
+
 $(document).ready(function($){
 
   // Add class .active to current link
@@ -146,7 +148,6 @@ function init(url) {
 }
 
 
-
 $(document).ready(function() {
     $('#dataVendor').DataTable();
 
@@ -171,6 +172,7 @@ $(document).ready(function() {
      $('#dataPesanan').DataTable();
      $('#detilPesanan').DataTable();
 
+<<<<<<< HEAD
       // modals untuk di detil
       $('#edit-data').on('show.bs.modal', function (event) {
           var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
@@ -258,3 +260,6 @@ $(document).ready(function() {
 
                 i++;
             }
+=======
+} );
+>>>>>>> ce829c76e7d3616effdf4ea7298a343f462875d6

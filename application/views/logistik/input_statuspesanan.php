@@ -76,6 +76,7 @@
       </nav>
       <button class="sidebar-minimizer brand-minimizer" type="button"></button>
     </div>
+
     <!-- Main content -->
     <main class="main">
       
@@ -148,6 +149,9 @@
                         </select>
                       </div>
                   </div>
+
+        
+
                   <!-- tgl-->
                 
 
