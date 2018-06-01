@@ -167,11 +167,36 @@ $(document).ready(function() {
      $('#dataSuratKeluar').DataTable();
 
      $('#dataSuratMasuk').DataTable();
-<<<<<<< HEAD
+
      $('#dataPesanan').DataTable();
      $('#detilPesanan').DataTable();
 
+      // modals untuk di detil
+      $('#edit-data').on('show.bs.modal', function (event) {
+          var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
+          var modal          = $(this);
+          
+          //console.log(div);
+          // Isi nilai pada field
+          modal.find('#nama_barang').attr("value",div.data('namabarang')); //div.data jangan huruf camelCase
+          modal.find('#spesifikasi_barang').attr("value",div.data('spesifikasibarang'));
+          modal.find('#volume_barang').attr("value",div.data('volumebarang'));
+          modal.find('#satuan').attr("value",div.data('satuan'));
+          modal.find('#id_detil_pesanan').attr("value",div.data('iddetilpesan'));
+      });
 
+      // modal untuk pesanan
+      $('#edit-pesanan').on('show.bs.modal', function (event) {
+          var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
+          var modal          = $(this);
+          
+          //console.log(div);
+          // Isi nilai pada field
+          modal.find('#nama_pesanan').attr("value",div.data('nama_pesanan')); //div.data jangan huruf camelCase
+          modal.find('#nama_perusahaan').attr("value",div.data('nama_perusahaan'));
+          modal.find('#vendor').attr("value",div.data('vendor'));        
+          modal.find('#id_pesanan').attr("value",div.data('id_pesanan'));
+      });
 } 
 
 );
@@ -233,24 +258,3 @@ $(document).ready(function() {
 
                 i++;
             }
-=======
-
-
-     $('#dataPesanan').DataTable();
-     $('#detilPesanan').DataTable();
-
-      // modals untuk di detil
-      $('#edit-data').on('show.bs.modal', function (event) {
-          var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
-          var modal          = $(this);
-          
-          //console.log(div);
-          // Isi nilai pada field
-          modal.find('#nama_barang').attr("value",div.data('namabarang')); //div.data jangan huruf camelCase
-          modal.find('#spesifikasi_barang').attr("value",div.data('spesifikasibarang'));
-          modal.find('#volume_barang').attr("value",div.data('volumebarang'));
-          modal.find('#satuan').attr("value",div.data('satuan'));
-          modal.find('#id_detil_pesanan').attr("value",div.data('iddetilpesan'));
-      });
-} );
->>>>>>> 22102653eade9c21e60e5504e84979d334f69c98

@@ -51,17 +51,6 @@ class c_detilpesanan extends CI_Controller {
 		redirect(base_url('c_detilpesanan/detil_pesanan/'.$idPesan));		
 	}
 
-	//form add detil pesanan
-	// public function form_addpesanan(){
-
-	// 	$data = array(
-	// 			'nama_perusahaan' => $this->m_customer->getNamaPerusahaan()
-	// 	);
-	// 	$this->load->view('template/header');
-	// 	$this->load->view('logistik/form_addpesanan',$data);
-	// 	$this->load->view('template/footer');	
-	// }
-
 	public function form_addpesanan(){
 		$this->load->view('template/header');
 		$this->load->view('logistik/coba' );	

@@ -226,20 +226,6 @@
       </div>
     </div>
   </div>
-<!-- <script>
-    $(document).ready(function() {
-        // Untuk sunting
-        $('#edit-data').on('show.bs.modal', function (event) {
-            var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
-            var modal          = $(this);
- 
-            // Isi nilai pada field
-            modal.find('#nama_barang').attr("value",div.data('namaBarang'));
-            modal.find('#spesifikasi_barang').attr("value",div.data('spesifikasiBarang'));
-            modal.find('#volume_barang').attr("value",div.data('volumeBarang'));
-            modal.find('#satuan').attr("value",div.data('satuan'));
-        });
-    });
-</script> -->
+
 </main>
 </div>

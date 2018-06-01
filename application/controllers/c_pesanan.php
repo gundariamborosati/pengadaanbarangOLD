@@ -56,4 +56,24 @@ class c_pesanan extends CI_Controller {
 				
 	}
 
+	public function update_pesanan($id_pesanan){
+		$data = array(
+				'nama_perusahaan' => $this->m_customer->getNamaPerusahaan(),
+				'nama_vendor' => $this->m_vendor->getNamaVendor()
+		);
+		$nama_pesanan=$this->input->post('nama_pesanan');
+		$username=$this->input->post('username');
+		$vendor=$this->input->post('vendor');
+		$data=array(
+			'nama_pesanan'=>$nama_pesanan,
+			'username'=>$username,
+			'vendor'=>$vendor			
+			);
+		$where=array(
+			'id_pesanan'=>$id_pesanan
+			);
+		$this->m_pesanan->updatePesanan($where,$data,'pesanan');
+		redirect(base_url('c_pesanan/listPesanan'));
+	}
+
 }
